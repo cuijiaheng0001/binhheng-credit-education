@@ -62,7 +62,7 @@ export default function HeroCarousel() {
   }
 
   return (
-    <section className="relative h-screen overflow-hidden bg-navy">
+    <section className="relative h-screen overflow-hidden bg-black">
       {/* Background Images */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -81,15 +81,15 @@ export default function HeroCarousel() {
             className="object-cover"
             quality={100}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
+        <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
+          <div className="max-w-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -100,35 +100,23 @@ export default function HeroCarousel() {
               >
                 {/* Badge */}
                 <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="mb-6"
+                  className="mb-8"
                 >
-                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full border border-gold/30">
-                    <Globe className="w-4 h-4 text-gold" />
-                    <span className="text-gold font-medium text-sm tracking-wider uppercase">
-                      Hidden Debt Recovery Experts
-                    </span>
+                  <span className="text-white/70 font-light text-sm tracking-[0.3em] uppercase">
+                    Cross-Border Debt Recovery
                   </span>
                 </motion.div>
 
-                {/* Subtitle */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-gold font-medium text-lg mb-4 tracking-wide"
-                >
-                  {slides[currentSlide].subtitle}
-                </motion.p>
 
                 {/* Title */}
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="font-display text-5xl lg:text-7xl text-white mb-6 leading-tight"
+                  transition={{ delay: 0.3 }}
+                  className="font-light text-4xl lg:text-6xl text-white mb-8 leading-[1.2] tracking-tight"
                 >
                   {slides[currentSlide].title}
                 </motion.h1>
@@ -137,43 +125,25 @@ export default function HeroCarousel() {
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-xl text-white/80 mb-8 leading-relaxed"
+                  transition={{ delay: 0.4 }}
+                  className="text-lg text-white/70 mb-12 leading-relaxed font-light max-w-xl"
                 >
                   {slides[currentSlide].description}
                 </motion.p>
 
-                {/* Stats */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="flex items-center gap-8 mb-10"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gold/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                      <TrendingUp className="w-6 h-6 text-gold" strokeWidth={1.5} />
-                    </div>
-                    <div>
-                      <div className="text-2xl font-light text-white">{slides[currentSlide].stats.value}</div>
-                      <div className="text-sm text-white/60">{slides[currentSlide].stats.label}</div>
-                    </div>
-                  </div>
-                </motion.div>
 
                 {/* CTAs */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                  className="flex gap-4"
+                  transition={{ delay: 0.5 }}
+                  className="flex flex-col sm:flex-row gap-4"
                 >
-                  <button className="group relative px-8 py-4 bg-gold text-white font-semibold tracking-wide rounded-lg overflow-hidden transition-all duration-300 hover:shadow-gold shadow-xl">
-                    <span className="relative z-10">Discover Your Hidden Receivables</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-gold-dark to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <button className="group relative px-10 py-4 bg-white text-navy font-light tracking-wide overflow-hidden transition-all duration-500 hover:shadow-2xl">
+                    <span className="relative z-10">Discover Hidden Assets</span>
                   </button>
-                  <button className="px-8 py-4 bg-white/10 text-white font-medium tracking-wide rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
-                    Get Free Risk Assessment
+                  <button className="px-10 py-4 text-white font-light tracking-wide border border-white/30 hover:bg-white/10 transition-all duration-500">
+                    Learn More
                   </button>
                 </motion.div>
               </motion.div>
@@ -183,20 +153,20 @@ export default function HeroCarousel() {
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-10 left-0 right-0 z-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="absolute bottom-12 left-0 right-0 z-20">
+        <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <div className="flex items-center justify-between">
             {/* Slide Indicators */}
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={cn(
-                    "h-1 rounded-full transition-all duration-300",
+                    "h-0.5 rounded-full transition-all duration-500",
                     currentSlide === index
-                      ? "w-12 bg-gold"
-                      : "w-6 bg-white/30 hover:bg-white/50"
+                      ? "w-16 bg-white"
+                      : "w-8 bg-white/30 hover:bg-white/50"
                   )}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -204,46 +174,26 @@ export default function HeroCarousel() {
             </div>
 
             {/* Arrow Controls */}
-            <div className="flex gap-3">
+            <div className="hidden lg:flex gap-4">
               <button
                 onClick={prevSlide}
-                className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 group"
+                className="p-4 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group"
                 aria-label="Previous slide"
               >
-                <ChevronLeft className="w-5 h-5 text-white group-hover:-translate-x-0.5 transition-transform" />
+                <ChevronLeft className="w-5 h-5 text-white group-hover:-translate-x-0.5 transition-transform" strokeWidth={1} />
               </button>
               <button
                 onClick={nextSlide}
-                className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 group"
+                className="p-4 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group"
                 aria-label="Next slide"
               >
-                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" />
+                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" strokeWidth={1} />
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 group"
-        aria-label="Scroll to next section"
-      >
-        <div className="relative">
-          <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl group-hover:bg-gold/30 transition-colors" />
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="relative bg-white/10 backdrop-blur-sm rounded-full p-3 border border-white/20 group-hover:border-gold/50 transition-colors"
-          >
-            <ChevronDown className="w-6 h-6 text-white" strokeWidth={1.5} />
-          </motion.div>
-        </div>
-      </motion.button>
     </section>
   )
 }

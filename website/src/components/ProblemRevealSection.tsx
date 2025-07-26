@@ -33,26 +33,23 @@ const problems = [
 
 export default function ProblemRevealSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-pearl">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
-          <h2 className="font-display text-4xl lg:text-5xl text-navy tracking-tight mb-6">
-            Are You Losing Millions Without Realizing?
+          <h2 className="font-display text-4xl lg:text-5xl text-gray-900 font-light tracking-tight">
+            The Hidden Truth
           </h2>
-          <p className="text-xl text-steel max-w-3xl mx-auto leading-relaxed">
-            The truth about cross-border debt recovery that most institutions don't know
-          </p>
         </motion.div>
 
         {/* Problem Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
           {problems.map((problem, index) => {
             const Icon = problem.icon
             
@@ -65,27 +62,22 @@ export default function ProblemRevealSection() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 h-full">
-                  {/* Icon */}
-                  <div className={cn(
-                    "w-16 h-16 rounded-2xl flex items-center justify-center mb-6",
-                    problem.bgColor
-                  )}>
-                    <Icon className={cn("w-8 h-8", problem.color)} strokeWidth={1.5} />
-                  </div>
-
+                <div className="text-center">
                   {/* Stat */}
-                  <div className="mb-4">
-                    <span className="text-4xl font-light text-navy">{problem.stat}</span>
+                  <div className="mb-6">
+                    <span className="text-6xl font-display font-light text-gray-900">{problem.stat}</span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-medium text-navy mb-3">
+                  <h3 className="text-lg font-light text-gray-700 mb-4 leading-relaxed">
                     {problem.title}
                   </h3>
 
+                  {/* Divider */}
+                  <div className="w-16 h-px bg-gray-300 mx-auto mb-4" />
+
                   {/* Description */}
-                  <p className="text-steel leading-relaxed">
+                  <p className="text-gray-500 leading-relaxed text-sm">
                     {problem.description}
                   </p>
                 </div>
@@ -94,24 +86,20 @@ export default function ProblemRevealSection() {
           })}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Simple CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center bg-gradient-to-r from-navy to-navy-light rounded-2xl p-12 text-white"
+          className="text-center mt-24"
         >
-          <h3 className="text-2xl font-medium mb-4">
-            The Hidden Truth: Your "uncollectable" international debts might be recoverable
-          </h3>
-          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Our specialized expertise in Chinese culture, language, and legal systems makes the impossible possible. 
+          <p className="text-gray-600 mb-8 font-light">
             Don't write off another dollar without understanding your options.
           </p>
-          <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gold text-white font-semibold rounded-lg hover:bg-gold-dark transition-all duration-300 shadow-xl hover:shadow-2xl">
-            <span>See How Much You Could Recover</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
+          <button className="inline-flex items-center gap-3 px-10 py-4 border border-gray-900 text-gray-900 font-light tracking-wide hover:bg-gray-900 hover:text-white transition-all duration-500">
+            <span>Discover Your Hidden Assets</span>
+            <ArrowRight className="w-4 h-4" strokeWidth={1} />
           </button>
         </motion.div>
       </div>

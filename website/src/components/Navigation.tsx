@@ -32,12 +32,12 @@ export default function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "bg-white/98 backdrop-blur-lg shadow-lg border-b border-gray-100"
-          : "bg-gradient-to-b from-black/20 to-transparent"
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
+          : "bg-gradient-to-b from-black/50 to-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
+      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -45,32 +45,18 @@ export default function Navigation() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex-shrink-0"
           >
-            <a href="/" className="flex items-center gap-3 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gold rounded-lg blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
-                <div className="relative w-12 h-12 bg-gradient-to-br from-gold to-gold-dark rounded-lg flex items-center justify-center shadow-gold transform group-hover:scale-105 transition-transform duration-300">
-                  <Shield className="w-6 h-6 text-white" strokeWidth={1.5} />
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <span className={cn(
-                  "font-display text-2xl tracking-tight transition-colors duration-300",
-                  isScrolled ? "text-navy" : "text-white"
-                )}>
-                  BingHeng
-                </span>
-                <span className={cn(
-                  "text-xs font-medium tracking-widest uppercase transition-colors duration-300",
-                  isScrolled ? "text-steel" : "text-white/70"
-                )}>
-                  Credit Education
-                </span>
-              </div>
+            <a href="/" className="flex items-center">
+              <span className={cn(
+                "font-display text-2xl tracking-tight transition-colors duration-300",
+                isScrolled ? "text-gray-900" : "text-white"
+              )}>
+                BingHeng
+              </span>
             </a>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-10">
+          <div className="hidden lg:flex items-center gap-12">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -84,19 +70,20 @@ export default function Navigation() {
                 <a
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium tracking-wide transition-all duration-300",
+                    "text-sm font-light tracking-wider transition-all duration-300",
                     isScrolled 
-                      ? "text-steel hover:text-gold" 
-                      : "text-white/90 hover:text-white"
+                      ? "text-gray-700 hover:text-gray-900" 
+                      : "text-white/80 hover:text-white"
                   )}
                 >
                   {item.label}
                 </a>
                 <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gold origin-left"
+                  className="absolute -bottom-1 left-0 right-0 h-px origin-left"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: hoveredItem === item.label ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
+                  style={{ backgroundColor: isScrolled ? '#111827' : '#ffffff' }}
                 />
               </motion.div>
             ))}
@@ -110,13 +97,12 @@ export default function Navigation() {
             className="hidden lg:block"
           >
             <button className={cn(
-              "relative px-8 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 overflow-hidden group",
+              "px-8 py-3 text-sm font-light tracking-wider transition-all duration-300",
               isScrolled
-                ? "bg-navy text-white hover:shadow-xl"
-                : "bg-white/10 text-white backdrop-blur-sm border border-white/20 hover:bg-white/20"
+                ? "border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
+                : "border border-white/80 text-white hover:bg-white hover:text-gray-900"
             )}>
-              <span className="relative z-10">FREE ASSESSMENT</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-gold to-gold-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              Get Started
             </button>
           </motion.div>
 

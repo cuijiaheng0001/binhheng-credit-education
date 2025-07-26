@@ -45,30 +45,26 @@ const services = [
 
 export default function ServiceShowcase() {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-pearl">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-32 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-8 lg:px-12">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-24"
         >
-          <span className="text-gold font-medium text-sm tracking-wider uppercase">
-            Why We're Different
-          </span>
-          <h2 className="mt-4 font-display text-5xl lg:text-6xl text-navy tracking-tight">
-            Uncovering What Others Miss
+          <h2 className="font-display text-4xl lg:text-5xl text-gray-900 font-light tracking-tight">
+            Our Expertise
           </h2>
-          <p className="mt-6 text-xl text-steel max-w-3xl mx-auto leading-relaxed">
-            Most institutions don't realize the scale of recoverable receivables from Chinese nationals 
-            who returned home. We help you uncover this hidden value and collect it compliantly.
+          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed font-light">
+            Specialized solutions for cross-border debt recovery
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -78,63 +74,41 @@ export default function ServiceShowcase() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="group relative"
             >
-              <div className="card-elevated p-8 h-full bg-white hover:bg-gradient-to-br hover:from-white hover:to-pearl/50 transition-all duration-500">
+              <div className="bg-white p-10 h-full hover:shadow-xl transition-all duration-500 flex flex-col border border-gray-100">
                 {/* Icon */}
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-gold/10 rounded-2xl blur-xl group-hover:bg-gold/20 transition-colors" />
-                  <div className="relative w-16 h-16 bg-gradient-to-br from-gold to-gold-dark rounded-2xl flex items-center justify-center shadow-gold/30 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <service.icon className="w-8 h-8 text-white" strokeWidth={1.5} />
-                  </div>
+                <div className="mb-8">
+                  <service.icon className="w-12 h-12 text-gray-400" strokeWidth={1} />
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-2xl text-navy mb-4">
+                <h3 className="font-display text-2xl text-gray-900 mb-4 font-light">
                   {service.title}
                 </h3>
-                <p className="text-steel mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-8 leading-relaxed flex-grow">
                   {service.description}
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-3 mb-8">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" strokeWidth={1.5} />
-                      <span className="text-sm text-steel">{feature}</span>
+                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2" />
+                      <span className="text-sm text-gray-600 leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Highlight */}
-                <div className="pt-6 border-t border-gray-100">
-                  <p className="text-sm font-semibold text-gold">
+                <div className="pt-6 border-t border-gray-200">
+                  <p className="text-lg font-display font-light text-gray-900">
                     {service.highlight}
                   </p>
                 </div>
-
-                {/* Hover Effect Border */}
-                <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-gold/20 transition-colors pointer-events-none" />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <p className="text-lg text-steel mb-6">
-            Don't let another dollar slip away. Discover what you've been missing.
-          </p>
-          <button className="group inline-flex items-center gap-3 px-8 py-4 bg-navy text-white font-semibold rounded-lg hover:bg-navy-light transition-all duration-300 shadow-xl hover:shadow-2xl">
-            <span>Get Your Free Debt Assessment</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
-          </button>
-        </motion.div>
       </div>
     </section>
   )
