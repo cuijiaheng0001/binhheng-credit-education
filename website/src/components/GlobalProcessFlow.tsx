@@ -75,7 +75,7 @@ export default function GlobalProcessFlow() {
   }, [isInView])
 
   const drawPath = (from: typeof processSteps[0], to: typeof processSteps[0]) => {
-    const path = `M ${from.coordinates.x}% ${from.coordinates.y}% L ${to.coordinates.x}% ${to.coordinates.y}%`
+    const path = `M ${from.coordinates.x} ${from.coordinates.y} L ${to.coordinates.x} ${to.coordinates.y}`
     return path
   }
 
@@ -165,8 +165,8 @@ export default function GlobalProcessFlow() {
                     {isActive && (
                       <>
                         <motion.circle
-                          cx={`${step.coordinates.x}%`}
-                          cy={`${step.coordinates.y}%`}
+                          cx={`${step.coordinates.x}`}
+                          cy={`${step.coordinates.y}`}
                           r="2"
                           fill="none"
                           stroke={step.color}
@@ -176,8 +176,8 @@ export default function GlobalProcessFlow() {
                           transition={{ duration: 2, repeat: Infinity }}
                         />
                         <motion.circle
-                          cx={`${step.coordinates.x}%`}
-                          cy={`${step.coordinates.y}%`}
+                          cx={`${step.coordinates.x}`}
+                          cy={`${step.coordinates.y}`}
                           r="2"
                           fill="none"
                           stroke={step.color}
@@ -191,8 +191,8 @@ export default function GlobalProcessFlow() {
 
                     {/* Location Dot */}
                     <motion.circle
-                      cx={`${step.coordinates.x}%`}
-                      cy={`${step.coordinates.y}%`}
+                      cx={`${step.coordinates.x}`}
+                      cy={`${step.coordinates.y}`}
                       r="2"
                       fill={isPassed ? step.color : '#E2E8F0'}
                       initial={{ scale: 0 }}

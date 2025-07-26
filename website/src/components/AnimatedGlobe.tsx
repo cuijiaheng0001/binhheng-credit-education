@@ -151,19 +151,22 @@ export default function AnimatedGlobe() {
                 ))}
 
                 {/* Longitude lines */}
-                {[0, 30, 60, 90, 120, 150].map((lng, i) => (
-                  <ellipse
-                    key={i}
-                    cx="50"
-                    cy="50"
-                    rx={Math.cos((lng * Math.PI) / 180) * 40}
-                    ry="40"
-                    fill="none"
-                    stroke="rgba(255, 255, 255, 0.05)"
-                    strokeWidth="0.5"
-                    transform={`rotate(${lng} 50 50)`}
-                  />
-                ))}
+                {[0, 30, 60, 90, 120, 150].map((lng, i) => {
+                  const rx = Math.abs(Math.cos((lng * Math.PI) / 180) * 40)
+                  return rx > 0.1 ? (
+                    <ellipse
+                      key={i}
+                      cx="50"
+                      cy="50"
+                      rx={rx}
+                      ry="40"
+                      fill="none"
+                      stroke="rgba(255, 255, 255, 0.05)"
+                      strokeWidth="0.5"
+                      transform={`rotate(${lng} 50 50)`}
+                    />
+                  ) : null
+                })}
 
                 {/* Connection Paths */}
                 {locations.map((loc, index) => {
