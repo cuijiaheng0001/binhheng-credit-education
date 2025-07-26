@@ -1,51 +1,48 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronLeft, ChevronRight, TrendingUp, Shield, Award, Globe, ChevronDown } from 'lucide-react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 const slides = [
   {
     id: 1,
-    subtitle: 'The Hidden Problem',
-    title: 'Your Uncollected Chinese Debts',
-    description: 'Millions in receivables are incorrectly written off every year. We help you recognize and recover them.',
-    cta: 'Discover Your Risk',
-    ctaLink: '#assessment',
-    bgGradient: 'from-primary-950 via-primary-900 to-primary-800',
+    title: 'Transform Your International Receivables',
+    subtitle: 'Expert Recovery of Cross-Border Education Debt',
+    description: 'Unlock millions in hidden value with our specialized expertise in international student receivables',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80',
+    stats: { value: '$128M+', label: 'Total Recovered' }
   },
   {
     id: 2,
-    subtitle: 'The Reality',
-    title: '60% Recovery Rate',
-    description: 'What you thought was lost forever can actually be recovered through our specialized cross-border system.',
-    cta: 'See How It Works',
-    ctaLink: '#process',
-    bgGradient: 'from-primary-900 via-primary-800 to-accent-900',
+    title: 'Navigate Complex Regulations',
+    subtitle: 'Multi-Jurisdiction Compliance Expertise',
+    description: 'Expert guidance through international education finance regulations across 50+ countries',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1920&q=80',
+    stats: { value: '99.7%', label: 'Success Rate' }
   },
   {
     id: 3,
-    subtitle: 'Free Assessment',
-    title: 'Calculate Your Hidden Assets',
-    description: 'Get a free evaluation of your Chinese debtor portfolio and discover how much you could recover.',
-    cta: 'Get Free Assessment',
-    ctaLink: '#contact',
-    bgGradient: 'from-accent-900 via-primary-900 to-primary-950',
-  },
+    title: 'Proven Recovery Strategies',
+    subtitle: 'Data-Driven Asset Identification',
+    description: 'Advanced analytics and deep market knowledge to identify and recover written-off receivables',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
+    stats: { value: '15+', label: 'Years Experience' }
+  }
 ]
 
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
-  // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 6000) // Change slide every 6 seconds
+    }, 6000)
 
     return () => clearInterval(interval)
   }, [isAutoPlaying])
@@ -53,7 +50,6 @@ export default function HeroCarousel() {
   const goToSlide = (index: number) => {
     setCurrentSlide(index)
     setIsAutoPlaying(false)
-    // Resume auto-play after 10 seconds
     setTimeout(() => setIsAutoPlaying(true), 10000)
   }
 
@@ -65,152 +61,167 @@ export default function HeroCarousel() {
     goToSlide((currentSlide - 1 + slides.length) % slides.length)
   }
 
-  const scrollToNext = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
-  }
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background carousel */}
+    <section className="relative h-screen overflow-hidden bg-navy">
+      {/* Background Images */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }}
           className="absolute inset-0"
         >
-          {/* Gradient overlay */}
-          <div className={cn(
-            "absolute inset-0 bg-gradient-to-br",
-            slides[currentSlide].bgGradient,
-            "animate-gradient"
-          )} />
-          
-          {/* Pattern overlay */}
-          <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5" />
-
-          {/* Animated background shapes */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-accent-500/10 to-transparent rounded-full blur-3xl animate-pulse" />
-            <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-500/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-          </div>
+          <Image
+            src={slides[currentSlide].image}
+            alt={slides[currentSlide].title}
+            fill
+            priority
+            className="object-cover"
+            quality={100}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/50 to-navy/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy/40 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            {/* Subtitle */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-accent-400 text-lg sm:text-xl font-medium"
-            >
-              {slides[currentSlide].subtitle}
-            </motion.div>
-
-            {/* Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extralight text-white">
-              {slides[currentSlide].title.split(' ').map((word, i) => (
-                <span key={i}>
-                  {word}{' '}
-                  {i === Math.floor(slides[currentSlide].title.split(' ').length / 2) && <br />}
-                </span>
-              ))}
-            </h1>
-
-            {/* Description */}
-            <p className="text-lg sm:text-xl lg:text-2xl text-primary-100 font-light max-w-3xl mx-auto">
-              {slides[currentSlide].description}
-            </p>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="pt-4"
-            >
-              <a
-                href={slides[currentSlide].ctaLink}
-                className={cn(
-                  "inline-flex items-center gap-2 px-8 py-4 text-lg font-medium rounded-lg transition-all duration-300",
-                  "bg-accent-500 text-white hover:bg-accent-600 hover:scale-105",
-                  "shadow-lg hover:shadow-xl hover:shadow-accent-500/25"
-                )}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
               >
-                {slides[currentSlide].cta}
-                <ChevronRight className="w-5 h-5" />
-              </a>
-            </motion.div>
-          </motion.div>
-        </AnimatePresence>
+                {/* Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="mb-6"
+                >
+                  <span className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full border border-gold/30">
+                    <Globe className="w-4 h-4 text-gold" />
+                    <span className="text-gold font-medium text-sm tracking-wider uppercase">
+                      Global Financial Recovery
+                    </span>
+                  </span>
+                </motion.div>
 
-        {/* Navigation arrows */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-colors"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-colors"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
-      </div>
+                {/* Subtitle */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="text-gold font-medium text-lg mb-4 tracking-wide"
+                >
+                  {slides[currentSlide].subtitle}
+                </motion.p>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={cn(
-              "relative h-2 rounded-full transition-all duration-300",
-              currentSlide === index ? "w-12 bg-accent-400" : "w-2 bg-white/40 hover:bg-white/60"
-            )}
-            aria-label={`Go to slide ${index + 1}`}
-          >
-            {currentSlide === index && (
-              <motion.div
-                className="absolute inset-0 bg-accent-400 rounded-full"
-                layoutId="activeSlide"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
-          </button>
-        ))}
-      </div>
+                {/* Title */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="font-display text-5xl lg:text-7xl text-white mb-6 leading-tight"
+                >
+                  {slides[currentSlide].title}
+                </motion.h1>
 
-      {/* Progress bars */}
-      <div className="absolute bottom-0 left-0 right-0 flex">
-        {slides.map((_, index) => (
-          <div key={index} className="flex-1 h-1 bg-white/10">
-            {currentSlide === index && (
-              <motion.div
-                className="h-full bg-accent-400"
-                initial={{ width: '0%' }}
-                animate={{ width: '100%' }}
-                transition={{ duration: 6, ease: 'linear' }}
-              />
-            )}
+                {/* Description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="text-xl text-white/80 mb-8 leading-relaxed"
+                >
+                  {slides[currentSlide].description}
+                </motion.p>
+
+                {/* Stats */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="flex items-center gap-8 mb-10"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gold/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                      <TrendingUp className="w-6 h-6 text-gold" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-light text-white">{slides[currentSlide].stats.value}</div>
+                      <div className="text-sm text-white/60">{slides[currentSlide].stats.label}</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* CTAs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 }}
+                  className="flex gap-4"
+                >
+                  <button className="group relative px-8 py-4 bg-gold text-white font-semibold tracking-wide rounded-lg overflow-hidden transition-all duration-300 hover:shadow-gold shadow-xl">
+                    <span className="relative z-10">Start Assessment</span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-gold-dark to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </button>
+                  <button className="px-8 py-4 bg-white/10 text-white font-medium tracking-wide rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    Learn More
+                  </button>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
           </div>
-        ))}
+        </div>
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="absolute bottom-10 left-0 right-0 z-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between">
+            {/* Slide Indicators */}
+            <div className="flex gap-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={cn(
+                    "h-1 rounded-full transition-all duration-300",
+                    currentSlide === index
+                      ? "w-12 bg-gold"
+                      : "w-6 bg-white/30 hover:bg-white/50"
+                  )}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Arrow Controls */}
+            <div className="flex gap-3">
+              <button
+                onClick={prevSlide}
+                className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 group"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="w-5 h-5 text-white group-hover:-translate-x-0.5 transition-transform" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="p-3 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300 group"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
@@ -218,16 +229,20 @@ export default function HeroCarousel() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors"
+        onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 group"
         aria-label="Scroll to next section"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ChevronDown size={32} />
-        </motion.div>
+        <div className="relative">
+          <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl group-hover:bg-gold/30 transition-colors" />
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="relative bg-white/10 backdrop-blur-sm rounded-full p-3 border border-white/20 group-hover:border-gold/50 transition-colors"
+          >
+            <ChevronDown className="w-6 h-6 text-white" strokeWidth={1.5} />
+          </motion.div>
+        </div>
       </motion.button>
     </section>
   )
