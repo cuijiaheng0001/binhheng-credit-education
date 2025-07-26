@@ -13,7 +13,6 @@ const slides = [
     description: 'Millions in receivables are incorrectly written off every year. We help you recognize and recover them.',
     cta: 'Discover Your Risk',
     ctaLink: '#assessment',
-    bgImage: '/images/hero-1.jpg', // Will add placeholder
     bgGradient: 'from-primary-950 via-primary-900 to-primary-800',
   },
   {
@@ -23,7 +22,6 @@ const slides = [
     description: 'What you thought was lost forever can actually be recovered through our specialized cross-border system.',
     cta: 'See How It Works',
     ctaLink: '#process',
-    bgImage: '/images/hero-2.jpg',
     bgGradient: 'from-primary-900 via-primary-800 to-accent-900',
   },
   {
@@ -33,7 +31,6 @@ const slides = [
     description: 'Get a free evaluation of your Chinese debtor portfolio and discover how much you could recover.',
     cta: 'Get Free Assessment',
     ctaLink: '#contact',
-    bgImage: '/images/hero-3.jpg',
     bgGradient: 'from-accent-900 via-primary-900 to-primary-950',
   },
 ]
@@ -94,13 +91,11 @@ export default function HeroCarousel() {
           {/* Pattern overlay */}
           <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5" />
 
-          {/* Optional: Background image */}
-          {slides[currentSlide].bgImage && (
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-20"
-              style={{ backgroundImage: `url(${slides[currentSlide].bgImage})` }}
-            />
-          )}
+          {/* Animated background shapes */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-accent-500/10 to-transparent rounded-full blur-3xl animate-pulse" />
+            <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-primary-500/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          </div>
         </motion.div>
       </AnimatePresence>
 

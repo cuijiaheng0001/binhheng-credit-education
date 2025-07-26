@@ -18,7 +18,6 @@ const services = [
       'Success rate: 65% for student debts',
       'No upfront costs - success-based fees',
     ],
-    image: '/images/apartment-service.jpg',
     cta: 'Calculate Your Recovery',
     stats: {
       label: 'Annual losses in student housing',
@@ -36,7 +35,6 @@ const services = [
       'Seller deposit retrieval',
       'Cross-border chargebacks',
     ],
-    image: '/images/ecommerce-service.jpg',
     cta: 'Assess Your Portfolio',
     stats: {
       label: 'E-commerce debt exposure',
@@ -54,7 +52,6 @@ const services = [
       'Housing & meal plan debts',
       'Library & parking fines',
     ],
-    image: '/images/education-service.jpg',
     cta: 'Review Your Cases',
     stats: {
       label: 'Education sector losses',
@@ -72,7 +69,6 @@ const services = [
       'Contract breach resolution',
       'Trade credit collection',
     ],
-    image: '/images/b2b-service.jpg',
     cta: 'Get Expert Help',
     stats: {
       label: 'B2B cross-border exposure',
