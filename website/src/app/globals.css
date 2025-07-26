@@ -6,12 +6,13 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71% 4%;
-    --primary: 217 91% 60%;
+    --primary: 204 96% 49%;
     --primary-foreground: 210 40% 98%;
     --accent: 38 92% 50%;
     --accent-foreground: 36 45% 11%;
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
   }
 
   * {

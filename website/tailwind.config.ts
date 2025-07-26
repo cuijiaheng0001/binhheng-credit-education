@@ -9,7 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
           50: '#F0F9FF',
           100: '#E0F2FE',
           200: '#BAE6FD',
@@ -23,6 +28,8 @@ const config: Config = {
           950: '#0F172A',
         },
         accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
           50: '#FFFBEB',
           100: '#FEF3C7',
           200: '#FDE68A',
@@ -33,6 +40,10 @@ const config: Config = {
           700: '#B45309',
           800: '#92400E',
           900: '#78350F',
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         gray: {
           50: '#F8FAFC',
