@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useMotionValue, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { Globe, Building2, Users, DollarSign, CheckCircle } from 'lucide-react'
+import { Globe, Building2, Users, DollarSign, CheckCircle, Plane } from 'lucide-react'
 
 const processSteps = [
   {
@@ -107,12 +107,26 @@ export default function GlobalProcessFlow() {
           {/* World Map Background */}
           <div className="absolute inset-0 opacity-5">
             <svg viewBox="0 0 100 60" className="w-full h-full">
-              {/* Simplified world map outline */}
-              <path
-                d="M 10,30 Q 20,20 30,25 T 50,30 Q 60,25 70,28 T 90,30 Q 85,40 75,35 T 55,35 Q 45,40 35,35 T 15,35 Q 10,30 10,30"
-                fill="currentColor"
-                className="text-navy"
-              />
+              {/* Improved world map outline */}
+              <g>
+                {/* North America */}
+                <path
+                  d="M 15,28 C 15,25 18,23 22,24 C 26,25 30,27 32,30 C 34,33 32,36 28,37 C 24,38 20,36 18,33 C 16,30 15,28 15,28 Z"
+                  fill="currentColor"
+                  className="text-navy"
+                  opacity="0.3"
+                />
+                {/* Asia */}
+                <path
+                  d="M 60,25 C 60,22 65,20 72,22 C 79,24 84,28 83,32 C 82,36 78,38 73,37 C 68,36 63,33 61,29 C 59,25 60,25 60,25 Z"
+                  fill="currentColor"
+                  className="text-navy"
+                  opacity="0.3"
+                />
+                {/* Connection dots */}
+                <circle cx="20" cy="30" r="0.5" fill="currentColor" className="text-navy" />
+                <circle cx="70" cy="30" r="0.5" fill="currentColor" className="text-navy" />
+              </g>
             </svg>
           </div>
 
@@ -137,15 +151,40 @@ export default function GlobalProcessFlow() {
                       />
                       {/* Animated path */}
                       {isActive && isAnimating && (
-                        <motion.path
-                          d={drawPath(step, nextStep)}
-                          stroke={step.color}
-                          strokeWidth="2"
-                          fill="none"
-                          initial={{ pathLength: 0 }}
-                          animate={{ pathLength: 1 }}
-                          transition={{ duration: 1.5, delay: index * 3 }}
-                        />
+                        <>
+                          <motion.path
+                            d={drawPath(step, nextStep)}
+                            stroke={step.color}
+                            strokeWidth="2"
+                            fill="none"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 1.5, delay: index * 3 }}
+                          />
+                          {/* Animated airplane using SVG animateMotion */}
+                          <g>
+                            <defs>
+                              <path id={`flightPath-${index}`} d={drawPath(step, nextStep)} />
+                            </defs>
+                            <motion.g
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: isActive ? 1 : 0 }}
+                              transition={{ delay: index * 3 }}
+                            >
+                              <animateMotion
+                                dur="1.5s"
+                                begin={`${index * 3}s`}
+                                fill="freeze"
+                                rotate="auto"
+                              >
+                                <mpath href={`#flightPath-${index}`} />
+                              </animateMotion>
+                              <g transform="translate(-6, -6)">
+                                <Plane className="w-3 h-3" fill={step.color} strokeWidth={0} />
+                              </g>
+                            </motion.g>
+                          </g>
+                        </>
                       )}
                     </g>
                   )

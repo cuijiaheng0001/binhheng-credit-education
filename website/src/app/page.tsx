@@ -1,7 +1,8 @@
 import HeroCarousel from '@/components/HeroCarousel'
 import ServiceShowcase from '@/components/ServiceShowcase'
-import AnimatedGlobe from '@/components/AnimatedGlobe'
-import GlobalProcessFlow from '@/components/GlobalProcessFlow'
+import EnhancedGlobalFlow from '@/components/EnhancedGlobalFlow'
+// import AnimatedGlobe from '@/components/AnimatedGlobe'
+// import GlobalProcessFlow from '@/components/GlobalProcessFlow'
 import EducationSection from '@/components/EducationSection'
 import ServiceTabs from '@/components/ServiceTabs'
 import ProcessAnimation from '@/components/ProcessAnimation'
@@ -15,8 +16,7 @@ export default function Home() {
     <main className="min-h-screen">
       <HeroCarousel />
       <ServiceShowcase />
-      <AnimatedGlobe />
-      <GlobalProcessFlow />
+      <EnhancedGlobalFlow />
       <EducationSection />
       <ServiceTabs />
       <ProcessAnimation />
