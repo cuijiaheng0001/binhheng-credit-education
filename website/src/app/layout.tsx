@@ -8,6 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://binhhengcredit.com'),
   title: "Binhheng Credit - Recover Your Hidden Receivables",
   description: "Discover and recover millions in cross-border debts that were incorrectly written off. Specialized recovery for Chinese nationals who have returned home.",
   keywords: "debt recovery, cross-border collection, Chinese debt collection, international receivables, student housing debt",
