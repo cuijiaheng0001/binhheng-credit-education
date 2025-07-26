@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Binhheng Credit Education Website
 
-## Getting Started
+A modern, education-focused website for Binhheng Credit that helps US businesses discover and recover hidden cross-border receivables.
 
-First, run the development server:
+## 🚀 Features
+
+- **Education-First Design**: Guides visitors to understand the hidden debt problem
+- **Smooth Animations**: Built with Framer Motion for professional interactions
+- **Fully Responsive**: Optimized for all devices
+- **High Performance**: Next.js 14 with Turbopack for fast development
+- **SEO Optimized**: Complete metadata and structured data
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Charts**: Recharts (ready to implement)
+- **Deployment**: Vercel
+
+## 📦 Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌐 Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is optimized for deployment on Vercel:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Connect your GitHub repository to Vercel
+2. Configure environment variables (if needed)
+3. Deploy with one click
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+website/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx      # Root layout with metadata
+│   │   ├── page.tsx        # Homepage
+│   │   └── globals.css     # Global styles
+│   ├── components/
+│   │   ├── HeroSection.tsx       # Hero with gradient animation
+│   │   ├── EducationSection.tsx  # Three-step education
+│   │   ├── ProcessAnimation.tsx  # Workflow visualization
+│   │   ├── MetricsSection.tsx    # Animated statistics
+│   │   └── CTASection.tsx        # Call to action
+│   └── lib/
+│       └── utils.ts        # Utility functions
+├── public/                 # Static assets
+├── tailwind.config.ts      # Tailwind configuration
+└── next.config.ts          # Next.js configuration
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Colors
+- **Primary**: Deep navy blue (#0F172A)
+- **Accent**: Golden yellow (#F59E0B)
+- **Gray**: Custom gray scale
+- **Background**: White with subtle gradients
 
-## Deploy on Vercel
+### Typography
+- **Font**: Inter (100-900 weights)
+- **Headings**: Light weight for elegance
+- **Body**: Regular weight for readability
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Animations
+- Scroll-triggered animations
+- Smooth transitions
+- Interactive hover effects
+- Number counting animations
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔧 Customization
+
+### Adding New Sections
+1. Create a new component in `src/components/`
+2. Import and add to `src/app/page.tsx`
+3. Follow existing animation patterns
+
+### Updating Content
+- Hero text: `src/components/HeroSection.tsx`
+- Process steps: `src/components/ProcessAnimation.tsx`
+- Metrics: `src/components/MetricsSection.tsx`
+
+### Styling
+- Global styles: `src/app/globals.css`
+- Tailwind config: `tailwind.config.ts`
+- Component-specific styles use Tailwind classes
+
+## 📈 Performance
+
+- Lighthouse score target: 95+
+- First Contentful Paint: < 1.5s
+- Time to Interactive: < 3s
+- Cumulative Layout Shift: < 0.1
+
+## 🔒 Security
+
+- All external links use `rel="noopener noreferrer"`
+- Content Security Policy ready
+- HTTPS enforced on production
+
+## 📝 License
+
+Copyright © 2024 Binhheng Credit. All rights reserved.
