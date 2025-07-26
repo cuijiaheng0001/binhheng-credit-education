@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { ChevronLeft, ChevronRight, TrendingUp, Shield, Award, Globe, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
@@ -36,6 +36,10 @@ const slides = [
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const { scrollY } = useScroll()
+  const imageY = useTransform(scrollY, [0, 500], [0, 150])
+  const textY = useTransform(scrollY, [0, 300], [0, 50])
+  const opacity = useTransform(scrollY, [0, 400], [1, 0])
 
   useEffect(() => {
     if (!isAutoPlaying) return
@@ -72,6 +76,7 @@ export default function HeroCarousel() {
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }}
           className="absolute inset-0"
+          style={{ y: imageY }}
         >
           <Image
             src={slides[currentSlide].image}
@@ -87,7 +92,10 @@ export default function HeroCarousel() {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
+      <motion.div 
+        className="relative z-10 h-full flex items-center"
+        style={{ y: textY, opacity }}
+      >
         <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
           <div className="max-w-2xl">
             <AnimatePresence mode="wait">
@@ -105,20 +113,30 @@ export default function HeroCarousel() {
                   transition={{ delay: 0.2 }}
                   className="mb-8"
                 >
-                  <span className="text-white/70 font-light text-sm tracking-[0.3em] uppercase">
-                    Cross-Border Debt Recovery
+                  <span className="text-white/60 font-light text-xs tracking-[0.4em] uppercase">
+                    International • Debt • Recovery
                   </span>
                 </motion.div>
 
 
                 {/* Title */}
                 <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="font-light text-4xl lg:text-6xl text-white mb-8 leading-[1.2] tracking-tight"
+                  className="font-display text-4xl lg:text-6xl text-white mb-8 leading-[1.1] font-light"
                 >
-                  {slides[currentSlide].title}
+                  {slides[currentSlide].title.split(' ').map((word, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 + index * 0.05, duration: 0.8 }}
+                      className="inline-block mr-[0.25em]"
+                    >
+                      {word}
+                    </motion.span>
+                  ))}
                 </motion.h1>
 
                 {/* Description */}
@@ -139,18 +157,32 @@ export default function HeroCarousel() {
                   transition={{ delay: 0.5 }}
                   className="flex flex-col sm:flex-row gap-4"
                 >
-                  <button className="group relative px-10 py-4 bg-white text-navy font-light tracking-wide overflow-hidden transition-all duration-500 hover:shadow-2xl">
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative px-12 py-4 bg-white text-gray-900 font-light tracking-widest text-sm uppercase overflow-hidden transition-all duration-700"
+                  >
                     <span className="relative z-10">Discover Hidden Assets</span>
-                  </button>
-                  <button className="px-10 py-4 text-white font-light tracking-wide border border-white/30 hover:bg-white/10 transition-all duration-500">
+                    <motion.div
+                      className="absolute inset-0 bg-gray-100"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: 0 }}
+                      transition={{ duration: 0.5, ease: 'easeInOut' }}
+                    />
+                  </motion.button>
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-12 py-4 text-white font-light tracking-widest text-sm uppercase border border-white/40 hover:border-white/80 transition-all duration-700 backdrop-blur-sm"
+                  >
                     Learn More
-                  </button>
+                  </motion.button>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Navigation Controls */}
       <div className="absolute bottom-12 left-0 right-0 z-20">

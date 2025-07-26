@@ -43,9 +43,24 @@ export default function ProblemRevealSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
-          <h2 className="font-display text-4xl lg:text-5xl text-gray-900 font-light tracking-tight">
+          {/* Decorative line */}
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: '64px' }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="h-[1px] bg-gray-300 mx-auto mb-8"
+          />
+          <h2 className="font-display text-4xl lg:text-5xl text-gray-900 font-light tracking-tight mb-4">
             The Hidden Truth
           </h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: '64px' }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="h-[1px] bg-gray-300 mx-auto"
+          />
         </motion.div>
 
         {/* Problem Cards */}
@@ -62,22 +77,32 @@ export default function ProblemRevealSection() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="group"
               >
-                <div className="text-center">
-                  {/* Stat */}
-                  <div className="mb-6">
-                    <span className="text-6xl font-display font-light text-gray-900">{problem.stat}</span>
-                  </div>
+                <div className="text-center group">
+                  {/* Stat with hover effect */}
+                  <motion.div 
+                    className="mb-6"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <span className="text-6xl font-display font-light text-gray-900 group-hover:text-gray-700 transition-colors duration-500">{problem.stat}</span>
+                  </motion.div>
 
                   {/* Title */}
                   <h3 className="text-lg font-light text-gray-700 mb-4 leading-relaxed">
                     {problem.title}
                   </h3>
 
-                  {/* Divider */}
-                  <div className="w-16 h-px bg-gray-300 mx-auto mb-4" />
+                  {/* Animated Divider */}
+                  <motion.div 
+                    className="w-16 h-[1px] bg-gray-300 mx-auto mb-4 origin-center"
+                    initial={{ scaleX: 0.5 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
+                  />
 
                   {/* Description */}
-                  <p className="text-gray-500 leading-relaxed text-sm">
+                  <p className="text-gray-500 leading-relaxed text-sm max-w-xs mx-auto">
                     {problem.description}
                   </p>
                 </div>
