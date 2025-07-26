@@ -82,27 +82,29 @@ export default function ServiceTabs() {
   const activeService = services.find(s => s.id === activeTab)!
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-gradient-to-b from-pearl to-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-light text-gray-900 mb-4">
-            Tailored Solutions for{' '}
-            <span className="font-normal gradient-text">Every Industry</span>
+          <span className="text-gold font-medium text-sm tracking-wider uppercase">
+            Industry Solutions
+          </span>
+          <h2 className="mt-4 font-display text-5xl lg:text-6xl text-navy tracking-tight">
+            Tailored Solutions for Every Industry
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="mt-6 text-xl text-steel max-w-3xl mx-auto leading-relaxed">
             We understand the unique challenges each industry faces with Chinese debtor recovery
           </p>
         </motion.div>
 
         {/* Tab navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {services.map((service) => {
             const Icon = service.icon
             const isActive = activeTab === service.id
@@ -111,18 +113,17 @@ export default function ServiceTabs() {
               <motion.button
                 key={service.id}
                 onClick={() => setActiveTab(service.id)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className={cn(
-                  "flex items-center gap-3 px-6 py-4 rounded-xl transition-all duration-300",
-                  "border-2",
+                  "flex items-center gap-3 px-6 py-4 rounded-lg transition-all duration-300",
                   isActive
-                    ? "bg-primary-600 text-white border-primary-600 shadow-lg"
-                    : "bg-white text-gray-700 border-gray-200 hover:border-primary-300"
+                    ? "bg-navy text-white shadow-xl"
+                    : "bg-white text-steel shadow-md hover:shadow-lg hover:text-navy"
                 )}
               >
-                <Icon className="w-5 h-5" />
-                <span className="font-medium">{service.title}</span>
+                <Icon className="w-5 h-5" strokeWidth={1.5} />
+                <span className="font-semibold tracking-wide">{service.title}</span>
               </motion.button>
             )
           })}
@@ -139,30 +140,30 @@ export default function ServiceTabs() {
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
             {/* Left content */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div>
-                <h3 className="text-3xl font-medium text-gray-900 mb-2">
+                <h3 className="font-display text-4xl text-navy mb-4">
                   {activeService.subtitle}
                 </h3>
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-steel leading-relaxed">
                   {activeService.description}
                 </p>
               </div>
 
               {/* Features */}
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {activeService.features.map((feature, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3"
+                    className="flex items-start gap-4"
                   >
-                    <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center flex-shrink-0 mt-0.5 shadow-lg">
+                      <div className="w-3 h-3 rounded-full bg-white" />
                     </div>
-                    <span className="text-gray-700">{feature}</span>
+                    <span className="text-steel text-lg">{feature}</span>
                   </motion.div>
                 ))}
               </div>
@@ -172,10 +173,10 @@ export default function ServiceTabs() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
-                className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6"
+                className="bg-gradient-to-r from-navy to-navy-light rounded-2xl p-8 shadow-xl"
               >
-                <p className="text-sm text-gray-600 mb-1">{activeService.stats.label}</p>
-                <p className="text-3xl font-bold gradient-text">{activeService.stats.value}</p>
+                <p className="text-sm text-white/80 mb-2 uppercase tracking-wider">{activeService.stats.label}</p>
+                <p className="font-display text-4xl text-gold">{activeService.stats.value}</p>
               </motion.div>
 
               {/* CTA */}
@@ -184,10 +185,15 @@ export default function ServiceTabs() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                <button className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors group">
-                  {activeService.cta}
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gold text-white font-semibold tracking-wide rounded-lg overflow-hidden transition-all duration-300 hover:shadow-gold shadow-xl"
+                >
+                  <span className="relative z-10">{activeService.cta}</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative z-10" strokeWidth={2} />
+                  <div className="absolute inset-0 bg-gradient-to-r from-gold-dark to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
               </motion.div>
             </div>
 
@@ -196,14 +202,20 @@ export default function ServiceTabs() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+              className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-accent-600" />
-              <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-light to-gold/20" />
+              <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-white p-8">
-                  <activeService.icon className="w-24 h-24 mx-auto mb-4 opacity-50" />
-                  <p className="text-xl font-light">Professional Service Visualization</p>
+                <div className="text-center text-white p-12">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="inline-block"
+                  >
+                    <activeService.icon className="w-32 h-32 mx-auto mb-6 text-gold/50" strokeWidth={1} />
+                  </motion.div>
+                  <p className="font-display text-2xl font-light text-white/80">Professional Service Visualization</p>
                 </div>
               </div>
             </motion.div>

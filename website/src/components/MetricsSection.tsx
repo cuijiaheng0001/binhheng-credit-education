@@ -63,7 +63,7 @@ function AnimatedNumber({ value, prefix, suffix }: { value: number; prefix: stri
   }, [isInView, value])
 
   return (
-    <span ref={ref} className="tabular-nums">
+    <span ref={ref} className="tabular-nums tracking-tight">
       {prefix}{displayValue.toFixed(value % 1 !== 0 ? 1 : 0)}{suffix}
     </span>
   )
@@ -74,21 +74,23 @@ export default function MetricsSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' })
 
   return (
-    <section ref={containerRef} className="py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={containerRef} className="py-24 bg-gradient-to-b from-pearl to-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-light text-gray-900 mb-4">
-            Proven{' '}
-            <span className="font-normal gradient-text">Results</span>
+          <span className="text-gold font-medium text-sm tracking-wider uppercase">
+            Proven Results
+          </span>
+          <h2 className="mt-4 font-display text-5xl lg:text-6xl text-navy tracking-tight">
+            Real Numbers from Real Recoveries
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Real numbers from real recoveries
+          <p className="mt-6 text-xl text-steel max-w-3xl mx-auto leading-relaxed">
+            Verified results from our cross-border recovery operations
           </p>
         </motion.div>
 
@@ -99,37 +101,47 @@ export default function MetricsSection() {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center"
+              transition={{ duration: 0.8, delay: index * 0.15 }}
+              className="group relative text-center"
             >
-              {/* Value */}
-              <div className="mb-4">
-                <span className="text-5xl sm:text-6xl font-light text-gray-900">
-                  <AnimatedNumber
-                    value={metric.value}
-                    prefix={metric.prefix}
-                    suffix={metric.suffix}
-                  />
-                </span>
-              </div>
-
-              {/* Label */}
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                {metric.label}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600">
-                {metric.description}
-              </p>
-
-              {/* Decorative element */}
+              {/* Card background */}
               <motion.div
-                initial={{ width: 0 }}
-                animate={isInView ? { width: '100%' } : {}}
-                transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
-                className="h-1 bg-gradient-to-r from-primary-400 to-accent-400 rounded-full mt-6 mx-auto max-w-[100px]"
-              />
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+              >
+                {/* Background gradient on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
+                
+                {/* Value */}
+                <div className="mb-4 relative z-10">
+                  <span className="font-display text-6xl lg:text-7xl text-navy">
+                    <AnimatedNumber
+                      value={metric.value}
+                      prefix={metric.prefix}
+                      suffix={metric.suffix}
+                    />
+                  </span>
+                </div>
+
+                {/* Label */}
+                <h3 className="font-display text-xl text-navy mb-3 relative z-10">
+                  {metric.label}
+                </h3>
+
+                {/* Description */}
+                <p className="text-steel leading-relaxed relative z-10">
+                  {metric.description}
+                </p>
+
+                {/* Decorative element */}
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={isInView ? { width: '100%' } : {}}
+                  transition={{ duration: 1, delay: index * 0.15 + 0.5 }}
+                  className="h-1 bg-gradient-to-r from-gold to-gold-dark rounded-full mt-6 mx-auto max-w-[100px]"
+                />
+              </motion.div>
             </motion.div>
           ))}
         </div>
@@ -138,15 +150,18 @@ export default function MetricsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
+          transition={{ duration: 0.8, delay: 1 }}
+          className="text-center mt-20"
         >
-          <div className="inline-flex items-center gap-2 text-primary-600 font-medium">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-3 text-gold font-medium tracking-wider uppercase"
+          >
             <span>Verified by independent audit</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
