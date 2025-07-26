@@ -6,12 +6,12 @@ import { Menu, X, ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { label: 'Home', href: '#' },
-  { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Case Studies', href: '#cases' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Process', href: '/#process' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export default function Navigation() {
