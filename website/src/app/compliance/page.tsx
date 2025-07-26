@@ -213,6 +213,92 @@ export default function CompliancePage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
+              Frequently Asked <span className="font-normal gradient-text">Questions</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Common concerns about cross-border debt recovery compliance
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {/* FAQ 1 */}
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                How do you ensure cross-border debt collection is legal and compliant?
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                We maintain strict compliance with both U.S. and Chinese regulations. In the U.S., we follow FDCPA guidelines, 
+                ensuring no harassment, truthful representation, and respect for consumer rights. In China, we comply with PIPL 
+                (Personal Information Protection Law) requirements, including obtaining proper consent and following data minimization 
+                principles. Our dual-structure through Hong Kong ensures we can operate legally in both jurisdictions while maintaining 
+                the highest standards of data protection and consumer rights.
+              </p>
+            </div>
+
+            {/* FAQ 2 */}
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Will debt collection attempts damage our reputation in China?
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                No, when done correctly. Our approach is specifically designed to preserve and even enhance your reputation. 
+                We use culturally sensitive communication methods that respect Chinese business customs and the concept of "face." 
+                Our native Mandarin speakers understand the importance of relationship-based negotiations and use collaborative 
+                problem-solving rather than aggressive tactics. Many clients report improved relationships with Chinese partners 
+                after professional debt resolution.
+              </p>
+            </div>
+
+            {/* FAQ 3 */}
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                How is debtor privacy protected during the recovery process?
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                We implement bank-level security measures including SHA-256 encryption for all data at rest and in transit. 
+                Access is strictly controlled through role-based permissions with multi-factor authentication. We follow data 
+                minimization principles, collecting only essential information needed for recovery. All data access is logged 
+                for audit trails, and we maintain incident response protocols with 24-hour breach notification. Regular security 
+                audits ensure ongoing compliance with international data protection standards.
+              </p>
+            </div>
+
+            {/* FAQ 4 */}
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                What happens if a debtor refuses to pay?
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Our success comes from negotiation, not litigation. If initial attempts don't succeed, we employ various 
+                culturally appropriate strategies including payment plans aligned with Chinese bonus cycles, involvement of 
+                professional networks, and face-saving solutions. We achieve 60% recovery rates through patience and cultural 
+                understanding. Litigation is rarely needed and only considered as a last resort with client approval. Our 
+                focus remains on voluntary resolution that preserves business relationships.
+              </p>
+            </div>
+
+            {/* FAQ 5 */}
+            <div className="bg-gray-50 rounded-xl p-8">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                How do you handle currency conversion and international transfers?
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                We work with licensed money transfer operators to ensure full compliance with international banking regulations, 
+                anti-money laundering (AML) requirements, and currency controls. All transfers are documented with clear audit 
+                trails. We can accept payments through Chinese payment systems (WeChat Pay, Alipay) and convert them to USD 
+                through compliant channels. Our transparent process ensures you receive the maximum recovery amount while 
+                maintaining full regulatory compliance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Download Section */}
       <section className="py-24 bg-primary-950 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

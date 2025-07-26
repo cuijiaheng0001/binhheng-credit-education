@@ -9,27 +9,27 @@ import { cn } from '@/lib/utils'
 const slides = [
   {
     id: 1,
-    title: 'Transform Your International Receivables',
-    subtitle: 'Expert Recovery of Cross-Border Education Debt',
-    description: 'Unlock millions in hidden value with our specialized expertise in international student receivables',
+    title: 'Stop Writing Off International Debts Prematurely',
+    subtitle: 'A Hidden Problem Costing You Millions',
+    description: 'Discover how 60% of cross-border debts labeled "uncollectable" can actually be recovered with the right expertise',
     image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80',
-    stats: { value: '$128M+', label: 'Total Recovered' }
+    stats: { value: '$128M+', label: 'Previously "Lost" Debts Recovered' }
   },
   {
     id: 2,
-    title: 'Navigate Complex Regulations',
-    subtitle: 'Multi-Jurisdiction Compliance Expertise',
-    description: 'Expert guidance through international education finance regulations across 50+ countries',
+    title: 'Your Chinese Debtors Are Not Unreachable',
+    subtitle: 'Breaking the Biggest Misconception',
+    description: 'Most institutions wrongly assume debtors who return to China cannot be contacted. We prove otherwise every day.',
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1920&q=80',
-    stats: { value: '99.7%', label: 'Success Rate' }
+    stats: { value: '60%', label: 'Recovery Rate on "Written-Off" Debts' }
   },
   {
     id: 3,
-    title: 'Proven Recovery Strategies',
-    subtitle: 'Data-Driven Asset Identification',
-    description: 'Advanced analytics and deep market knowledge to identify and recover written-off receivables',
+    title: 'Compliant Cross-Border Recovery Is Possible',
+    subtitle: 'Expert Navigation Through Complex Regulations',
+    description: 'With proper cultural understanding and local networks, international debt recovery is both legal and effective',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
-    stats: { value: '15+', label: 'Years Experience' }
+    stats: { value: '500+', label: 'Institutions Helped Recover Hidden Assets' }
   }
 ]
 
@@ -108,7 +108,7 @@ export default function HeroCarousel() {
                   <span className="inline-flex items-center gap-2 px-4 py-2 bg-gold/20 backdrop-blur-sm rounded-full border border-gold/30">
                     <Globe className="w-4 h-4 text-gold" />
                     <span className="text-gold font-medium text-sm tracking-wider uppercase">
-                      Global Financial Recovery
+                      Hidden Debt Recovery Experts
                     </span>
                   </span>
                 </motion.div>
@@ -169,11 +169,11 @@ export default function HeroCarousel() {
                   className="flex gap-4"
                 >
                   <button className="group relative px-8 py-4 bg-gold text-white font-semibold tracking-wide rounded-lg overflow-hidden transition-all duration-300 hover:shadow-gold shadow-xl">
-                    <span className="relative z-10">Start Assessment</span>
+                    <span className="relative z-10">Discover Your Hidden Receivables</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-gold-dark to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </button>
                   <button className="px-8 py-4 bg-white/10 text-white font-medium tracking-wide rounded-lg backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
-                    Learn More
+                    Get Free Risk Assessment
                   </button>
                 </motion.div>
               </motion.div>

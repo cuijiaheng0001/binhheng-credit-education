@@ -10,42 +10,48 @@ const caseStudies = [
     industry: 'Student Housing',
     client: 'University Plaza Apartments',
     location: 'Boston, MA',
+    misconception: 'Believed Chinese students who returned home couldn\'t be reached',
     challenge: '47 Chinese students graduated and left owing rent',
     totalDebt: '$127,000',
     recovered: '$76,200',
     recoveryRate: '60%',
     timeframe: '90 days',
-    testimonial: 'We had completely written off these debts. Binhheng not only recovered a significant portion but did so professionally and compliantly.',
+    testimonial: 'We had written these off completely, thinking it was impossible to collect once students returned to China. Binhheng showed us we were wrong – they recovered 60% of what we thought was lost forever.',
+    transformation: 'From "impossible to collect" to "$76,200 recovered"',
     role: 'Regional Manager',
-    highlight: 'Zero upfront costs',
+    highlight: 'Thought it was impossible',
   },
   {
     id: 2,
     industry: 'E-commerce',
     client: 'Major Online Marketplace',
     location: 'Seattle, WA',
+    misconception: 'Assumed sellers in China were untraceable after account abandonment',
     challenge: 'Chinese sellers abandoned accounts with outstanding fees',
     totalDebt: '$89,000',
     recovered: '$53,400',
     recoveryRate: '60%',
     timeframe: '60 days',
-    testimonial: 'Their understanding of Chinese business culture and payment systems made all the difference in recovering these funds.',
+    testimonial: 'Our finance team had given up on these accounts. We didn\'t know recovery was even possible until Binhheng educated us on the real possibilities. Now we refer all international cases to them.',
+    transformation: 'From "given up" to "regular recovery process"',
     role: 'Risk Management Director',
-    highlight: 'Cross-border expertise',
+    highlight: 'Didn\'t know it was possible',
   },
   {
     id: 3,
     industry: 'Education',
     client: 'Private University',
     location: 'New York, NY',
+    misconception: 'Feared aggressive collection would damage institution\'s reputation in China',
     challenge: 'International students with unpaid tuition after returning home',
     totalDebt: '$234,000',
     recovered: '$140,400',
     recoveryRate: '60%',
     timeframe: '120 days',
-    testimonial: 'Binhheng\'s approach maintained our institution\'s reputation while successfully recovering significant outstanding balances.',
+    testimonial: 'We were writing off $500K+ annually from Chinese students, thinking collection attempts would harm our reputation. Binhheng\'s culturally sensitive approach proved we could recover funds while maintaining positive relationships.',
+    transformation: 'From "$500K annual write-offs" to "systematic recovery"',
     role: 'CFO',
-    highlight: 'Reputation protected',
+    highlight: 'Protected our reputation',
   },
 ]
 
@@ -62,11 +68,11 @@ export default function CaseStudies() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-light text-gray-900 mb-4">
-            Real Results from{' '}
-            <span className="font-normal gradient-text">Real Clients</span>
+            From Misconception to{' '}
+            <span className="font-normal gradient-text">Recovery Success</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See how we've helped businesses recover millions in previously written-off debts
+            How businesses discovered they were wrong about "uncollectable" international debts
           </p>
         </motion.div>
 
@@ -97,6 +103,12 @@ export default function CaseStudies() {
                     <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                       <Building2 className="w-6 h-6 text-primary-600" />
                     </div>
+                  </div>
+
+                  {/* Misconception */}
+                  <div className="bg-red-50 rounded-lg p-4 mb-4">
+                    <p className="text-sm font-medium text-red-700 mb-1">Initial Misconception:</p>
+                    <p className="text-red-600 italic">"{study.misconception}"</p>
                   </div>
 
                   {/* Challenge */}
@@ -153,9 +165,11 @@ export default function CaseStudies() {
                   </p>
                 </div>
 
-                {/* Highlight */}
-                <div className="bg-primary-600 text-white p-4 text-center">
-                  <p className="font-medium">{study.highlight}</p>
+                {/* Transformation */}
+                <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white p-6">
+                  <p className="text-sm font-medium mb-2 text-primary-100">The Transformation:</p>
+                  <p className="font-semibold text-lg">{study.transformation}</p>
+                  <p className="text-sm mt-3 text-primary-100">{study.highlight}</p>
                 </div>
               </div>
             </motion.div>

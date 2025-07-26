@@ -56,14 +56,14 @@ export default function ServiceShowcase() {
           className="text-center mb-16"
         >
           <span className="text-gold font-medium text-sm tracking-wider uppercase">
-            Our Expertise
+            Why We're Different
           </span>
           <h2 className="mt-4 font-display text-5xl lg:text-6xl text-navy tracking-tight">
-            Specialized Financial Recovery Services
+            Uncovering What Others Miss
           </h2>
           <p className="mt-6 text-xl text-steel max-w-3xl mx-auto leading-relaxed">
-            We combine deep industry knowledge with proven methodologies to unlock 
-            value in complex cross-border education receivables
+            Most institutions don't realize the scale of recoverable receivables from Chinese nationals 
+            who returned home. We help you uncover this hidden value and collect it compliantly.
           </p>
         </motion.div>
 
@@ -128,10 +128,10 @@ export default function ServiceShowcase() {
           className="text-center"
         >
           <p className="text-lg text-steel mb-6">
-            Ready to unlock the hidden value in your receivables?
+            Don't let another dollar slip away. Discover what you've been missing.
           </p>
           <button className="group inline-flex items-center gap-3 px-8 py-4 bg-navy text-white font-semibold rounded-lg hover:bg-navy-light transition-all duration-300 shadow-xl hover:shadow-2xl">
-            <span>Schedule Expert Consultation</span>
+            <span>Get Your Free Debt Assessment</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={2} />
           </button>
         </motion.div>
