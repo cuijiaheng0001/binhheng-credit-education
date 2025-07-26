@@ -41,6 +41,8 @@ export const metadata: Metadata = {
   },
 };
 
+import Navigation from '@/components/Navigation'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="smooth-scroll">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <Navigation />
         {children}
       </body>
     </html>
