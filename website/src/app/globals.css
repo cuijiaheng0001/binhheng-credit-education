@@ -113,11 +113,12 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
   
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: var(--font-sans);
     font-size: var(--font-size-base);
     line-height: 1.6;
@@ -311,19 +312,25 @@
 /* Professional Gradient Classes */
 @layer utilities {
   .gradient-professional {
-    @apply bg-gradient-to-br from-navy via-navy-light to-steel;
+    background-image: linear-gradient(to bottom right, hsl(var(--navy)), hsl(var(--navy-light)), hsl(var(--steel)));
   }
   
   .gradient-gold {
-    @apply bg-gradient-to-r from-gold-dark via-gold to-gold-light;
+    background-image: linear-gradient(to right, hsl(var(--gold-dark)), hsl(var(--gold)), hsl(var(--gold-light)));
   }
   
   .gradient-text-professional {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-navy to-gold;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, hsl(var(--navy)), hsl(var(--gold)));
   }
   
   .gradient-text-authority {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-dark to-gold;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, hsl(var(--gold-dark)), hsl(var(--gold)));
   }
 }
 
@@ -422,28 +429,73 @@
 /* Professional Card Styles */
 @layer components {
   .card-professional {
-    @apply bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300;
-    @apply border border-gray-100;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all 300ms;
+    border: 1px solid rgb(243 244 246);
+  }
+  
+  .card-professional:hover {
+    box-shadow: var(--shadow-xl);
   }
   
   .card-elevated {
-    @apply bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300;
-    @apply border border-gray-100 hover:-translate-y-1;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 300ms;
+    border: 1px solid rgb(243 244 246);
+  }
+  
+  .card-elevated:hover {
+    box-shadow: var(--shadow-2xl);
+    transform: translateY(-0.25rem);
   }
   
   .btn-professional {
-    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
-    @apply bg-navy text-white hover:bg-navy-light;
-    @apply shadow-md hover:shadow-lg;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 300ms;
+    background-color: hsl(var(--navy));
+    color: white;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-professional:hover {
+    background-color: hsl(var(--navy-light));
+    box-shadow: var(--shadow-lg);
   }
   
   .btn-gold {
-    @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
-    @apply bg-gold text-white hover:bg-gold-dark;
-    @apply shadow-md hover:shadow-gold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 300ms;
+    background-color: hsl(var(--gold));
+    color: white;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-gold:hover {
+    background-color: hsl(var(--gold-dark));
+    box-shadow: var(--shadow-gold);
   }
   
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+    padding: 4rem 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-padding {
+      padding: 5rem 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: 6rem 2rem;
+    }
   }
 }
