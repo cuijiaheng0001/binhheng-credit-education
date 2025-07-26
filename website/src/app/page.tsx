@@ -1,7 +1,9 @@
 import HeroCarousel from '@/components/HeroCarousel'
 import ProblemRevealSection from '@/components/ProblemRevealSection'
 import ServiceShowcase from '@/components/ServiceShowcase'
-import GlobalRecoveryJourney from '@/components/GlobalRecoveryJourney'
+import SimpleRecoveryFlow from '@/components/SimpleRecoveryFlow'
+// import GlobalRecoveryJourney from '@/components/GlobalRecoveryJourney'
+// import VisualRecoveryFlow from '@/components/VisualRecoveryFlow'
 // import EnhancedGlobalFlow from '@/components/EnhancedGlobalFlow'
 // import AnimatedGlobe from '@/components/AnimatedGlobe'
 // import GlobalProcessFlow from '@/components/GlobalProcessFlow'
@@ -20,7 +22,7 @@ export default function Home() {
       <HeroCarousel />
       <ProblemRevealSection />
       <ServiceShowcase />
-      <GlobalRecoveryJourney />
+      <SimpleRecoveryFlow />
       <EducationSection />
       <ServiceTabs />
       <ProcessAnimation />
