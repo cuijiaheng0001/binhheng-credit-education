@@ -332,6 +332,13 @@
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(to right, hsl(var(--gold-dark)), hsl(var(--gold)));
   }
+  
+  .gradient-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, hsl(var(--navy)), hsl(var(--gold)));
+  }
 }
 
 /* Animation Classes */
