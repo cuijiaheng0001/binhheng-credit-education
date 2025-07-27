@@ -122,19 +122,29 @@
   }
   
   /* Ensure text is selectable */
-  body, body * {
+  html, body {
+    -webkit-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
+  }
+  
+  /* Make all text elements explicitly selectable */
+  p, h1, h2, h3, h4, h5, h6, span, div, a, li, td, th, label {
     -webkit-user-select: text !important;
     -moz-user-select: text !important;
     -ms-user-select: text !important;
     user-select: text !important;
+    cursor: text;
   }
   
-  /* Allow specific elements to be unselectable if needed */
-  button, .no-select {
+  /* Allow specific interactive elements to be unselectable */
+  button, input[type="button"], input[type="submit"], .no-select {
     -webkit-user-select: none !important;
     -moz-user-select: none !important;
     -ms-user-select: none !important;
     user-select: none !important;
+    cursor: pointer;
   }
   
   body {
@@ -299,8 +309,23 @@
   
   /* Elegant Selection */
   ::selection {
-    background-color: hsl(var(--gold) / 0.2);
-    color: hsl(var(--foreground));
+    background-color: #0066CC;
+    color: white;
+  }
+  
+  ::-moz-selection {
+    background-color: #0066CC;
+    color: white;
+  }
+  
+  /* Remove any pointer-events that might block selection */
+  * {
+    pointer-events: auto !important;
+  }
+  
+  /* Except for decorative elements */
+  .decoration, .overlay {
+    pointer-events: none;
   }
   
   /* Link Styles */
