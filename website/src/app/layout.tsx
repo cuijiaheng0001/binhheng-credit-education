@@ -53,6 +53,7 @@ export const metadata: Metadata = {
 };
 
 import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 import CookieBanner from '@/components/CookieBanner'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
@@ -96,6 +97,7 @@ export default function RootLayout({
         <AOSInit />
         <Navigation />
         {children}
+        <Footer />
         <WhatsAppButton />
         <CookieBanner />
       </body>
