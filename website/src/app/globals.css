@@ -14,31 +14,23 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
     
-    /* Professional Brand Colors - Purple & Gold Theme */
-    --primary: 252 37% 35%; /* #3B2F7C - Primary Purple */
+    /* Professional Brand Colors - Atradius Inspired */
+    --primary: 212 100% 24%; /* #003D7A - Deep Blue */
     --primary-foreground: 0 0% 100%;
-    --secondary: 252 42% 25%; /* #2B1F5C - Secondary Purple */
-    --secondary-foreground: 0 0% 100%;
-    --accent: 48 90% 60%; /* #F4D03F - Primary Gold */
-    --accent-foreground: 252 37% 35%;
+    --secondary: 0 0% 96%; /* #F5F5F5 - Light Gray */
+    --secondary-foreground: 0 0% 20%;
+    --accent: 356 84% 47%; /* #E30613 - Red Accent */
+    --accent-foreground: 0 0% 100%;
     
     /* Extended Palette */
-    --purple-primary: 252 37% 35%; /* #3B2F7C */
-    --purple-secondary: 252 42% 25%; /* #2B1F5C */
-    --purple-light: 252 40% 95%; /* Light Purple Background */
-    --gold-primary: 48 90% 60%; /* #F4D03F */
-    --gold-secondary: 51 100% 50%; /* #FFD700 */
-    --gold-accent: 45 100% 50%; /* #FFC700 */
-    --gray-dark: 0 0% 20%; /* #333333 */
-    --gray-medium: 0 0% 40%; /* #666666 */
-    --gray-light: 0 0% 96%; /* #F5F5F5 */
-    --white: 0 0% 100%; /* #FFFFFF */
-    
-    /* Keep old colors for gradual migration */
     --blue-primary: 212 100% 24%; /* #003D7A */
     --blue-secondary: 211 100% 40%; /* #0066CC */
     --blue-light: 211 100% 95%; /* Light Blue Background */
     --red-accent: 356 84% 47%; /* #E30613 */
+    --gray-dark: 0 0% 20%; /* #333333 */
+    --gray-medium: 0 0% 40%; /* #666666 */
+    --gray-light: 0 0% 96%; /* #F5F5F5 */
+    --white: 0 0% 100%; /* #FFFFFF */
     
     /* Neutral Colors */
     --muted: 220 14% 96%;
@@ -322,20 +314,8 @@
   }
 }
 
-/* Professional Gradient Classes - Purple & Gold Theme */
+/* Professional Gradient Classes - Atradius Inspired */
 @layer utilities {
-  .gradient-purple {
-    background-image: linear-gradient(135deg, #3B2F7C 0%, #2B1F5C 100%);
-  }
-  
-  .gradient-gold {
-    background-image: linear-gradient(135deg, #F4D03F 0%, #FFD700 100%);
-  }
-  
-  .gradient-professional {
-    background-image: linear-gradient(135deg, #3B2F7C 0%, #2B1F5C 100%);
-  }
-  
   .gradient-blue {
     background-image: linear-gradient(135deg, hsl(var(--blue-primary)), hsl(var(--blue-secondary)));
   }
@@ -344,27 +324,15 @@
     background-image: linear-gradient(to bottom, hsl(var(--gray-light)), hsl(var(--secondary)));
   }
   
+  .gradient-professional {
+    background-image: linear-gradient(135deg, #003D7A 0%, #0066CC 100%);
+  }
+  
   .gradient-overlay {
     background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.3));
   }
   
   /* Text Classes */
-  .text-primary-purple {
-    color: #3B2F7C;
-  }
-  
-  .text-secondary-purple {
-    color: #2B1F5C;
-  }
-  
-  .text-primary-gold {
-    color: #F4D03F;
-  }
-  
-  .text-secondary-gold {
-    color: #FFD700;
-  }
-  
   .text-primary-blue {
     color: #003D7A;
   }
@@ -378,22 +346,6 @@
   }
   
   /* Background Classes */
-  .bg-primary-purple {
-    background-color: #3B2F7C;
-  }
-  
-  .bg-secondary-purple {
-    background-color: #2B1F5C;
-  }
-  
-  .bg-primary-gold {
-    background-color: #F4D03F;
-  }
-  
-  .bg-secondary-gold {
-    background-color: #FFD700;
-  }
-  
   .bg-primary-blue {
     background-color: #003D7A;
   }
@@ -408,7 +360,7 @@
   
   /* CTA Styles */
   .cta-gradient {
-    background: linear-gradient(135deg, #3B2F7C 0%, #2B1F5C 100%);
+    background: linear-gradient(135deg, #003D7A 0%, #0066CC 100%);
     color: white;
     padding: 80px 0;
   }

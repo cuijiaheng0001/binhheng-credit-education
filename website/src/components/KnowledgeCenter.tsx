@@ -50,7 +50,7 @@ export default function KnowledgeCenter() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-sm font-medium text-primary-purple mb-2">
+              <p className="text-sm font-medium text-primary-blue mb-2">
                 知识与研究
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -61,7 +61,7 @@ export default function KnowledgeCenter() {
               </p>
               <motion.a
                 href="/insights"
-                className="inline-flex items-center px-6 py-3 bg-primary-purple text-white font-semibold rounded-lg hover:bg-secondary-purple transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-secondary-blue transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -98,12 +98,12 @@ export default function KnowledgeCenter() {
                   {/* Content */}
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <Icon className="w-4 h-4 text-primary-purple" />
-                      <span className="text-sm font-medium text-primary-purple">
+                      <Icon className="w-4 h-4 text-primary-blue" />
+                      <span className="text-sm font-medium text-primary-blue">
                         {article.type}
                       </span>
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-primary-purple transition-colors">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-primary-blue transition-colors">
                       {article.title}
                     </h3>
                     <p className="text-sm text-gray-600 mb-2 line-clamp-2">
@@ -118,7 +118,7 @@ export default function KnowledgeCenter() {
 
                   {/* Arrow */}
                   <div className="flex items-center">
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary-purple transition-colors" />
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-primary-blue transition-colors" />
                   </div>
                 </motion.a>
               )

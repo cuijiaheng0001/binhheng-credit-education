@@ -93,8 +93,8 @@ export default function ContentCarousel() {
                 className={`
                   px-6 py-4 text-sm font-medium whitespace-nowrap transition-all duration-300
                   ${activeTab === index 
-                    ? 'text-primary-purple border-b-2 border-primary-purple' 
-                    : 'text-gray-600 hover:text-primary-purple'
+                    ? 'text-primary-blue border-b-2 border-primary-blue' 
+                    : 'text-gray-600 hover:text-primary-blue'
                   }
                 `}
               >
@@ -103,7 +103,7 @@ export default function ContentCarousel() {
             ))}
           </div>
           <motion.div
-            className="absolute bottom-0 h-0.5 bg-primary-purple"
+            className="absolute bottom-0 h-0.5 bg-primary-blue"
             initial={false}
             animate={{
               x: `${activeTab * 100}%`,
@@ -134,7 +134,7 @@ export default function ContentCarousel() {
             <ul className="space-y-3 mb-8">
               {currentContent.features.map((feature, index) => (
                 <li key={index} className="flex items-center text-gray-700">
-                  <div className="w-6 h-6 bg-primary-purple rounded-full flex items-center justify-center mr-3">
+                  <div className="w-6 h-6 bg-primary-blue rounded-full flex items-center justify-center mr-3">
                     <span className="text-white text-xs">✓</span>
                   </div>
                   {feature}
@@ -144,7 +144,7 @@ export default function ContentCarousel() {
 
             <motion.a
               href={currentContent.link}
-              className="inline-flex items-center px-6 py-3 bg-primary-purple text-white font-semibold rounded-lg hover:bg-secondary-purple transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-secondary-blue transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -174,14 +174,14 @@ export default function ContentCarousel() {
         <div className="flex justify-center gap-4 mt-8">
           <button
             onClick={() => setActiveTab((prev) => (prev - 1 + tabs.length) % tabs.length)}
-            className="p-3 border border-gray-300 rounded-lg hover:border-primary-purple hover:text-primary-purple transition-colors"
+            className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
             aria-label="Previous tab"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => setActiveTab((prev) => (prev + 1) % tabs.length)}
-            className="p-3 border border-gray-300 rounded-lg hover:border-primary-purple hover:text-primary-purple transition-colors"
+            className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
             aria-label="Next tab"
           >
             <ChevronRight className="w-5 h-5" />

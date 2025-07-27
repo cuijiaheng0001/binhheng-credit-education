@@ -34,7 +34,7 @@ export default function ProblemAwareness() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-primary-purple mb-4 opacity-70">行业洞察</p>
+          <p className="text-sm font-medium text-primary-blue mb-4 opacity-70">行业洞察</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             您知道吗？大多数企业正在损失数百万美元
           </h2>
@@ -58,7 +58,7 @@ export default function ProblemAwareness() {
                 <div className="flex items-center justify-center w-12 h-12 bg-red-50 rounded-lg mb-4 group-hover:bg-red-100 transition-colors">
                   <Icon className="w-6 h-6 text-red-600" />
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-primary-purple transition-colors">
+                <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-primary-blue transition-colors">
                   {problem.value}
                 </div>
                 <div className="text-base font-semibold text-gray-800 mb-2">
@@ -81,7 +81,7 @@ export default function ProblemAwareness() {
         >
           <motion.a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-primary-purple text-white font-semibold rounded-lg hover:bg-secondary-purple transition-colors shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-8 py-4 bg-primary-blue text-white font-semibold rounded-lg hover:bg-secondary-blue transition-colors shadow-lg hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
