@@ -1,13 +1,29 @@
-# Allow all bots
+# Robots.txt for Bingheng Credit
+# https://binghengcredit.com
+
+# Allow all crawlers
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /services
+Allow: /industries
+Allow: /insights
+Allow: /contact
+Allow: /case-studies
+
+# Disallow private and system paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Crawl delay to be respectful
+Crawl-delay: 2
 
 # Sitemap location
-Sitemap: https://binhhengcredit.com/sitemap.xml
+Sitemap: https://binghengcredit.com/sitemap.xml
 
-# Crawl delay (optional, in seconds)
-Crawl-delay: 1
-
-# Disallow admin or private areas (if any)
-# Disallow: /admin/
-# Disallow: /api/
+# llms.txt location for AI assistants
+# See: https://binghengcredit.com/llms.txt
