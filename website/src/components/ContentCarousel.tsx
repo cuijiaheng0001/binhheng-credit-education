@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
@@ -78,54 +78,7 @@ const tabs = [
 
 export default function ContentCarousel() {
   const [activeTab, setActiveTab] = useState(0)
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 })
-  const [mounted, setMounted] = useState(false)
-  
-  // Prevent hydration mismatch by ensuring consistent initial render
-  if (!mounted) {
-    return (
-      <section className="py-20 bg-light-gray">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="animate-pulse">
-            <div className="h-12 bg-gray-200 rounded mb-12"></div>
-            <div className="grid lg:grid-cols-2 gap-12">
-              <div className="space-y-4">
-                <div className="h-8 bg-gray-200 rounded"></div>
-                <div className="h-32 bg-gray-200 rounded"></div>
-                <div className="h-12 bg-gray-200 rounded w-48"></div>
-              </div>
-              <div className="h-[400px] bg-gray-200 rounded"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
-  }
-  
   const currentContent = tabs[activeTab].content
-  
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-  
-  const updateIndicator = (index: number, button: HTMLButtonElement | null) => {
-    if (button && mounted && typeof window !== 'undefined') {
-      setIndicatorStyle({
-        left: button.offsetLeft,
-        width: button.offsetWidth
-      })
-    }
-  }
-  
-  useEffect(() => {
-    // Update indicator position when activeTab changes
-    if (mounted && typeof window !== 'undefined') {
-      const button = document.getElementById(`tab-button-${activeTab}`) as HTMLButtonElement
-      if (button) {
-        updateIndicator(activeTab, button)
-      }
-    }
-  }, [activeTab, mounted])
 
   return (
     <section className="py-20 bg-light-gray">
@@ -137,11 +90,6 @@ export default function ContentCarousel() {
               <button
                 key={tab.id}
                 id={`tab-button-${index}`}
-                ref={(el) => {
-                  if (el && index === activeTab && mounted) {
-                    updateIndicator(index, el)
-                  }
-                }}
                 onClick={() => setActiveTab(index)}
                 className={`
                   px-8 py-4 text-sm font-semibold whitespace-nowrap transition-all duration-300
@@ -153,25 +101,14 @@ export default function ContentCarousel() {
                 `}
               >
                 {tab.title}
-                {activeTab === index && mounted && (
-                  <motion.span 
+                {activeTab === index && (
+                  <span 
                     className="absolute top-0 -bottom-2 left-0 -right-0 bg-blue-50 -z-10"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
                   />
                 )}
               </button>
             ))}
           </div>
-          {mounted && (
-            <motion.div
-              className="absolute bottom-0 h-0.5 bg-primary-blue"
-              initial={false}
-              animate={indicatorStyle}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            />
-          )}
         </div>
 
         {/* Content */}
