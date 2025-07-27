@@ -1,0 +1,172 @@
+{
+  "navigation": {
+    "about": "关于我们",
+    "services": "服务项目",
+    "process": "服务流程",
+    "industries": "行业聚焦",
+    "insights": "行业洞察",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "title": "国际债务回收，全球信任之选",
+    "subtitle": "专业的跨境债务回收服务，让您的资金安全回家",
+    "cta": "免费咨询",
+    "trustBadge": "15年行业经验",
+    "stats": {
+      "recovered": "已回收金额",
+      "successRate": "成功率",
+      "clients": "服务客户",
+      "countries": "覆盖国家"
+    }
+  },
+  "cta": {
+    "freeConsultation": "免费咨询",
+    "bookConsultation": "预约免费咨询",
+    "exploreSolutions": "探索我们的国内和国际债务追收解决方案",
+    "professionalService": "专业的B2B债务追收服务，成功率高达60%以上",
+    "noUpfrontFees": "无前期费用",
+    "response24h": "24小时响应",
+    "compliant100": "100%合规",
+    "readyToStart": "准备开始追回您的资金？",
+    "teamReady": "我们的专家团队随时准备为您提供定制化的债务追收方案",
+    "contactUs": "联系我们"
+  },
+  "problemAwareness": {
+    "title": "您是否面临这些挑战？",
+    "problems": {
+      "languageBarrier": {
+        "title": "语言和文化障碍",
+        "description": "与中国债务人沟通困难，文化差异导致谈判受阻"
+      },
+      "legalComplexity": {
+        "title": "法律体系复杂",
+        "description": "不熟悉中国法律法规，维权成本高昂"
+      },
+      "resourceLimitation": {
+        "title": "资源有限",
+        "description": "缺乏本地团队和资源，追讨效率低下"
+      },
+      "riskUncertainty": {
+        "title": "风险不确定",
+        "description": "难以评估回收可能性，决策缺乏依据"
+      }
+    }
+  },
+  "solutionOverview": {
+    "title": "专业的解决方案",
+    "subtitle": "我们如何帮助您成功回收跨境债务",
+    "features": {
+      "localExpertise": {
+        "title": "本土化团队",
+        "description": "中英双语专业团队，深谙两国商业文化"
+      },
+      "legalSupport": {
+        "title": "法律支持",
+        "description": "与顶级律所合作，确保合规高效"
+      },
+      "techDriven": {
+        "title": "技术驱动",
+        "description": "AI大数据分析，精准定位债务人资产"
+      },
+      "successBased": {
+        "title": "成功收费",
+        "description": "无前期费用，回收成功后收取佣金"
+      }
+    }
+  },
+  "process": {
+    "title": "服务流程",
+    "subtitle": "简单高效的债务回收流程",
+    "steps": {
+      "assessment": {
+        "title": "案件评估",
+        "description": "免费评估您的案件，制定回收策略"
+      },
+      "investigation": {
+        "title": "资产调查", 
+        "description": "运用多渠道调查债务人资产状况"
+      },
+      "negotiation": {
+        "title": "协商谈判",
+        "description": "专业团队与债务人进行有效沟通"
+      },
+      "recovery": {
+        "title": "资金回收",
+        "description": "通过法律或和解途径回收欠款"
+      }
+    }
+  },
+  "industries": {
+    "title": "行业聚焦",
+    "subtitle": "深耕细分领域，提供专业化服务",
+    "sectors": {
+      "education": {
+        "title": "教育行业",
+        "description": "留学生学费、住宿费等教育相关债务回收"
+      },
+      "trade": {
+        "title": "国际贸易", 
+        "description": "进出口贸易欠款、信用证纠纷处理"
+      },
+      "technology": {
+        "title": "科技行业",
+        "description": "软件服务费、技术许可费等债务追讨"
+      },
+      "manufacturing": {
+        "title": "制造业",
+        "description": "供应链欠款、设备款项回收"
+      }
+    }
+  },
+  "trust": {
+    "title": "为什么选择我们",
+    "reasons": {
+      "experience": {
+        "title": "丰富经验",
+        "description": "15年跨境债务回收经验，成功案例超过5000起"
+      },
+      "network": {
+        "title": "全球网络",
+        "description": "覆盖50+国家的专业合作伙伴网络"
+      },
+      "compliance": {
+        "title": "合规运营",
+        "description": "严格遵守中美两国法律法规"
+      },
+      "technology": {
+        "title": "技术领先",
+        "description": "AI驱动的债务人定位和资产分析系统"
+      }
+    }
+  },
+  "footer": {
+    "company": "公司信息",
+    "services": "服务项目",
+    "resources": "资源中心",
+    "legal": "法律信息",
+    "companyLinks": {
+      "about": "关于我们",
+      "team": "专业团队",
+      "careers": "加入我们",
+      "contact": "联系方式"
+    },
+    "serviceLinks": {
+      "assessment": "债务评估",
+      "recovery": "债务回收",
+      "consulting": "咨询服务",
+      "legal": "法律支持"
+    },
+    "resourceLinks": {
+      "insights": "行业洞察",
+      "cases": "成功案例",
+      "faq": "常见问题",
+      "guides": "操作指南"
+    },
+    "legalLinks": {
+      "privacy": "隐私政策",
+      "terms": "服务条款",
+      "compliance": "合规声明"
+    },
+    "copyright": "© 2024 冰恒信用. 保留所有权利。"
+  }
+}

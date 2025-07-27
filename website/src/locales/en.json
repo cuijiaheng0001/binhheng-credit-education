@@ -1,0 +1,172 @@
+{
+  "navigation": {
+    "about": "About",
+    "services": "Services",
+    "process": "Process",
+    "industries": "Industries",
+    "insights": "Insights",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Global Debt Recovery, Trusted Worldwide",
+    "subtitle": "Professional cross-border debt collection services to bring your funds home safely",
+    "cta": "Free Consultation",
+    "trustBadge": "15 Years Experience",
+    "stats": {
+      "recovered": "Amount Recovered",
+      "successRate": "Success Rate",
+      "clients": "Clients Served",
+      "countries": "Countries Covered"
+    }
+  },
+  "cta": {
+    "freeConsultation": "Free Consultation",
+    "bookConsultation": "Book Free Consultation",
+    "exploreSolutions": "Explore Our Domestic and International Debt Collection Solutions",
+    "professionalService": "Professional B2B debt collection with over 60% success rate",
+    "noUpfrontFees": "No Upfront Fees",
+    "response24h": "24-Hour Response",
+    "compliant100": "100% Compliant",
+    "readyToStart": "Ready to Recover Your Funds?",
+    "teamReady": "Our expert team is ready to provide customized debt recovery solutions",
+    "contactUs": "Contact Us"
+  },
+  "problemAwareness": {
+    "title": "Are You Facing These Challenges?",
+    "problems": {
+      "languageBarrier": {
+        "title": "Language and Cultural Barriers",
+        "description": "Difficulty communicating with Chinese debtors, cultural differences hindering negotiations"
+      },
+      "legalComplexity": {
+        "title": "Complex Legal Systems",
+        "description": "Unfamiliar with Chinese laws and regulations, high cost of legal action"
+      },
+      "resourceLimitation": {
+        "title": "Limited Resources",
+        "description": "Lack of local teams and resources, inefficient collection processes"
+      },
+      "riskUncertainty": {
+        "title": "Risk Uncertainty",
+        "description": "Difficult to assess recovery likelihood, lack of decision-making basis"
+      }
+    }
+  },
+  "solutionOverview": {
+    "title": "Professional Solutions",
+    "subtitle": "How We Help You Successfully Recover Cross-Border Debts",
+    "features": {
+      "localExpertise": {
+        "title": "Local Team",
+        "description": "Bilingual professionals deeply familiar with both business cultures"
+      },
+      "legalSupport": {
+        "title": "Legal Support",
+        "description": "Partnership with top law firms ensuring compliance and efficiency"
+      },
+      "techDriven": {
+        "title": "Technology Driven",
+        "description": "AI and big data analysis for precise debtor asset location"
+      },
+      "successBased": {
+        "title": "Success-Based Fees",
+        "description": "No upfront fees, commission only upon successful recovery"
+      }
+    }
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "Simple and Efficient Debt Recovery Process",
+    "steps": {
+      "assessment": {
+        "title": "Case Assessment",
+        "description": "Free evaluation of your case and recovery strategy development"
+      },
+      "investigation": {
+        "title": "Asset Investigation",
+        "description": "Multi-channel investigation of debtor's asset status"
+      },
+      "negotiation": {
+        "title": "Negotiation",
+        "description": "Professional team conducts effective communication with debtors"
+      },
+      "recovery": {
+        "title": "Fund Recovery",
+        "description": "Recover outstanding payments through legal or settlement channels"
+      }
+    }
+  },
+  "industries": {
+    "title": "Industry Focus",
+    "subtitle": "Specialized Services for Key Sectors",
+    "sectors": {
+      "education": {
+        "title": "Education",
+        "description": "Student tuition, accommodation fees, and education-related debt recovery"
+      },
+      "trade": {
+        "title": "International Trade",
+        "description": "Import/export trade receivables and letter of credit dispute resolution"
+      },
+      "technology": {
+        "title": "Technology",
+        "description": "Software service fees, technology licensing fee collection"
+      },
+      "manufacturing": {
+        "title": "Manufacturing",
+        "description": "Supply chain receivables and equipment payment recovery"
+      }
+    }
+  },
+  "trust": {
+    "title": "Why Choose Us",
+    "reasons": {
+      "experience": {
+        "title": "Rich Experience",
+        "description": "15 years of cross-border debt recovery experience with over 5,000 successful cases"
+      },
+      "network": {
+        "title": "Global Network",
+        "description": "Professional partner network covering 50+ countries"
+      },
+      "compliance": {
+        "title": "Compliant Operations",
+        "description": "Strict adherence to laws and regulations in both China and the US"
+      },
+      "technology": {
+        "title": "Technology Leadership",
+        "description": "AI-driven debtor location and asset analysis system"
+      }
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "services": "Services",
+    "resources": "Resources",
+    "legal": "Legal",
+    "companyLinks": {
+      "about": "About Us",
+      "team": "Our Team",
+      "careers": "Careers",
+      "contact": "Contact"
+    },
+    "serviceLinks": {
+      "assessment": "Debt Assessment",
+      "recovery": "Debt Recovery",
+      "consulting": "Consulting",
+      "legal": "Legal Support"
+    },
+    "resourceLinks": {
+      "insights": "Insights",
+      "cases": "Success Stories",
+      "faq": "FAQ",
+      "guides": "Guides"
+    },
+    "legalLinks": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "compliance": "Compliance"
+    },
+    "copyright": "© 2024 Bingheng Credit. All rights reserved."
+  }
+}

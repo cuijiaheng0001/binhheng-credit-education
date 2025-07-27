@@ -52,22 +52,35 @@ export const metadata: Metadata = {
   },
 };
 
-import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
-import CookieBanner from '@/components/CookieBanner'
-import WhatsAppButton from '@/components/WhatsAppButton'
+import { headers } from 'next/headers'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
-import LoadingScreen from '@/components/LoadingScreen'
-import AOSInit from '@/components/AOSInit'
+import ClientLayout from './ClientLayout'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { i18n, Locale } from '@/i18n/config'
 
-export default function RootLayout({
+async function getLocaleFromHeaders(): Promise<Locale> {
+  const headersList = await headers()
+  const acceptLanguage = headersList.get('accept-language') || ''
+  const languages = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim())
+  
+  for (const lang of languages) {
+    if (lang.startsWith('zh')) return 'zh'
+    if (lang.startsWith('en')) return 'en'
+  }
+  
+  return i18n.defaultLocale
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Root layout component - v2
+  const locale = await getLocaleFromHeaders()
+  const dictionary = await getDictionary(locale)
+  
   return (
-    <html lang="en" className="smooth-scroll">
+    <html lang={locale} className="smooth-scroll">
       <head>
         <Script id="schema-org" type="application/ld+json">
           {JSON.stringify({
@@ -93,13 +106,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"} />
-        <LoadingScreen />
-        <AOSInit />
-        <Navigation />
-        {children}
-        <Footer />
-        <WhatsAppButton />
-        <CookieBanner />
+        <ClientLayout initialLocale={locale} initialDictionary={dictionary}>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );

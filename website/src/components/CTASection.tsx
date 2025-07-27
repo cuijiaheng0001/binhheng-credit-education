@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { useLanguage } from '@/i18n/client'
 
 interface CTASectionProps {
   label?: string
@@ -25,6 +26,7 @@ export default function CTASection({
 }: CTASectionProps = {}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const { dictionary } = useLanguage()
 
   const bgStyles = {
     gradient: 'cta-gradient',
@@ -108,11 +110,11 @@ export default function CTASection({
               transition={{ duration: 0.6, delay: 0.5 }}
               className={`mt-12 flex flex-wrap justify-center items-center gap-8 text-sm ${variant === 'gradient' ? 'text-white/70' : 'text-gray-600'}`}
             >
-              <div>无前期费用</div>
+              <div>{dictionary.cta.noUpfrontFees}</div>
               <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-              <div>24小时响应</div>
+              <div>{dictionary.cta.response24h}</div>
               <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-              <div>100%合规</div>
+              <div>{dictionary.cta.compliant100}</div>
             </motion.div>
           )}
         </motion.div>

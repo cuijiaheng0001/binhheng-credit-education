@@ -6,15 +6,8 @@ import { Menu, X, ChevronDown, Shield } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-
-const navItems = [
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Process', href: '/process' },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Insights', href: '/insights' },
-  { label: 'Contact', href: '/contact' },
-]
+import { useLanguage } from '@/i18n/client'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -22,6 +15,16 @@ export default function Navigation() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
+  const { dictionary } = useLanguage()
+  
+  const navItems = [
+    { label: dictionary.navigation.about, href: '/about' },
+    { label: dictionary.navigation.services, href: '/services' },
+    { label: dictionary.navigation.process, href: '/process' },
+    { label: dictionary.navigation.industries, href: '/industries' },
+    { label: dictionary.navigation.insights, href: '/insights' },
+    { label: dictionary.navigation.contact, href: '/contact' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,22 +108,27 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:block"
-          >
-            <button className={cn(
-              "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
-              isScrolled || !isHomePage
-                ? "bg-primary-blue text-white hover:bg-secondary-blue"
-                : "bg-white text-primary-blue hover:bg-gray-100"
-            )}>
-              免费评估
-            </button>
-          </motion.div>
+          {/* Right side actions */}
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+            
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <button className={cn(
+                "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
+                isScrolled || !isHomePage
+                  ? "bg-primary-blue text-white hover:bg-secondary-blue"
+                  : "bg-white text-primary-blue hover:bg-gray-100"
+              )}>
+                {dictionary.cta.freeConsultation}
+              </button>
+            </motion.div>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
