@@ -68,7 +68,7 @@ export default function ServiceShowcase() {
   })
 
   return (
-    <section ref={containerRef} className="py-32 bg-white overflow-hidden">
+    <section id="services" ref={containerRef} className="py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         {/* Section Header - Asymmetric */}
         <motion.div

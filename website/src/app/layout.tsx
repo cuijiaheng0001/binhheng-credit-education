@@ -90,7 +90,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-XXXXXXXXXX" />
+        <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"} />
         <LoadingScreen />
         <AOSInit />
         <Navigation />
