@@ -31,10 +31,10 @@ export default function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100"
-          : "bg-gradient-to-b from-black/50 to-transparent"
+          ? "bg-white shadow-md border-b border-gray-200"
+          : "bg-gradient-to-b from-black/60 to-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -48,10 +48,10 @@ export default function Navigation() {
           >
             <a href="/" className="flex items-center">
               <span className={cn(
-                "font-display text-2xl tracking-tight transition-colors duration-300",
-                isScrolled ? "text-gray-900" : "text-white"
+                "font-sans text-2xl font-semibold tracking-tight transition-colors duration-300",
+                isScrolled ? "text-primary-blue" : "text-white"
               )}>
-                BingHeng
+                Binhheng Credit
               </span>
             </a>
           </motion.div>
@@ -71,10 +71,10 @@ export default function Navigation() {
                 <a
                   href={item.href}
                   className={cn(
-                    "text-sm font-light tracking-wider transition-all duration-300",
+                    "text-sm font-medium transition-all duration-300",
                     isScrolled 
-                      ? "text-gray-700 hover:text-gray-900" 
-                      : "text-white/80 hover:text-white"
+                      ? "text-gray-600 hover:text-primary-blue" 
+                      : "text-white/90 hover:text-white"
                   )}
                 >
                   {item.label}
@@ -98,12 +98,12 @@ export default function Navigation() {
             className="hidden lg:block"
           >
             <button className={cn(
-              "px-8 py-3 text-sm font-light tracking-wider transition-all duration-300",
+              "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
               isScrolled
-                ? "border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white"
-                : "border border-white/80 text-white hover:bg-white hover:text-gray-900"
+                ? "bg-primary-blue text-white hover:bg-secondary-blue"
+                : "bg-white text-primary-blue hover:bg-gray-100"
             )}>
-              Get Started
+              免费评估
             </button>
           </motion.div>
 

@@ -86,8 +86,8 @@ export default function HeroCarousel() {
             className="object-cover"
             quality={100}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
         </motion.div>
       </AnimatePresence>
 
@@ -111,10 +111,10 @@ export default function HeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="mb-8"
+                  className="mb-6"
                 >
-                  <span className="text-white/60 font-light text-xs tracking-[0.4em] uppercase">
-                    International • Debt • Recovery
+                  <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 font-medium text-sm">
+                    跨境债务追收专家
                   </span>
                 </motion.div>
 
@@ -124,7 +124,7 @@ export default function HeroCarousel() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="font-display text-4xl lg:text-6xl text-white mb-8 leading-[1.1] font-light"
+                  className="font-sans text-4xl lg:text-6xl text-white mb-6 leading-[1.1] font-bold"
                 >
                   {slides[currentSlide].title.split(' ').map((word, index) => (
                     <motion.span
@@ -158,24 +158,18 @@ export default function HeroCarousel() {
                   className="flex flex-col sm:flex-row gap-4"
                 >
                   <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group relative px-12 py-4 bg-white text-gray-900 font-light tracking-widest text-sm uppercase overflow-hidden transition-all duration-700"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 bg-white text-primary-blue font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
                   >
-                    <span className="relative z-10">Discover Hidden Assets</span>
-                    <motion.div
-                      className="absolute inset-0 bg-gray-100"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: 0 }}
-                      transition={{ duration: 0.5, ease: 'easeInOut' }}
-                    />
+                    立即获取免费评估
                   </motion.button>
                   <motion.button 
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="px-12 py-4 text-white font-light tracking-widest text-sm uppercase border border-white/40 hover:border-white/80 transition-all duration-700 backdrop-blur-sm"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-8 py-4 text-white font-semibold border-2 border-white rounded-lg hover:bg-white hover:text-primary-blue transition-all duration-300"
                   >
-                    Learn More
+                    了解更多
                   </motion.button>
                 </motion.div>
               </motion.div>

@@ -26,7 +26,7 @@ const problems = [
 
 export default function ProblemAwareness() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,10 +34,11 @@ export default function ProblemAwareness() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+          <p className="text-sm font-medium text-accent-red mb-4">问题揭示</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             为什么大多数公司失败
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             揭示跨境债务追收中被忽视的真相
           </p>
         </motion.div>
@@ -52,18 +53,18 @@ export default function ProblemAwareness() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 group"
               >
-                <div className="flex items-center justify-center w-12 h-12 bg-red-50 rounded-lg mb-6">
-                  <Icon className="w-6 h-6 text-red-600" />
+                <div className="flex items-center justify-center w-14 h-14 bg-red-50 rounded-xl mb-6 group-hover:bg-red-100 transition-colors">
+                  <Icon className="w-7 h-7 text-red-600" />
                 </div>
-                <div className="text-3xl font-semibold text-gray-900 mb-2">
+                <div className="text-4xl font-bold text-gray-900 mb-3 group-hover:text-primary-blue transition-colors">
                   {problem.value}
                 </div>
-                <div className="text-lg font-medium text-gray-800 mb-3">
+                <div className="text-lg font-semibold text-gray-800 mb-3">
                   {problem.label}
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {problem.description}
                 </p>
               </motion.div>
