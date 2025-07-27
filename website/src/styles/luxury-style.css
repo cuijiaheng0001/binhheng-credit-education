@@ -1,0 +1,341 @@
+/* St. Regis Inspired Luxury Design System */
+
+/* Art Deco Patterns */
+.art-deco-border {
+  position: relative;
+  border: 1px solid #D4AF37;
+}
+
+.art-deco-border::before,
+.art-deco-border::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #D4AF37;
+}
+
+.art-deco-border::before {
+  top: -5px;
+  left: -5px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.art-deco-border::after {
+  bottom: -5px;
+  right: -5px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Marble Texture Background */
+.marble-texture {
+  position: relative;
+  background: linear-gradient(45deg, #f5f5f0 25%, transparent 25%, transparent 75%, #f5f5f0 75%, #f5f5f0),
+              linear-gradient(-45deg, #f5f5f0 25%, transparent 25%, transparent 75%, #f5f5f0 75%, #f5f5f0);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.03;
+}
+
+/* Luxury Card Styles */
+.luxury-card {
+  background: linear-gradient(135deg, #FFFFF0 0%, #F8F8F3 100%);
+  border: 1px solid #D4AF3730;
+  box-shadow: 0 10px 40px rgba(10, 61, 46, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* Gold Foil Effect */
+.gold-foil {
+  background: linear-gradient(
+    -72deg,
+    #D4AF37 0%,
+    #F4E4BC 20%,
+    #D4AF37 40%,
+    #F4E4BC 60%,
+    #D4AF37 80%,
+    #F4E4BC 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer 4s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+@keyframes gold-shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Elegant Section Dividers */
+.section-divider {
+  text-align: center;
+  margin: 4rem 0;
+  position: relative;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.section-divider-ornament {
+  display: inline-block;
+  background: white;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.section-divider-ornament::before {
+  content: '◆';
+  color: #D4AF37;
+  font-size: 1.5rem;
+}
+
+/* Luxury Button Styles */
+.btn-luxury {
+  background: linear-gradient(135deg, #0A3D2E 0%, #0A4D3C 100%);
+  color: #FFFFF0;
+  border: 1px solid #D4AF37;
+  padding: 1rem 3rem;
+  font-family: 'Didot', 'Bodoni MT', serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.btn-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-luxury:hover::before {
+  left: 100%;
+}
+
+.btn-luxury:hover {
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Page Chapter Styles */
+.chapter-header {
+  text-align: center;
+  margin: 6rem 0 4rem;
+}
+
+.chapter-number {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  color: #D4AF37;
+  margin-bottom: 1rem;
+}
+
+.chapter-title {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 4rem;
+  font-weight: 300;
+  color: #0A3D2E;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+/* Testimonial Signature */
+.signature-container {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+.signature {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: #0A3D2E;
+  opacity: 0.7;
+}
+
+/* Luxury Timeline */
+.luxury-timeline {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.luxury-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #D4AF37;
+  opacity: 0.3;
+}
+
+.timeline-event {
+  position: relative;
+  padding: 3rem 0;
+}
+
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #FFFFF0;
+  border: 2px solid #D4AF37;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Roman Numerals for Stats */
+.roman-numeral {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 3rem;
+  color: #D4AF37;
+  letter-spacing: 0.1em;
+}
+
+/* Wax Seal Effect */
+.wax-seal {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #E74C3C, #C0392B);
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.3),
+    0 3px 10px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Didot', serif;
+  font-size: 2rem;
+  color: #FFFFF0;
+  font-weight: bold;
+}
+
+/* Elegant Hover Effects */
+.elegant-hover {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elegant-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(10, 61, 46, 0.15);
+}
+
+/* Full Page Sections */
+.full-page-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ornamental Corners */
+.ornamental-frame {
+  position: relative;
+  padding: 3rem;
+}
+
+.ornamental-frame::before,
+.ornamental-frame::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #D4AF37;
+}
+
+.ornamental-frame::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.ornamental-frame::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* Luxury Loading Animation */
+@keyframes luxury-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.luxury-fade-in {
+  animation: luxury-fade 1.2s ease-out forwards;
+}
+
+/* Spotlight Effect */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+  animation: spotlight-move 20s infinite;
+}
+
+@keyframes spotlight-move {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  33% {
+    transform: translate(-30%, -30%);
+  }
+  66% {
+    transform: translate(-70%, -70%);
+  }
+}
