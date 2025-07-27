@@ -85,7 +85,7 @@ export default function FAQ() {
   const { locale } = useLanguage()
   
   const faqs = faqData[locale] || faqData['zh']
-  const categories = ['all', ...Array.from(new Set(faqs.map(faq => faq.category).filter(Boolean)))]
+  const categories = ['all', ...Array.from(new Set(faqs.map(faq => faq.category).filter(Boolean)))] as string[]
   
   const filteredFAQs = activeCategory === 'all' 
     ? faqs 
