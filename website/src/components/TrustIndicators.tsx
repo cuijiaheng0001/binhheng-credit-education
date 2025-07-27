@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 const testimonials = [
   {
     company: 'University Housing Corp',
-    quote: '在Binhheng的帮助下，我们追回了超过200万美元的留学生欠款，这些债务我们原本已经准备注销。',
+    quote: '在Bingheng的帮助下，我们追回了超过200万美元的留学生欠款，这些债务我们原本已经准备注销。',
     author: 'Sarah Johnson',
     role: 'CFO'
   },

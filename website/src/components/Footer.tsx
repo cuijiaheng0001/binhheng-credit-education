@@ -43,14 +43,14 @@ export default function Footer() {
             <div className="mb-6">
               <Image
                 src="/logo-white.png"
-                alt="Binhheng Credit"
+                alt="Bingheng Credit"
                 width={160}
                 height={50}
                 className="h-8 w-auto"
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Binhheng Credit 专注于为美国企业追回因债务人返回中国而无法回收的债务。
+              Bingheng Credit 专注于为美国企业追回因债务人返回中国而无法回收的债务。
             </p>
             <div className="flex gap-4">
               <a
@@ -145,7 +145,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <div className="text-gray-400 text-sm text-center md:text-left">
-              © 2025 Binhheng Credit. All rights reserved. 沪ICP备2025000001号-1
+              © 2025 Bingheng Credit. All rights reserved. 沪ICP备2025000001号-1
             </div>
 
             {/* Legal Links */}

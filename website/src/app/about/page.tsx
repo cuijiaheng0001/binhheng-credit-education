@@ -102,7 +102,7 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
-              Binhheng Credit 的独特优势
+              Bingheng Credit 的独特优势
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               我们不是传统的收债公司，而是中美跨境债务追收的专业机构
@@ -178,7 +178,7 @@ export default function AboutPage() {
               </div>
               <div className="text-center">
                 <div className="text-5xl font-bold mb-4">60%+</div>
-                <p className="text-xl mb-2">Binhheng Credit 成功率</p>
+                <p className="text-xl mb-2">Bingheng Credit 成功率</p>
                 <p className="text-blue-100">
                   专业团队 + 本地资源 + 合规操作 = 高效追收
                 </p>

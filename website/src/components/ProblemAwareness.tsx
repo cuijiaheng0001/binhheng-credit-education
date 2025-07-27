@@ -14,7 +14,7 @@ const problems = [
     icon: TrendingDown,
     value: '$4.5亿+',
     label: '每年被错误注销的中国债务人债务',
-    description: 'Binhheng Credit 是唯一专注于此类债务的专业催收公司'
+    description: 'Bingheng Credit 是唯一专注于此类债务的专业催收公司'
   },
   {
     icon: Clock,
