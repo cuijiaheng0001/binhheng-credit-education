@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
@@ -78,19 +78,30 @@ const tabs = [
 
 export default function ContentCarousel() {
   const [activeTab, setActiveTab] = useState(0)
-  const [tabRefs, setTabRefs] = useState<(HTMLButtonElement | null)[]>([])
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 })
+  const [mounted, setMounted] = useState(false)
   const currentContent = tabs[activeTab].content
   
-  // Calculate indicator position and width
-  const getIndicatorStyle = () => {
-    const activeButton = tabRefs[activeTab]
-    if (!activeButton) return { left: 0, width: 0 }
-    
-    return {
-      left: activeButton.offsetLeft,
-      width: activeButton.offsetWidth
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+  
+  const updateIndicator = (index: number, button: HTMLButtonElement | null) => {
+    if (button && mounted) {
+      setIndicatorStyle({
+        left: button.offsetLeft,
+        width: button.offsetWidth
+      })
     }
   }
+  
+  useEffect(() => {
+    // Update indicator position when activeTab changes
+    const button = document.getElementById(`tab-button-${activeTab}`) as HTMLButtonElement
+    if (button && mounted) {
+      updateIndicator(activeTab, button)
+    }
+  }, [activeTab, mounted])
 
   return (
     <section className="py-20 bg-light-gray">
@@ -101,10 +112,11 @@ export default function ContentCarousel() {
             {tabs.map((tab, index) => (
               <button
                 key={tab.id}
+                id={`tab-button-${index}`}
                 ref={(el) => {
-                  const newRefs = [...tabRefs]
-                  newRefs[index] = el
-                  setTabRefs(newRefs)
+                  if (el && index === activeTab && mounted) {
+                    updateIndicator(index, el)
+                  }
                 }}
                 onClick={() => setActiveTab(index)}
                 className={`
@@ -127,12 +139,14 @@ export default function ContentCarousel() {
               </button>
             ))}
           </div>
-          <motion.div
-            className="absolute bottom-0 h-0.5 bg-primary-blue"
-            initial={false}
-            animate={getIndicatorStyle()}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-          />
+          {mounted && (
+            <motion.div
+              className="absolute bottom-0 h-0.5 bg-primary-blue"
+              initial={false}
+              animate={indicatorStyle}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            />
+          )}
         </div>
 
         {/* Content */}
