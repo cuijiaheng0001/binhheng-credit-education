@@ -57,6 +57,7 @@ import CookieBanner from '@/components/CookieBanner'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import LoadingScreen from '@/components/LoadingScreen'
+import AOSInit from '@/components/AOSInit'
 
 export default function RootLayout({
   children,
@@ -91,6 +92,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <GoogleAnalytics GA_MEASUREMENT_ID="G-XXXXXXXXXX" />
         <LoadingScreen />
+        <AOSInit />
         <Navigation />
         {children}
         <WhatsAppButton />

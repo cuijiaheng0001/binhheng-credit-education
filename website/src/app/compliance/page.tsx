@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Shield, FileText, Lock, Globe, CheckCircle, AlertCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import '../../../styles/content-pages.css'
 
 export const metadata: Metadata = {
   title: 'Compliance & Legal - Binhheng Credit',
@@ -77,14 +78,17 @@ export default function CompliancePage() {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-primary-950 to-primary-900 text-white">
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5" />
+      <section className="relative py-32 hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 pattern-grid opacity-5" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-light mb-6">
-              Compliance & <span className="font-normal">Legal Framework</span>
+          <div className="text-center max-w-4xl mx-auto" data-aos="fade-up">
+            <div className="inline-block mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+              <span className="text-sm font-medium tracking-wider uppercase">Legal Excellence</span>
+            </div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light mb-8 leading-tight">
+              Compliance & <span className="font-medium text-gold">Legal Framework</span>
             </h1>
-            <p className="text-xl text-primary-100">
+            <p className="text-xl sm:text-2xl text-primary-100 leading-relaxed max-w-3xl mx-auto">
               Operating with the highest standards of regulatory compliance across all jurisdictions
             </p>
           </div>
@@ -92,13 +96,15 @@ export default function CompliancePage() {
       </section>
 
       {/* Compliance Frameworks */}
-      <section className="py-24">
+      <section className="py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Multi-Jurisdictional <span className="font-normal gradient-text">Compliance</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-20" data-aos="fade-up">
+            <div className="section-header">
+              <h2 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6">
+                Multi-Jurisdictional <span className="font-medium gradient-text">Compliance</span>
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We maintain strict adherence to debt collection and data privacy laws in every market we operate
             </p>
           </div>
@@ -108,14 +114,14 @@ export default function CompliancePage() {
               const Icon = framework.icon
               
               return (
-                <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div key={index} className="feature-card" data-aos="fade-up" data-aos-delay={index * 150}>
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-primary-600" />
+                    <div className="icon-box flex-shrink-0">
+                      <Icon className="w-6 h-6 text-gray-700" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900">{framework.title}</h3>
-                      <p className="text-sm text-primary-600">{framework.region}</p>
+                      <h3 className="text-2xl font-semibold text-gray-900">{framework.title}</h3>
+                      <p className="text-sm font-medium text-gold">{framework.region}</p>
                     </div>
                   </div>
                   
@@ -137,22 +143,24 @@ export default function CompliancePage() {
       </section>
 
       {/* Security Measures */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Enterprise-Grade <span className="font-normal gradient-text">Security</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-20" data-aos="fade-up">
+            <div className="section-header">
+              <h2 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6">
+                Enterprise-Grade <span className="font-medium gradient-text">Security</span>
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Your data is protected by multiple layers of security measures
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {securityMeasures.map((measure, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{measure.title}</h3>
-                <p className="text-gray-600">{measure.description}</p>
+              <div key={index} className="content-card" data-aos="fade-up" data-aos-delay={index * 100}>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{measure.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{measure.description}</p>
               </div>
             ))}
           </div>
@@ -160,9 +168,9 @@ export default function CompliancePage() {
       </section>
 
       {/* Certifications */}
-      <section className="py-24">
+      <section className="py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-3xl p-12">
+          <div className="cta-section p-12" data-aos="fade-up">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-light text-gray-900 mb-6">
@@ -227,7 +235,7 @@ export default function CompliancePage() {
 
           <div className="space-y-8">
             {/* FAQ 1 */}
-            <div className="bg-gray-50 rounded-xl p-8">
+            <div className="faq-item" data-aos="fade-up">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 How do you ensure cross-border debt collection is legal and compliant?
               </h3>
@@ -241,7 +249,7 @@ export default function CompliancePage() {
             </div>
 
             {/* FAQ 2 */}
-            <div className="bg-gray-50 rounded-xl p-8">
+            <div className="faq-item" data-aos="fade-up" data-aos-delay="100">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 Will debt collection attempts damage our reputation in China?
               </h3>
@@ -255,7 +263,7 @@ export default function CompliancePage() {
             </div>
 
             {/* FAQ 3 */}
-            <div className="bg-gray-50 rounded-xl p-8">
+            <div className="faq-item" data-aos="fade-up" data-aos-delay="200">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 How is debtor privacy protected during the recovery process?
               </h3>
@@ -269,7 +277,7 @@ export default function CompliancePage() {
             </div>
 
             {/* FAQ 4 */}
-            <div className="bg-gray-50 rounded-xl p-8">
+            <div className="faq-item" data-aos="fade-up" data-aos-delay="300">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 What happens if a debtor refuses to pay?
               </h3>
@@ -283,7 +291,7 @@ export default function CompliancePage() {
             </div>
 
             {/* FAQ 5 */}
-            <div className="bg-gray-50 rounded-xl p-8">
+            <div className="faq-item" data-aos="fade-up" data-aos-delay="400">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 How do you handle currency conversion and international transfers?
               </h3>
@@ -300,19 +308,23 @@ export default function CompliancePage() {
       </section>
 
       {/* Download Section */}
-      <section className="py-24 bg-primary-950 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FileText className="w-16 h-16 mx-auto mb-6 text-accent-400" />
-          <h2 className="text-3xl font-light mb-4">
-            Download Our <span className="font-normal">Compliance Guide</span>
-          </h2>
-          <p className="text-xl text-primary-200 mb-8">
-            Get detailed information about our compliance framework and security measures
-          </p>
-          <button className="inline-flex items-center gap-2 px-8 py-4 bg-accent-500 text-white rounded-lg font-medium hover:bg-accent-600 transition-colors">
-            <FileText className="w-5 h-5" />
-            Download PDF Guide
-          </button>
+      <section className="py-32">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="cta-section text-center text-white" data-aos="fade-up">
+            <div className="icon-box mx-auto mb-8 w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm">
+              <FileText className="w-10 h-10 text-white" />
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-light mb-6">
+              Download Our <span className="font-medium">Compliance Guide</span>
+            </h2>
+            <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
+              Get detailed information about our compliance framework and security measures
+            </p>
+            <button className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-white rounded-lg font-semibold hover:bg-gold-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              <FileText className="w-5 h-5" />
+              Download PDF Guide
+            </button>
+          </div>
         </div>
       </section>
     </main>
