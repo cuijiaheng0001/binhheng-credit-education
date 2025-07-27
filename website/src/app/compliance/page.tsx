@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
-import { Shield, FileText, Lock, Globe, CheckCircle, AlertCircle } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { Shield, FileText, Lock, Globe, CheckCircle, AlertCircle, Scale, Fingerprint, Eye, Server, Key, ShieldCheck } from 'lucide-react'
 import '@/styles/content-pages.css'
 
 export const metadata: Metadata = {
@@ -8,321 +7,290 @@ export const metadata: Metadata = {
   description: 'Our commitment to regulatory compliance across US and Chinese jurisdictions. FDCPA, PIPL, and PDPO compliant operations.',
 }
 
-const complianceFrameworks = [
-  {
-    icon: Shield,
-    title: 'FDCPA Compliance',
-    region: 'United States',
-    description: 'Fair Debt Collection Practices Act',
-    details: [
-      'No harassment or abuse of debtors',
-      'Truthful representation in all communications',
-      'Proper identification in every contact',
-      'Respect for consumer rights and privacy',
-    ],
-  },
-  {
-    icon: Lock,
-    title: 'PIPL Compliance',
-    region: 'China',
-    description: 'Personal Information Protection Law',
-    details: [
-      'Explicit consent for data processing',
-      'Minimal data collection principle',
-      'Cross-border data transfer compliance',
-      'Individual rights protection',
-    ],
-  },
-  {
-    icon: Globe,
-    title: 'PDPO Compliance',
-    region: 'Hong Kong',
-    description: 'Personal Data Privacy Ordinance',
-    details: [
-      'Lawful and fair collection of personal data',
-      'Data accuracy and retention limits',
-      'Data security measures',
-      'Transparency in data use',
-    ],
-  },
-]
-
-const securityMeasures = [
-  {
-    title: 'Data Encryption',
-    description: 'SHA-256 encryption for all sensitive data at rest and in transit',
-  },
-  {
-    title: 'Access Control',
-    description: 'Role-based access control with multi-factor authentication',
-  },
-  {
-    title: 'Audit Trails',
-    description: 'Comprehensive logging of all data access and modifications',
-  },
-  {
-    title: 'Data Minimization',
-    description: 'Collection of only essential information for debt recovery',
-  },
-  {
-    title: 'Regular Audits',
-    description: 'Quarterly security audits and compliance reviews',
-  },
-  {
-    title: 'Incident Response',
-    description: '24-hour breach notification and remediation protocols',
-  },
-]
-
 export default function CompliancePage() {
   return (
-    <main className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative py-32 hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 pattern-grid opacity-5" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto" data-aos="fade-up">
-            <div className="inline-block mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
-              <span className="text-sm font-medium tracking-wider uppercase">Legal Excellence</span>
+    <main className="min-h-screen">
+      {/* Hero Section - Split Screen Design */}
+      <section className="relative h-screen overflow-hidden">
+        <div className="absolute inset-0 grid grid-cols-2">
+          <div className="bg-primary-950" />
+          <div className="bg-gold" />
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="grid lg:grid-cols-2 gap-16">
+              <div className="text-white">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-8">
+                  <Shield className="w-4 h-4" />
+                  <span className="text-sm font-medium">Legal Excellence</span>
+                </div>
+                <h1 className="text-6xl lg:text-8xl font-bold mb-6">
+                  <span className="block">Compliance</span>
+                  <span className="block text-gold">First</span>
+                </h1>
+              </div>
+              
+              <div className="flex items-center">
+                <div className="bg-white rounded-3xl p-12 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                  <Scale className="w-20 h-20 text-gold mb-6" />
+                  <h2 className="text-3xl font-bold text-gray-900">Multi-Jurisdictional</h2>
+                  <p className="text-gray-600 mt-2">US • China • Hong Kong</p>
+                </div>
+              </div>
             </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light mb-8 leading-tight">
-              Compliance & <span className="font-medium text-gold">Legal Framework</span>
-            </h1>
-            <p className="text-xl sm:text-2xl text-primary-100 leading-relaxed max-w-3xl mx-auto">
-              Operating with the highest standards of regulatory compliance across all jurisdictions
-            </p>
+          </div>
+        </div>
+
+        {/* Animated Pattern */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      </section>
+
+      {/* Compliance Framework - Visual Grid */}
+      <section className="py-32 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-6xl lg:text-8xl font-bold text-gray-900">
+              Regulatory <span className="text-gold">Framework</span>
+            </h2>
+          </div>
+
+          {/* 3D Cards Grid */}
+          <div className="grid lg:grid-cols-3 gap-8 perspective-1000">
+            {/* FDCPA Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl transform rotate-y-6 group-hover:rotate-y-0 transition-transform duration-500" />
+              <div className="relative bg-white rounded-3xl p-10 shadow-2xl transform -rotate-y-6 group-hover:rotate-y-0 transition-transform duration-500">
+                <div className="text-6xl font-bold text-primary-600 mb-4">FDCPA</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">United States</h3>
+                <div className="w-16 h-1 bg-primary-600 mb-6" />
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">No Harassment</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Truthful Representation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Consumer Rights</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* PIPL Card */}
+            <div className="group relative lg:mt-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold to-gold-dark rounded-3xl transform rotate-y-6 group-hover:rotate-y-0 transition-transform duration-500" />
+              <div className="relative bg-white rounded-3xl p-10 shadow-2xl transform -rotate-y-6 group-hover:rotate-y-0 transition-transform duration-500">
+                <div className="text-6xl font-bold text-gold mb-4">PIPL</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">China</h3>
+                <div className="w-16 h-1 bg-gold mb-6" />
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Data Consent</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Minimal Collection</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Cross-border Compliance</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* PDPO Card */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl transform rotate-y-6 group-hover:rotate-y-0 transition-transform duration-500" />
+              <div className="relative bg-white rounded-3xl p-10 shadow-2xl transform -rotate-y-6 group-hover:rotate-y-0 transition-transform duration-500">
+                <div className="text-6xl font-bold text-primary-600 mb-4">PDPO</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Hong Kong</h3>
+                <div className="w-16 h-1 bg-primary-600 mb-6" />
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Fair Collection</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Data Security</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700">Transparency</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Compliance Frameworks */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20" data-aos="fade-up">
-            <div className="section-header">
-              <h2 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6">
-                Multi-Jurisdictional <span className="font-medium gradient-text">Compliance</span>
-              </h2>
-            </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We maintain strict adherence to debt collection and data privacy laws in every market we operate
-            </p>
-          </div>
+      {/* Security Visualization */}
+      <section className="py-32 bg-gradient-to-br from-primary-950 to-primary-900 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/circuit.svg')] opacity-5" />
+        </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {complianceFrameworks.map((framework, index) => {
-              const Icon = framework.icon
-              
-              return (
-                <div key={index} className="feature-card" data-aos="fade-up" data-aos-delay={index * 150}>
-                  <div className="flex items-start gap-4 mb-6">
-                    <div className="icon-box flex-shrink-0">
-                      <Icon className="w-6 h-6 text-gray-700" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-semibold text-gray-900">{framework.title}</h3>
-                      <p className="text-sm font-medium text-gold">{framework.region}</p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-6xl lg:text-8xl font-bold text-center text-white mb-20">
+            Security <span className="text-gold">Architecture</span>
+          </h2>
+
+          {/* Hexagon Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-gold/50 transition-all duration-300">
+                <Lock className="w-16 h-16 text-gold mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">SHA-256 Encryption</h3>
+                <div className="w-12 h-0.5 bg-gold" />
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-gold/50 transition-all duration-300">
+                <Fingerprint className="w-16 h-16 text-gold mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Multi-Factor Auth</h3>
+                <div className="w-12 h-0.5 bg-gold" />
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-gold/50 transition-all duration-300">
+                <Eye className="w-16 h-16 text-gold mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Audit Trails</h3>
+                <div className="w-12 h-0.5 bg-gold" />
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-gold/50 transition-all duration-300">
+                <Server className="w-16 h-16 text-gold mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Secure Infrastructure</h3>
+                <div className="w-12 h-0.5 bg-gold" />
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-gold/50 transition-all duration-300">
+                <Key className="w-16 h-16 text-gold mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">Access Control</h3>
+                <div className="w-12 h-0.5 bg-gold" />
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 hover:border-gold/50 transition-all duration-300">
+                <ShieldCheck className="w-16 h-16 text-gold mb-4" />
+                <h3 className="text-xl font-bold text-white mb-2">24/7 Monitoring</h3>
+                <div className="w-12 h-0.5 bg-gold" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications - Visual Timeline */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-6xl lg:text-8xl font-bold text-center mb-20">
+            Industry <span className="text-gold">Certifications</span>
+          </h2>
+
+          {/* Visual Progress */}
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Progress Line */}
+              <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200 rounded-full transform -translate-y-1/2">
+                <div className="h-full w-1/3 bg-gradient-to-r from-gold to-gold-dark rounded-full" />
+              </div>
+
+              {/* Certification Points */}
+              <div className="relative grid grid-cols-3 gap-4">
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto bg-gold rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+                    ACA
+                  </div>
+                  <h3 className="font-bold text-gray-900">ACA International</h3>
+                  <p className="text-sm text-gray-600">In Progress</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+                    ISO
+                  </div>
+                  <h3 className="font-bold text-gray-900">ISO 27001</h3>
+                  <p className="text-sm text-gray-600">Planned</p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-24 h-24 mx-auto bg-gray-300 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+                    SOC2
+                  </div>
+                  <h3 className="font-bold text-gray-900">SOC 2 Type II</h3>
+                  <p className="text-sm text-gray-600">2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section - Accordion Style */}
+      <section className="py-32 bg-primary-950">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-6xl lg:text-8xl font-bold text-center text-white mb-20">
+            Common <span className="text-gold">Questions</span>
+          </h2>
+
+          <div className="space-y-4">
+            {[
+              "Cross-Border Legal Compliance",
+              "Reputation Protection",
+              "Privacy & Data Security",
+              "Payment Refusal Handling",
+              "Currency & Transfers"
+            ].map((title, index) => (
+              <div key={index} className="group">
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-gold/30 transition-all duration-300 cursor-pointer">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-2xl font-bold text-white">{title}</h3>
+                    <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center group-hover:bg-gold/30 transition-colors">
+                      <span className="text-gold text-2xl">+</span>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-600 mb-6">{framework.description}</p>
-                  
-                  <ul className="space-y-3">
-                    {framework.details.map((detail, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Security Measures */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20" data-aos="fade-up">
-            <div className="section-header">
-              <h2 className="text-4xl sm:text-5xl font-light text-gray-900 mb-6">
-                Enterprise-Grade <span className="font-medium gradient-text">Security</span>
-              </h2>
-            </div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Your data is protected by multiple layers of security measures
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {securityMeasures.map((measure, index) => (
-              <div key={index} className="content-card" data-aos="fade-up" data-aos-delay={index * 100}>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{measure.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{measure.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="cta-section p-12" data-aos="fade-up">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl font-light text-gray-900 mb-6">
-                  Industry <span className="font-normal">Certifications</span>
-                </h2>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-accent-500 mt-2" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">ACA International Membership</h3>
-                      <p className="text-gray-600">Application pending - Committed to industry best practices</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-accent-500 mt-2" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">ISO 27001 Certification</h3>
-                      <p className="text-gray-600">Information security management - In progress</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-2 h-2 rounded-full bg-accent-500 mt-2" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900">SOC 2 Type II</h3>
-                      <p className="text-gray-600">Security and availability controls - Planned for 2025</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="flex items-start gap-3 mb-4">
-                  <AlertCircle className="w-6 h-6 text-amber-500 flex-shrink-0" />
-                  <h3 className="text-lg font-semibold text-gray-900">Compliance Commitment</h3>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  We maintain a proactive approach to compliance, regularly updating our practices to meet evolving regulatory requirements.
-                </p>
-                <a href="/contact" className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
-                  Request Compliance Documentation
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+      {/* Download Section - Full Width CTA */}
+      <section className="relative h-[600px] overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-gold via-gold-dark to-gold" />
+          <div className="absolute inset-0 bg-[url('/document-pattern.svg')] opacity-10" />
         </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-light text-gray-900 mb-4">
-              Frequently Asked <span className="font-normal gradient-text">Questions</span>
+        
+        <div className="relative z-10 h-full flex items-center justify-center text-center">
+          <div>
+            <FileText className="w-24 h-24 mx-auto mb-8 text-white" />
+            <h2 className="text-6xl lg:text-8xl font-bold text-white mb-8">
+              Compliance Guide
             </h2>
-            <p className="text-xl text-gray-600">
-              Common concerns about cross-border debt recovery compliance
-            </p>
-          </div>
-
-          <div className="space-y-8">
-            {/* FAQ 1 */}
-            <div className="faq-item" data-aos="fade-up">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                How do you ensure cross-border debt collection is legal and compliant?
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We maintain strict compliance with both U.S. and Chinese regulations. In the U.S., we follow FDCPA guidelines, 
-                ensuring no harassment, truthful representation, and respect for consumer rights. In China, we comply with PIPL 
-                (Personal Information Protection Law) requirements, including obtaining proper consent and following data minimization 
-                principles. Our dual-structure through Hong Kong ensures we can operate legally in both jurisdictions while maintaining 
-                the highest standards of data protection and consumer rights.
-              </p>
-            </div>
-
-            {/* FAQ 2 */}
-            <div className="faq-item" data-aos="fade-up" data-aos-delay="100">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Will debt collection attempts damage our reputation in China?
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                No, when done correctly. Our approach is specifically designed to preserve and even enhance your reputation. 
-                We use culturally sensitive communication methods that respect Chinese business customs and the concept of "face." 
-                Our native Mandarin speakers understand the importance of relationship-based negotiations and use collaborative 
-                problem-solving rather than aggressive tactics. Many clients report improved relationships with Chinese partners 
-                after professional debt resolution.
-              </p>
-            </div>
-
-            {/* FAQ 3 */}
-            <div className="faq-item" data-aos="fade-up" data-aos-delay="200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                How is debtor privacy protected during the recovery process?
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We implement bank-level security measures including SHA-256 encryption for all data at rest and in transit. 
-                Access is strictly controlled through role-based permissions with multi-factor authentication. We follow data 
-                minimization principles, collecting only essential information needed for recovery. All data access is logged 
-                for audit trails, and we maintain incident response protocols with 24-hour breach notification. Regular security 
-                audits ensure ongoing compliance with international data protection standards.
-              </p>
-            </div>
-
-            {/* FAQ 4 */}
-            <div className="faq-item" data-aos="fade-up" data-aos-delay="300">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                What happens if a debtor refuses to pay?
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our success comes from negotiation, not litigation. If initial attempts don't succeed, we employ various 
-                culturally appropriate strategies including payment plans aligned with Chinese bonus cycles, involvement of 
-                professional networks, and face-saving solutions. We achieve 60% recovery rates through patience and cultural 
-                understanding. Litigation is rarely needed and only considered as a last resort with client approval. Our 
-                focus remains on voluntary resolution that preserves business relationships.
-              </p>
-            </div>
-
-            {/* FAQ 5 */}
-            <div className="faq-item" data-aos="fade-up" data-aos-delay="400">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                How do you handle currency conversion and international transfers?
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We work with licensed money transfer operators to ensure full compliance with international banking regulations, 
-                anti-money laundering (AML) requirements, and currency controls. All transfers are documented with clear audit 
-                trails. We can accept payments through Chinese payment systems (WeChat Pay, Alipay) and convert them to USD 
-                through compliant channels. Our transparent process ensures you receive the maximum recovery amount while 
-                maintaining full regulatory compliance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Download Section */}
-      <section className="py-32">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="cta-section text-center text-white" data-aos="fade-up">
-            <div className="icon-box mx-auto mb-8 w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm">
-              <FileText className="w-10 h-10 text-white" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-light mb-6">
-              Download Our <span className="font-medium">Compliance Guide</span>
-            </h2>
-            <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-              Get detailed information about our compliance framework and security measures
-            </p>
-            <button className="inline-flex items-center gap-3 px-10 py-4 bg-gold text-white rounded-lg font-semibold hover:bg-gold-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              <FileText className="w-5 h-5" />
-              Download PDF Guide
+            <button className="group inline-flex items-center gap-4 px-12 py-6 bg-white text-gold rounded-full font-bold text-xl hover:bg-gray-100 transition-all transform hover:scale-105">
+              Download PDF
+              <FileText className="w-6 h-6 group-hover:rotate-12 transition-transform" />
             </button>
           </div>
         </div>
