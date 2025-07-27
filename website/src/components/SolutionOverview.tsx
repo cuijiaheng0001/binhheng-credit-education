@@ -77,27 +77,6 @@ export default function SolutionOverview() {
             )
           })}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-12 text-center"
-        >
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-            成功率对比
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div>
-              <div className="text-4xl font-bold text-gray-400 mb-2">5-15%</div>
-              <p className="text-gray-600">传统跨境追收成功率</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">60%+</div>
-              <p className="text-gray-900 font-semibold">Binhheng Credit 成功率</p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
