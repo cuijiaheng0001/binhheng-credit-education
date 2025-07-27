@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://binhhengcredit.com'),
+  metadataBase: new URL('https://binghengcredit.com'),
   title: "Bingheng Credit - Recover Your Hidden Receivables",
   description: "Discover and recover millions in cross-border debts that were incorrectly written off. Specialized recovery for Chinese nationals who have returned home.",
   keywords: "debt recovery, cross-border collection, Chinese debt collection, international receivables, student housing debt, apartment management collections, B2B debt recovery",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bingheng Credit - Recover Your Hidden Receivables",
     description: "Discover and recover millions in cross-border debts that were incorrectly written off.",
-    url: "https://binhhengcredit.com",
+    url: "https://binghengcredit.com",
     siteName: "Bingheng Credit",
     images: [
       {
@@ -74,8 +74,8 @@ export default function RootLayout({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Bingheng Credit",
-            "url": "https://binhhengcredit.com",
-            "logo": "https://binhhengcredit.com/logo.png",
+            "url": "https://binghengcredit.com",
+            "logo": "https://binghengcredit.com/logo.png",
             "description": "Professional cross-border debt recovery services specializing in recovering debts from Chinese nationals.",
             "address": {
               "@type": "PostalAddress",

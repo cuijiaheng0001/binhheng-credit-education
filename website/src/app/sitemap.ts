@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://binhhengcredit.com'
+  const baseUrl = 'https://binghengcredit.com'
   
   // Define your routes and their priorities
   const routes = [
