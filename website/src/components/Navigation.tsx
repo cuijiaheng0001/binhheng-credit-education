@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Shield } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const navItems = [
   { label: 'About', href: '/about' },
@@ -19,6 +20,8 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +36,7 @@ export default function Navigation() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
+        isScrolled || !isHomePage
           ? "bg-white shadow-md border-b border-gray-200"
           : "bg-gradient-to-b from-black/60 to-transparent"
       )}
@@ -57,7 +60,7 @@ export default function Navigation() {
                 transition={{ duration: 0.2 }}
               >
                 <Image
-                  src={isScrolled ? "/logo-inverted.png" : "/logo-white.png"}
+                  src={isScrolled || !isHomePage ? "/logo-inverted.png" : "/logo-white.png"}
                   alt="Bingheng Credit"
                   width={180}
                   height={60}
@@ -84,7 +87,7 @@ export default function Navigation() {
                   href={item.href}
                   className={cn(
                     "text-sm font-medium transition-all duration-300",
-                    isScrolled 
+                    isScrolled || !isHomePage
                       ? "text-gray-600 hover:text-primary-blue" 
                       : "text-white/90 hover:text-white"
                   )}
@@ -96,7 +99,7 @@ export default function Navigation() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: hoveredItem === item.label ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  style={{ backgroundColor: isScrolled ? '#111827' : '#ffffff' }}
+                  style={{ backgroundColor: isScrolled || !isHomePage ? '#111827' : '#ffffff' }}
                 />
               </motion.div>
             ))}
@@ -111,7 +114,7 @@ export default function Navigation() {
           >
             <button className={cn(
               "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
-              isScrolled
+              isScrolled || !isHomePage
                 ? "bg-primary-blue text-white hover:bg-secondary-blue"
                 : "bg-white text-primary-blue hover:bg-gray-100"
             )}>
@@ -124,7 +127,7 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
               "lg:hidden p-3 rounded-lg transition-all duration-300",
-              isScrolled 
+              isScrolled || !isHomePage
                 ? "text-navy hover:bg-gray-100" 
                 : "text-white hover:bg-white/10"
             )}
