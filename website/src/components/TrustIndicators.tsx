@@ -43,10 +43,9 @@ export default function TrustIndicators() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 0.2 }}
               className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
               whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (

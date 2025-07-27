@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
+import { cn } from '@/lib/utils'
 
 const tabs = [
   {
@@ -12,7 +13,7 @@ const tabs = [
     content: {
       title: '专注中国债务人的专业追收',
       description: '当债务人返回中国后，一般国际催收公司无法有效处理。我们是唯一专注于此类债务的专业催收公司。',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=800&q=80',
       features: [
         '专注中国债务人',
         '本地化中文沟通',
@@ -29,7 +30,7 @@ const tabs = [
     content: {
       title: '中国留学生住宿违约追收',
       description: '87%的美国大学在中国留学生嚽业回国后直接注销债务。我们通过本地化网络，帮助您追回这些“不可收回”的欠款。',
-      image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80',
       features: [
         '专门处理留学生债务',
         '65%成功追回率',
@@ -46,7 +47,7 @@ const tabs = [
     content: {
       title: '跨境电商中国卖家欠款追收',
       description: '从亚马逊卖家违规到eBay交易纠纷，我们熟悉中国电商生态，能够快速定位并联系到真实的中国卖家。',
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
       features: [
         '熟悉中国电商生态',
         '定位真实卖家信息',
@@ -78,35 +79,58 @@ const tabs = [
 
 export default function ContentCarousel() {
   const [activeTab, setActiveTab] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const currentContent = tabs[activeTab].content
+
+  useEffect(() => {
+    if (!isAutoPlaying) return
+
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % tabs.length)
+    }, 6000) // 每6秒切换一次
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
+
+  const goToTab = (index: number) => {
+    setActiveTab(index)
+    setIsAutoPlaying(false)
+    // 用户交互后15秒恢复自动播放
+    setTimeout(() => setIsAutoPlaying(true), 15000)
+  }
 
   return (
     <section className="py-20 bg-light-gray">
       <div className="max-w-7xl mx-auto px-8">
-        {/* Tab Navigation */}
-        <div className="relative mb-12">
-          <div className="flex overflow-x-auto scrollbar-hide border-b-2 border-gray-200">
+        {/* Progress Indicators */}
+        <div className="mb-12">
+          <div className="flex items-center justify-center gap-6">
             {tabs.map((tab, index) => (
-              <button
-                key={tab.id}
-                id={`tab-button-${index}`}
-                onClick={() => setActiveTab(index)}
-                className={`
-                  px-8 py-4 text-sm font-semibold whitespace-nowrap transition-all duration-300
-                  relative z-10
-                  ${activeTab === index 
-                    ? 'text-primary-blue' 
-                    : 'text-gray-500 hover:text-gray-700'
-                  }
-                `}
-              >
-                {tab.title}
-                {activeTab === index && (
-                  <span 
-                    className="absolute top-0 -bottom-2 left-0 -right-0 bg-blue-50 -z-10"
-                  />
-                )}
-              </button>
+              <div key={tab.id} className="flex flex-col items-center gap-3">
+                <button
+                  onClick={() => goToTab(index)}
+                  className={cn(
+                    "text-sm font-medium transition-all duration-300",
+                    activeTab === index
+                      ? "text-primary-blue"
+                      : "text-gray-500 hover:text-gray-700"
+                  )}
+                >
+                  {tab.title}
+                </button>
+                <div
+                  className={cn(
+                    "h-1 rounded-full transition-all duration-500",
+                    activeTab === index
+                      ? "w-20 bg-primary-blue"
+                      : "w-12 bg-gray-300 hover:bg-gray-400"
+                  )}
+                  role="progressbar"
+                  aria-valuenow={activeTab === index ? 100 : 0}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -171,7 +195,7 @@ export default function ContentCarousel() {
         {/* Navigation Arrows */}
         <div className="flex justify-center gap-4 mt-8">
           <motion.button
-            onClick={() => setActiveTab((prev) => (prev - 1 + tabs.length) % tabs.length)}
+            onClick={() => goToTab((activeTab - 1 + tabs.length) % tabs.length)}
             className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
             aria-label="Previous tab"
             whileHover={{ scale: 1.1 }}
@@ -180,7 +204,7 @@ export default function ContentCarousel() {
             <ChevronLeft className="w-5 h-5" />
           </motion.button>
           <motion.button
-            onClick={() => setActiveTab((prev) => (prev + 1) % tabs.length)}
+            onClick={() => goToTab((activeTab + 1) % tabs.length)}
             className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
             aria-label="Next tab"
             whileHover={{ scale: 1.1 }}

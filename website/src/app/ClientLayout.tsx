@@ -10,6 +10,7 @@ import CookieBanner from '@/components/CookieBanner'
 import WhatsAppButton from '@/components/WhatsAppButton'
 import LoadingScreen from '@/components/LoadingScreen'
 import AOSInit from '@/components/AOSInit'
+import AccessibilityControls from '@/components/AccessibilityControls'
 
 interface ClientLayoutProps {
   children: React.ReactNode
@@ -30,6 +31,7 @@ export default function ClientLayout({
       {children}
       <Footer />
       <WhatsAppButton />
+      <AccessibilityControls />
       <CookieBanner />
     </LanguageProvider>
   )

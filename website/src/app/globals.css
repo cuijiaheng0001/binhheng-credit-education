@@ -492,6 +492,42 @@
     color: white;
     padding: 80px 0;
   }
+
+  /* High Contrast Mode */
+  .high-contrast {
+    filter: contrast(1.5);
+  }
+
+  .high-contrast * {
+    border-color: currentColor !important;
+  }
+
+  .high-contrast a {
+    text-decoration: underline !important;
+  }
+
+  .high-contrast button:focus,
+  .high-contrast a:focus,
+  .high-contrast input:focus,
+  .high-contrast textarea:focus,
+  .high-contrast select:focus {
+    outline: 3px solid #000 !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Keyboard Navigation Mode */
+  .keyboard-nav *:focus {
+    outline: 2px solid #3b82f6 !important;
+    outline-offset: 2px !important;
+  }
+
+  .keyboard-nav button:focus-visible,
+  .keyboard-nav a:focus-visible,
+  .keyboard-nav input:focus-visible,
+  .keyboard-nav textarea:focus-visible,
+  .keyboard-nav select:focus-visible {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important;
+  }
   
   /* Card Hover Effects */
   .card-hover {

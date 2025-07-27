@@ -111,7 +111,7 @@ export default function Navigation() {
           {/* Right side actions */}
           <div className="hidden lg:flex items-center gap-4">
             {/* Language Switcher */}
-            <LanguageSwitcher />
+            <LanguageSwitcher isScrolled={isScrolled} isHomePage={isHomePage} />
             
             {/* CTA Button */}
             <motion.div

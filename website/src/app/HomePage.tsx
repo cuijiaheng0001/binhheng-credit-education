@@ -9,6 +9,7 @@ import IndustryFocus from '@/components/IndustryFocus'
 import TrustIndicators from '@/components/TrustIndicators'
 import CTASection from '@/components/CTASection'
 import KnowledgeCenter from '@/components/KnowledgeCenter'
+import FAQ from '@/components/FAQ'
 import { useLanguage } from '@/i18n/client'
 
 export default function HomePage() {
@@ -30,6 +31,7 @@ export default function HomePage() {
       <ProcessVisualization />
       <IndustryFocus />
       <KnowledgeCenter />
+      <FAQ />
       <CTASection 
         label={dictionary.cta.freeConsultation}
         title={dictionary.cta.readyToStart}
