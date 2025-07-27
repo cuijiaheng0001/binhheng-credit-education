@@ -47,15 +47,24 @@ export default function Navigation() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex-shrink-0"
           >
-            <a href="/" className="flex items-center">
-              <Image
-                src={isScrolled ? "/logo-inverted.png" : "/logo-white.png"}
-                alt="Bingheng Credit"
-                width={180}
-                height={60}
-                className="h-10 w-auto"
-                priority
-              />
+            <a 
+              href="/" 
+              className="flex items-center group"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Image
+                  src={isScrolled ? "/logo-inverted.png" : "/logo-white.png"}
+                  alt="Bingheng Credit"
+                  width={180}
+                  height={60}
+                  className="h-10 w-auto transition-opacity duration-200 group-hover:opacity-80"
+                  priority
+                />
+              </motion.div>
             </a>
           </motion.div>
 
