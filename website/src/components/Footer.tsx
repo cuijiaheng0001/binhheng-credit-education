@@ -50,7 +50,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              专业的跨境B2B债务追收服务商，帮助全球企业高效追回中国相关债务。
+              Binhheng Credit 专注于为美国企业追回因债务人返回中国而无法回收的债务。
             </p>
             <div className="flex gap-4">
               <a

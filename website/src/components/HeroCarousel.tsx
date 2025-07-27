@@ -9,27 +9,27 @@ import { cn } from '@/lib/utils'
 const slides = [
   {
     id: 1,
-    title: 'Stop Writing Off International Debts Prematurely',
-    subtitle: 'A Hidden Problem Costing You Millions',
-    description: 'Discover how 60% of cross-border debts labeled "uncollectable" can actually be recovered with the right expertise',
+    title: 'We Specialize in Recovering Debts from Chinese Nationals',
+    subtitle: 'The Only Company Focused on China-Specific Debt Recovery',
+    description: 'When Chinese debtors return home, general collection agencies fail. We succeed where others cannot, using localized expertise and cultural understanding.',
     image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80',
-    stats: { value: '$128M+', label: 'Previously "Lost" Debts Recovered' }
+    stats: { value: '$128M+', label: 'Recovered from Chinese Debtors' }
   },
   {
     id: 2,
-    title: 'Your Chinese Debtors Are Not Unreachable',
-    subtitle: 'Breaking the Biggest Misconception',
-    description: 'Most institutions wrongly assume debtors who return to China cannot be contacted. We prove otherwise every day.',
+    title: 'Chinese Student Housing Debts Are Not Lost',
+    subtitle: 'Specialized Recovery for Education Institutions',
+    description: '87% of universities write off debts when Chinese students return home. We recover 65% of these "uncollectable" accounts through local networks.',
     image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1920&q=80',
-    stats: { value: '60%', label: 'Recovery Rate on "Written-Off" Debts' }
+    stats: { value: '65%', label: 'Success Rate for Student Debts' }
   },
   {
     id: 3,
-    title: 'Compliant Cross-Border Recovery Is Possible',
-    subtitle: 'Expert Navigation Through Complex Regulations',
-    description: 'With proper cultural understanding and local networks, international debt recovery is both legal and effective',
+    title: 'E-commerce & Trade Debts from China Are Recoverable',
+    subtitle: 'Bridging the US-China Collection Gap',
+    description: 'From Amazon seller violations to B2B trade defaults, we navigate Chinese legal systems to recover what others consider impossible.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
-    stats: { value: '500+', label: 'Institutions Helped Recover Hidden Assets' }
+    stats: { value: '500+', label: 'US Companies Served' }
   }
 ]
 
@@ -114,7 +114,7 @@ export default function HeroCarousel() {
                   className="mb-6"
                 >
                   <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 font-medium text-sm">
-                    跨境债务追收专家
+                    专注中国债务人追收
                   </span>
                 </motion.div>
 

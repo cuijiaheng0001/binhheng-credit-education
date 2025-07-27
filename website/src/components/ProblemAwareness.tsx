@@ -8,19 +8,19 @@ const problems = [
     icon: AlertTriangle,
     value: '87%',
     label: '的美国机构过早注销中国债务',
-    description: '大多数公司错误地认为债务人回国后就无法追回'
+    description: '当中国债务人返回中国后，一般催收公司无法追踪和联系'
   },
   {
     icon: TrendingDown,
     value: '$4.5亿+',
-    label: '每年被错误注销的可追回债务',
-    description: '通过专业方法和渠道可以追回的隐藏价值'
+    label: '每年被错误注销的中国债务人债务',
+    description: 'Binhheng Credit 是唯一专注于此类债务的专业催收公司'
   },
   {
     icon: Clock,
     value: '60%',
-    label: '的"失联"债务实际可追回',
-    description: '运用跨境专业知识和合规追收方法的成功率'
+    label: '的中国债务人债务实际可追回',
+    description: '通过本地化沟通和中国法律体系知识实现高效追收'
   }
 ]
 
@@ -34,12 +34,12 @@ export default function ProblemAwareness() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-primary-blue mb-4 opacity-70">行业洞察</p>
+          <p className="text-sm font-medium text-primary-blue mb-4 opacity-70">中国债务人问题</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            您知道吗？大多数企业正在损失数百万美元
+            一般国际催收公司无法有效处理中国债务人
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto opacity-80">
-            跨境债务追收的三大误区正在侵蚀您的利润
+            因债务人返回中国而被误判为"不可回收"的债务其实可以追回
           </p>
         </motion.div>
 

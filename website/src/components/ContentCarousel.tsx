@@ -8,70 +8,70 @@ import Image from 'next/image'
 const tabs = [
   {
     id: 'debt-collection',
-    title: '债务追收服务',
+    title: '中国债务人追收',
     content: {
-      title: '专业的B2B跨境债务追收',
-      description: '我们通过非诉讼的友好方式帮助您追回债务，同时维护您与客户的良好关系。',
+      title: '专注中国债务人的专业追收',
+      description: '当债务人返回中国后，一般国际催收公司无法有效处理。我们是唯一专注于此类债务的专业催收公司。',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80',
       features: [
-        '60%+成功率',
-        '45天平均追收时间',
-        '覆盖中国所有主要城市',
-        '合规操作保障'
+        '专注中国债务人',
+        '本地化中文沟通',
+        '了解中国法律体系',
+        '非诉讼合规追收'
       ],
       link: '/services',
-      linkText: '了解债务追收服务'
+      linkText: '了解中国债务人追收'
     }
   },
   {
     id: 'sme-solutions',
-    title: '中小企业方案',
+    title: '留学生住宿债务',
     content: {
-      title: '无追回，不收费',
-      description: '简单快捷的在线债务追收平台，您只需上传未付发票，监控追收进程，债务追回后即可收到款项。',
+      title: '中国留学生住宿违约追收',
+      description: '87%的美国大学在中国留学生嚽业回国后直接注销债务。我们通过本地化网络，帮助您追回这些“不可收回”的欠款。',
       image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80',
       features: [
-        '在线提交案件',
-        '实时进度跟踪',
-        '成功后付费',
-        '透明定价'
+        '专门处理留学生债务',
+        '65%成功追回率',
+        '了解中国家庭文化',
+        '与中国高校合作'
       ],
-      link: '/services#sme',
-      linkText: '快速在线追收'
+      link: '/services#student',
+      linkText: '留学生债务解决方案'
     }
   },
   {
     id: 'ar-services',
-    title: '应收账款管理',
+    title: '电商平台债务',
     content: {
-      title: '让您的应收账款按您的方式管理',
-      description: '无论您需要处理大量发票还是不同国家的客户，我们都能提供定制化解决方案。',
+      title: '跨境电商中国卖家欠款追收',
+      description: '从亚马逊卖家违规到eBay交易纠纷，我们熟悉中国电商生态，能够快速定位并联系到真实的中国卖家。',
       image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80',
       features: [
-        '自动化催收流程',
-        '多语言沟通',
-        '定制化报告',
-        '专属客户经理'
+        '熟悉中国电商生态',
+        '定位真实卖家信息',
+        '了解平台规则差异',
+        '快速沟通解决'
       ],
-      link: '/services#ar',
-      linkText: '应收账款解决方案'
+      link: '/services#ecommerce',
+      linkText: '电商债务解决方案'
     }
   },
   {
     id: 'industries',
-    title: '行业解决方案',
+    title: 'B2B贸易债务',
     content: {
-      title: '深耕细分行业的专业服务',
-      description: '针对学生住宿、电商平台和国际贸易等行业，提供专业的债务追收方案。',
+      title: '国际贸易中国供应商违约债务',
+      description: '当中国供应商违约或拒绝付款时，传统的国际仲裁耗时耗力。我们通过本地化协商，帮助您快速解决贸易纠纷。',
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80',
       features: [
-        '学生住宿：65%成功率',
-        '电商平台：58%成功率',
-        'B2B贸易：72%成功率',
-        '行业专属团队'
+        '了解中国商业文化',
+        '本地化协商能力',
+        '避免昂贵仲裁',
+        '72%成功解决率'
       ],
-      link: '/industries',
-      linkText: '查看行业方案'
+      link: '/services#b2b',
+      linkText: 'B2B贸易债务方案'
     }
   }
 ]
