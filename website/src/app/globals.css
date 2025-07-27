@@ -376,7 +376,7 @@
   
   /* CTA Styles */
   .cta-gradient {
-    background: linear-gradient(135deg, #003D7A 0%, #0066CC 100%);
+    background: linear-gradient(135deg, #002855 0%, #003D7A 100%);
     color: white;
     padding: 80px 0;
   }
