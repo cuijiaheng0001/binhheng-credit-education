@@ -334,12 +334,12 @@ export default function IndustriesPage() {
       })}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl font-semibold mb-4">
+          <h2 className="text-3xl font-semibold mb-4 text-white">
             为您的行业定制解决方案
           </h2>
-          <p className="text-xl text-gray-300 mb-8">
+          <p className="text-xl text-gray-200 mb-8">
             无论您属于哪个行业，我们都有专业团队为您服务
           </p>
           <button className="px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-lg font-medium">
