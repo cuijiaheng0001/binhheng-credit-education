@@ -1,30 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Award, Scale, FileCheck } from 'lucide-react'
-
-const certifications = [
-  {
-    icon: Shield,
-    name: 'FDCPA Compliant',
-    description: '美国公平债务催收法合规认证'
-  },
-  {
-    icon: Scale,
-    name: 'PIPL Certified',
-    description: '中国个人信息保护法合规'
-  },
-  {
-    icon: FileCheck,
-    name: 'ISO 27001',
-    description: '信息安全管理体系认证'
-  },
-  {
-    icon: Award,
-    name: 'BBB Accredited',
-    description: '美国商业改进局A+评级'
-  }
-]
 
 const testimonials = [
   {
@@ -57,56 +33,6 @@ export default function TrustIndicators() {
           <p className="text-gray-600 max-w-2xl mx-auto">
             合规、专业、高效 - 您的跨境债务追收专家
           </p>
-        </motion.div>
-
-        {/* Certifications */}
-        <div className="grid md:grid-cols-4 gap-6 mb-16">
-          {certifications.map((cert, index) => {
-            const Icon = cert.icon
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-sm text-center"
-              >
-                <div className="flex items-center justify-center w-12 h-12 bg-blue-50 rounded-lg mx-auto mb-4">
-                  <Icon className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-1">{cert.name}</h3>
-                <p className="text-sm text-gray-600">{cert.description}</p>
-              </motion.div>
-            )
-          })}
-        </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-blue-600 rounded-2xl p-12 text-white mb-16"
-        >
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">$128M+</div>
-              <p className="text-blue-100">累计追回金额</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <p className="text-blue-100">服务客户数</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">60%</div>
-              <p className="text-blue-100">平均成功率</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">45天</div>
-              <p className="text-blue-100">平均回收时间</p>
-            </div>
-          </div>
         </motion.div>
 
         {/* Testimonials */}
@@ -142,24 +68,6 @@ export default function TrustIndicators() {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-            准备追回您的资金？
-          </h3>
-          <p className="text-gray-600 mb-8">
-            立即获取免费案件评估，了解您的追收可能性
-          </p>
-          <button className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium">
-            开始免费评估
-          </button>
-        </motion.div>
       </div>
     </section>
   )
