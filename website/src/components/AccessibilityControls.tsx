@@ -30,7 +30,7 @@ export default function AccessibilityControls() {
     keyboardNav: false,
     screenReader: false
   })
-  const { language } = useLanguage()
+  const { locale } = useLanguage()
 
   // Load settings from localStorage
   useEffect(() => {
@@ -102,7 +102,7 @@ export default function AccessibilityControls() {
     }
   }
 
-  const t = labels[language] || labels['zh']
+  const t = labels[locale] || labels['zh']
 
   return (
     <>
