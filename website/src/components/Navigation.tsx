@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, Shield } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 const navItems = [
   { label: 'About', href: '/about' },
@@ -47,12 +48,14 @@ export default function Navigation() {
             className="flex-shrink-0"
           >
             <a href="/" className="flex items-center">
-              <span className={cn(
-                "font-sans text-2xl font-semibold tracking-tight transition-colors duration-300",
-                isScrolled ? "text-primary-blue" : "text-white"
-              )}>
-                Binhheng Credit
-              </span>
+              <Image
+                src={isScrolled ? "/logo-inverted.png" : "/logo-white.png"}
+                alt="Binhheng Credit"
+                width={180}
+                height={60}
+                className="h-10 w-auto"
+                priority
+              />
             </a>
           </motion.div>
 
