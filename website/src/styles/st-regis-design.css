@@ -1,0 +1,390 @@
+/* St. Regis Inspired Design System */
+
+/* ==================== FOUNDATIONS ==================== */
+
+/* Color Palette - St. Regis Elegance */
+:root {
+  /* Primary Colors */
+  --regis-midnight: #0A1628;          /* Deep Midnight Blue */
+  --regis-champagne: #D4AF37;         /* Champagne Gold */
+  --regis-pearl: #FAF9F6;             /* Off-White Pearl */
+  
+  /* Secondary Colors */
+  --regis-burgundy: #722F37;          /* Deep Wine */
+  --regis-forest: #1B3A33;            /* Forest Green */
+  --regis-platinum: #E5E4E2;          /* Platinum Gray */
+  
+  /* Accent Colors */
+  --regis-rose-gold: #E8B4B8;         /* Soft Rose Gold */
+  --regis-copper: #B87333;            /* Antique Copper */
+  --regis-sage: #87A96B;              /* Sage Green */
+  
+  /* Neutral Tones */
+  --regis-charcoal: #36454F;          /* Charcoal */
+  --regis-smoke: #848884;             /* Smoke Gray */
+  --regis-ivory: #FFFFF0;             /* Pure Ivory */
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+
+/* Display Typography - Luxury Headlines */
+.regis-display {
+  font-family: 'Didot', 'Bodoni MT', 'Playfair Display', serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.regis-headline-xl {
+  font-size: clamp(4rem, 10vw, 8rem);
+}
+
+.regis-headline-lg {
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.regis-headline-md {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+/* Body Typography */
+.regis-body {
+  font-family: 'Crimson Text', 'Georgia', serif;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+/* ==================== LAYOUT PATTERNS ==================== */
+
+/* Full Viewport Sections */
+.regis-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Split Screen Layout */
+.regis-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+@media (max-width: 1024px) {
+  .regis-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Asymmetric Grid */
+.regis-asymmetric {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Magazine Layout */
+.regis-magazine {
+  columns: 2;
+  column-gap: 4rem;
+  column-rule: 1px solid var(--regis-champagne);
+}
+
+/* ==================== DECORATIVE ELEMENTS ==================== */
+
+/* Art Deco Frame */
+.regis-frame {
+  position: relative;
+  padding: 3rem;
+}
+
+.regis-frame::before,
+.regis-frame::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--regis-champagne);
+}
+
+.regis-frame::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+  background: linear-gradient(135deg, var(--regis-champagne) 0%, transparent 20%);
+}
+
+.regis-frame::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+  background: linear-gradient(-45deg, var(--regis-champagne) 0%, transparent 20%);
+}
+
+/* Geometric Pattern Overlay */
+.regis-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: 
+    repeating-linear-gradient(45deg, 
+      var(--regis-champagne) 0, 
+      var(--regis-champagne) 1px, 
+      transparent 1px, 
+      transparent 40px),
+    repeating-linear-gradient(-45deg, 
+      var(--regis-champagne) 0, 
+      var(--regis-champagne) 1px, 
+      transparent 1px, 
+      transparent 40px);
+}
+
+/* Elegant Divider */
+.regis-divider {
+  position: relative;
+  text-align: center;
+  margin: 6rem 0;
+}
+
+.regis-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--regis-champagne) 20%, 
+    var(--regis-champagne) 80%, 
+    transparent 100%);
+}
+
+.regis-divider-symbol {
+  position: relative;
+  display: inline-block;
+  background: var(--regis-pearl);
+  padding: 0 2rem;
+  font-size: 2rem;
+  color: var(--regis-champagne);
+}
+
+/* ==================== VISUAL EFFECTS ==================== */
+
+/* Marble Background */
+.regis-marble {
+  background: 
+    radial-gradient(ellipse at top left, var(--regis-pearl) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, var(--regis-platinum) 0%, transparent 50%),
+    linear-gradient(135deg, var(--regis-ivory) 0%, var(--regis-pearl) 100%);
+}
+
+/* Gold Leaf Effect */
+.regis-gold-leaf {
+  background: linear-gradient(
+    -72deg,
+    var(--regis-champagne) 0%,
+    var(--regis-rose-gold) 16%,
+    var(--regis-champagne) 33%,
+    var(--regis-rose-gold) 50%,
+    var(--regis-champagne) 67%,
+    var(--regis-rose-gold) 84%,
+    var(--regis-champagne) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shift 8s ease-in-out infinite;
+  background-size: 200% auto;
+}
+
+@keyframes gold-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Silk Texture */
+.regis-silk {
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      var(--regis-pearl),
+      var(--regis-pearl) 2px,
+      var(--regis-ivory) 2px,
+      var(--regis-ivory) 4px
+    );
+}
+
+/* ==================== COMPONENTS ==================== */
+
+/* Luxury Card */
+.regis-card {
+  background: var(--regis-ivory);
+  border: 1px solid var(--regis-champagne);
+  box-shadow: 0 20px 40px rgba(10, 22, 40, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.regis-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--regis-champagne), var(--regis-rose-gold), var(--regis-champagne));
+  opacity: 0;
+  transition: opacity 0.6s;
+  z-index: -1;
+}
+
+.regis-card:hover::before {
+  opacity: 1;
+}
+
+.regis-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(10, 22, 40, 0.2);
+}
+
+/* Ornamental Badge */
+.regis-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: var(--regis-midnight);
+  position: relative;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* Elegant Button */
+.regis-button {
+  position: relative;
+  padding: 1.5rem 4rem;
+  background: transparent;
+  border: 1px solid var(--regis-champagne);
+  color: var(--regis-champagne);
+  font-family: 'Didot', serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.regis-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--regis-champagne);
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.regis-button:hover {
+  color: var(--regis-midnight);
+}
+
+.regis-button:hover::before {
+  left: 0;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Elegant Fade */
+@keyframes regis-fade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.regis-animate {
+  animation: regis-fade 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Reveal Effect */
+.regis-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.regis-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--regis-pearl);
+  transform: translateX(-100%);
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.regis-reveal.active::after {
+  transform: translateX(100%);
+}
+
+/* ==================== SPECIAL EFFECTS ==================== */
+
+/* Chandelier Sparkle */
+.regis-sparkle {
+  position: relative;
+}
+
+.regis-sparkle::before,
+.regis-sparkle::after {
+  content: '✦';
+  position: absolute;
+  color: var(--regis-champagne);
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+.regis-sparkle::before {
+  top: -10px;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.regis-sparkle::after {
+  bottom: -10px;
+  right: 20%;
+  animation-delay: 1.5s;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Luxury Gradient Background */
+.regis-gradient-dark {
+  background: linear-gradient(135deg, 
+    var(--regis-midnight) 0%, 
+    var(--regis-forest) 50%, 
+    var(--regis-burgundy) 100%);
+}
+
+.regis-gradient-light {
+  background: linear-gradient(135deg, 
+    var(--regis-ivory) 0%, 
+    var(--regis-pearl) 50%, 
+    var(--regis-platinum) 100%);
+}
