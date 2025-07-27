@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { Users, Globe, Target, Award, Lightbulb, Handshake } from 'lucide-react'
-import '../../../styles/content-pages.css'
+import '@/styles/content-pages.css'
 
 export const metadata: Metadata = {
   title: 'About Us - Binhheng Credit',

@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { Shield, FileText, Lock, Globe, CheckCircle, AlertCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import '../../../styles/content-pages.css'
+import '@/styles/content-pages.css'
 
 export const metadata: Metadata = {
   title: 'Compliance & Legal - Binhheng Credit',
