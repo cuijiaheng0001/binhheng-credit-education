@@ -76,7 +76,7 @@ export default function Navigation() {
                   className={cn(
                     "text-sm font-medium transition-all duration-300",
                     isScrolled 
-                      ? "text-gray-600 hover:text-primary-blue" 
+                      ? "text-gray-600 hover:text-primary-purple" 
                       : "text-white/90 hover:text-white"
                   )}
                 >
@@ -103,8 +103,8 @@ export default function Navigation() {
             <button className={cn(
               "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
               isScrolled
-                ? "bg-primary-blue text-white hover:bg-secondary-blue"
-                : "bg-white text-primary-blue hover:bg-gray-100"
+                ? "bg-primary-gold text-primary-purple hover:bg-secondary-gold"
+                : "bg-primary-gold text-primary-purple hover:bg-secondary-gold"
             )}>
               免费评估
             </button>
