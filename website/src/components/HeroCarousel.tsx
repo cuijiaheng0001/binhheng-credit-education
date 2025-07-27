@@ -46,7 +46,7 @@ export default function HeroCarousel() {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 6000)
+    }, 8000)
 
     return () => clearInterval(interval)
   }, [isAutoPlaying])
@@ -54,7 +54,7 @@ export default function HeroCarousel() {
   const goToSlide = (index: number) => {
     setCurrentSlide(index)
     setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(true), 10000)
+    setTimeout(() => setIsAutoPlaying(true), 15000)
   }
 
   const nextSlide = () => {
@@ -68,13 +68,13 @@ export default function HeroCarousel() {
   return (
     <section className="relative h-screen overflow-hidden bg-black">
       {/* Background Images */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0"
           style={{ y: imageY }}
         >
