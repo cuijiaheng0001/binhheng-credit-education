@@ -64,6 +64,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Root layout component - v2
   return (
     <html lang="en" className="smooth-scroll">
       <head>
