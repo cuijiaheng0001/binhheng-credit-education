@@ -27,7 +27,7 @@ export default function CompliancePage() {
         <div className="container mx-auto px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[...Array(3)].map((_, i) => (
-              <div key={i} className={`regis-frame ${i === 1 ? 'md:mt-8' : ''}"}`>
+              <div key={i} className={`regis-frame ${i === 1 ? 'md:mt-8' : ''}`}>
                 <div className="regis-card h-96 flex items-center justify-center">
                   <div className="w-20 h-20 rounded-full bg-regis-midnight flex items-center justify-center">
                     <span className="text-3xl text-regis-champagne">✯</span>
