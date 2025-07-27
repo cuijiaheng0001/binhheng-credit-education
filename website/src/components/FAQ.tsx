@@ -82,9 +82,9 @@ const faqData: Record<string, FAQItem[]> = {
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [activeCategory, setActiveCategory] = useState<string>('all')
-  const { language } = useLanguage()
+  const { locale } = useLanguage()
   
-  const faqs = faqData[language] || faqData['zh']
+  const faqs = faqData[locale] || faqData['zh']
   const categories = ['all', ...Array.from(new Set(faqs.map(faq => faq.category).filter(Boolean)))]
   
   const filteredFAQs = activeCategory === 'all' 
@@ -103,11 +103,11 @@ export default function FAQ() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <HelpCircle className="w-8 h-8 text-primary-blue" />
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              {language === 'zh' ? '常见问题' : 'Frequently Asked Questions'}
+              {locale === 'zh' ? '常见问题' : 'Frequently Asked Questions'}
             </h2>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            {language === 'zh' 
+            {locale === 'zh' 
               ? '了解更多关于我们的服务和债务追收流程'
               : 'Learn more about our services and debt collection process'}
           </p>
@@ -133,7 +133,7 @@ export default function FAQ() {
               )}
             >
               {category === 'all' 
-                ? (language === 'zh' ? '全部' : 'All')
+                ? (locale === 'zh' ? '全部' : 'All')
                 : category}
             </button>
           ))}
@@ -201,7 +201,7 @@ export default function FAQ() {
           className="mt-12 text-center"
         >
           <p className="text-gray-600 mb-4">
-            {language === 'zh'
+            {locale === 'zh'
               ? '还有其他问题？我们随时为您解答'
               : 'Have more questions? We\'re here to help'}
           </p>
@@ -211,7 +211,7 @@ export default function FAQ() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {language === 'zh' ? '联系我们' : 'Contact Us'}
+            {locale === 'zh' ? '联系我们' : 'Contact Us'}
           </motion.a>
         </motion.div>
       </div>
