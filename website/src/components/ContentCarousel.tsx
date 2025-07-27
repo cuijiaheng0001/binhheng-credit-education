@@ -170,20 +170,24 @@ export default function ContentCarousel() {
 
         {/* Navigation Arrows */}
         <div className="flex justify-center gap-4 mt-8">
-          <button
+          <motion.button
             onClick={() => setActiveTab((prev) => (prev - 1 + tabs.length) % tabs.length)}
             className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
             aria-label="Previous tab"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             onClick={() => setActiveTab((prev) => (prev + 1) % tabs.length)}
             className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
             aria-label="Next tab"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
             <ChevronRight className="w-5 h-5" />
-          </button>
+          </motion.button>
         </div>
       </div>
     </section>

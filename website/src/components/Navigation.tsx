@@ -119,14 +119,18 @@ export default function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <button className={cn(
-                "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
-                isScrolled || !isHomePage
-                  ? "bg-primary-blue text-white hover:bg-secondary-blue"
-                  : "bg-white text-primary-blue hover:bg-gray-100"
-              )}>
+              <motion.button 
+                className={cn(
+                  "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
+                  isScrolled || !isHomePage
+                    ? "bg-primary-blue text-white hover:bg-secondary-blue"
+                    : "bg-white text-primary-blue hover:bg-gray-100"
+                )}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 {dictionary.cta.freeConsultation}
-              </button>
+              </motion.button>
             </motion.div>
           </div>
 
