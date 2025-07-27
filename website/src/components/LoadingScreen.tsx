@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true)
@@ -31,14 +32,20 @@ export default function LoadingScreen() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center"
           >
-            <motion.h1 
-              className="font-display text-5xl text-gray-900 font-light tracking-wider"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              BingHeng
-            </motion.h1>
+              <Image
+                src="/logo-inverted.png"
+                alt="Bingheng Credit"
+                width={200}
+                height={60}
+                className="h-16 w-auto"
+                priority
+              />
+            </motion.div>
             
             {/* Loading line */}
             <motion.div className="mt-8 w-48 h-[1px] bg-gray-200 mx-auto overflow-hidden">
