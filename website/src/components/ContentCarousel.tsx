@@ -78,37 +78,59 @@ const tabs = [
 
 export default function ContentCarousel() {
   const [activeTab, setActiveTab] = useState(0)
+  const [tabRefs, setTabRefs] = useState<(HTMLButtonElement | null)[]>([])
   const currentContent = tabs[activeTab].content
+  
+  // Calculate indicator position and width
+  const getIndicatorStyle = () => {
+    const activeButton = tabRefs[activeTab]
+    if (!activeButton) return { left: 0, width: 0 }
+    
+    return {
+      left: activeButton.offsetLeft,
+      width: activeButton.offsetWidth
+    }
+  }
 
   return (
     <section className="py-20 bg-light-gray">
       <div className="max-w-7xl mx-auto px-8">
         {/* Tab Navigation */}
         <div className="relative mb-12">
-          <div className="flex overflow-x-auto scrollbar-hide border-b border-gray-300">
+          <div className="flex overflow-x-auto scrollbar-hide border-b-2 border-gray-200">
             {tabs.map((tab, index) => (
               <button
                 key={tab.id}
+                ref={(el) => {
+                  const newRefs = [...tabRefs]
+                  newRefs[index] = el
+                  setTabRefs(newRefs)
+                }}
                 onClick={() => setActiveTab(index)}
                 className={`
-                  px-6 py-4 text-sm font-medium whitespace-nowrap transition-all duration-300
+                  px-8 py-4 text-sm font-semibold whitespace-nowrap transition-all duration-300
+                  relative z-10
                   ${activeTab === index 
-                    ? 'text-primary-blue border-b-2 border-primary-blue' 
-                    : 'text-gray-600 hover:text-primary-blue'
+                    ? 'text-primary-blue' 
+                    : 'text-gray-500 hover:text-gray-700'
                   }
                 `}
               >
                 {tab.title}
+                {activeTab === index && (
+                  <motion.span 
+                    className="absolute top-0 -bottom-2 left-0 -right-0 bg-blue-50 -z-10"
+                    layoutId="activeTabBg"
+                    transition={{ type: "spring", duration: 0.4 }}
+                  />
+                )}
               </button>
             ))}
           </div>
           <motion.div
             className="absolute bottom-0 h-0.5 bg-primary-blue"
             initial={false}
-            animate={{
-              x: `${activeTab * 100}%`,
-              width: `${100 / tabs.length}%`
-            }}
+            animate={getIndicatorStyle()}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           />
         </div>
