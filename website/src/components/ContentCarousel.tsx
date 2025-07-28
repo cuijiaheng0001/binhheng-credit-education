@@ -166,12 +166,12 @@ export default function ContentCarousel() {
 
             <motion.a
               href={currentContent.link}
-              className="inline-flex items-center px-6 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-primary-blue/90 hover:shadow-xl transition-all duration-300"
+              className="inline-flex items-center px-6 py-3 bg-transparent text-primary-blue font-semibold rounded-lg border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-all duration-300 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {currentContent.linkText}
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.a>
           </div>
 

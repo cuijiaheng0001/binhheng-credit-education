@@ -81,12 +81,12 @@ export default function ProblemAwareness() {
         >
           <motion.a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-primary-blue text-white font-semibold rounded-lg hover:bg-primary-blue/90 hover:shadow-2xl transition-all duration-300 shadow-lg"
+            className="inline-flex items-center px-8 py-4 bg-primary-blue text-white font-semibold rounded-lg hover:bg-white hover:text-primary-blue border-2 border-primary-blue transition-all duration-300 shadow-lg group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             了解如何避免这些损失
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </motion.a>
           
           <motion.div
