@@ -8,11 +8,13 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/i18n/client'
 import LanguageSwitcher from './LanguageSwitcher'
+import ConsultationModal from './ConsultationModal'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const pathname = usePathname()
   const isHomePage = pathname === '/'
   const { dictionary } = useLanguage()
@@ -128,6 +130,7 @@ export default function Navigation() {
                 )}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsConsultationOpen(true)}
               >
                 {dictionary.cta.freeConsultation}
               </motion.button>
@@ -182,6 +185,10 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
+                onClick={() => {
+                  setIsConsultationOpen(true)
+                  setIsMobileMenuOpen(false)
+                }}
                 className="w-full mt-4 px-6 py-4 bg-navy text-white font-semibold tracking-wide rounded-lg hover:bg-navy-light transition-all duration-300 shadow-lg"
               >
                 FREE ASSESSMENT
@@ -190,6 +197,12 @@ export default function Navigation() {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)} 
+      />
     </nav>
   )
 }
