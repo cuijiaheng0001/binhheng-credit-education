@@ -79,7 +79,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
               {/* Professional card with subtle fold effect */}
               <div className="relative bg-white shadow-[0_20px_60px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden">
                 {/* Subtle corner accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-blue/5 to-transparent" />
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-navy/5 to-transparent" />
                 
                 {/* Close button */}
                 <button
@@ -109,7 +109,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                 </h2>
                 <p className="text-gray-600 text-center mb-8 text-sm leading-relaxed">
                   专业团队将在24小时内联系您<br/>
-                  <span className="text-primary-blue font-medium">平均追收成功率超过60%</span>
+                  <span className="text-navy font-medium">平均追收成功率超过60%</span>
                 </p>
                 
                 {/* Form */}
@@ -123,7 +123,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       placeholder="您的姓名"
                       required
                       autoComplete="name"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
                     />
                   </div>
                   
@@ -136,7 +136,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       placeholder="您的工作邮箱"
                       required
                       autoComplete="email"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
                     />
                   </div>
                   
@@ -156,7 +156,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   <button
                     type="submit"
                     disabled={isSubmitting || submitStatus === 'success'}
-                    className="w-full bg-primary-blue text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-navy text-white py-3 px-6 rounded-lg font-medium hover:bg-navy-light transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center">
@@ -205,9 +205,9 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   {/* Privacy notice */}
                   <p className="text-xs text-gray-400 text-center mt-4">
                     提交即表示您同意我们的
-                    <a href="/privacy" className="text-primary-blue hover:underline mx-1">隐私政策</a>
+                    <a href="/privacy" className="text-navy hover:underline mx-1">隐私政策</a>
                     和
-                    <a href="/terms" className="text-primary-blue hover:underline mx-1">服务条款</a>
+                    <a href="/terms" className="text-navy hover:underline mx-1">服务条款</a>
                   </p>
                 </div>
               </div>
