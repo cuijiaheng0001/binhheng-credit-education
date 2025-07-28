@@ -12,7 +12,7 @@ const articles = [
     description: '深入了解中美贸易环境下的债务追收挑战与机遇',
     author: '李明',
     date: '2025年1月15日',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
+    image: '/images/knowledge/industry-report.jpg',
     link: '/insights/cross-border-debt-trends-2025'
   },
   {
@@ -22,7 +22,7 @@ const articles = [
     description: '基于500+成功案例总结的实用追收技巧',
     author: '王芳',
     date: '2025年1月10日',
-    image: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&q=80',
+    image: '/images/knowledge/best-practices.jpg',
     link: '/insights/b2b-debt-collection-strategies'
   },
   {
@@ -32,7 +32,7 @@ const articles = [
     description: '详解跨境学生债务追收的成功案例',
     author: '张强',
     date: '2025年1月5日',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
+    image: '/images/knowledge/case-study.jpg',
     link: '/insights/student-debt-case-study'
   }
 ]

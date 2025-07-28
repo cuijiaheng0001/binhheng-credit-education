@@ -20,7 +20,7 @@ const services = [
     ],
     highlight: 'Average $2.8M recovered per institution',
     stats: { number: '87%', label: 'Success Rate' },
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80',
+    image: '/images/services/assessment.jpg',
     color: 'from-blue-50 to-indigo-50',
     accentColor: 'text-blue-600'
   },
@@ -37,7 +37,7 @@ const services = [
     ],
     highlight: '15+ years specialized experience',
     stats: { number: '100%', label: 'Compliance' },
-    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80',
+    image: '/images/services/recovery.jpg',
     color: 'from-purple-50 to-pink-50',
     accentColor: 'text-purple-600'
   },
@@ -54,7 +54,7 @@ const services = [
     ],
     highlight: '50+ countries covered',
     stats: { number: '24/7', label: 'Global Support' },
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80',
+    image: '/images/services/resolution.jpg',
     color: 'from-green-50 to-emerald-50',
     accentColor: 'text-green-600'
   }
@@ -420,7 +420,7 @@ export default function ServiceShowcase() {
               </div>
               <div className="relative h-full min-h-[400px] lg:min-h-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80"
+                  src="/images/services/process.jpg"
                   alt="Success"
                   fill
                   className="object-cover"

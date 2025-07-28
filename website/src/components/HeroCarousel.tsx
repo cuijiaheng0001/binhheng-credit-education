@@ -12,7 +12,7 @@ const slides = [
     title: 'We Specialize in Recovering Debts from Chinese Nationals',
     subtitle: 'The Only Company Focused on China-Specific Debt Recovery',
     description: 'When Chinese debtors return home, general collection agencies fail. We succeed where others cannot, using localized expertise and cultural understanding.',
-    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1920&q=80',
+    image: '/images/hero/debt-recovery-1.jpg',
     stats: { value: '$128M+', label: 'Recovered from Chinese Debtors' }
   },
   {
@@ -20,7 +20,7 @@ const slides = [
     title: 'Chinese Student Housing Debts Are Not Lost',
     subtitle: 'Specialized Recovery for Education Institutions',
     description: '87% of universities write off debts when Chinese students return home. We recover 65% of these "uncollectable" accounts through local networks.',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1920&q=80',
+    image: '/images/hero/debt-recovery-2.jpg',
     stats: { value: '65%', label: 'Success Rate for Student Debts' }
   },
   {
@@ -28,7 +28,7 @@ const slides = [
     title: 'E-commerce & Trade Debts from China Are Recoverable',
     subtitle: 'Bridging the US-China Collection Gap',
     description: 'From Amazon seller violations to B2B trade defaults, we navigate Chinese legal systems to recover what others consider impossible.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
+    image: '/images/hero/debt-recovery-3.jpg',
     stats: { value: '500+', label: 'US Companies Served' }
   }
 ]
@@ -85,6 +85,9 @@ export default function HeroCarousel() {
             priority
             className="object-cover"
             quality={100}
+            sizes="100vw"
+            placeholder="blur"
+            blurDataURL={`${slides[currentSlide].image.replace('.jpg', '-blur.jpg')}`}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
