@@ -160,7 +160,7 @@ export default function HeroCarousel() {
                   <motion.button 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-white text-primary-blue font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg"
+                    className="px-8 py-4 bg-white text-primary-blue font-semibold rounded-lg hover:bg-primary-blue hover:text-white border-2 border-white transition-all duration-300 shadow-lg"
                   >
                     立即获取免费评估
                   </motion.button>
