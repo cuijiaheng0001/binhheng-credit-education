@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
@@ -79,16 +79,43 @@ const tabs = [
 
 export default function ContentCarousel() {
   const [activeTab, setActiveTab] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false) // 初始状态为false
+  const [hasStarted, setHasStarted] = useState(false) // 记录是否已经开始过
+  const sectionRef = useRef<HTMLElement>(null)
   const currentContent = tabs[activeTab].content
 
+  // 使用Intersection Observer检测组件是否在视窗中
   useEffect(() => {
-    // 立即开始自动播放，不需要等待
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+        if (entry.isIntersecting && !hasStarted) {
+          setIsAutoPlaying(true)
+          setHasStarted(true) // 确保只开始一次
+        }
+      },
+      {
+        threshold: 0.3 // 当30%的组件可见时触发
+      }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [hasStarted])
+
+  useEffect(() => {
     if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % tabs.length)
-    }, 5000) // 缩短到5秒，让切换更频繁
+    }, 5000) // 5秒切换一次
 
     return () => clearInterval(interval)
   }, [isAutoPlaying])
@@ -96,12 +123,13 @@ export default function ContentCarousel() {
   const goToTab = (index: number) => {
     setActiveTab(index)
     setIsAutoPlaying(false)
+    setHasStarted(true) // 用户交互也算开始
     // 用户交互后15秒恢复自动播放
     setTimeout(() => setIsAutoPlaying(true), 15000)
   }
 
   return (
-    <section className="py-20 bg-light-gray">
+    <section ref={sectionRef} className="py-20 bg-light-gray">
       <div className="max-w-7xl mx-auto px-8">
         {/* Progress Indicators */}
         <div className="mb-12">
