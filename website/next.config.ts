@@ -12,6 +12,36 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/llms.txt',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'llms-txt',
+          },
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+        ],
+      },
+      {
+        source: '/llms-full.txt',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'llms-txt',
+          },
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
