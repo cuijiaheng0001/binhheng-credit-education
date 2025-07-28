@@ -83,11 +83,12 @@ export default function ContentCarousel() {
   const currentContent = tabs[activeTab].content
 
   useEffect(() => {
+    // 立即开始自动播放，不需要等待
     if (!isAutoPlaying) return
 
     const interval = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % tabs.length)
-    }, 6000) // 每6秒切换一次
+    }, 5000) // 缩短到5秒，让切换更频繁
 
     return () => clearInterval(interval)
   }, [isAutoPlaying])
