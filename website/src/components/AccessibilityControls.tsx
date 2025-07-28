@@ -109,7 +109,7 @@ export default function AccessibilityControls() {
       {/* Toggle Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-4 bottom-20 z-40 p-3 bg-primary-blue text-white rounded-full shadow-lg hover:bg-secondary-blue transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue"
+        className="fixed right-4 bottom-20 z-40 p-3 bg-primary-blue text-white rounded-full shadow-lg hover:bg-primary-blue/90 hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         aria-label="Accessibility settings"
