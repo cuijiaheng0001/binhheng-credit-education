@@ -216,6 +216,7 @@ export default function RiskChecklistModal({ isOpen, onClose }: RiskChecklistMod
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                             placeholder="your@email.com"
+                            autoComplete="work email"
                           />
                         </div>
                         <div>
@@ -229,6 +230,7 @@ export default function RiskChecklistModal({ isOpen, onClose }: RiskChecklistMod
                             onChange={(e) => setCompany(e.target.value)}
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"
                             placeholder="Your Company"
+                            autoComplete="organization"
                           />
                         </div>
                       </div>

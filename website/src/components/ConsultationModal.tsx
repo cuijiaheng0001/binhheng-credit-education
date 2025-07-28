@@ -122,6 +122,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       onChange={handleChange}
                       placeholder="您的姓名"
                       required
+                      autoComplete="name"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
                     />
                   </div>
@@ -134,6 +135,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       onChange={handleChange}
                       placeholder="您的工作邮箱"
                       required
+                      autoComplete="email"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
                     />
                   </div>
