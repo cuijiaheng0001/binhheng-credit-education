@@ -81,7 +81,7 @@ export default function ProblemAwareness() {
         >
           <motion.a
             href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-primary-blue text-white font-semibold rounded-lg hover:bg-secondary-blue transition-colors shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-8 py-4 bg-primary-blue text-white font-semibold rounded-lg hover:bg-primary-blue/90 hover:shadow-2xl transition-all duration-300 shadow-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

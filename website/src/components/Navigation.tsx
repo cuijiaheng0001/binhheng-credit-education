@@ -123,7 +123,7 @@ export default function Navigation() {
                 className={cn(
                   "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
                   isScrolled || !isHomePage
-                    ? "bg-primary-blue text-white hover:bg-secondary-blue"
+                    ? "bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-xl"
                     : "bg-white text-primary-blue hover:bg-gray-100"
                 )}
                 whileHover={{ scale: 1.05 }}
