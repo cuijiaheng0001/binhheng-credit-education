@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FileSearch, CheckSquare, MessageSquare, DollarSign } from 'lucide-react'
+import ConsultationModal from './ConsultationModal'
 
 const steps = [
   {
@@ -35,6 +37,8 @@ const steps = [
 ]
 
 export default function ProcessVisualization() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-8">
@@ -111,11 +115,20 @@ export default function ProcessVisualization() {
           <p className="text-gray-600 mb-6">
             平均回收时间：<span className="font-semibold text-gray-900">45-60天</span>
           </p>
-          <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <button 
+            onClick={() => setIsConsultationOpen(true)}
+            className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
             开始免费评估
           </button>
         </motion.div>
       </div>
+      
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)} 
+      />
     </section>
   )
 }
