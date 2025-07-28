@@ -55,7 +55,7 @@ export default function Navigation() {
           >
             <a 
               href="/" 
-              className="flex items-center group"
+              className="flex items-center group cursor-pointer"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
