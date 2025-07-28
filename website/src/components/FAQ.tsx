@@ -331,27 +331,6 @@ export default function FAQ() {
         </div>
 
         {/* Contact CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-gray-600 mb-4">
-            {locale === 'zh'
-              ? '还有其他问题？我们随时为您解答'
-              : 'Have more questions? We\'re here to help'}
-          </p>
-          <motion.button
-            onClick={() => setIsConsultationOpen(true)}
-            className="inline-flex items-center px-6 py-3 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {locale === 'zh' ? '联系我们' : 'Contact Us'}
-          </motion.button>
-        </motion.div>
       </div>
       
       {/* Consultation Modal */}

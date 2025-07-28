@@ -153,7 +153,7 @@ export default function HeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-lg text-white/70 mb-12 leading-relaxed font-light max-w-xl"
+                  className="text-lg text-white/85 mb-12 leading-relaxed font-light max-w-xl"
                 >
                   {slides[currentSlide].description}
                 </motion.p>
