@@ -13,7 +13,7 @@ const tabs = [
     content: {
       title: '专注中国债务人的专业追收',
       description: '当债务人返回中国后，一般国际催收公司无法有效处理。我们是唯一专注于此类债务的专业催收公司。',
-      image: 'https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80',
       features: [
         '专注中国债务人',
         '本地化中文沟通',
@@ -30,7 +30,7 @@ const tabs = [
     content: {
       title: '中国留学生住宿违约追收',
       description: '87%的美国大学在中国留学生嚽业回国后直接注销债务。我们通过本地化网络，帮助您追回这些“不可收回”的欠款。',
-      image: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80',
       features: [
         '专门处理留学生债务',
         '65%成功追回率',
