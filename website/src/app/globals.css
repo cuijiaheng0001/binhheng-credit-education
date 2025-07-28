@@ -32,6 +32,10 @@
     --gray-light: 0 0% 96%; /* #F5F5F5 */
     --white: 0 0% 100%; /* #FFFFFF */
     
+    /* Navy Colors */
+    --navy: 212 100% 24%; /* #003D7A - Same as blue-primary */
+    --navy-light: 211 100% 40%; /* #0066CC - Same as blue-secondary */
+    
     /* Neutral Colors */
     --muted: 220 14% 96%;
     --muted-foreground: 220 13% 46%;
