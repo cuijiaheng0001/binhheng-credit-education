@@ -45,8 +45,8 @@ export default function CTASection({
   }
 
   const buttonStyles = {
-    gradient: 'bg-white text-primary-blue hover:bg-gray-100 hover:shadow-xl',
-    light: 'bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-2xl',
+    gradient: 'bg-white text-navy hover:bg-gray-100 hover:shadow-xl',
+    light: 'bg-navy text-white hover:bg-navy-light hover:shadow-2xl',
     dark: 'bg-white text-gray-900 hover:bg-gray-100'
   }
 
