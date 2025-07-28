@@ -292,7 +292,7 @@ export default function FAQ() {
                 aria-expanded={activeIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-8">
+                <h3 className="text-lg font-bold text-gray-900 pr-8">
                   {faq.question}
                 </h3>
                 <motion.div
@@ -316,7 +316,7 @@ export default function FAQ() {
                   >
                     <div className="px-6 pb-5 pt-0">
                       <div className="border-t border-gray-100 pt-4">
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-gray-600 leading-relaxed whitespace-pre-line">
                           {faq.answer}
                         </p>
                       </div>
