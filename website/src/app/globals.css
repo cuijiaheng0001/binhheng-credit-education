@@ -401,11 +401,11 @@
   }
   
   /* 链接的下划线动画 */
-  a {
+  a:not(.no-underline-effect) {
     position: relative;
   }
   
-  a::before {
+  a:not(.no-underline-effect)::before {
     content: '';
     position: absolute;
     bottom: -2px;
@@ -416,7 +416,7 @@
     transition: width 0.3s ease;
   }
   
-  a:hover::before {
+  a:not(.no-underline-effect):hover::before {
     width: 100%;
   }
   
