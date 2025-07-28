@@ -75,35 +75,41 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full pointer-events-auto relative overflow-hidden">
-              {/* Close button */}
-              <button
-                onClick={onClose}
-                className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors z-10"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5 text-gray-600" />
-              </button>
+            <div className="bg-white max-w-md w-full pointer-events-auto relative">
+              {/* Professional card with subtle fold effect */}
+              <div className="relative bg-white shadow-[0_20px_60px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden">
+                {/* Subtle corner accent */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary-blue/5 to-transparent" />
+                
+                {/* Close button */}
+                <button
+                  onClick={onClose}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-gray-50 hover:bg-gray-100 transition-all duration-200 group"
+                  aria-label="Close modal"
+                >
+                  <X className="w-5 h-5 text-gray-400 group-hover:text-gray-600" />
+                </button>
               
               {/* Content */}
-              <div className="p-8">
+              <div className="p-10">
                 {/* Logo */}
-                <div className="flex justify-center mb-8">
+                <div className="flex justify-center mb-6">
                   <Image
                     src="/logo-inverted.png"
                     alt="Bingheng Credit"
                     width={180}
                     height={60}
-                    className="h-12 w-auto"
+                    className="h-10 w-auto opacity-90"
                   />
                 </div>
                 
-                {/* Title */}
-                <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">
-                  免费咨询
+                {/* Title with professional tone */}
+                <h2 className="text-2xl font-semibold text-gray-900 text-center mb-3">
+                  获取免费债务评估
                 </h2>
-                <p className="text-gray-600 text-center mb-8">
-                  请填写您的信息，我们将在24小时内与您联系
+                <p className="text-gray-600 text-center mb-8 text-sm leading-relaxed">
+                  专业团队将在24小时内联系您<br/>
+                  <span className="text-primary-blue font-medium">平均追收成功率超过60%</span>
                 </p>
                 
                 {/* Form */}
@@ -116,7 +122,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       onChange={handleChange}
                       placeholder="您的姓名"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
                     />
                   </div>
                   
@@ -128,7 +134,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       onChange={handleChange}
                       placeholder="您的工作邮箱"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none transition-all"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
                     />
                   </div>
                   
@@ -140,7 +146,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       placeholder="请告诉我们更多关于您案件的详情"
                       rows={4}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all resize-none placeholder-gray-400"
                     />
                   </div>
                   
@@ -177,13 +183,31 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   )}
                 </form>
                 
-                {/* Privacy notice */}
-                <p className="text-xs text-gray-500 text-center mt-6">
-                  提交即表示您同意我们的
-                  <a href="/privacy" className="text-primary-blue hover:underline mx-1">隐私政策</a>
-                  和
-                  <a href="/terms" className="text-primary-blue hover:underline mx-1">服务条款</a>
-                </p>
+                {/* Trust indicators */}
+                <div className="mt-8 pt-6 border-t border-gray-100">
+                  <div className="flex items-center justify-center gap-6 text-xs text-gray-500">
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      无前期费用
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                      </svg>
+                      信息保密
+                    </span>
+                  </div>
+                  
+                  {/* Privacy notice */}
+                  <p className="text-xs text-gray-400 text-center mt-4">
+                    提交即表示您同意我们的
+                    <a href="/privacy" className="text-primary-blue hover:underline mx-1">隐私政策</a>
+                    和
+                    <a href="/terms" className="text-primary-blue hover:underline mx-1">服务条款</a>
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
