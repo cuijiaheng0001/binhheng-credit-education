@@ -161,6 +161,11 @@
     cursor: pointer !important;
   }
   
+  /* Fix cursor for interactive elements inside divs */
+  a div, button div, [href] div, .cursor-pointer div {
+    cursor: inherit !important;
+  }
+  
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
