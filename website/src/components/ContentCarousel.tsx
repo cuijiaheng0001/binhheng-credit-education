@@ -81,6 +81,7 @@ export default function ContentCarousel() {
   const [activeTab, setActiveTab] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(false) // 初始状态为false
   const [hasStarted, setHasStarted] = useState(false) // 记录是否已经开始过
+  const [isPaused, setIsPaused] = useState(false) // 鼠标悬停暂停
   const sectionRef = useRef<HTMLElement>(null)
   const currentContent = tabs[activeTab].content
 
@@ -119,14 +120,14 @@ export default function ContentCarousel() {
   }, [hasStarted])
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying || isPaused) return
 
     const interval = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % tabs.length)
     }, 8000) // 8秒切换一次
 
     return () => clearInterval(interval)
-  }, [isAutoPlaying])
+  }, [isAutoPlaying, isPaused])
 
   const goToTab = (index: number) => {
     setActiveTab(index)
@@ -180,6 +181,8 @@ export default function ContentCarousel() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
           className="grid lg:grid-cols-2 gap-12 items-center"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
           {/* Left Content */}
           <div>

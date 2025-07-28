@@ -37,6 +37,7 @@ const slides = [
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [isPaused, setIsPaused] = useState(false)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const { scrollY } = useScroll()
   const imageY = useTransform(scrollY, [0, 500], [0, 150])
@@ -44,14 +45,14 @@ export default function HeroCarousel() {
   const opacity = useTransform(scrollY, [0, 400], [1, 0])
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying || isPaused) return
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 8000)
 
     return () => clearInterval(interval)
-  }, [isAutoPlaying])
+  }, [isAutoPlaying, isPaused])
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index)
@@ -111,6 +112,8 @@ export default function HeroCarousel() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
               >
                 {/* Badge */}
                 <motion.div
