@@ -1,7 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { AlertTriangle, TrendingDown, Clock, ArrowRight } from 'lucide-react'
+import ConsultationModal from './ConsultationModal'
 
 const problems = [
   {
@@ -25,7 +27,10 @@ const problems = [
 ]
 
 export default function ProblemAwareness() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  
   return (
+    <>
     <section className="py-20 bg-light-gray">
       <div className="max-w-4xl mx-auto px-8">
         <motion.div
@@ -79,15 +84,15 @@ export default function ProblemAwareness() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <motion.a
-            href="/contact"
-            className="inline-flex items-center px-8 py-4 bg-navy text-white font-semibold rounded-lg hover:bg-navy-light hover:shadow-2xl transition-all duration-300 shadow-lg group"
+          <motion.button
+            onClick={() => setIsConsultationOpen(true)}
+            className="inline-flex items-center px-6 py-3 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             了解如何避免这些损失
             <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-          </motion.a>
+          </motion.button>
           
           <motion.div
             initial={{ opacity: 0 }}
@@ -105,5 +110,12 @@ export default function ProblemAwareness() {
         </motion.div>
       </div>
     </section>
+    
+    {/* Consultation Modal */}
+    <ConsultationModal 
+      isOpen={isConsultationOpen} 
+      onClose={() => setIsConsultationOpen(false)} 
+    />
+    </>
   )
 }

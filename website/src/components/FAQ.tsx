@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, HelpCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLanguage } from '@/i18n/client'
+import ConsultationModal from './ConsultationModal'
 
 interface FAQItem {
   question: string
@@ -218,6 +219,7 @@ const faqData: Record<string, FAQItem[]> = {
 export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [activeCategory, setActiveCategory] = useState<string>('all')
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const { locale } = useLanguage()
   
   const faqs = faqData[locale] || faqData['zh']
@@ -341,16 +343,22 @@ export default function FAQ() {
               ? '还有其他问题？我们随时为您解答'
               : 'Have more questions? We\'re here to help'}
           </p>
-          <motion.a
-            href="/contact"
-            className="inline-flex items-center px-6 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-primary-blue/90 hover:shadow-xl transition-all duration-300"
+          <motion.button
+            onClick={() => setIsConsultationOpen(true)}
+            className="inline-flex items-center px-6 py-3 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             {locale === 'zh' ? '联系我们' : 'Contact Us'}
-          </motion.a>
+          </motion.button>
         </motion.div>
       </div>
+      
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)} 
+      />
     </section>
   )
 }

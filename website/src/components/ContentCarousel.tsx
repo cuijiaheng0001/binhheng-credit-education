@@ -149,7 +149,7 @@ export default function ContentCarousel() {
                   className={cn(
                     "text-sm font-medium transition-all duration-300",
                     activeTab === index
-                      ? "text-primary-blue"
+                      ? "text-navy"
                       : "text-gray-500 hover:text-gray-700"
                   )}
                 >
@@ -193,7 +193,7 @@ export default function ContentCarousel() {
             <ul className="space-y-3 mb-8">
               {currentContent.features.map((feature, index) => (
                 <li key={index} className="flex items-center text-gray-700">
-                  <div className="w-6 h-6 bg-primary-blue rounded-full flex items-center justify-center mr-3">
+                  <div className="w-6 h-6 bg-navy rounded-full flex items-center justify-center mr-3">
                     <span className="text-white text-xs">✓</span>
                   </div>
                   {feature}
@@ -203,7 +203,7 @@ export default function ContentCarousel() {
 
             <motion.a
               href={currentContent.link}
-              className="inline-flex items-center px-6 py-3 bg-transparent text-primary-blue font-semibold rounded-lg border-2 border-primary-blue hover:bg-primary-blue hover:text-white transition-all duration-300 group"
+              className="inline-flex items-center px-6 py-3 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -242,7 +242,7 @@ export default function ContentCarousel() {
         <div className="flex justify-center gap-4 mt-8">
           <motion.button
             onClick={() => goToTab((activeTab - 1 + tabs.length) % tabs.length)}
-            className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
+            className="p-3 border border-gray-300 rounded-lg hover:border-navy hover:text-navy transition-colors"
             aria-label="Previous tab"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -251,7 +251,7 @@ export default function ContentCarousel() {
           </motion.button>
           <motion.button
             onClick={() => goToTab((activeTab + 1) % tabs.length)}
-            className="p-3 border border-gray-300 rounded-lg hover:border-primary-blue hover:text-primary-blue transition-colors"
+            className="p-3 border border-gray-300 rounded-lg hover:border-navy hover:text-navy transition-colors"
             aria-label="Next tab"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
