@@ -25,14 +25,18 @@ export default function ClientLayout({
 }: ClientLayoutProps) {
   return (
     <LanguageProvider initialLocale={initialLocale} initialDictionary={initialDictionary}>
-      <LoadingScreen />
-      <AOSInit />
-      <Navigation />
-      {children}
-      <Footer />
-      <WhatsAppButton />
-      <AccessibilityControls />
-      <CookieBanner />
+      <div className="flex flex-col min-h-screen">
+        <LoadingScreen />
+        <AOSInit />
+        <Navigation />
+        <div className="flex-grow">
+          {children}
+        </div>
+        <Footer />
+        <WhatsAppButton />
+        <AccessibilityControls />
+        <CookieBanner />
+      </div>
     </LanguageProvider>
   )
 }

@@ -127,6 +127,14 @@
     -moz-user-select: auto !important;
     -ms-user-select: auto !important;
     user-select: auto !important;
+    height: 100%;
+  }
+  
+  /* Fix for Next.js root element */
+  #__next {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   
   /* Make all text elements explicitly selectable */

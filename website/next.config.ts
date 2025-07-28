@@ -40,6 +40,19 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/llms-ctx.txt',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'llms-txt',
+          },
+          {
+            key: 'Content-Type',
+            value: 'text/plain; charset=utf-8',
+          },
+        ],
+      },
     ];
   },
 };
