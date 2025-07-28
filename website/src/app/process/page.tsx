@@ -2,6 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { FileSearch, CheckSquare, MessageSquare, DollarSign, Clock, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import CTASection from '@/components/CTASection'
+import { useLanguage } from '@/i18n/client'
 
 const timeline = [
   {
@@ -146,29 +149,63 @@ const successFactors = [
 ]
 
 export default function ProcessPage() {
+  const { dictionary } = useLanguage()
+  
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-              透明高效的追收流程
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              从评估到回收，每一步都清晰可控，确保最佳追收效果
-            </p>
-          </motion.div>
+    <main className="min-h-screen">
+      {/* Hero Section - 匹配主页风格 */}
+      <section className="relative h-[60vh] min-h-[500px] overflow-hidden bg-black">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/debt-recovery-1.jpg"
+            alt="Professional Process"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-3xl"
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-white/90 text-sm font-medium mb-4"
+              >
+                专业流程
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-4xl lg:text-6xl text-white mb-6 font-bold"
+              >
+                透明高效的追收流程
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-lg text-white/80 leading-relaxed"
+              >
+                从评估到回收，每一步都清晰可控，确保最佳追收效果
+              </motion.p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
-      <section className="py-20">
+      {/* Timeline Section - 使用卡片样式 */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           {timeline.map((phase, phaseIndex) => {
             const Icon = phase.icon
@@ -183,13 +220,13 @@ export default function ProcessPage() {
               >
                 {/* Phase Header */}
                 <div className="flex items-center gap-4 mb-8">
-                  <div className={`w-16 h-16 ${phase.color} rounded-full flex items-center justify-center text-white`}>
+                  <div className={`w-16 h-16 ${phase.color} rounded-full flex items-center justify-center text-white shadow-lg`}>
                     <Icon className="w-8 h-8" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{phase.phase}</p>
-                    <h2 className="text-2xl font-semibold text-gray-900">{phase.title}</h2>
-                    <p className="text-blue-600 font-medium">预计时间：{phase.duration}</p>
+                    <h2 className="text-2xl font-bold text-gray-900">{phase.title}</h2>
+                    <p className="text-primary-blue font-semibold">预计时间：{phase.duration}</p>
                   </div>
                 </div>
 
@@ -207,9 +244,9 @@ export default function ProcessPage() {
                       {/* Step Dot */}
                       <div className="absolute -left-[49px] top-2 w-4 h-4 bg-white border-2 border-gray-400 rounded-full" />
                       
-                      <div className="bg-gray-50 p-6 rounded-lg">
+                      <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
                         <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-lg font-semibold text-gray-900">{step.title}</h3>
+                          <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
                           <span className="text-sm text-gray-500 flex items-center">
                             <Clock className="w-4 h-4 mr-1" />
                             {step.time}
@@ -226,8 +263,8 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Success Factors */}
-      <section className="py-20 bg-gray-50">
+      {/* Success Factors - 使用主页风格 */}
+      <section className="py-24 bg-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -235,10 +272,10 @@ export default function ProcessPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               成功关键因素
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               我们的独特优势确保高于行业平均水平的追收成功率
             </p>
           </motion.div>
@@ -251,21 +288,22 @@ export default function ProcessPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                whileHover={{ y: -4 }}
               >
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {factor.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{factor.description}</p>
-                <p className="text-2xl font-bold text-blue-600">{factor.impact}</p>
+                <p className="text-2xl font-bold text-primary-blue">{factor.impact}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Case Timeline Example */}
-      <section className="py-20">
+      {/* Case Timeline Example - 修复文字颜色 */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -273,12 +311,12 @@ export default function ProcessPage() {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-white"
           >
-            <h2 className="text-3xl font-light text-center mb-12">
+            <h2 className="text-3xl font-bold text-center mb-12 text-white">
               真实案例时间线
             </h2>
             
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-xl font-semibold mb-6">
+              <h3 className="text-xl font-semibold mb-6 text-white">
                 案例：美国大学追收中国留学生宿舍欠款 $45,000
               </h3>
               
@@ -286,31 +324,31 @@ export default function ProcessPage() {
                 <div className="flex items-center">
                   <div className="w-24 text-right mr-6 text-blue-100">第1天</div>
                   <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-4">
-                    <p>收到案件，开始文档审查和债务人调查</p>
+                    <p className="text-white">收到案件，开始文档审查和债务人调查</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-24 text-right mr-6 text-blue-100">第3天</div>
                   <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-4">
-                    <p>定位到债务人在深圳的工作单位，确认可追收</p>
+                    <p className="text-white">定位到债务人在深圳的工作单位，确认可追收</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-24 text-right mr-6 text-blue-100">第7天</div>
                   <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-4">
-                    <p>成功联系债务人，开始协商还款方案</p>
+                    <p className="text-white">成功联系债务人，开始协商还款方案</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-24 text-right mr-6 text-blue-100">第21天</div>
                   <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-4">
-                    <p>达成分期还款协议，首期款项到账</p>
+                    <p className="text-white">达成分期还款协议，首期款项到账</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <div className="w-24 text-right mr-6 text-blue-100">第45天</div>
                   <div className="flex-1 bg-white/10 backdrop-blur rounded-lg p-4">
-                    <p>全额追回，案件成功结案</p>
+                    <p className="text-white">全额追回，案件成功结案</p>
                   </div>
                 </div>
               </div>
@@ -319,21 +357,14 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl font-semibold text-gray-900 mb-4">
-            开始您的追收之旅
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            专业团队随时准备为您服务，第一步从免费评估开始
-          </p>
-          <button className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium">
-            <span>获取免费评估</span>
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </button>
-        </div>
-      </section>
+      {/* CTA - 使用统一的CTASection组件 */}
+      <CTASection 
+        label={dictionary.cta.freeConsultation}
+        title="开始您的追收之旅"
+        description="专业团队随时准备为您服务，第一步从免费评估开始"
+        buttonText="获取免费评估"
+        variant="light"
+      />
     </main>
   )
 }
