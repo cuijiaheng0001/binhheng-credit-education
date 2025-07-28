@@ -13,7 +13,7 @@ const tabs = [
     content: {
       title: '专注中国债务人的专业追收',
       description: '当债务人返回中国后，一般国际催收公司无法有效处理。我们是唯一专注于此类债务的专业催收公司。',
-      image: 'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80',
       features: [
         '专注中国债务人',
         '本地化中文沟通',
