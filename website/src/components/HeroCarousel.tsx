@@ -54,6 +54,14 @@ export default function HeroCarousel() {
     return () => clearInterval(interval)
   }, [isAutoPlaying, isPaused])
 
+  // 预加载所有图片
+  useEffect(() => {
+    slides.forEach((slide) => {
+      const img = new window.Image()
+      img.src = slide.image
+    })
+  }, [])
+
   const goToSlide = (index: number) => {
     setCurrentSlide(index)
     setIsAutoPlaying(false)
@@ -71,32 +79,34 @@ export default function HeroCarousel() {
   return (
     <>
       <section className="relative h-screen overflow-hidden bg-black">
-      {/* Background Images */}
-      <AnimatePresence>
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="absolute inset-0"
-          style={{ y: imageY }}
-        >
-          <Image
-            src={slides[currentSlide].image}
-            alt={slides[currentSlide].title}
-            fill
-            priority
-            className="object-cover"
-            quality={100}
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={`${slides[currentSlide].image.replace('.jpg', '-blur.jpg')}`}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
-        </motion.div>
-      </AnimatePresence>
+      {/* Background Images - 预渲染所有图片 */}
+      <motion.div
+        className="absolute inset-0"
+        style={{ y: imageY }}
+      >
+        {slides.map((slide, index) => (
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentSlide ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              priority={true}
+              className="object-cover"
+              quality={100}
+              sizes="100vw"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+          </motion.div>
+        ))}
+      </motion.div>
 
       {/* Content */}
       <motion.div 
