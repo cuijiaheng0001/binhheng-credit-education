@@ -60,8 +60,8 @@ export default function Navigation() {
               className="flex items-center group cursor-pointer no-underline-effect"
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
               >
                 <Image

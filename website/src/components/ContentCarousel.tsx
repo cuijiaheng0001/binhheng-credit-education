@@ -123,7 +123,7 @@ export default function ContentCarousel() {
 
     const interval = setInterval(() => {
       setActiveTab((prev) => (prev + 1) % tabs.length)
-    }, 5000) // 5秒切换一次
+    }, 8000) // 8秒切换一次
 
     return () => clearInterval(interval)
   }, [isAutoPlaying])
