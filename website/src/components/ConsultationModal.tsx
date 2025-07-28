@@ -89,9 +89,9 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                 >
                   <X className="w-5 h-5 text-gray-400 group-hover:text-gray-600" />
                 </button>
-              
-              {/* Content */}
-              <div className="p-10">
+                
+                {/* Content */}
+                <div className="p-10">
                 {/* Logo */}
                 <div className="flex justify-center mb-6">
                   <Image
@@ -210,6 +210,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                 </div>
               </div>
             </div>
+          </div>
           </motion.div>
         </>
       )}

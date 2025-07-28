@@ -84,6 +84,14 @@ export default function ContentCarousel() {
   const sectionRef = useRef<HTMLElement>(null)
   const currentContent = tabs[activeTab].content
 
+  // 预加载所有图片
+  useEffect(() => {
+    tabs.forEach((tab) => {
+      const img = new window.Image()
+      img.src = tab.content.image
+    })
+  }, [])
+
   // 使用Intersection Observer检测组件是否在视窗中
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -211,12 +219,21 @@ export default function ContentCarousel() {
             transition={{ duration: 0.5 }}
             className="relative h-[400px] rounded-xl overflow-hidden shadow-xl"
           >
-            <Image
-              src={currentContent.image}
-              alt={currentContent.title}
-              fill
-              className="object-cover"
-            />
+            {/* 预渲染所有图片，只显示当前的 */}
+            {tabs.map((tab, index) => (
+              <Image
+                key={tab.id}
+                src={tab.content.image}
+                alt={tab.content.title}
+                fill
+                className={cn(
+                  "object-cover transition-opacity duration-300",
+                  index === activeTab ? "opacity-100" : "opacity-0"
+                )}
+                priority={true}
+                loading="eager"
+              />
+            ))}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </motion.div>
         </motion.div>
