@@ -364,6 +364,7 @@ export default function ProcessPage() {
         description="专业团队随时准备为您服务，第一步从免费评估开始"
         buttonText="获取免费评估"
         variant="light"
+        openModal={true}
       />
     </main>
   )

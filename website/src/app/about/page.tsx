@@ -264,6 +264,7 @@ export default function AboutPage() {
         description="立即获取免费债务评估，了解您的追收可能性"
         buttonText="开始免费评估"
         variant="light"
+        openModal={true}
       />
     </main>
   )

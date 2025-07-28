@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { ChevronLeft, ChevronRight, TrendingUp, Shield, Award, Globe, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import ConsultationModal from './ConsultationModal'
 
 const slides = [
   {
@@ -36,6 +37,7 @@ const slides = [
 export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const { scrollY } = useScroll()
   const imageY = useTransform(scrollY, [0, 500], [0, 150])
   const textY = useTransform(scrollY, [0, 300], [0, 50])
@@ -66,7 +68,8 @@ export default function HeroCarousel() {
   }
 
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
+    <>
+      <section className="relative h-screen overflow-hidden bg-black">
       {/* Background Images */}
       <AnimatePresence>
         <motion.div
@@ -163,6 +166,7 @@ export default function HeroCarousel() {
                   <motion.button 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setIsConsultationOpen(true)}
                     className="px-8 py-4 bg-white text-primary-blue font-semibold rounded-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 shadow-lg"
                   >
                     立即获取免费评估
@@ -223,6 +227,13 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-    </section>
+      </section>
+      
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)} 
+      />
+    </>
   )
 }

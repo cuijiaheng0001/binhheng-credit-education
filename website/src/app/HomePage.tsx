@@ -25,6 +25,7 @@ export default function HomePage() {
         description={dictionary.cta.professionalService}
         buttonText={dictionary.cta.bookConsultation}
         variant="gradient"
+        openModal={true}
       />
       <ProblemAwareness />
       <SolutionOverview />
@@ -38,6 +39,7 @@ export default function HomePage() {
         description={dictionary.cta.teamReady}
         buttonText={dictionary.cta.contactUs}
         variant="light"
+        openModal={true}
       />
       <TrustIndicators />
     </main>

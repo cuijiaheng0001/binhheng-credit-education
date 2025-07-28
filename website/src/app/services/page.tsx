@@ -366,6 +366,7 @@ export default function ServicesPage() {
         description="免费案件评估，快速了解追回可能性"
         buttonText="获取免费评估"
         variant="dark"
+        openModal={true}
       />
     </main>
   )

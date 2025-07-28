@@ -1,9 +1,10 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/i18n/client'
+import ConsultationModal from './ConsultationModal'
 
 interface CTASectionProps {
   label?: string
@@ -13,6 +14,7 @@ interface CTASectionProps {
   buttonLink?: string
   variant?: 'gradient' | 'light' | 'dark'
   showTrustIndicators?: boolean
+  openModal?: boolean
 }
 
 export default function CTASection({
@@ -22,11 +24,13 @@ export default function CTASection({
   buttonText = '预约咨询',
   buttonLink = '/contact',
   variant = 'gradient',
-  showTrustIndicators = true
+  showTrustIndicators = true,
+  openModal = false
 }: CTASectionProps = {}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const { dictionary } = useLanguage()
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
 
   const bgStyles = {
     gradient: 'cta-gradient',
@@ -89,18 +93,33 @@ export default function CTASection({
           )}
 
           {/* CTA Button */}
-          <motion.a
-            href={buttonLink}
-            className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${buttonStyles[variant]} shadow-lg hover:shadow-xl`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {buttonText}
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </motion.a>
+          {openModal ? (
+            <motion.button
+              onClick={() => setIsConsultationOpen(true)}
+              className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${buttonStyles[variant]} shadow-lg hover:shadow-xl`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {buttonText}
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </motion.button>
+          ) : (
+            <motion.a
+              href={buttonLink}
+              className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${buttonStyles[variant]} shadow-lg hover:shadow-xl`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {buttonText}
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </motion.a>
+          )}
 
           {/* Trust indicators */}
           {showTrustIndicators && (
@@ -119,6 +138,14 @@ export default function CTASection({
           )}
         </motion.div>
       </div>
+      
+      {/* Consultation Modal */}
+      {openModal && (
+        <ConsultationModal 
+          isOpen={isConsultationOpen} 
+          onClose={() => setIsConsultationOpen(false)} 
+        />
+      )}
     </section>
   )
 }
