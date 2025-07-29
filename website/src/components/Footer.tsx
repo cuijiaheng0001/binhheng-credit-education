@@ -27,7 +27,7 @@ const footerLinks = {
 
 const contactInfo = {
   address: '中国上海市浦东新区陆家嘴金融中心',
-  phone: '+86 21 1234 5678',
+  phone: '+86 16653086767',
   email: 'info@binghengcredit.com',
   website: 'www.binghengcredit.com'
 }

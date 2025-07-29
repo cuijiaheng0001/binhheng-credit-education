@@ -96,7 +96,7 @@ export default async function RootLayout({
             },
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+1-XXX-XXX-XXXX",
+              "telephone": "+86-166-5308-6767",
               "contactType": "customer service",
               "availableLanguage": ["English", "Chinese"]
             },

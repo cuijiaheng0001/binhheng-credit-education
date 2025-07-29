@@ -236,7 +236,7 @@ export default function PrivacyPage() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-primary-blue" />
-                    <span className="text-gray-600">联系电话：+86-10-12345678</span>
+                    <span className="text-gray-600">联系电话：+86 16653086767</span>
                   </div>
                 </div>
               </div>
