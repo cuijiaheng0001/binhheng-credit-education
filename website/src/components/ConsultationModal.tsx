@@ -76,21 +76,8 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
             <div className="bg-white max-w-md w-full pointer-events-auto relative max-h-[85vh] md:max-h-[90vh] overflow-y-auto overscroll-contain rounded-lg">
-              {/* Professional card with subtle fold effect */}
+              {/* Professional card */}
               <div className="relative bg-white shadow-[0_10px_40px_rgba(0,0,0,0.12)] md:shadow-[0_20px_60px_rgba(0,0,0,0.15)] rounded-lg">
-                {/* Paper fold effect - St. Regis inspired */}
-                <div className="absolute top-0 right-0 w-16 h-16 md:w-20 md:h-20 overflow-hidden">
-                  {/* Folded corner */}
-                  <div className="absolute top-0 right-0 w-0 h-0 
-                    border-t-[64px] md:border-t-[80px] border-t-gray-100/90 
-                    border-l-[64px] md:border-l-[80px] border-l-transparent 
-                    shadow-[-2px_2px_4px_rgba(0,0,0,0.1)]" />
-                  {/* Inner fold for depth */}
-                  <div className="absolute top-0 right-0 w-0 h-0 
-                    border-t-[60px] md:border-t-[76px] border-t-white 
-                    border-l-[60px] md:border-l-[76px] border-l-transparent" />
-                </div>
-                
                 {/* Close button - Larger touch target on mobile */}
                 <button
                   onClick={onClose}
