@@ -38,7 +38,7 @@ const steps = [
 
 export default function SimpleRecoveryFlow() {
   return (
-    <section className="py-24 bg-gradient-to-b from-pearl to-white">
+    <section className="py-10 bg-gradient-to-b from-pearl to-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         {/* Simple Header */}
         <motion.div

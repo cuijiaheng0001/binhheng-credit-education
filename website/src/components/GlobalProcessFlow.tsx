@@ -80,7 +80,7 @@ export default function GlobalProcessFlow() {
   }
 
   return (
-    <section ref={containerRef} className="py-24 bg-gradient-to-b from-pearl to-white overflow-hidden">
+    <section ref={containerRef} className="py-10 bg-gradient-to-b from-pearl to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <motion.div

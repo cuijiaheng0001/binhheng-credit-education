@@ -98,7 +98,7 @@ export default function EnhancedGlobalFlow() {
   }
 
   return (
-    <section ref={containerRef} className="py-24 bg-gradient-to-b from-white to-pearl overflow-hidden">
+    <section ref={containerRef} className="py-10 bg-gradient-to-b from-white to-pearl overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <motion.div

@@ -129,7 +129,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid - 使用卡片样式 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
@@ -182,7 +182,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Overview - 使用主页风格 */}
-      <section className="py-24 bg-light-gray">
+      <section className="py-10 bg-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -271,7 +271,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Pricing Model - 使用渐变背景 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

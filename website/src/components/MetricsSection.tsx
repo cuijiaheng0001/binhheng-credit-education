@@ -74,7 +74,7 @@ export default function MetricsSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' })
 
   return (
-    <section ref={containerRef} className="py-24 bg-gradient-to-b from-pearl to-white">
+    <section ref={containerRef} className="py-10 bg-gradient-to-b from-pearl to-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <motion.div

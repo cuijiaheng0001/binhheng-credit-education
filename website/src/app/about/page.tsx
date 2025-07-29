@@ -63,7 +63,7 @@ export default function AboutPage() {
       </section>
 
       {/* Problem Deep Dive - 使用卡片样式 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -155,7 +155,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Approach - 使用主页的卡片风格 */}
-      <section className="py-24 bg-light-gray">
+      <section className="py-10 bg-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -215,7 +215,7 @@ export default function AboutPage() {
       </section>
 
       {/* Results - 使用渐变背景 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

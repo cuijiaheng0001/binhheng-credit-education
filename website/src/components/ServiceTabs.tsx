@@ -82,7 +82,7 @@ export default function ServiceTabs() {
   const activeService = services.find(s => s.id === activeTab)!
 
   return (
-    <section className="py-24 bg-gradient-to-b from-pearl to-white">
+    <section className="py-10 bg-gradient-to-b from-pearl to-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <motion.div

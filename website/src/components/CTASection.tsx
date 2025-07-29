@@ -51,7 +51,7 @@ export default function CTASection({
   }
 
   return (
-    <section ref={ref} className={`py-20 ${bgStyles[variant]}`}>
+    <section ref={ref} className={`py-14 ${bgStyles[variant]}`}>
       <div className="max-w-4xl mx-auto px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

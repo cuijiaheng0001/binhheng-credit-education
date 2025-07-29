@@ -77,7 +77,7 @@ export default function AnimatedGlobe() {
   }
 
   return (
-    <section ref={containerRef} className="py-24 bg-gradient-to-b from-navy to-navy-light relative overflow-hidden">
+    <section ref={containerRef} className="py-10 bg-gradient-to-b from-navy to-navy-light relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{

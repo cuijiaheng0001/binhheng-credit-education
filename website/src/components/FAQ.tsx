@@ -230,7 +230,7 @@ export default function FAQ() {
     : faqs.filter(faq => faq.category === activeCategory)
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-10 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-4xl mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

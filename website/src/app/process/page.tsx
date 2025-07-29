@@ -205,7 +205,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Timeline Section - 使用卡片样式 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           {timeline.map((phase, phaseIndex) => {
             const Icon = phase.icon
@@ -264,7 +264,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Success Factors - 使用主页风格 */}
-      <section className="py-24 bg-light-gray">
+      <section className="py-10 bg-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -303,7 +303,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Case Timeline Example - 修复文字颜色 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

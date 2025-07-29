@@ -62,7 +62,7 @@ export default function CompliancePage() {
       </section>
 
       {/* 合规性声明 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ export default function CompliancePage() {
       </section>
 
       {/* FDCPA合规说明 */}
-      <section className="py-24 bg-light-gray">
+      <section className="py-10 bg-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -157,7 +157,7 @@ export default function CompliancePage() {
       </section>
 
       {/* 中美法律框架说明 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -226,7 +226,7 @@ export default function CompliancePage() {
       </section>
 
       {/* 数据安全与隐私保护政策 */}
-      <section className="py-24 bg-light-gray">
+      <section className="py-10 bg-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -286,7 +286,7 @@ export default function CompliancePage() {
       </section>
 
       {/* 其他政策 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid lg:grid-cols-2 gap-12">
             <motion.div
@@ -318,7 +318,7 @@ export default function CompliancePage() {
       </section>
 
       {/* 资质与认证 */}
-      <section className="py-24 bg-light-gray">
+      <section className="py-10 bg-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -336,7 +336,7 @@ export default function CompliancePage() {
       </section>
 
       {/* 联系渠道与举报通道 */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

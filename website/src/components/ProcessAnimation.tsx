@@ -49,7 +49,7 @@ export default function ProcessAnimation() {
   const x = useTransform(scrollYProgress, [0, 1], ['0%', '-50%'])
 
   return (
-    <section id="process" ref={containerRef} className="py-24 bg-gradient-to-b from-white to-pearl overflow-hidden">
+    <section id="process" ref={containerRef} className="py-10 bg-gradient-to-b from-white to-pearl overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <motion.div

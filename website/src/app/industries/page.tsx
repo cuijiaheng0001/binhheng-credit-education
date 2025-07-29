@@ -1,50 +1,53 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Home, ShoppingCart, Building2, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react'
+import ConsultationModal from '@/components/ConsultationModal'
 
 const industries = [
   {
     id: 'student-housing',
     icon: Home,
-    title: '学生住宿行业',
-    subtitle: 'Student Housing',
-    overview: '专门解决留学生租房违约、损害赔偿和欠费问题',
+    title: '留学生住宿债务',
+    subtitle: 'Student Housing Debt',
+    overview: '专门解决留学生租房违约、损害赔偿和欠费问题，深度理解中美文化差异',
     stats: {
       recovered: '$15M+',
-      successRate: '65%',
+      successRate: '75%',
       avgTime: '35天',
       cases: '2,000+'
     },
     challenges: [
       {
-        title: '学生毕业后失联',
-        description: '90%的留学生毕业后返回中国，传统方式几乎无法联系'
+        title: '债务人联系困难',
+        description: '留学生毕业或辍学返回中国后，美国本地催收公司缺乏有效途径追踪债务人下落，导致债务人长期失联，甚至完全不知道自己存在未缴清的债务'
       },
       {
-        title: '家长联系困难',
-        description: '缺乏有效渠道联系担保人或家长'
+        title: '沟通渠道失效',
+        description: '中国学生及家庭极少将电子邮件作为主要通讯方式。由于文化差异，大量催收邮件未被打开，甚至直接被标记为垃圾邮件'
       },
       {
-        title: '小额债务累积',
-        description: '单笔金额小但数量大，传统追收成本过高'
+        title: '语言及文化障碍',
+        description: '绝大部分中国留学生英文阅读水平有限，遇到英文催收信息通常无法完全理解、甚至因不信任而直接忽视，误以为是诈骗信息'
       },
       {
-        title: '文化沟通障碍',
-        description: '语言和文化差异导致沟通效率低下'
+        title: '中美法律认知差异',
+        description: '在美国，提前终止租约仍需支付全部租期费用；而在中国文化中，租客提前搬离通常不需支付未居住期间租金，导致债务人拒绝配合'
       }
     ],
     solutions: [
-      '建立留学生专属追收流程',
-      '与中国教育部门合作定位',
-      '批量处理降低单位成本',
-      '中英双语团队无缝沟通'
+      '债务人本地化追踪：直接与中国境内教育机构、公安及当地社区合作，快速定位债务人及其家庭成员',
+      '中文渠道直达沟通：采用电话、短信、微信等中国本地通讯方式，直接用中文与债务人或家长沟通',
+      '跨文化催收策略：中文母语团队采用温和、友好且权威的语言，让债务人迅速理解情况并主动合作',
+      '文化适应性方案：结合中国传统中看重"诚信"和"家庭名誉"的心理特点，柔性沟通提高还款意愿',
+      '灵活和解方案：提供分期付款、部分减免等适合中国债务人的解决方案'
     ],
     caseStudy: {
-      client: '美国某大学住宿管理公司',
-      problem: '500+中国留学生欠款，总额$2.3M',
-      solution: '批量追收+家长沟通策略',
-      result: '6个月追回$1.5M，成功率65%'
+      client: '某美国大学宿舍管理部门',
+      problem: '600余名中国留学生欠缴宿舍费，总额超过$3M，传统邮件催收失败率高达90%',
+      solution: '通过中国本地渠道直接联系债务人家庭，使用中文清晰传递债务信息，建立信任并成功沟通还款计划',
+      result: '仅3个月内，追回超过$2M的债务，整体成功率提升至75%'
     }
   },
   {
@@ -136,10 +139,12 @@ const industries = [
 ]
 
 export default function IndustriesPage() {
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="relative py-10 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -158,7 +163,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Industry Overview */}
-      <section className="py-20">
+      <section className="py-14">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid lg:grid-cols-3 gap-8 mb-20">
             {industries.map((industry, index) => {
@@ -206,7 +211,7 @@ export default function IndustriesPage() {
           <section
             key={industryIndex}
             id={industry.id}
-            className={`py-20 ${industryIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
+            className={`py-14 ${industryIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
           >
             <div className="max-w-7xl mx-auto px-8">
               {/* Industry Header */}
@@ -328,13 +333,104 @@ export default function IndustriesPage() {
                   </div>
                 </div>
               </motion.div>
+
+              {/* Special Deep Dive Section for Student Housing */}
+              {industry.id === 'student-housing' && (
+                <>
+                  {/* Cultural Understanding Section */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-16"
+                  >
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-8 text-center">
+                      深度理解：中美文化与法律差异
+                    </h3>
+                    
+                    <div className="bg-navy/5 rounded-2xl p-8 mb-8">
+                      <h4 className="text-xl font-semibold text-gray-900 mb-4">
+                        为什么传统催收公司会失败？
+                      </h4>
+                      <div className="space-y-4 text-gray-700">
+                        <p>
+                          <strong>沟通方式的根本差异：</strong>
+                          中国学生及家庭极少使用电子邮件作为主要沟通方式。传统催收公司发送的英文邮件，
+                          90%以上未被打开或被当作垃圾邮件处理。
+                        </p>
+                        <p>
+                          <strong>语言障碍导致的误解：</strong>
+                          大部分中国留学生的英文阅读能力有限，收到英文催收信后，往往因为看不懂或不信任
+                          而直接忽视，甚至误以为是诈骗信息。
+                        </p>
+                        <p>
+                          <strong>法律认知的巨大鸿沟：</strong>
+                          在美国，租客提前终止租约仍需支付全部租期费用；而在中国文化中，租客提前搬离
+                          通常被认为不需要支付未居住期间的租金。这种认知差异导致债务人从心理上拒绝配合。
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-green-50 rounded-2xl p-8">
+                      <h4 className="text-xl font-semibold text-gray-900 mb-4">
+                        Bingheng Credit 的独特优势
+                      </h4>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                          <h5 className="font-medium text-gray-900 mb-2">文化适应性策略</h5>
+                          <p className="text-gray-700">
+                            我们的本土化团队深谙中国文化中的人情世故，强调"诚信"和"家庭名誉"，
+                            通过柔性沟通有效提高债务人的还款意愿。
+                          </p>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-gray-900 mb-2">教育与普法并重</h5>
+                          <p className="text-gray-700">
+                            用简单明确的中文向债务人解释中美合同法差异，让他们明确意识到法律义务，
+                            增强主动还款的意识。
+                          </p>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-gray-900 mb-2">灵活的解决方案</h5>
+                          <p className="text-gray-700">
+                            面对文化差异导致的抗拒，我们提供分期付款、部分减免等更适合中国债务人
+                            实际情况的解决方案。
+                          </p>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-gray-900 mb-2">本地化沟通渠道</h5>
+                          <p className="text-gray-700">
+                            使用电话、短信、微信等中国人习惯的沟通方式，确保信息准确传达，
+                            避免因渠道问题导致的沟通失败。
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Core Message */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-12 bg-gradient-to-r from-navy to-blue-700 rounded-2xl p-8 text-white text-center"
+                  >
+                    <h3 className="text-2xl font-semibold mb-4">一句话总结</h3>
+                    <p className="text-xl leading-relaxed">
+                      传统催收公司通常难以跨越法律条文与实际文化环境之间的鸿沟；<br/>
+                      Bingheng Credit 以独特的文化理解、本地化沟通与灵活催收方案，<br/>
+                      帮助您追回"看似不可能追回"的债务。
+                    </p>
+                  </motion.div>
+                </>
+              )}
             </div>
           </section>
         )
       })}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-14 bg-gray-900">
         <div className="max-w-4xl mx-auto px-8 text-center">
           <h2 className="text-3xl font-semibold mb-4 text-white">
             为您的行业定制解决方案
@@ -342,11 +438,20 @@ export default function IndustriesPage() {
           <p className="text-xl text-gray-200 mb-8">
             无论您属于哪个行业，我们都有专业团队为您服务
           </p>
-          <button className="px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-lg font-medium">
+          <button 
+            onClick={() => setIsConsultationOpen(true)}
+            className="px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-lg font-medium"
+          >
             立即咨询行业专家
           </button>
         </div>
       </section>
+      
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)} 
+      />
     </main>
   )
 }

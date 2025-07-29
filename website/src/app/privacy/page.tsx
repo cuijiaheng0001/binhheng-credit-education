@@ -166,7 +166,7 @@ export default function PrivacyPage() {
       </section>
 
       {/* Content Sections */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-4xl mx-auto px-8">
           {sections.map((section, index) => (
             <motion.div

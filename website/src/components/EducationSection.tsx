@@ -41,7 +41,7 @@ export default function EducationSection() {
   const [activeStep, setActiveStep] = useState<number | null>(null)
 
   return (
-    <section ref={ref} className="py-24 bg-gradient-to-b from-white to-pearl">
+    <section ref={ref} className="py-10 bg-gradient-to-b from-white to-pearl">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <motion.div

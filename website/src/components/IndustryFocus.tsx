@@ -35,7 +35,7 @@ const industries = [
 
 export default function IndustryFocus() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -39,7 +39,7 @@ const articles = [
 
 export default function KnowledgeCenter() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-8">
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Left Content */}
