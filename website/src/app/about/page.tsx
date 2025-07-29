@@ -379,25 +379,11 @@ export default function AboutPage() {
       <CTASection 
         label={dictionary.cta.freeConsultation}
         title="不要再错失属于您的资金机会"
-        description={<>
-          <div className="flex items-center justify-center gap-6 mb-6">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-white" />
-              <span>无前期费用</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-white" />
-              <span>24小时快速响应</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-5 h-5 text-white" />
-              <span>100%合规保障</span>
-            </div>
-          </div>
-        </>}
+        description="立即获取免费债务追收评估"
         buttonText="立即联系我们"
         variant="light"
         openModal={true}
+        showTrustIndicators={true}
       />
     </main>
   )

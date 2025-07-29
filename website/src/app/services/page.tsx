@@ -129,8 +129,21 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid - 使用卡片样式 */}
-      <section className="py-10 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              专业服务领域
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              针对不同行业特点，提供定制化的债务追收解决方案
+            </p>
+          </motion.div>
           <div className="grid lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon
@@ -141,15 +154,15 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-8"
-                  whileHover={{ y: -4 }}
+                  className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 hover:border-primary-blue/20"
+                  whileHover={{ y: -4, scale: 1.02 }}
                 >
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="flex items-center justify-center w-16 h-16 bg-primary-blue/10 rounded-lg">
+                    <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-blue/10 to-primary-blue/20 rounded-2xl">
                       <Icon className="w-8 h-8 text-primary-blue" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">
@@ -170,7 +183,7 @@ export default function ServicesPage() {
                       </motion.div>
                     ))}
                   </div>
-                  <div className="bg-light-gray p-4 rounded-lg">
+                  <div className="bg-gradient-to-r from-light-gray to-gray-50 p-4 rounded-xl border border-gray-100">
                     <p className="text-sm font-semibold text-gray-900 mb-1">追收流程：</p>
                     <p className="text-sm text-gray-600">{service.process}</p>
                   </div>
@@ -182,7 +195,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Overview - 使用主页风格 */}
-      <section className="py-10 bg-light-gray">
+      <section className="py-20 bg-gradient-to-b from-white to-light-gray">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -204,13 +217,13 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-              whileHover={{ y: -2 }}
+              className="text-center bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-blue/20 group"
+              whileHover={{ y: -4, scale: 1.02 }}
             >
-              <div className="w-16 h-16 bg-primary-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:shadow-xl transition-all">
                 1
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">案件评估</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">案件评估</h3>
               <p className="text-sm text-gray-600">
                 免费评估债务可追回性，制定初步方案
               </p>
@@ -221,13 +234,13 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-              whileHover={{ y: -2 }}
+              className="text-center bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-blue/20 group"
+              whileHover={{ y: -4, scale: 1.02 }}
             >
-              <div className="w-16 h-16 bg-primary-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:shadow-xl transition-all">
                 2
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">合规审查</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">合规审查</h3>
               <p className="text-sm text-gray-600">
                 确保所有操作符合中美两国法律要求
               </p>
@@ -238,13 +251,13 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-              whileHover={{ y: -2 }}
+              className="text-center bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-blue/20 group"
+              whileHover={{ y: -4, scale: 1.02 }}
             >
-              <div className="w-16 h-16 bg-primary-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:shadow-xl transition-all">
                 3
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">本地化沟通</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">本地化沟通</h3>
               <p className="text-sm text-gray-600">
                 通过多渠道与债务人建立有效联系
               </p>
@@ -255,13 +268,13 @@ export default function ServicesPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-center bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-              whileHover={{ y: -2 }}
+              className="text-center bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-blue/20 group"
+              whileHover={{ y: -4, scale: 1.02 }}
             >
-              <div className="w-16 h-16 bg-primary-blue text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary-blue to-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg group-hover:shadow-xl transition-all">
                 4
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">资金回收</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">资金回收</h3>
               <p className="text-sm text-gray-600">
                 安全合规的资金转移和结算
               </p>
@@ -271,7 +284,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Pricing Model - 使用渐变背景 */}
-      <section className="py-10 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -295,13 +308,13 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-primary-blue hover:shadow-lg transition-all duration-300"
-                whileHover={{ y: -4 }}
+                className="bg-white border-2 border-gray-100 rounded-2xl p-8 hover:border-primary-blue hover:shadow-xl transition-all duration-300 group"
+                whileHover={{ y: -4, scale: 1.02 }}
               >
-                <p className="text-sm text-gray-600 mb-2">债务金额</p>
-                <p className="text-2xl font-bold text-gray-900 mb-4">{tier.amount}</p>
-                <div className="border-t pt-4">
-                  <p className="text-3xl font-bold text-primary-blue mb-2">{tier.rate}</p>
+                <p className="text-sm text-gray-500 mb-2">债务金额</p>
+                <p className="text-2xl font-bold text-gray-900 mb-6">{tier.amount}</p>
+                <div className="border-t-2 border-gray-100 pt-6">
+                  <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-blue-600 mb-3 group-hover:scale-110 transition-transform">{tier.rate}</p>
                   <p className="text-sm text-gray-600">{tier.description}</p>
                 </div>
               </motion.div>
@@ -312,12 +325,15 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 bg-light-gray rounded-2xl p-8"
+            className="mt-16 bg-gradient-to-br from-light-gray to-gray-50 rounded-3xl p-10 border border-gray-100"
           >
-            <h3 className="text-xl font-bold text-gray-900 mb-6">费用说明</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">费用说明</h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-3">包含服务</h4>
+              <div className="bg-white rounded-xl p-6">
+                <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
+                  <DollarSign className="w-5 h-5 text-primary-blue mr-2" />
+                  包含服务
+                </h4>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start">
                     <CheckCircle className="w-4 h-4 text-accent-red mt-0.5 mr-2 flex-shrink-0" />
@@ -337,8 +353,11 @@ export default function ServicesPage() {
                   </li>
                 </ul>
               </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-3">额外费用</h4>
+              <div className="bg-white rounded-xl p-6">
+                <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
+                  <FileText className="w-5 h-5 text-gray-400 mr-2" />
+                  额外费用
+                </h4>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start">
                     <FileText className="w-4 h-4 text-gray-400 mt-0.5 mr-2 flex-shrink-0" />
@@ -359,13 +378,62 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Additional Services Info */}
+      <section className="py-20 bg-gradient-to-b from-light-gray to-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-navy to-blue-700 rounded-3xl p-12 text-white shadow-2xl"
+          >
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                为什么选择 Bingheng Credit？
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8 mt-12">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <div className="text-5xl font-bold mb-3">60%+</div>
+                  <p className="text-white/90">平均追回成功率</p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="text-center"
+                >
+                  <div className="text-5xl font-bold mb-3">24h</div>
+                  <p className="text-white/90">快速响应时间</p>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="text-center"
+                >
+                  <div className="text-5xl font-bold mb-3">0</div>
+                  <p className="text-white/90">前期费用</p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA - 使用统一的CTASection组件 */}
       <CTASection 
         label={dictionary.cta.freeConsultation}
         title="立即开始追回您的资金"
         description="免费案件评估，快速了解追回可能性"
         buttonText="获取免费评估"
-        variant="dark"
+        variant="light"
         openModal={true}
       />
     </main>
