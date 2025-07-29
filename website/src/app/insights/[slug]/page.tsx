@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, Clock, ArrowLeft, Share2, Bookmark, ChevronRight } from 'lucide-react'
+import { Calendar, Clock, ArrowLeft, Share2, Bookmark, ChevronRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getInsightBySlug, getRelatedInsights } from '@/lib/insights-data'
@@ -122,9 +122,32 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
                     <pre className="bg-gray-100 rounded-lg p-4 overflow-x-auto mb-4">{children}</pre>
                   ),
                   hr: () => <hr className="my-8 border-gray-200" />,
-                  a: ({href, children}) => (
-                    <a href={href} className="text-navy hover:underline">{children}</a>
-                  ),
+                  a: ({href, children}) => {
+                    // Handle external links
+                    const isExternal = href && (href.startsWith('http://') || href.startsWith('https://'))
+                    
+                    if (isExternal) {
+                      return (
+                        <a 
+                          href={href} 
+                          className="text-navy hover:underline inline-flex items-baseline gap-1 group"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {children}
+                          {' '}
+                          <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity inline-block flex-shrink-0" />
+                        </a>
+                      )
+                    }
+                    
+                    // Internal links
+                    return (
+                      <a href={href} className="text-navy hover:underline">
+                        {children}
+                      </a>
+                    )
+                  },
                   table: ({children}) => (
                     <div className="overflow-x-auto mb-4">
                       <table className="min-w-full divide-y divide-gray-200">{children}</table>

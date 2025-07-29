@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { AlertTriangle, Target, Shield, Users, ArrowRight, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
+import OptimizedImage from '@/components/OptimizedImage'
 import CTASection from '@/components/CTASection'
 import { useLanguage } from '@/i18n/client'
 
@@ -14,12 +15,14 @@ export default function AboutPage() {
       {/* Hero Section - 匹配主页风格 */}
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden bg-black">
         <div className="absolute inset-0">
-          <Image
+          <OptimizedImage
             src="/images/hero/debt-recovery-2.jpg"
-            alt="About Bingheng Credit"
+            alt="关于 Bingheng Credit - 专业跨境债务追收服务公司，帮助美国企业追回中国相关债务"
             fill
             className="object-cover opacity-60"
             priority
+            sizes="100vw"
+            quality={85}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />

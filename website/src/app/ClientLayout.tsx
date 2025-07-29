@@ -27,13 +27,16 @@ export default function ClientLayout({
   return (
     <LanguageProvider initialLocale={initialLocale} initialDictionary={initialDictionary}>
       <div className="flex flex-col min-h-screen">
+        <a href="#main-content" className="skip-to-content">
+          跳转到主要内容
+        </a>
         <LoadingScreen />
         <AOSInit />
         <PerformanceOptimizer />
         <Navigation />
-        <div className="flex-grow">
+        <main id="main-content" className="flex-grow">
           {children}
-        </div>
+        </main>
         <Footer />
         <WhatsAppButton />
         <AccessibilityControls />
