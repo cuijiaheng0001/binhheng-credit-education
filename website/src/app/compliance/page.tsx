@@ -342,24 +342,24 @@ export default function CompliancePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-primary-blue to-blue-700 rounded-2xl p-12 text-white text-center"
+            className="bg-gradient-to-r from-navy to-blue-700 rounded-2xl p-12 text-white text-center"
           >
-            <AlertCircle className="w-12 h-12 mx-auto mb-6" />
+            <AlertCircle className="w-12 h-12 mx-auto mb-6 text-white" />
             <h2 className="text-3xl font-bold mb-6">联系渠道与举报通道</h2>
             <p className="text-lg mb-8 opacity-90">
               如发现任何违规行为或希望提出合规相关问题，请及时通过以下方式联系我们：
             </p>
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
               <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4">
-                <p className="font-semibold mb-1">邮箱</p>
-                <a href="mailto:compliance@example.com" className="hover:underline">
-                  compliance@example.com
+                <p className="font-semibold mb-1 text-white">邮箱</p>
+                <a href="mailto:compliance@binghengcredit.com" className="hover:underline text-white/90">
+                  compliance@binghengcredit.com
                 </a>
               </div>
               <div className="bg-white/10 backdrop-blur rounded-lg px-6 py-4">
-                <p className="font-semibold mb-1">电话</p>
-                <a href="tel:+86-10-12345678" className="hover:underline">
-                  +86-10-12345678
+                <p className="font-semibold mb-1 text-white">电话</p>
+                <a href="tel:+86-166-5308-6767" className="hover:underline text-white/90">
+                  +86 16653086767
                 </a>
               </div>
             </div>
