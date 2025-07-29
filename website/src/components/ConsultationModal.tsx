@@ -58,12 +58,12 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop with better mobile support */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 z-50 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 md:bg-black/70 z-50 backdrop-blur-sm touch-manipulation"
             onClick={onClose}
           />
           
@@ -73,25 +73,35 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
-            <div className="bg-white max-w-md w-full pointer-events-auto relative">
+            <div className="bg-white max-w-md w-full pointer-events-auto relative max-h-[85vh] md:max-h-[90vh] overflow-y-auto overscroll-contain rounded-lg">
               {/* Professional card with subtle fold effect */}
-              <div className="relative bg-white shadow-[0_20px_60px_rgba(0,0,0,0.15)] rounded-lg overflow-hidden">
-                {/* Subtle corner accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-navy/5 to-transparent" />
+              <div className="relative bg-white shadow-[0_10px_40px_rgba(0,0,0,0.12)] md:shadow-[0_20px_60px_rgba(0,0,0,0.15)] rounded-lg">
+                {/* Paper fold effect - St. Regis inspired */}
+                <div className="absolute top-0 right-0 w-16 h-16 md:w-20 md:h-20 overflow-hidden">
+                  {/* Folded corner */}
+                  <div className="absolute top-0 right-0 w-0 h-0 
+                    border-t-[64px] md:border-t-[80px] border-t-gray-100/90 
+                    border-l-[64px] md:border-l-[80px] border-l-transparent 
+                    shadow-[-2px_2px_4px_rgba(0,0,0,0.1)]" />
+                  {/* Inner fold for depth */}
+                  <div className="absolute top-0 right-0 w-0 h-0 
+                    border-t-[60px] md:border-t-[76px] border-t-white 
+                    border-l-[60px] md:border-l-[76px] border-l-transparent" />
+                </div>
                 
-                {/* Close button */}
+                {/* Close button - Larger touch target on mobile */}
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-gray-50 hover:bg-gray-100 transition-all duration-200 group"
+                  className="absolute top-3 right-3 md:top-4 md:right-4 p-2.5 md:p-2 rounded-full bg-gray-50 hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 group touch-manipulation"
                   aria-label="Close modal"
                 >
                   <X className="w-5 h-5 text-gray-400 group-hover:text-gray-600" />
                 </button>
                 
-                {/* Content */}
-                <div className="p-10">
+                {/* Content - Responsive padding */}
+                <div className="p-6 md:p-10">
                 {/* Logo */}
                 <div className="flex justify-center mb-6">
                   <Image
@@ -104,10 +114,10 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                 </div>
                 
                 {/* Title with professional tone */}
-                <h2 className="text-2xl font-semibold text-gray-900 text-center mb-3">
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-900 text-center mb-3">
                   获取免费债务评估
                 </h2>
-                <p className="text-gray-600 text-center mb-8 text-sm leading-relaxed">
+                <p className="text-gray-600 text-center mb-6 md:mb-8 text-sm leading-relaxed">
                   专业团队将在24小时内联系您<br/>
                   <span className="text-navy font-medium">平均追收成功率超过60%</span>
                 </p>
@@ -123,7 +133,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       placeholder="您的姓名"
                       required
                       autoComplete="name"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400 text-base"
                     />
                   </div>
                   
@@ -136,7 +146,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       placeholder="您的工作邮箱"
                       required
                       autoComplete="email"
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400 text-base"
                     />
                   </div>
                   
@@ -146,9 +156,9 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="请告诉我们更多关于您案件的详情"
-                      rows={4}
+                      rows={3}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent focus:bg-white outline-none transition-all resize-none placeholder-gray-400"
+                      className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all resize-none placeholder-gray-400 text-base"
                     />
                   </div>
                   
@@ -156,7 +166,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   <button
                     type="submit"
                     disabled={isSubmitting || submitStatus === 'success'}
-                    className="w-full bg-navy text-white py-3 px-6 rounded-lg font-medium hover:bg-navy-light transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-navy text-white py-3.5 md:py-3 px-6 rounded-lg font-medium hover:bg-navy-light active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
                   >
                     {isSubmitting ? (
                       <span className="flex items-center justify-center">
@@ -185,9 +195,9 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   )}
                 </form>
                 
-                {/* Trust indicators */}
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <div className="flex items-center justify-center gap-6 text-xs text-gray-500">
+                {/* Trust indicators - Responsive spacing */}
+                <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-100">
+                  <div className="flex items-center justify-center gap-4 md:gap-6 text-xs text-gray-500">
                     <span className="flex items-center gap-1">
                       <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -203,7 +213,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   </div>
                   
                   {/* Privacy notice */}
-                  <p className="text-xs text-gray-400 text-center mt-4">
+                  <p className="text-xs text-gray-400 text-center mt-3 md:mt-4 px-2">
                     提交即表示您同意我们的
                     <a href="/privacy" className="text-navy hover:underline mx-1">隐私政策</a>
                     和

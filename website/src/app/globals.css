@@ -359,6 +359,31 @@
     pointer-events: none;
   }
   
+  /* Mobile optimization for touch */
+  @media (max-width: 768px) {
+    /* Prevent text size adjustment on orientation change */
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    
+    /* Improve tap targets */
+    button, a, input, textarea, select {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Smooth scrolling for modals */
+    .overflow-y-auto {
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  
+  /* Touch feedback */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
   /* Link Styles */
   a {
     transition: all var(--transition-base);
@@ -668,6 +693,37 @@
 
 /* Professional Card Styles */
 @layer components {
+  /* Paper fold effect for cards */
+  .paper-fold {
+    position: relative;
+    overflow: visible;
+  }
+  
+  .paper-fold::before,
+  .paper-fold::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .paper-fold::before {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 60px 60px 0;
+    border-color: transparent #f3f4f6 transparent transparent;
+    filter: drop-shadow(-2px 2px 3px rgba(0,0,0,0.1));
+  }
+  
+  .paper-fold::after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 58px 58px 0;
+    border-color: transparent white transparent transparent;
+  }
+  
   .card-professional {
     background-color: white;
     border-radius: 0.5rem;
