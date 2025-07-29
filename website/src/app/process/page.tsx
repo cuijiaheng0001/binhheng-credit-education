@@ -12,7 +12,9 @@ const timeline = [
     title: '案件评估',
     duration: '24-48小时',
     icon: FileSearch,
-    color: 'bg-blue-500',
+    color: 'from-blue-500 to-blue-600',
+    borderColor: 'border-blue-200',
+    bgColor: 'bg-blue-50',
     steps: [
       {
         title: '文档收集',
@@ -41,7 +43,9 @@ const timeline = [
     title: '合规准备',
     duration: '3-5天',
     icon: CheckSquare,
-    color: 'bg-green-500',
+    color: 'from-green-500 to-green-600',
+    borderColor: 'border-green-200',
+    bgColor: 'bg-green-50',
     steps: [
       {
         title: '法律审查',
@@ -70,7 +74,9 @@ const timeline = [
     title: '追收执行',
     duration: '2-4周',
     icon: MessageSquare,
-    color: 'bg-purple-500',
+    color: 'from-purple-500 to-purple-600',
+    borderColor: 'border-purple-200',
+    bgColor: 'bg-purple-50',
     steps: [
       {
         title: '首次联络',
@@ -99,7 +105,9 @@ const timeline = [
     title: '资金回收',
     duration: '30-90天',
     icon: DollarSign,
-    color: 'bg-orange-500',
+    color: 'from-orange-500 to-orange-600',
+    borderColor: 'border-orange-200',
+    bgColor: 'bg-orange-50',
     steps: [
       {
         title: '支付安排',
@@ -205,7 +213,7 @@ export default function ProcessPage() {
       </section>
 
       {/* Timeline Section - 使用卡片样式 */}
-      <section className="py-10 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
           {timeline.map((phase, phaseIndex) => {
             const Icon = phase.icon
@@ -216,22 +224,29 @@ export default function ProcessPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: phaseIndex * 0.1 }}
-                className="mb-16"
+                className="mb-20 last:mb-0"
               >
                 {/* Phase Header */}
                 <div className="flex items-center gap-4 mb-8">
-                  <div className={`w-16 h-16 ${phase.color} rounded-full flex items-center justify-center text-white shadow-lg`}>
-                    <Icon className="w-8 h-8" />
-                  </div>
+                  <motion.div 
+                    className={`w-20 h-20 bg-gradient-to-br ${phase.color} rounded-full flex items-center justify-center text-white shadow-xl group`}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Icon className="w-10 h-10" />
+                  </motion.div>
                   <div>
-                    <p className="text-sm text-gray-500 mb-1">{phase.phase}</p>
-                    <h2 className="text-2xl font-bold text-gray-900">{phase.title}</h2>
-                    <p className="text-primary-blue font-semibold">预计时间：{phase.duration}</p>
+                    <p className="text-sm text-gray-500 mb-1 font-medium">{phase.phase}</p>
+                    <h2 className="text-3xl font-bold text-gray-900">{phase.title}</h2>
+                    <p className="text-primary-blue font-semibold flex items-center mt-1">
+                      <Clock className="w-4 h-4 mr-1" />
+                      预计时间：{phase.duration}
+                    </p>
                   </div>
                 </div>
 
                 {/* Steps */}
-                <div className="ml-8 pl-12 border-l-2 border-gray-200">
+                <div className={`ml-10 pl-14 border-l-2 ${phase.borderColor || 'border-gray-200'}`}>
                   {phase.steps.map((step, stepIndex) => (
                     <motion.div
                       key={stepIndex}
@@ -242,18 +257,27 @@ export default function ProcessPage() {
                       className="relative mb-8"
                     >
                       {/* Step Dot */}
-                      <div className="absolute -left-[49px] top-2 w-4 h-4 bg-white border-2 border-gray-400 rounded-full" />
+                      <motion.div 
+                        className={`absolute -left-[57px] top-2 w-5 h-5 bg-white border-3 ${phase.borderColor || 'border-gray-400'} rounded-full shadow-sm`}
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: stepIndex * 0.1, type: "spring" }}
+                      />
                       
-                      <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                      <motion.div 
+                        className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-blue/20 group"
+                        whileHover={{ y: -2, scale: 1.01 }}
+                      >
                         <div className="flex items-start justify-between mb-2">
-                          <h3 className="text-lg font-bold text-gray-900">{step.title}</h3>
-                          <span className="text-sm text-gray-500 flex items-center">
+                          <h3 className="text-lg font-bold text-gray-900 group-hover:text-primary-blue transition-colors">{step.title}</h3>
+                          <span className={`text-sm text-gray-500 flex items-center ${phase.bgColor || 'bg-gray-100'} px-3 py-1 rounded-full`}>
                             <Clock className="w-4 h-4 mr-1" />
                             {step.time}
                           </span>
                         </div>
-                        <p className="text-gray-600">{step.description}</p>
-                      </div>
+                        <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                      </motion.div>
                     </motion.div>
                   ))}
                 </div>
@@ -263,6 +287,48 @@ export default function ProcessPage() {
         </div>
       </section>
 
+
+      {/* Progress Indicator */}
+      <section className="py-20 bg-gradient-to-b from-white to-light-gray">
+        <div className="max-w-7xl mx-auto px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              每一步都透明可控
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              实时跟踪案件进展，随时了解追收状态
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-4 gap-6">
+            {timeline.map((phase, index) => {
+              const Icon = phase.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all group"
+                  whileHover={{ y: -4 }}
+                >
+                  <div className={`w-12 h-12 bg-gradient-to-br ${phase.color} rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2">{phase.title}</h3>
+                  <p className="text-sm text-gray-600">{phase.duration}</p>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* CTA - 使用统一的CTASection组件 */}
       <CTASection 
