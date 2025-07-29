@@ -256,14 +256,6 @@ export default function ProcessPage() {
                       transition={{ delay: stepIndex * 0.05 }}
                       className="relative mb-8"
                     >
-                      {/* Step Dot */}
-                      <motion.div 
-                        className={`absolute -left-[57px] top-2 w-5 h-5 bg-white border-3 ${phase.borderColor || 'border-gray-400'} rounded-full shadow-sm`}
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: stepIndex * 0.1, type: "spring" }}
-                      />
                       
                       <motion.div 
                         className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-blue/20 group"
