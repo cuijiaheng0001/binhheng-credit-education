@@ -3,7 +3,10 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Home, ShoppingCart, Building2, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react'
+import Image from 'next/image'
 import ConsultationModal from '@/components/ConsultationModal'
+import CTASection from '@/components/CTASection'
+import { useLanguage } from '@/i18n/client'
 
 const industries = [
   {
@@ -140,32 +143,78 @@ const industries = [
 
 export default function IndustriesPage() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  const { dictionary } = useLanguage()
   
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-10 bg-gradient-to-br from-blue-50 to-indigo-50">
-        <div className="max-w-7xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-              行业解决方案
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              深耕细分行业，提供针对性的跨境债务追收方案
-            </p>
-          </motion.div>
+      {/* Hero Section - 匹配主页风格 */}
+      <section className="relative h-[60vh] min-h-[500px] overflow-hidden bg-black">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/debt-recovery-1.jpg"
+            alt="Industry Solutions"
+            fill
+            className="object-cover opacity-60"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-3xl"
+            >
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-white/90 text-sm font-medium mb-4"
+              >
+                行业解决方案
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-4xl lg:text-6xl text-white mb-6 font-bold"
+              >
+                深耕细分行业
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-lg text-white/80 leading-relaxed"
+              >
+                专业团队为不同行业提供针对性的跨境债务追收方案
+              </motion.p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Industry Overview */}
-      <section className="py-14">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="grid lg:grid-cols-3 gap-8 mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              我们的专业领域
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              在这些领域，我们积累了丰富的经验和成功案例
+            </p>
+          </motion.div>
+          <div className="grid lg:grid-cols-3 gap-8">
             {industries.map((industry, index) => {
               const Icon = industry.icon
               return (
@@ -175,25 +224,26 @@ export default function IndustriesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow cursor-pointer"
+                  className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 hover:border-primary-blue/20 cursor-pointer group"
                   onClick={() => {
                     document.getElementById(industry.id)?.scrollIntoView({ behavior: 'smooth' })
                   }}
+                  whileHover={{ y: -4, scale: 1.02 }}
                 >
-                  <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-lg mb-6">
-                    <Icon className="w-8 h-8 text-blue-600" />
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-blue/10 to-primary-blue/20 rounded-2xl mb-6 group-hover:shadow-lg transition-all">
+                    <Icon className="w-8 h-8 text-primary-blue" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-blue transition-colors">
                     {industry.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{industry.overview}</p>
-                  <div className="grid grid-cols-2 gap-4 pt-4 border-t">
+                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
                     <div>
-                      <p className="text-2xl font-bold text-blue-600">{industry.stats.recovered}</p>
+                      <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-blue to-blue-600">{industry.stats.recovered}</p>
                       <p className="text-sm text-gray-500">已追回</p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-green-600">{industry.stats.successRate}</p>
+                      <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-green-600">{industry.stats.successRate}</p>
                       <p className="text-sm text-gray-500">成功率</p>
                     </div>
                   </div>
@@ -211,7 +261,7 @@ export default function IndustriesPage() {
           <section
             key={industryIndex}
             id={industry.id}
-            className={`py-14 ${industryIndex % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}
+            className={`py-20 ${industryIndex % 2 === 0 ? 'bg-gradient-to-b from-light-gray to-white' : 'bg-white'}`}
           >
             <div className="max-w-7xl mx-auto px-8">
               {/* Industry Header */}
@@ -221,11 +271,11 @@ export default function IndustriesPage() {
                 viewport={{ once: true }}
                 className="flex items-center gap-4 mb-12"
               >
-                <div className="flex items-center justify-center w-20 h-20 bg-blue-100 rounded-xl">
-                  <Icon className="w-10 h-10 text-blue-600" />
+                <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-blue/10 to-primary-blue/20 rounded-2xl shadow-lg">
+                  <Icon className="w-10 h-10 text-primary-blue" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-semibold text-gray-900">{industry.title}</h2>
+                  <h2 className="text-3xl font-bold text-gray-900">{industry.title}</h2>
                   <p className="text-lg text-gray-600">{industry.subtitle}</p>
                 </div>
               </motion.div>
@@ -237,25 +287,25 @@ export default function IndustriesPage() {
                 viewport={{ once: true }}
                 className="grid md:grid-cols-4 gap-6 mb-12"
               >
-                <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                  <TrendingUp className="w-8 h-8 text-green-500 mx-auto mb-2" />
+                <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all text-center group">
+                  <TrendingUp className="w-8 h-8 text-green-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <p className="text-3xl font-bold text-gray-900">{industry.stats.recovered}</p>
                   <p className="text-sm text-gray-600">累计追回金额</p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                  <CheckCircle className="w-8 h-8 text-blue-500 mx-auto mb-2" />
+                <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all text-center group">
+                  <CheckCircle className="w-8 h-8 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
                   <p className="text-3xl font-bold text-gray-900">{industry.stats.successRate}</p>
                   <p className="text-sm text-gray-600">平均成功率</p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all text-center group">
+                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
                     <span className="text-purple-600 font-semibold">天</span>
                   </div>
                   <p className="text-3xl font-bold text-gray-900">{industry.stats.avgTime}</p>
                   <p className="text-sm text-gray-600">平均追收时间</p>
                 </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all text-center group">
+                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
                     <span className="text-orange-600 font-semibold">#</span>
                   </div>
                   <p className="text-3xl font-bold text-gray-900">{industry.stats.cases}</p>
@@ -271,16 +321,23 @@ export default function IndustriesPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                     <AlertCircle className="w-6 h-6 text-red-500 mr-2" />
                     主要挑战
                   </h3>
                   <div className="space-y-4">
                     {industry.challenges.map((challenge, index) => (
-                      <div key={index} className="bg-red-50 border border-red-100 rounded-lg p-4">
+                      <motion.div 
+                        key={index} 
+                        className="bg-red-50 border border-red-100 rounded-xl p-5 hover:shadow-md transition-all"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                      >
                         <h4 className="font-medium text-gray-900 mb-1">{challenge.title}</h4>
                         <p className="text-sm text-gray-600">{challenge.description}</p>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </motion.div>
@@ -291,18 +348,25 @@ export default function IndustriesPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                     <CheckCircle className="w-6 h-6 text-green-500 mr-2" />
                     我们的解决方案
                   </h3>
                   <div className="space-y-3">
                     {industry.solutions.map((solution, index) => (
-                      <div key={index} className="flex items-start">
-                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <motion.div 
+                        key={index} 
+                        className="flex items-start"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        <div className="w-6 h-6 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
                           <CheckCircle className="w-4 h-4 text-white" />
                         </div>
                         <p className="ml-3 text-gray-700">{solution}</p>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 </motion.div>
@@ -313,9 +377,9 @@ export default function IndustriesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white"
+                className="bg-gradient-to-r from-navy to-blue-700 rounded-3xl p-10 text-white shadow-2xl"
               >
-                <h3 className="text-2xl font-semibold mb-6">成功案例</h3>
+                <h3 className="text-2xl font-bold mb-8 text-center">成功案例</h3>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <h4 className="font-medium text-blue-100 mb-2">客户</h4>
@@ -348,7 +412,7 @@ export default function IndustriesPage() {
                       深度理解：中美文化与法律差异
                     </h3>
                     
-                    <div className="bg-navy/5 rounded-2xl p-8 mb-8">
+                    <div className="bg-gradient-to-br from-navy/5 to-blue-50 rounded-3xl p-10 mb-8 border border-navy/10">
                       <h4 className="text-xl font-semibold text-gray-900 mb-4">
                         为什么传统催收公司会失败？
                       </h4>
@@ -371,7 +435,7 @@ export default function IndustriesPage() {
                       </div>
                     </div>
 
-                    <div className="bg-green-50 rounded-2xl p-8">
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-10 border border-green-100">
                       <h4 className="text-xl font-semibold text-gray-900 mb-4">
                         Bingheng Credit 的独特优势
                       </h4>
@@ -413,7 +477,7 @@ export default function IndustriesPage() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-12 bg-gradient-to-r from-navy to-blue-700 rounded-2xl p-8 text-white text-center"
+                    className="mt-12 bg-gradient-to-r from-navy to-blue-700 rounded-3xl p-10 text-white text-center shadow-2xl"
                   >
                     <h3 className="text-2xl font-semibold mb-4">一句话总结</h3>
                     <p className="text-xl leading-relaxed">
@@ -430,27 +494,13 @@ export default function IndustriesPage() {
       })}
 
       {/* CTA Section */}
-      <section className="py-14 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-8 text-center">
-          <h2 className="text-3xl font-semibold mb-4 text-white">
-            为您的行业定制解决方案
-          </h2>
-          <p className="text-xl text-gray-200 mb-8">
-            无论您属于哪个行业，我们都有专业团队为您服务
-          </p>
-          <button 
-            onClick={() => setIsConsultationOpen(true)}
-            className="px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors text-lg font-medium"
-          >
-            立即咨询行业专家
-          </button>
-        </div>
-      </section>
-      
-      {/* Consultation Modal */}
-      <ConsultationModal 
-        isOpen={isConsultationOpen} 
-        onClose={() => setIsConsultationOpen(false)} 
+      <CTASection 
+        label={dictionary.cta.freeConsultation}
+        title="为您的行业定制解决方案"
+        description="无论您属于哪个行业，我们都有专业团队为您服务"
+        buttonText="立即咨询行业专家"
+        variant="light"
+        openModal={true}
       />
     </main>
   )

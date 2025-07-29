@@ -60,16 +60,16 @@ export default function Navigation() {
               className="flex items-center group cursor-pointer no-underline-effect"
             >
               <motion.div
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
               >
                 <Image
                   src={isScrolled || !isHomePage ? "/logo-inverted.png" : "/logo-white.png"}
                   alt="Bingheng Credit"
-                  width={180}
-                  height={60}
-                  className="h-10 w-auto transition-opacity duration-200 group-hover:opacity-80"
+                  width={140}
+                  height={50}
+                  className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-90"
                   priority
                 />
               </motion.div>
@@ -77,7 +77,7 @@ export default function Navigation() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.label}
