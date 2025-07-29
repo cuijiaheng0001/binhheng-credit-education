@@ -8,43 +8,21 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+import { generatePageMetadata, pageMetadata } from '@/lib/seo-metadata'
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://binghengcredit.com'),
-  title: "Bingheng Credit - Recover Your Hidden Receivables",
-  description: "Discover and recover millions in cross-border debts that were incorrectly written off. Specialized recovery for Chinese nationals who have returned home.",
-  keywords: "debt recovery, cross-border collection, Chinese debt collection, international receivables, student housing debt, apartment management collections, B2B debt recovery",
-  authors: [{ name: "Bingheng Credit" }],
-  openGraph: {
-    title: "Bingheng Credit - Recover Your Hidden Receivables",
-    description: "Discover and recover millions in cross-border debts that were incorrectly written off.",
-    url: "https://binghengcredit.com",
-    siteName: "Bingheng Credit",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Bingheng Credit - Cross-border Debt Recovery",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Bingheng Credit - Recover Your Hidden Receivables",
-    description: "Discover and recover millions in cross-border debts that were incorrectly written off.",
-    images: ["/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+  ...generatePageMetadata({
+    title: pageMetadata.home.en.title,
+    description: pageMetadata.home.en.description,
+    keywords: pageMetadata.home.en.keywords,
+    canonicalUrl: 'https://binghengcredit.com'
+  }),
+  alternates: {
+    canonical: 'https://binghengcredit.com',
+    languages: {
+      'en-US': 'https://binghengcredit.com',
+      'zh-CN': 'https://binghengcredit.com/zh',
     },
   },
   verification: {
@@ -82,6 +60,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="smooth-scroll">
       <head>
+        <link rel="alternate" hrefLang="en-US" href="https://binghengcredit.com" />
+        <link rel="alternate" hrefLang="zh-CN" href="https://binghengcredit.com/zh" />
+        <link rel="alternate" hrefLang="x-default" href="https://binghengcredit.com" />
         <Script id="schema-org" type="application/ld+json">
           {JSON.stringify([
             {
