@@ -47,17 +47,17 @@
     --input: 220 13% 91%;
     --ring: 40 96% 40%;
     
-    /* Typography Scale - Increased by 20% for better readability */
-    --font-size-xs: 0.9rem; /* 14.4px */
-    --font-size-sm: 1.05rem; /* 16.8px */
-    --font-size-base: 1.2rem; /* 19.2px */
-    --font-size-lg: 1.35rem; /* 21.6px */
-    --font-size-xl: 1.8rem; /* 28.8px */
-    --font-size-2xl: 2.1rem; /* 33.6px */
-    --font-size-3xl: 2.7rem; /* 43.2px */
-    --font-size-4xl: 3.6rem; /* 57.6px */
-    --font-size-5xl: 4.5rem; /* 72px */
-    --font-size-6xl: 4.8rem; /* 76.8px */
+    /* Typography Scale - Increased by 10% for better readability */
+    --font-size-xs: 0.825rem; /* 13.2px */
+    --font-size-sm: 0.9625rem; /* 15.4px */
+    --font-size-base: 1.1rem; /* 17.6px */
+    --font-size-lg: 1.2375rem; /* 19.8px */
+    --font-size-xl: 1.65rem; /* 26.4px */
+    --font-size-2xl: 1.925rem; /* 30.8px */
+    --font-size-3xl: 2.475rem; /* 39.6px */
+    --font-size-4xl: 3.3rem; /* 52.8px */
+    --font-size-5xl: 4.125rem; /* 66px */
+    --font-size-6xl: 4.4rem; /* 70.4px */
     
     /* Font Families */
     --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;

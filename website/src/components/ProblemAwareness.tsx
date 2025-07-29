@@ -40,10 +40,10 @@ export default function ProblemAwareness() {
           className="text-center mb-16"
         >
           <p className="text-sm font-medium text-navy mb-4 opacity-70">中国债务人问题</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             一般国际催收公司无法有效处理中国债务人
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto opacity-80">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto opacity-80">
             因债务人返回中国而被误判为"不可回收"的债务其实可以追回
           </p>
         </motion.div>
@@ -63,13 +63,13 @@ export default function ProblemAwareness() {
                 <div className="flex items-center justify-center w-12 h-12 bg-red-50 rounded-lg mb-4 group-hover:bg-red-100 transition-colors">
                   <Icon className="w-6 h-6 text-red-600" />
                 </div>
-                <div className="text-4xl font-bold text-gray-900 mb-2 group-hover:text-navy transition-colors">
+                <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-navy transition-colors">
                   {problem.value}
                 </div>
-                <div className="text-lg font-semibold text-gray-800 mb-2">
+                <div className="text-base font-semibold text-gray-800 mb-2">
                   {problem.label}
                 </div>
-                <p className="text-base text-gray-600 leading-relaxed">
+                <p className="text-sm text-gray-600 leading-relaxed">
                   {problem.description}
                 </p>
               </motion.div>

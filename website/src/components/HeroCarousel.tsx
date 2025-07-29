@@ -143,7 +143,7 @@ export default function HeroCarousel() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
-                  className="font-sans text-5xl lg:text-7xl text-white mb-6 leading-[1.1] font-bold"
+                  className="font-sans text-4xl lg:text-6xl text-white mb-6 leading-[1.1] font-bold"
                 >
                   {slides[currentSlide].title.split(' ').map((word, index) => (
                     <motion.span
@@ -163,7 +163,7 @@ export default function HeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-xl text-white/85 mb-12 leading-relaxed font-light max-w-xl"
+                  className="text-lg text-white/85 mb-12 leading-relaxed font-light max-w-xl"
                 >
                   {slides[currentSlide].description}
                 </motion.p>

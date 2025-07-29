@@ -186,16 +186,16 @@ export default function ContentCarousel() {
         >
           {/* Left Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               {currentContent.title}
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg text-gray-600 mb-8">
               {currentContent.description}
             </p>
             
             <ul className="space-y-3 mb-8">
               {currentContent.features.map((feature, index) => (
-                <li key={index} className="flex items-center text-lg text-gray-700">
+                <li key={index} className="flex items-center text-base text-gray-700">
                   <div className="w-6 h-6 bg-navy rounded-full flex items-center justify-center mr-3">
                     <span className="text-white text-xs">✓</span>
                   </div>

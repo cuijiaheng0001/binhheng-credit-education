@@ -48,10 +48,10 @@ export default function ProcessVisualization() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
             透明高效的追收流程
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             从评估到回收，每一步都清晰可控
           </p>
         </motion.div>
@@ -84,16 +84,16 @@ export default function ProcessVisualization() {
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
                       {step.title}
                     </h3>
-                    <p className="text-base text-blue-600 mb-3">{step.duration}</p>
-                    <p className="text-gray-600 text-base mb-4">{step.description}</p>
+                    <p className="text-sm text-blue-600 mb-3">{step.duration}</p>
+                    <p className="text-gray-600 text-sm mb-4">{step.description}</p>
                     
                     {/* Details */}
                     <ul className="space-y-1">
                       {step.details.map((detail, idx) => (
-                        <li key={idx} className="text-sm text-gray-500 flex items-center">
+                        <li key={idx} className="text-xs text-gray-500 flex items-center">
                           <span className="w-1 h-1 bg-gray-400 rounded-full mr-2" />
                           {detail}
                         </li>
