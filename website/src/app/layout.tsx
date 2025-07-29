@@ -35,6 +35,7 @@ import GoogleAnalytics from '@/components/GoogleAnalytics'
 import ClientLayout from './ClientLayout'
 import { getDictionary } from '@/i18n/get-dictionary'
 import { i18n, Locale } from '@/i18n/config'
+import { Analytics } from '@vercel/analytics/next'
 
 async function getLocaleFromHeaders(): Promise<Locale> {
   const headersList = await headers()
@@ -180,6 +181,7 @@ export default async function RootLayout({
         <ClientLayout initialLocale={locale} initialDictionary={dictionary}>
           {children}
         </ClientLayout>
+        <Analytics />
       </body>
     </html>
   );
