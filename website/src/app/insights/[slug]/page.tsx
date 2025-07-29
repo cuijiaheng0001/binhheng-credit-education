@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { Calendar, Clock, ArrowLeft, Share2, Bookmark, ChevronRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getInsightBySlug, getRelatedInsights } from '@/lib/insights-data'
+import { getInsightBySlug, getRelatedInsights, getPreviousArticle, getNextArticle } from '@/lib/insights-data'
 import { useState, use } from 'react'
 import ConsultationModal from '@/components/ConsultationModal'
 import ReactMarkdown from 'react-markdown'
@@ -27,6 +27,8 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
   }
 
   const relatedArticles = getRelatedInsights(article.slug)
+  const previousArticle = getPreviousArticle(article.slug)
+  const nextArticle = getNextArticle(article.slug)
 
   return (
     <>
@@ -225,6 +227,61 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
                 ))}
               </div>
             </div>
+
+            {/* Previous/Next Navigation */}
+            <div className="mt-12 pt-8 border-t border-gray-200">
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Previous Article */}
+                <div className="text-left">
+                  {previousArticle ? (
+                    <Link
+                      href={`/insights/${previousArticle.slug}`}
+                      className="group block p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                        <ArrowLeft className="w-4 h-4" />
+                        <span>上一篇文章</span>
+                      </div>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-navy transition-colors line-clamp-2">
+                        {previousArticle.title}
+                      </h4>
+                    </Link>
+                  ) : (
+                    <div className="p-6 bg-gray-50 rounded-xl opacity-50">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+                        <ArrowLeft className="w-4 h-4" />
+                        <span>没有更多文章</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Next Article */}
+                <div className="text-right">
+                  {nextArticle ? (
+                    <Link
+                      href={`/insights/${nextArticle.slug}`}
+                      className="group block p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300"
+                    >
+                      <div className="flex items-center justify-end gap-2 text-sm text-gray-500 mb-2">
+                        <span>下一篇文章</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </div>
+                      <h4 className="font-semibold text-gray-900 group-hover:text-navy transition-colors line-clamp-2">
+                        {nextArticle.title}
+                      </h4>
+                    </Link>
+                  ) : (
+                    <div className="p-6 bg-gray-50 rounded-xl opacity-50">
+                      <div className="flex items-center justify-end gap-2 text-sm text-gray-400 mb-2">
+                        <span>没有更多文章</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -232,29 +289,73 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
         {relatedArticles.length > 0 && (
           <section className="py-16 bg-gray-50">
             <div className="max-w-7xl mx-auto px-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-8">相关文章</h2>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  相关推荐
+                </h2>
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                  根据您正在阅读的内容，我们为您推荐以下相关文章
+                </p>
+              </div>
               <div className="grid md:grid-cols-3 gap-8">
-                {relatedArticles.map((related) => (
-                  <Link
+                {relatedArticles.map((related, index) => (
+                  <motion.div
                     key={related.slug}
-                    href={`/insights/${related.slug}`}
-                    className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-6 group"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    <span className="text-sm text-navy mb-2 block">
-                      {categoryLabels[related.category]}
-                    </span>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-navy transition-colors line-clamp-2">
-                      {related.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                      {related.excerpt}
-                    </p>
-                    <span className="text-navy font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                      阅读更多
-                      <ChevronRight className="w-4 h-4" />
-                    </span>
-                  </Link>
+                    <Link
+                      href={`/insights/${related.slug}`}
+                      className="block bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group h-full"
+                    >
+                      {/* Featured Image Placeholder */}
+                      <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-navy opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                        <div className="absolute bottom-4 left-4">
+                          <span className="px-3 py-1 bg-white/90 backdrop-blur-sm text-navy rounded-lg text-sm font-medium">
+                            {categoryLabels[related.category]}
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="p-6">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-3 group-hover:text-navy transition-colors line-clamp-2">
+                          {related.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm line-clamp-3 mb-4">
+                          {related.excerpt}
+                        </p>
+                        
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-4 text-sm text-gray-500">
+                            <div className="flex items-center gap-1">
+                              <Calendar className="w-4 h-4" />
+                              <span>{new Date(related.publishDate).toLocaleDateString('zh-CN')}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Clock className="w-4 h-4" />
+                              <span>{related.readingTime} 分钟</span>
+                            </div>
+                          </div>
+                          <ChevronRight className="w-5 h-5 text-navy opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
                 ))}
+              </div>
+              
+              {/* View All Articles CTA */}
+              <div className="text-center mt-12">
+                <Link
+                  href="/insights"
+                  className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium"
+                >
+                  查看所有文章
+                  <ChevronRight className="w-5 h-5 ml-2" />
+                </Link>
               </div>
             </div>
           </section>

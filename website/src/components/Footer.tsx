@@ -22,6 +22,11 @@ const footerLinks = {
     { label: '隐私政策', href: '/privacy' },
     { label: 'Cookie声明', href: '/cookies' },
     { label: '合规认证', href: '/compliance' }
+  ],
+  regulatory: [
+    { label: 'CFPB债务催收规则', href: 'https://www.consumerfinance.gov/rules-policy/final-rules/debt-collection-practices-regulation-f/', external: true },
+    { label: 'FDCPA法规解释', href: 'https://www.federalregister.gov/documents/2020/11/13/2020-24463/debt-collection-practices-regulation-f', external: true },
+    { label: '消费者保护资源', href: 'https://www.consumerfinance.gov/consumer-tools/debt-collection/', external: true }
   ]
 }
 
@@ -37,7 +42,7 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-8 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="mb-6">
@@ -108,6 +113,30 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Regulatory Resources */}
+          <div>
+            <h3 className="text-white font-semibold mb-6">合规资源</h3>
+            <ul className="space-y-3">
+              {footerLinks.regulatory.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
+                    className="text-gray-400 text-sm hover:text-white transition-colors inline-flex items-center gap-1"
+                  >
+                    {link.label}
+                    {link.external && (
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact Info */}
           <div>
             <h3 className="text-white font-semibold mb-6">联系方式</h3>
@@ -135,6 +164,26 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Compliance Promises */}
+      <div className="bg-gray-800 py-8">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div className="text-2xl font-bold text-white mb-2">无前期费用</div>
+              <p className="text-gray-400 text-sm">不成功不收费，100%风险共担</p>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-white mb-2">24小时响应</div>
+              <p className="text-gray-400 text-sm">专业团队快速评估您的案件</p>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-white mb-2">100%合规</div>
+              <p className="text-gray-400 text-sm">严格遵守FDCPA及中美两国法律</p>
+            </div>
           </div>
         </div>
       </div>

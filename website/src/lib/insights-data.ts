@@ -855,3 +855,15 @@ export function getRelatedInsights(currentSlug: string, limit: number = 3): Insi
     )
     .slice(0, limit)
 }
+
+export function getPreviousArticle(currentSlug: string): InsightArticle | null {
+  const currentIndex = insightsArticles.findIndex(article => article.slug === currentSlug)
+  if (currentIndex <= 0) return null
+  return insightsArticles[currentIndex - 1]
+}
+
+export function getNextArticle(currentSlug: string): InsightArticle | null {
+  const currentIndex = insightsArticles.findIndex(article => article.slug === currentSlug)
+  if (currentIndex === -1 || currentIndex >= insightsArticles.length - 1) return null
+  return insightsArticles[currentIndex + 1]
+}

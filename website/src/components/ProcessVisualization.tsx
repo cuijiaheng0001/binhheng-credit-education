@@ -2,67 +2,94 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FileSearch, CheckSquare, MessageSquare, DollarSign } from 'lucide-react'
+import { FileSearch, CheckSquare, MessageSquare, DollarSign, ArrowRight } from 'lucide-react'
 import ConsultationModal from './ConsultationModal'
+import Link from 'next/link'
 
 const steps = [
   {
     icon: FileSearch,
     title: '案件评估',
     duration: '24-48小时',
-    description: '免费评估债务可追回性和策略制定',
-    details: ['文档审查', '债务人背景调查', '资产定位初评']
+    description: '免费评估债务可追回性',
+    color: 'blue'
   },
   {
     icon: CheckSquare,
     title: '合规审查',
     duration: '3-5天',
-    description: '确保所有操作符合中美两国法律要求',
-    details: ['法律框架确认', '文档准备', '合规策略制定']
+    description: '确保符合中美法律要求',
+    color: 'green'
   },
   {
     icon: MessageSquare,
     title: '本地化沟通',
     duration: '2-4周',
-    description: '通过多渠道与债务人建立有效联系',
-    details: ['多渠道联络', '文化适应性沟通', '和解谈判']
+    description: '多渠道联系债务人谈判',
+    color: 'purple'
   },
   {
     icon: DollarSign,
     title: '资金回收',
     duration: '30-90天',
-    description: '安全合规的资金转移和结算',
-    details: ['支付安排', '跨境转账', '完整报告']
+    description: '安全合规的资金转移',
+    color: 'orange'
   }
 ]
+
+const colorVariants = {
+  blue: {
+    bg: 'bg-blue-50',
+    icon: 'bg-blue-100 text-blue-600',
+    arrow: 'text-blue-600'
+  },
+  green: {
+    bg: 'bg-green-50',
+    icon: 'bg-green-100 text-green-600',
+    arrow: 'text-green-600'
+  },
+  purple: {
+    bg: 'bg-purple-50',
+    icon: 'bg-purple-100 text-purple-600',
+    arrow: 'text-purple-600'
+  },
+  orange: {
+    bg: 'bg-orange-50',
+    icon: 'bg-orange-100 text-orange-600',
+    arrow: 'text-orange-600'
+  }
+}
 
 export default function ProcessVisualization() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   
   return (
-    <section className="py-10 bg-gray-50">
+    <section className="py-16 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             透明高效的追收流程
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            从评估到回收，每一步都清晰可控
+            四步专业流程，平均 45-60 天完成追收
           </p>
         </motion.div>
 
+        {/* Process Steps - Horizontal Layout */}
         <div className="relative">
-          {/* Connection Line */}
-          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 hidden lg:block" />
+          {/* Connection Line for Desktop */}
+          <div className="hidden lg:block absolute top-1/2 left-20 right-20 h-0.5 bg-gradient-to-r from-blue-200 via-purple-200 to-orange-200 -translate-y-1/2" />
           
-          <div className="grid lg:grid-cols-4 gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 relative">
             {steps.map((step, index) => {
               const Icon = step.icon
+              const colors = colorVariants[step.color as keyof typeof colorVariants]
+              
               return (
                 <motion.div
                   key={index}
@@ -72,33 +99,34 @@ export default function ProcessVisualization() {
                   transition={{ delay: index * 0.1 }}
                   className="relative"
                 >
-                  <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <div className={`${colors.bg} rounded-2xl p-6 h-full hover:shadow-lg transition-all duration-300 relative group`}>
                     {/* Step Number */}
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-semibold">
-                      {index + 1}
+                    <div className="absolute -top-3 -left-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center">
+                      <span className="text-lg font-bold text-gray-900">{index + 1}</span>
                     </div>
                     
                     {/* Icon */}
-                    <div className="flex items-center justify-center w-12 h-12 bg-blue-50 rounded-lg mb-4">
-                      <Icon className="w-6 h-6 text-blue-600" />
+                    <div className={`inline-flex items-center justify-center w-16 h-16 ${colors.icon} rounded-2xl mb-4 group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-8 h-8" />
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-sm text-blue-600 mb-3">{step.duration}</p>
-                    <p className="text-gray-600 text-sm mb-4">{step.description}</p>
+                    <p className="text-sm font-medium text-gray-500 mb-3">
+                      {step.duration}
+                    </p>
+                    <p className="text-gray-600">
+                      {step.description}
+                    </p>
                     
-                    {/* Details */}
-                    <ul className="space-y-1">
-                      {step.details.map((detail, idx) => (
-                        <li key={idx} className="text-xs text-gray-500 flex items-center">
-                          <span className="w-1 h-1 bg-gray-400 rounded-full mr-2" />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Arrow to Next Step (Desktop Only) */}
+                    {index < steps.length - 1 && (
+                      <div className="hidden lg:block absolute top-1/2 -right-10 -translate-y-1/2">
+                        <ArrowRight className={`w-8 h-8 ${colors.arrow} opacity-40`} />
+                      </div>
+                    )}
                   </div>
                 </motion.div>
               )
@@ -106,21 +134,57 @@ export default function ProcessVisualization() {
           </div>
         </div>
 
+        {/* Key Features */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-16 grid md:grid-cols-3 gap-6"
         >
-          <p className="text-gray-600 mb-6">
-            平均回收时间：<span className="font-semibold text-gray-900">45-60天</span>
-          </p>
-          <button 
-            onClick={() => setIsConsultationOpen(true)}
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
-            开始免费评估
-          </button>
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-navy text-white rounded-full mb-3">
+              <span className="text-lg font-bold">0</span>
+            </div>
+            <h4 className="font-bold text-gray-900 mb-2">无前期费用</h4>
+            <p className="text-sm text-gray-600">不成功不收费，零风险合作</p>
+          </div>
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-navy text-white rounded-full mb-3">
+              <span className="text-lg font-bold">24h</span>
+            </div>
+            <h4 className="font-bold text-gray-900 mb-2">快速响应</h4>
+            <p className="text-sm text-gray-600">24小时内提供初步评估</p>
+          </div>
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-navy text-white rounded-full mb-3">
+              <span className="text-lg font-bold">100%</span>
+            </div>
+            <h4 className="font-bold text-gray-900 mb-2">合规操作</h4>
+            <p className="text-sm text-gray-600">严格遵守中美两国法律</p>
+          </div>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button 
+              onClick={() => setIsConsultationOpen(true)}
+              className="px-8 py-3 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium"
+            >
+              开始免费评估
+            </button>
+            <Link
+              href="/process"
+              className="px-8 py-3 border border-navy text-navy rounded-xl hover:bg-gray-50 transition-colors font-medium"
+            >
+              了解详细流程
+            </Link>
+          </div>
         </motion.div>
       </div>
       
