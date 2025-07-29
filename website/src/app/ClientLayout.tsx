@@ -11,6 +11,7 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 import LoadingScreen from '@/components/LoadingScreen'
 import AOSInit from '@/components/AOSInit'
 import AccessibilityControls from '@/components/AccessibilityControls'
+import PerformanceOptimizer from '@/components/PerformanceOptimizer'
 
 interface ClientLayoutProps {
   children: React.ReactNode
@@ -28,6 +29,7 @@ export default function ClientLayout({
       <div className="flex flex-col min-h-screen">
         <LoadingScreen />
         <AOSInit />
+        <PerformanceOptimizer />
         <Navigation />
         <div className="flex-grow">
           {children}

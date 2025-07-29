@@ -144,24 +144,49 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
               </ReactMarkdown>
             </motion.article>
 
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mt-12 p-8 bg-gradient-to-r from-navy to-blue-700 rounded-2xl text-white text-center"
-            >
-              <h3 className="text-2xl font-semibold mb-4">需要专业的债务追收服务？</h3>
-              <p className="mb-6 opacity-90">
-                我们的专家团队拥有丰富的跨境债务追收经验，助您提高回收率
-              </p>
-              <button
-                onClick={() => setIsConsultationOpen(true)}
-                className="px-6 py-3 bg-white text-navy rounded-lg hover:bg-gray-100 transition-colors font-medium"
-              >
-                获取免费咨询
-              </button>
-            </motion.div>
+            {/* CTA Section - Optimized for performance */}
+            <div className="mt-16 bg-gradient-to-br from-navy via-blue-800 to-blue-700 rounded-3xl p-10 md:p-12 relative overflow-hidden contain-paint">
+              {/* Simplified background decorations using CSS only */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-xl -translate-y-32 translate-x-32" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-xl translate-y-48 -translate-x-48" />
+              </div>
+              
+              <div className="relative z-10 text-center max-w-3xl mx-auto">
+                {/* Icon with CSS animation */}
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-full mb-6 animate-fade-in-up">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-white rounded-full" />
+                  </div>
+                </div>
+                
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                  将您的债务追收交给专业团队
+                </h3>
+                <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+                  我们深谙中美两国法律体系，成功追回超过{' '}
+                  <span className="font-bold text-white">$68M</span>
+                  {' '}跨境债务
+                  <br />
+                  <span className="text-base text-white/80">
+                    平均追收成功率达 65%，远超行业平均水平
+                  </span>
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <button
+                    onClick={() => setIsConsultationOpen(true)}
+                    className="px-8 py-4 bg-white text-navy rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl flex items-center gap-2 hover:scale-105 active:scale-95 transform will-change-transform"
+                  >
+                    立即获取免费评估
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                  <p className="text-white/70 text-sm">
+                    无需预付费用 · 不成功不收费
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* Tags */}
             <div className="mt-8 pt-8 border-t">
