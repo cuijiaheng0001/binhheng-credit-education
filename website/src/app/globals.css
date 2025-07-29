@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@200;300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap');
-@import '../styles/accessibility.css';
 
 @tailwind base;
 @tailwind components;
@@ -645,6 +644,42 @@
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
+    }
+  }
+  
+  /* Skip to main content link */
+  .skip-to-content {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem;
+    background-color: #003d7a;
+    color: white;
+    text-decoration: none;
+    border-radius: 0 0 0.5rem 0;
+  }
+  
+  .skip-to-content:focus {
+    left: 0;
+    top: 0;
+  }
+  
+  /* Safe area insets for modern phones */
+  @supports (padding: max(0px)) {
+    .safe-bottom {
+      padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+    
+    .safe-top {
+      padding-top: max(1rem, env(safe-area-inset-top));
+    }
+    
+    .safe-left {
+      padding-left: max(1rem, env(safe-area-inset-left));
+    }
+    
+    .safe-right {
+      padding-right: max(1rem, env(safe-area-inset-right));
     }
   }
 }

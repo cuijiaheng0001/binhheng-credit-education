@@ -1,17 +1,22 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { X, Cookie } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { X, Cookie, ChevronUp } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false)
+  const [isMinimized, setIsMinimized] = useState(false)
 
   useEffect(() => {
     // Check if user has already made a choice
     const cookieConsent = localStorage.getItem('cookieConsent')
     if (!cookieConsent) {
-      setShowBanner(true)
+      // Delay showing banner to not overwhelm user immediately
+      const timer = setTimeout(() => {
+        setShowBanner(true)
+      }, 2000)
+      return () => clearTimeout(timer)
     }
   }, [])
 
@@ -37,43 +42,100 @@ export default function CookieBanner() {
     }
   }
 
+  const handleClose = () => {
+    // Temporarily hide for this session
+    setShowBanner(false)
+    // Show again after page reload
+    sessionStorage.setItem('cookieBannerClosed', 'true')
+  }
+
   if (!showBanner) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white border-t shadow-2xl">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-start gap-3">
-            <Cookie className="w-6 h-6 text-primary-600 flex-shrink-0 mt-0.5" />
-            <div className="flex-1">
-              <h3 className="font-semibold text-gray-900 mb-1">We value your privacy</h3>
-              <p className="text-sm text-gray-600">
-                We use cookies to enhance your browsing experience and analyze our traffic. 
-                Please choose your preference below. Read our{' '}
-                <a href="/privacy" className="text-primary-600 hover:text-primary-700 underline">
-                  Privacy Policy
-                </a>{' '}
-                for more information.
-              </p>
+    <AnimatePresence>
+      {showBanner && (
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          className={`fixed ${isMinimized ? 'bottom-4 right-4' : 'bottom-0 left-0 right-0'} z-50 transition-all duration-300`}
+        >
+          {isMinimized ? (
+            // Minimized state - small floating button
+            <motion.button
+              onClick={() => setIsMinimized(false)}
+              className="bg-navy text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow flex items-center gap-2 group"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Cookie className="w-5 h-5" />
+              <span className="text-sm font-medium pr-2 max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300">
+                Cookie 设置
+              </span>
+            </motion.button>
+          ) : (
+            // Full banner - more compact design
+            <div className="bg-white/95 backdrop-blur-sm border-t shadow-lg safe-bottom">
+              <div className="max-w-7xl mx-auto px-4 py-3">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+                  {/* Left side - Cookie icon and text */}
+                  <div className="flex items-center gap-3">
+                    <Cookie className="w-5 h-5 text-navy flex-shrink-0" />
+                    <div className="text-sm">
+                      <p className="text-gray-700">
+                        我们使用 Cookie 提升您的体验。
+                        <a href="/privacy" className="text-navy hover:underline ml-1" target="_blank">
+                          隐私政策
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Right side - Actions */}
+                  <div className="flex items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
+                    <div className="flex items-center gap-2 order-2 sm:order-1">
+                      {/* Minimize button - hidden on mobile */}
+                      <button
+                        onClick={() => setIsMinimized(true)}
+                        className="hidden sm:block p-1.5 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-100"
+                        aria-label="最小化 Cookie 提示"
+                      >
+                        <ChevronUp className="w-4 h-4" />
+                      </button>
+                      
+                      {/* Close button */}
+                      <button
+                        onClick={handleClose}
+                        className="p-1.5 text-gray-400 hover:text-gray-600 transition-colors rounded-lg hover:bg-gray-100"
+                        aria-label="关闭 Cookie 提示"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                    
+                    {/* Action buttons */}
+                    <div className="flex items-center gap-2 order-1 sm:order-2">
+                      <button
+                        onClick={handleAcceptEssential}
+                        className="px-3 py-2 sm:py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors whitespace-nowrap min-h-[36px]"
+                      >
+                        仅必要
+                      </button>
+                      <button
+                        onClick={handleAcceptAll}
+                        className="px-4 py-2 sm:py-1.5 text-xs font-medium text-white bg-navy rounded-lg hover:bg-navy-light transition-colors whitespace-nowrap min-h-[36px]"
+                      >
+                        接受全部
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          
-          <div className="flex items-center gap-3 w-full sm:w-auto">
-            <button
-              onClick={handleAcceptEssential}
-              className="flex-1 sm:flex-initial px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-            >
-              Essential Only
-            </button>
-            <button
-              onClick={handleAcceptAll}
-              className="flex-1 sm:flex-initial px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors"
-            >
-              Accept All
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+          )}
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
