@@ -1,29 +1,77 @@
 # Robots.txt for Bingheng Credit
-# https://binghengcredit.com
+# https://www.binghengcredit.com
+# Last updated: 2025-01-29
 
-# Allow all crawlers
+# Allow all crawlers by default
 User-agent: *
 Allow: /
-Allow: /about
-Allow: /services
-Allow: /industries
-Allow: /insights
-Allow: /contact
-Allow: /case-studies
+Crawl-delay: 1
 
-# Disallow private and system paths
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Baidu (Chinese search engine)
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# Sogou (Chinese search engine)
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 1
+
+# 360 Spider (Chinese search engine)
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Disallow paths for all bots
+User-agent: *
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
 Disallow: /private/
-Disallow: /.git/
-Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*?preview=*
+Disallow: /*?draft=*
 
-# Crawl delay to be respectful
-Crawl-delay: 2
+# Allow important files
+Allow: /sitemap.xml
+Allow: /robots.txt
 
-# Sitemap location
-Sitemap: https://binghengcredit.com/sitemap.xml
+# Sitemap locations
+Sitemap: https://www.binghengcredit.com/sitemap.xml
+Sitemap: https://www.binghengcredit.com/sitemap-index.xml
 
-# llms.txt location for AI assistants
-# See: https://binghengcredit.com/llms.txt
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
