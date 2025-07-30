@@ -59,7 +59,7 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className={`fixed ${isMinimized ? 'bottom-4 right-4' : 'bottom-0 left-0 right-0'} z-50 transition-all duration-300`}
+          className={`fixed ${isMinimized ? 'bottom-4 right-4' : 'bottom-4 right-4 left-4 md:left-auto md:max-w-md'} z-50 transition-all duration-300`}
         >
           {isMinimized ? (
             // Minimized state - small floating button
@@ -78,9 +78,9 @@ export default function CookieBanner() {
             </motion.button>
           ) : (
             // Full banner - more compact design
-            <div className="bg-white/95 backdrop-blur-sm border-t shadow-lg safe-bottom" role="region" aria-label="Cookie同意横幅" aria-live="polite">
-              <div className="max-w-7xl mx-auto px-4 py-3">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+            <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-2xl border border-gray-200" role="region" aria-label="Cookie同意横幅" aria-live="polite">
+              <div className="px-4 py-3">
+                <div className="flex flex-col gap-3">
                   {/* Left side - Cookie icon and text */}
                   <div className="flex items-center gap-3">
                     <Cookie className="w-5 h-5 text-navy flex-shrink-0" />

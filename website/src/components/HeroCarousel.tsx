@@ -7,38 +7,59 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import ConsultationModal from './ConsultationModal'
 import OptimizedHeroImage from './OptimizedHeroImage'
+import { useLanguage } from '@/i18n/client'
 
-const slides = [
+const getSlides = (lang: string) => [
   {
     id: 1,
-    title: 'We Specialize in Recovering Debts from Chinese Nationals',
-    subtitle: 'The Only Company Focused on China-Specific Debt Recovery',
-    description: 'When Chinese debtors return home, general collection agencies fail. We succeed where others cannot, using localized expertise and cultural understanding.',
+    badge: lang === 'zh' ? '中国债务人追收' : 'China Debt Recovery',
+    title: lang === 'zh' ? '专注于中国债务人的专业追收' : 'We Specialize in Recovering Debts from Chinese Nationals',
+    subtitle: lang === 'zh' ? '唯一专注于中国债务追收的公司' : 'The Only Company Focused on China-Specific Debt Recovery',
+    description: lang === 'zh' 
+      ? '当中国债务人回国后，普通催收机构束手无策。我们凭借本地化专业知识和文化理解，在其他机构失败的地方取得成功。'
+      : 'When Chinese debtors return home, general collection agencies fail. We succeed where others cannot, using localized expertise and cultural understanding.',
     image: '/images/hero/debt-recovery-1.jpg',
     imageSrcSet: '/_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-1-640w.jpg&w=640&q=90 640w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-1-1080w.jpg&w=1080&q=85 1080w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-1-1920w.jpg&w=1920&q=80 1920w',
-    stats: { value: '$128M+', label: 'Recovered from Chinese Debtors' }
+    stats: { 
+      value: '$128M+', 
+      label: lang === 'zh' ? '已追回中国债务' : 'Recovered from Chinese Debtors' 
+    }
   },
   {
     id: 2,
-    title: 'Chinese Student Housing Debts Are Not Lost',
-    subtitle: 'Specialized Recovery for Education Institutions',
-    description: '87% of universities write off debts when Chinese students return home. We recover 65% of these "uncollectable" accounts through local networks.',
+    badge: lang === 'zh' ? '留学生住宿债务' : 'Student Housing Debts',
+    title: lang === 'zh' ? '中国留学生住宿欠费并非无法追回' : 'Chinese Student Housing Debts Are Not Lost',
+    subtitle: lang === 'zh' ? '教育机构专业追收服务' : 'Specialized Recovery for Education Institutions',
+    description: lang === 'zh'
+      ? '87%的大学在中国留学生回国后选择核销债务。我们通过本地网络，成功追回65%的"无法收回"账款。'
+      : '87% of universities write off debts when Chinese students return home. We recover 65% of these "uncollectable" accounts through local networks.',
     image: '/images/hero/debt-recovery-2.jpg',
     imageSrcSet: '/_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-2-640w.jpg&w=640&q=90 640w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-2-1080w.jpg&w=1080&q=85 1080w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-2-1920w.jpg&w=1920&q=80 1920w',
-    stats: { value: '65%', label: 'Success Rate for Student Debts' }
+    stats: { 
+      value: '65%', 
+      label: lang === 'zh' ? '学生债务成功率' : 'Success Rate for Student Debts' 
+    }
   },
   {
     id: 3,
-    title: 'E-commerce & Trade Debts from China Are Recoverable',
-    subtitle: 'Bridging the US-China Collection Gap',
-    description: 'From Amazon seller violations to B2B trade defaults, we navigate Chinese legal systems to recover what others consider impossible.',
+    badge: lang === 'zh' ? '电商与贸易债务' : 'E-commerce & Trade',
+    title: lang === 'zh' ? '来自中国的电商和贸易债务可以追回' : 'E-commerce & Trade Debts from China Are Recoverable',
+    subtitle: lang === 'zh' ? '弥合中美催收差距' : 'Bridging the US-China Collection Gap',
+    description: lang === 'zh'
+      ? '从亚马逊卖家违规到B2B贸易违约，我们熟悉中国法律体系，成功追回其他机构认为不可能的债务。'
+      : 'From Amazon seller violations to B2B trade defaults, we navigate Chinese legal systems to recover what others consider impossible.',
     image: '/images/hero/debt-recovery-3.jpg',
     imageSrcSet: '/_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-3-640w.jpg&w=640&q=90 640w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-3-1080w.jpg&w=1080&q=85 1080w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-3-1920w.jpg&w=1920&q=80 1920w',
-    stats: { value: '500+', label: 'US Companies Served' }
+    stats: { 
+      value: '500+', 
+      label: lang === 'zh' ? '服务美国公司' : 'US Companies Served' 
+    }
   }
 ]
 
 export default function HeroCarousel() {
+  const { language, dictionary } = useLanguage()
+  const slides = getSlides(language)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isPaused, setIsPaused] = useState(false)
@@ -88,14 +109,17 @@ export default function HeroCarousel() {
           className="absolute inset-0"
           style={{ y: imageY }}
         >
-          {slides.map((slide, index) => (
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentSlide ? 1 : 0 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
+          <AnimatePresence mode="wait">
+            {slides.map((slide, index) => (
+              index === currentSlide && (
+                <motion.div
+                  key={slide.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
               <OptimizedHeroImage
                 src={slide.image}
                 srcSet={slide.imageSrcSet}
@@ -105,8 +129,10 @@ export default function HeroCarousel() {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
               <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
-            </motion.div>
-          ))}
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
         </motion.div>
       </div>
 
@@ -136,8 +162,8 @@ export default function HeroCarousel() {
                   transition={{ delay: 0.2 }}
                   className="mb-6"
                 >
-                  <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 font-medium text-sm">
-                    专注中国债务人追收
+                  <span className="inline-block px-4 py-2 bg-black/30 backdrop-blur-md rounded-full text-white font-medium text-sm border border-white/20">
+                    {slides[currentSlide].badge}
                   </span>
                 </motion.div>
 
@@ -186,15 +212,16 @@ export default function HeroCarousel() {
                     onClick={() => setIsConsultationOpen(true)}
                     className="px-8 py-4 bg-white text-primary-blue font-semibold rounded-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 shadow-lg"
                   >
-                    立即获取免费评估
+                    {dictionary.cta.getFreeAssessment || '立即获取免费评估'}
                   </motion.button>
-                  <motion.button 
+                  <motion.a 
+                    href="#services"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 text-white font-semibold border-2 border-white rounded-lg hover:bg-white hover:text-primary-blue transition-all duration-300"
+                    className="inline-block px-8 py-4 text-white font-semibold border-2 border-white rounded-lg hover:bg-white hover:text-primary-blue transition-all duration-300"
                   >
-                    了解更多
-                  </motion.button>
+                    {dictionary.cta.learnMore || '了解更多'}
+                  </motion.a>
                 </motion.div>
               </motion.div>
             </AnimatePresence>
