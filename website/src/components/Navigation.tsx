@@ -109,7 +109,7 @@ export default function Navigation() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.button 
-                className="px-6 py-2.5 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm"
+                className="px-4 py-2 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm whitespace-nowrap"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setIsConsultationOpen(true)}
