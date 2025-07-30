@@ -45,11 +45,11 @@ export default function ClientLayout({
   
   return (
     <LanguageProvider initialLocale={initialLocale} initialDictionary={initialDictionary}>
+      <LoadingScreen />
       <div className="flex flex-col min-h-screen">
         <a href="#main-content" className="skip-to-content">
           {skipToContentText}
         </a>
-        <LoadingScreen />
         <AOSInit />
         <PerformanceOptimizer />
         <PerformanceMonitor />

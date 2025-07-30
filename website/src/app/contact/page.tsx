@@ -213,22 +213,6 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              {/* Quick Contact CTA */}
-              <div className="bg-gradient-to-r from-navy to-blue-700 rounded-3xl p-10 text-white">
-                <h3 className="text-2xl font-bold mb-4 flex items-center">
-                  <MessageSquare className="w-6 h-6 mr-3" />
-                  快速咨询
-                </h3>
-                <p className="mb-6 text-white/90">
-                  立即获取免费债务评估，专业团队为您定制解决方案
-                </p>
-                <button
-                  onClick={() => setIsConsultationOpen(true)}
-                  className="w-full bg-white text-navy py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
-                >
-                  开始免费咨询
-                </button>
-              </div>
             </motion.div>
           </div>
         </div>

@@ -61,12 +61,12 @@ export default function KnowledgeCenter() {
               </p>
               <motion.a
                 href="/insights"
-                className="inline-flex items-center px-6 py-3 bg-navy text-white font-medium rounded-xl hover:bg-navy-light transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-navy text-white font-medium rounded-xl hover:bg-navy-light transition-colors no-underline"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                了解更多
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <span className="text-white">了解更多</span>
+                <ArrowRight className="w-5 h-5 ml-2 text-white" />
               </motion.a>
             </motion.div>
           </div>

@@ -256,10 +256,10 @@ export default function IndustryFocus() {
         >
           <Link
             href="/industries"
-            className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium"
+            className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium no-underline"
           >
-            查看所有行业解决方案
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <span className="text-white">查看所有行业解决方案</span>
+            <ArrowRight className="w-5 h-5 ml-2 text-white" />
           </Link>
         </motion.div>
       </div>

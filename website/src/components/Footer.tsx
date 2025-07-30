@@ -60,7 +60,7 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="https://linkedin.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors no-underline"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -69,7 +69,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://twitter.com"
-                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors no-underline"
                 aria-label="Twitter"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -87,7 +87,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
+                    className="text-gray-400 text-sm hover:text-white transition-colors no-underline"
                   >
                     {link.label}
                   </a>
@@ -104,7 +104,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
+                    className="text-gray-400 text-sm hover:text-white transition-colors no-underline"
                   >
                     {link.label}
                   </a>
@@ -123,7 +123,7 @@ export default function Footer() {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-gray-400 text-sm hover:text-white transition-colors inline-flex items-center gap-1"
+                    className="text-gray-400 text-sm hover:text-white transition-colors inline-flex items-center gap-1 no-underline"
                   >
                     {link.label}
                     {link.external && (

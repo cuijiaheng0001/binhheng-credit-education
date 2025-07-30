@@ -1,0 +1,72 @@
+/* Responsive Metrics Circles - 确保文字不会溢出圆形容器 */
+
+/* 默认样式 - 桌面版 */
+.metric-circle {
+  width: 3.5rem; /* 56px */
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.metric-circle-text {
+  font-weight: bold;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 文字大小根据内容调整 */
+.metric-circle-text-small {
+  font-size: 1rem; /* 16px - 用于单个字符或数字 */
+}
+
+.metric-circle-text-medium {
+  font-size: 0.875rem; /* 14px - 用于2-3个字符 */
+}
+
+.metric-circle-text-large {
+  font-size: 0.75rem; /* 12px - 用于4个或更多字符如"100%" */
+}
+
+/* 平板设备 */
+@media (max-width: 768px) {
+  .metric-circle {
+    width: 3rem; /* 48px */
+    height: 3rem;
+  }
+  
+  .metric-circle-text-small {
+    font-size: 0.875rem;
+  }
+  
+  .metric-circle-text-medium {
+    font-size: 0.75rem;
+  }
+  
+  .metric-circle-text-large {
+    font-size: 0.625rem; /* 10px */
+  }
+}
+
+/* 手机设备 */
+@media (max-width: 640px) {
+  .metric-circle {
+    width: 2.75rem; /* 44px */
+    height: 2.75rem;
+  }
+  
+  .metric-circle-text-small {
+    font-size: 0.75rem;
+  }
+  
+  .metric-circle-text-medium {
+    font-size: 0.625rem;
+  }
+  
+  .metric-circle-text-large {
+    font-size: 0.5625rem; /* 9px */
+  }
+}

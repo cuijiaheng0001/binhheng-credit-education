@@ -142,22 +142,22 @@ export default function ProcessVisualization() {
           className="mt-16 grid md:grid-cols-3 gap-6"
         >
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-navy text-white rounded-full mb-3">
-              <span className="text-lg font-bold">0</span>
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
+              <span className="text-lg md:text-base font-bold">0</span>
             </div>
             <h4 className="font-bold text-gray-900 mb-2">无前期费用</h4>
             <p className="text-sm text-gray-600">不成功不收费，零风险合作</p>
           </div>
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-navy text-white rounded-full mb-3">
-              <span className="text-lg font-bold">24h</span>
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
+              <span className="text-base md:text-sm font-bold">24h</span>
             </div>
             <h4 className="font-bold text-gray-900 mb-2">快速响应</h4>
             <p className="text-sm text-gray-600">24小时内提供初步评估</p>
           </div>
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-12 h-12 bg-navy text-white rounded-full mb-3">
-              <span className="text-lg font-bold">100%</span>
+            <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
+              <span className="text-[11px] md:text-[10px] font-bold tracking-tight">100%</span>
             </div>
             <h4 className="font-bold text-gray-900 mb-2">合规操作</h4>
             <p className="text-sm text-gray-600">严格遵守中美两国法律</p>

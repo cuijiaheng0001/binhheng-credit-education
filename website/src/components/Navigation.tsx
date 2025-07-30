@@ -64,39 +64,43 @@ export default function Navigation() {
             </a>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8 ml-16">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                onMouseEnter={() => setHoveredItem(item.label)}
-                onMouseLeave={() => setHoveredItem(null)}
-                className="relative group"
-              >
-                <a
-                  href={item.href}
-                  className={cn(
-                    "relative inline-block text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md",
-                    "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                    "text-gray-600 hover:text-primary-blue focus:ring-primary-blue",
-                    "no-underline hover:no-underline",
-                    pathname === item.href && "font-semibold"
-                  )}
-                  aria-current={pathname === item.href ? "page" : undefined}
+          {/* Desktop Navigation - 优化布局和间距 */}
+          <div className="hidden lg:flex items-center flex-1 justify-center">
+            <div className="flex items-center gap-2">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  onMouseEnter={() => setHoveredItem(item.label)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  className="relative group"
                 >
-                  {item.label}
-                </a>
-              </motion.div>
-            ))}
+                  <a
+                    href={item.href}
+                    className={cn(
+                      "relative inline-block text-sm font-medium transition-all duration-300 px-4 py-2 rounded-md",
+                      "focus:outline-none focus:ring-2 focus:ring-offset-2",
+                      "text-gray-600 hover:text-primary-blue focus:ring-primary-blue",
+                      "no-underline hover:no-underline",
+                      pathname === item.href && "font-semibold text-primary-blue"
+                    )}
+                    aria-current={pathname === item.href ? "page" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
-          {/* Right side actions */}
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Language Switcher */}
-            <LanguageSwitcher />
+          {/* Right side actions - 增加与导航项的间距 */}
+          <div className="hidden lg:flex items-center gap-6 ml-8">
+            {/* Language Switcher - 统一样式 */}
+            <div className="border-l border-gray-200 pl-6">
+              <LanguageSwitcher />
+            </div>
             
             {/* CTA Button */}
             <motion.div

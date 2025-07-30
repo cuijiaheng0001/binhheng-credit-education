@@ -71,6 +71,25 @@ export default async function RootLayout({
   return (
     <html lang={langCode} className="smooth-scroll">
       <head>
+        {/* 防止闪烁的初始化脚本 - 必须最先执行 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                document.documentElement.classList.add('loading');
+                document.addEventListener('DOMContentLoaded', function() {
+                  setTimeout(function() {
+                    document.documentElement.classList.remove('loading');
+                  }, 100);
+                });
+                setTimeout(function() {
+                  document.documentElement.classList.remove('loading');
+                }, 3000);
+              })();
+            `,
+          }}
+        />
+        
         {/* Preload critical fonts - match exact URLs from fonts.css */}
         <link rel="preload" href="/fonts/inter-v13-latin-400.woff2?v=1" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/fonts/inter-v13-latin-600.woff2?v=1" as="font" type="font/woff2" crossOrigin="anonymous" />

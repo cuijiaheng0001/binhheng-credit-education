@@ -195,6 +195,15 @@
     color: hsl(var(--foreground));
   }
   
+  /* 防止页面加载时的内容闪烁 */
+  html.loading * {
+    visibility: hidden !important;
+  }
+  
+  html.loading #loading-screen {
+    visibility: visible !important;
+  }
+  
   /* Professional Typography System */
   h1, h2, h3 {
     font-family: var(--font-display);
@@ -407,6 +416,17 @@
   a[href]:active,
   a[href]:visited {
     text-decoration: none !important;
+  }
+  
+  /* Ensure navy buttons have white text */
+  .bg-navy,
+  .bg-navy * {
+    color: white !important;
+  }
+  
+  .bg-navy svg {
+    color: white !important;
+    stroke: white !important;
   }
   
   /* Button Typography */
