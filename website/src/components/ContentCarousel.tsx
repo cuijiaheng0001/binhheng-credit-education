@@ -164,6 +164,7 @@ export default function ContentCarousel() {
                       : "w-12 bg-gray-300 hover:bg-gray-400"
                   )}
                   role="progressbar"
+                  aria-label={`Tab ${index + 1} of ${tabs.length}`}
                   aria-valuenow={activeTab === index ? 100 : 0}
                   aria-valuemin={0}
                   aria-valuemax={100}
