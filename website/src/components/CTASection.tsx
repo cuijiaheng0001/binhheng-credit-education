@@ -100,7 +100,7 @@ export default function CTASection({
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <CTAButton
-              variant={variant === 'gradient' ? 'primary' : variant === 'dark' ? 'secondary' : 'outline'}
+              variant={variant === 'gradient' ? 'primary' : variant === 'dark' ? 'secondary' : 'primary'}
               size="lg"
               onClick={openModal ? () => setIsConsultationOpen(true) : undefined}
               href={!openModal ? buttonLink : undefined}
