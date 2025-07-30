@@ -110,7 +110,7 @@ export default function HeroCarousel() {
   return (
     <>
       {/* Hero Section with integrated background */}
-      <section className="relative min-h-screen">
+      <section className="relative min-h-screen bg-black">
         {/* Background Images - Absolute positioning within section */}
         <div className="absolute inset-0 top-0">
           <AnimatePresence mode="wait">

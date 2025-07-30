@@ -95,7 +95,7 @@ export default function HeroCarouselOptimized() {
   return (
     <>
       <section 
-        className="relative h-screen w-full overflow-hidden"
+        className="relative h-screen w-full overflow-hidden bg-black"
         role="region" 
         aria-label={locale === 'zh' ? '主要展示轮播' : 'Hero carousel'}
       >

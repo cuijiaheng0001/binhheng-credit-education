@@ -26,7 +26,7 @@ export default function HeroSlide({
   priority = false 
 }: HeroSlideProps) {
   return (
-    <div className="relative h-screen w-full">
+    <div className="relative h-screen w-full bg-black">
       {/* 背景层 - 图片优化 */}
       <Image
         src={src}

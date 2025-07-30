@@ -21,7 +21,7 @@ export default function HomePage() {
   const { dictionary } = useLanguage()
   
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-black">
       <HeroCarousel />
       <ContentCarousel />
       <CTASection 
