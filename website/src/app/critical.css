@@ -1,0 +1,150 @@
+/* Critical CSS - 内联到 HTML 头部以减少渲染阻塞 */
+
+/* 基础重置和字体 */
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+/* 字体定义 - 关键字体 */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-v13-latin-400.woff2?v=1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-v13-latin-600.woff2?v=1') format('woff2');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/playfair-display-v30-latin-700.woff2?v=1') format('woff2');
+}
+
+/* 关键布局类 */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.inset-0 {
+  inset: 0px;
+}
+
+.top-0 {
+  top: 0px;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+/* 关键颜色 */
+.bg-white {
+  background-color: rgb(255 255 255);
+}
+
+.text-white {
+  color: rgb(255 255 255);
+}
+
+/* 导航栏关键样式 */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+/* 隐藏类 */
+.hidden {
+  display: none;
+}
+
+/* 响应式 */
+@media (min-width: 768px) {
+  .md\\:block {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\\:block {
+    display: block;
+  }
+}
+
+/* 加载屏幕 */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 跳转到主要内容 */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  padding: 1rem;
+  background: #003D7A;
+  color: white;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}

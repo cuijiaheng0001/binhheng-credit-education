@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from 'next/script';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+
+// 读取关键 CSS
+const criticalCSS = process.env.NODE_ENV === 'production' 
+  ? readFileSync(join(process.cwd(), 'src/app/critical.css'), 'utf8')
+  : '';
 
 import { generatePageMetadata, pageMetadata } from '@/lib/seo-metadata'
 
@@ -68,6 +75,12 @@ export default async function RootLayout({
         <link rel="alternate" hrefLang="en-US" href="https://binghengcredit.com" />
         <link rel="alternate" hrefLang="zh-CN" href="https://binghengcredit.com/zh" />
         <link rel="alternate" hrefLang="x-default" href="https://binghengcredit.com" />
+        
+        {/* 内联关键 CSS */}
+        {criticalCSS && (
+          <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+        )}
+        
         <Script id="schema-org" type="application/ld+json">
           {JSON.stringify([
             {
