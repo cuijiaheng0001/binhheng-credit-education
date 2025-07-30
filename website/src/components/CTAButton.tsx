@@ -37,7 +37,7 @@ export default function CTAButton({
 }: CTAButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-xl relative overflow-hidden group'
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-xl group'
   
   const variants = {
     primary: 'bg-navy text-white hover:bg-navy-light transition-colors',
@@ -79,16 +79,10 @@ export default function CTAButton({
   }
 
   const buttonContent = (
-    <>
-      {/* 背景动画效果 */}
-      <span className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-      
-      {/* 按钮内容 */}
-      <span className="relative flex items-center gap-2">
-        {children}
-        {renderIcon()}
-      </span>
-    </>
+    <span className="flex items-center gap-2">
+      {children}
+      {renderIcon()}
+    </span>
   )
 
   if (href) {
