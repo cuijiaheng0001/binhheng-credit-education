@@ -1,8 +1,10 @@
 /* Fonts loaded via local files for better performance */
 @import './fonts.css';
 @import '../styles/animations.css';
+/* Temporarily disabled for debugging
 @import '../styles/design-tokens.css';
 @import '../styles/wcag-contrast.css';
+*/
 
 @tailwind base;
 @tailwind components;
