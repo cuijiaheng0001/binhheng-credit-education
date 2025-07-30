@@ -5,6 +5,7 @@ import { useRef, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/i18n/client'
 import ConsultationModal from './ConsultationModal'
+import CTAButton from './CTAButton'
 
 interface CTASectionProps {
   label?: string
@@ -93,33 +94,21 @@ export default function CTASection({
           )}
 
           {/* CTA Button */}
-          {openModal ? (
-            <motion.button
-              onClick={() => setIsConsultationOpen(true)}
-              className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${buttonStyles[variant]} shadow-lg hover:shadow-xl`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <CTAButton
+              variant={variant === 'gradient' ? 'primary' : variant === 'dark' ? 'secondary' : 'outline'}
+              size="lg"
+              onClick={openModal ? () => setIsConsultationOpen(true) : undefined}
+              href={!openModal ? buttonLink : undefined}
+              icon={<ArrowRight className="w-5 h-5" />}
             >
               {buttonText}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </motion.button>
-          ) : (
-            <motion.a
-              href={buttonLink}
-              className={`inline-flex items-center px-8 py-4 font-semibold rounded-lg transition-all duration-300 ${buttonStyles[variant]} shadow-lg hover:shadow-xl`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {buttonText}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </motion.a>
-          )}
+            </CTAButton>
+          </motion.div>
 
           {/* Trust indicators */}
           {showTrustIndicators && (

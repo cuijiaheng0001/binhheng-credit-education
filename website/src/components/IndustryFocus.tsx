@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Home, ShoppingCart, Building2, ArrowRight, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
+import CTAButton from './CTAButton'
 
 const industries = [
   {
@@ -92,47 +93,53 @@ export default function IndustryFocus() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                className="h-full"
               >
-                <Link 
-                  href={`/industries#${industry.id}`}
-                  className="block h-full"
-                >
-                  <div className={`relative bg-white rounded-2xl p-8 shadow-sm ${colors.hover} hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-transparent group h-full`}>
-                    {/* Icon and Title */}
-                    <div className="flex items-start justify-between mb-6">
-                      <div>
-                        <div className={`inline-flex items-center justify-center w-14 h-14 ${colors.bg} rounded-xl mb-4 group-hover:scale-110 transition-transform`}>
-                          <Icon className={`w-7 h-7 ${colors.icon}`} />
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">
-                          {industry.title}
-                        </h3>
-                        <p className="text-sm text-gray-500">{industry.subtitle}</p>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-600 group-hover:translate-x-1 transition-all" />
+                <div className={`relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-transparent group h-full flex flex-col`}>
+                  {/* Icon and Title */}
+                  <div className="mb-6">
+                    <div className={`inline-flex items-center justify-center w-14 h-14 ${colors.bg} rounded-xl mb-4 group-hover:scale-110 transition-transform`}>
+                      <Icon className={`w-7 h-7 ${colors.icon}`} />
                     </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
+                      {industry.title}
+                    </h3>
+                    <p className="text-sm text-gray-500">{industry.subtitle}</p>
+                  </div>
 
-                    {/* Description */}
-                    <p className="text-gray-600 mb-6 line-clamp-2">
-                      {industry.description}
-                    </p>
+                  {/* Description */}
+                  <p className="text-gray-600 mb-6 flex-grow">
+                    {industry.description}
+                  </p>
 
-                    {/* Stats */}
-                    <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                      <div className="flex items-center gap-4">
-                        <div>
-                          <p className={`text-2xl font-bold ${colors.stat}`}>{industry.stat}</p>
-                          <p className="text-xs text-gray-500">已追回</p>
-                        </div>
-                        <div className="w-px h-10 bg-gray-200" />
-                        <div>
-                          <p className="text-2xl font-bold text-gray-900">{industry.rate}</p>
-                          <p className="text-xs text-gray-500">成功率</p>
-                        </div>
+                  {/* Stats */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <p className={`text-2xl font-bold ${colors.stat}`}>{industry.stat}</p>
+                        <p className="text-xs text-gray-500">已追回</p>
+                      </div>
+                      <div className="w-px h-10 bg-gray-200" />
+                      <div>
+                        <p className="text-2xl font-bold text-gray-900">{industry.rate}</p>
+                        <p className="text-xs text-gray-500">成功率</p>
                       </div>
                     </div>
                   </div>
-                </Link>
+
+                  {/* CTA Button */}
+                  <CTAButton
+                    variant="primary"
+                    size="md"
+                    fullWidth
+                    prefilledData={{
+                      industry: industry.id,
+                      source: 'industry-card'
+                    }}
+                  >
+                    立即咨询{industry.title}追收
+                  </CTAButton>
+                </div>
               </motion.div>
             )
           })}

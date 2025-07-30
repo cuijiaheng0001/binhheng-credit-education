@@ -9,14 +9,19 @@ import { useLanguage } from '@/i18n/client'
 interface ConsultationModalProps {
   isOpen: boolean
   onClose: () => void
+  prefilledData?: {
+    industry?: string
+    debtType?: string
+    source?: string
+  }
 }
 
-export default function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
+export default function ConsultationModal({ isOpen, onClose, prefilledData }: ConsultationModalProps) {
   const { dictionary } = useLanguage()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: prefilledData ? `行业: ${prefilledData.industry || ''}${prefilledData.debtType ? `\n债务类型: ${prefilledData.debtType}` : ''}` : ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')

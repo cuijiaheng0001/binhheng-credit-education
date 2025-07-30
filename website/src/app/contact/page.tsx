@@ -7,6 +7,7 @@ import CTASection from '@/components/CTASection'
 import { useLanguage } from '@/i18n/client'
 import { useState } from 'react'
 import ConsultationModal from '@/components/ConsultationModal'
+import QuickConsultationForm from '@/components/QuickConsultationForm'
 
 export default function ContactPage() {
   const { dictionary } = useLanguage()
@@ -95,6 +96,17 @@ export default function ContactPage() {
               </motion.p>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Quick Consultation Form - Right after Hero */}
+      <section className="py-12 px-8 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto">
+          <QuickConsultationForm 
+            variant="inline"
+            title="快速提交您的咨询需求"
+            description="填写表单，我们将在24小时内与您联系"
+          />
         </div>
       </section>
 
