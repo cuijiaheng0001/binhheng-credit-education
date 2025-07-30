@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
+  
   // Optimize bundle size
   experimental: {
     optimizeCss: true,
