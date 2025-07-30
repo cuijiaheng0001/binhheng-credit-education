@@ -158,12 +158,13 @@ export default function ContentCarousel() {
             {tabs.map((tab, index) => (
               <div key={tab.id} className="flex flex-col items-center gap-3">
                 <button
+                  id={`tab-${index}`}
                   onClick={() => goToTab(index)}
                   className={cn(
                     "text-sm font-medium transition-all duration-300",
                     activeTab === index
                       ? "text-navy"
-                      : "text-gray-500 hover:text-gray-700"
+                      : "text-gray-700 hover:text-gray-900"
                   )}
                 >
                   {tab.title}
@@ -176,7 +177,7 @@ export default function ContentCarousel() {
                       : "w-12 bg-gray-300 hover:bg-gray-400"
                   )}
                   role="progressbar"
-                  aria-label={`Tab ${index + 1} of ${tabs.length}`}
+                  aria-labelledby={`tab-${index}`}
                   aria-valuenow={activeTab === index ? 100 : 0}
                   aria-valuemin={0}
                   aria-valuemax={100}
