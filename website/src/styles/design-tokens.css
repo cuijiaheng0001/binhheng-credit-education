@@ -26,17 +26,7 @@
   --font-size-5xl: 3rem;      /* 48px - 展示标题 */
   --font-size-6xl: 3.75rem;   /* 60px - 超大展示 */
   
-  /* Desktop Font Sizes - 桌面端字号 */
-  @media (min-width: 768px) {
-    --font-size-base: 1.125rem;   /* 18px */
-    --font-size-lg: 1.25rem;      /* 20px */
-    --font-size-xl: 1.5rem;       /* 24px */
-    --font-size-2xl: 1.875rem;    /* 30px */
-    --font-size-3xl: 2.25rem;     /* 36px */
-    --font-size-4xl: 3rem;        /* 48px */
-    --font-size-5xl: 3.75rem;     /* 60px */
-    --font-size-6xl: 4.5rem;      /* 72px */
-  }
+  /* Font sizes are responsive - defined below */
   
   /* Font Weights - 字重 */
   --font-weight-light: 300;
@@ -180,6 +170,23 @@
   --z-index-modal: 1050;
   --z-index-popover: 1060;
   --z-index-tooltip: 1070;
+}
+
+/* ====================================
+   Responsive Font Sizes - 响应式字体
+   ==================================== */
+
+@media (min-width: 768px) {
+  :root {
+    --font-size-base: 1.125rem;   /* 18px */
+    --font-size-lg: 1.25rem;      /* 20px */
+    --font-size-xl: 1.5rem;       /* 24px */
+    --font-size-2xl: 1.875rem;    /* 30px */
+    --font-size-3xl: 2.25rem;     /* 36px */
+    --font-size-4xl: 3rem;        /* 48px */
+    --font-size-5xl: 3.75rem;     /* 60px */
+    --font-size-6xl: 4.5rem;      /* 72px */
+  }
 }
 
 /* ====================================
