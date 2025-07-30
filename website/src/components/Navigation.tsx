@@ -9,15 +9,12 @@ import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/i18n/client'
 import LanguageSwitcher from './LanguageSwitcher'
 import ConsultationModal from './ConsultationModal'
-import { throttle } from '@/utils/throttle-debounce'
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const pathname = usePathname()
-  const isHomePage = pathname === '/'
   const { dictionary } = useLanguage()
   
   const navItems = [
@@ -29,30 +26,10 @@ export default function Navigation() {
     { label: dictionary.navigation.contact, href: '/contact' },
   ]
 
-  useEffect(() => {
-    // 使用节流优化滚动处理，减少重排
-    const handleScroll = throttle(() => {
-      const scrolled = window.scrollY > 50
-      setIsScrolled(scrolled)
-    }, 100)
-
-    // 被动监听器提升性能
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    
-    // 初始检查
-    handleScroll()
-    
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled || !isHomePage
-          ? "bg-white shadow-md"
-          : "bg-gradient-to-b from-black/60 to-transparent"
-      )}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md"
       role="navigation"
       aria-label="主导航"
     >
@@ -76,7 +53,7 @@ export default function Navigation() {
                 transition={{ duration: 0.2 }}
               >
                 <Image
-                  src={isScrolled || !isHomePage ? "/logo-inverted.png" : "/logo-white.png"}
+                  src="/logo-inverted.png"
                   alt="Bingheng Credit"
                   width={140}
                   height={50}
@@ -104,9 +81,7 @@ export default function Navigation() {
                   className={cn(
                     "relative inline-block text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md",
                     "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                    isScrolled || !isHomePage
-                      ? "text-gray-600 hover:text-primary-blue focus:ring-primary-blue" 
-                      : "text-white/90 hover:text-white focus:ring-white",
+                    "text-gray-600 hover:text-primary-blue focus:ring-primary-blue",
                     pathname === item.href && "font-semibold"
                   )}
                   aria-current={pathname === item.href ? "page" : undefined}
@@ -118,7 +93,7 @@ export default function Navigation() {
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}
-                      style={{ backgroundColor: isScrolled || !isHomePage ? '#003D7A' : '#ffffff' }}
+                      style={{ backgroundColor: '#003D7A' }}
                     />
                   )}
                 </a>
@@ -127,7 +102,7 @@ export default function Navigation() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: hoveredItem === item.label && pathname !== item.href ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  style={{ backgroundColor: isScrolled || !isHomePage ? '#003D7A' : '#ffffff' }}
+                  style={{ backgroundColor: '#003D7A' }}
                 />
               </motion.div>
             ))}
@@ -136,7 +111,7 @@ export default function Navigation() {
           {/* Right side actions */}
           <div className="hidden lg:flex items-center gap-4">
             {/* Language Switcher */}
-            <LanguageSwitcher isScrolled={isScrolled} isHomePage={isHomePage} />
+            <LanguageSwitcher />
             
             {/* CTA Button */}
             <motion.div
@@ -148,9 +123,7 @@ export default function Navigation() {
                 className={cn(
                   "px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-300",
                   "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                  isScrolled || !isHomePage
-                    ? "bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-xl focus:ring-primary-blue"
-                    : "bg-white text-primary-blue hover:bg-gray-100 focus:ring-white"
+                  "bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-xl focus:ring-primary-blue"
                 )}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -168,9 +141,7 @@ export default function Navigation() {
             className={cn(
               "lg:hidden p-3 rounded-lg transition-all duration-300",
               "focus:outline-none focus:ring-2 focus:ring-offset-2",
-              isScrolled || !isHomePage
-                ? "text-navy hover:bg-gray-100 focus:ring-primary-blue" 
-                : "text-white hover:bg-white/10 focus:ring-white"
+              "text-navy hover:bg-gray-100 focus:ring-primary-blue"
             )}
             aria-label={isMobileMenuOpen ? "关闭菜单" : "打开菜单"}
             aria-expanded={isMobileMenuOpen}
