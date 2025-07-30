@@ -17,9 +17,6 @@ const WhatsAppButton = dynamic(() => import('@/components/WhatsAppButton'), {
 const LoadingScreen = dynamic(() => import('@/components/LoadingScreen'), {
   ssr: false
 })
-const AOSInit = dynamic(() => import('@/components/AOSInit'), {
-  ssr: false
-})
 const AccessibilityControls = dynamic(() => import('@/components/AccessibilityControls'), {
   ssr: false
 })
@@ -50,7 +47,6 @@ export default function ClientLayout({
         <a href="#main-content" className="skip-to-content">
           {skipToContentText}
         </a>
-        <AOSInit />
         <PerformanceOptimizer />
         <PerformanceMonitor />
         <Navigation />

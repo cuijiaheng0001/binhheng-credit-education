@@ -532,27 +532,6 @@
     transform: scale(1.05);
   }
   
-  /* 滚动时的渐入效果 */
-  @media (prefers-reduced-motion: no-preference) {
-    [data-aos] {
-      opacity: 0;
-      transition-property: opacity, transform;
-      transition-duration: 0.8s;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    [data-aos].aos-animate {
-      opacity: 1;
-    }
-    
-    [data-aos="fade-up"] {
-      transform: translateY(30px);
-    }
-    
-    [data-aos="fade-up"].aos-animate {
-      transform: translateY(0);
-    }
-  }
 }
 
 /* Professional Gradient Classes - Atradius Inspired */
