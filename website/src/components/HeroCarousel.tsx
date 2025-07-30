@@ -103,41 +103,43 @@ export default function HeroCarousel() {
 
   return (
     <>
-      <section className="relative h-screen overflow-hidden">
-      {/* Background Images */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ y: imageY }}
-      >
-        <AnimatePresence mode="wait">
-          {slides.map((slide, index) => (
-            index === currentSlide && (
-              <motion.div
-                key={slide.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="absolute inset-0"
-              >
-                <OptimizedHeroImage
-                  src={slide.image}
-                  srcSet={slide.imageSrcSet}
-                  alt={slide.title}
-                  priority={index === 0}
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
-              </motion.div>
-            )
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      <section className="relative min-h-screen">
+        {/* Background Images - Cover entire hero section including nav area */}
+        <div className="absolute inset-0 top-0">
+          <motion.div
+            className="absolute inset-0"
+            style={{ y: imageY }}
+          >
+            <AnimatePresence mode="wait">
+              {slides.map((slide, index) => (
+                index === currentSlide && (
+                  <motion.div
+                    key={slide.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className="absolute inset-0"
+                  >
+                    <OptimizedHeroImage
+                      src={slide.image}
+                      srcSet={slide.imageSrcSet}
+                      alt={slide.title}
+                      priority={index === 0}
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+                  </motion.div>
+                )
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
 
       {/* Content */}
       <motion.div 
-        className="relative z-10 h-full flex items-center"
+        className="relative z-10 min-h-screen flex items-center pt-20"
         style={{ y: textY, opacity }}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">

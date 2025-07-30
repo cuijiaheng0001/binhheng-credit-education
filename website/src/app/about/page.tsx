@@ -13,13 +13,14 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section - 匹配主页风格 */}
-      <section className="relative h-[60vh] min-h-[500px] overflow-hidden bg-black">
+      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0">
-          <OptimizedImage
+          <Image
             src="/images/hero/debt-recovery-2.jpg"
             alt="关于 Bingheng Credit - 专业跨境债务追收服务公司，帮助美国企业追回中国相关债务"
             fill
-            className="object-cover opacity-60"
+            className="object-cover"
             priority
             sizes="100vw"
             quality={85}
@@ -28,7 +29,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
         </div>
         
-        <div className="relative z-10 h-full flex items-center">
+        <div className="relative z-10 h-full flex items-center pt-20">
           <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -136,7 +137,7 @@ export default function AboutPage() {
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <h4 className="font-semibold text-primary-blue mb-2">🏫 美国大学住宿机构</h4>
+                  <h4 className="font-semibold text-primary-blue mb-2">美国大学住宿机构</h4>
                   <p className="text-gray-600 mb-3">
                     每年因留学生违约，平均损失高达 <span className="font-bold">150万美元</span><br/>
                     <span className="text-sm">95%的债务过去被直接注销</span>
@@ -155,7 +156,7 @@ export default function AboutPage() {
                   className="bg-white p-6 rounded-lg shadow-sm"
                   whileHover={{ y: -2 }}
                 >
-                  <h4 className="font-semibold text-primary-blue mb-2">🛒 跨境电商平台</h4>
+                  <h4 className="font-semibold text-primary-blue mb-2">跨境电商平台</h4>
                   <p className="text-gray-600 mb-3">
                     一家电商平台注销中国卖家欠款累计达 <span className="font-bold">800万美元</span><br/>
                     <span className="text-sm">经专业评估，其中 <span className="font-bold">480万美元</span> 实际可追回</span>
@@ -240,57 +241,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Results - 使用渐变背景 */}
-      <section className="py-10 bg-white">
-        <div className="max-w-7xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="cta-gradient rounded-2xl p-12 text-white"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              选择正确的催收合作伙伴，改变您的追收结果
-            </h2>
-            <div className="grid md:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-6xl font-bold mb-4">5-15%</div>
-                <p className="text-xl mb-2">传统催收公司或企业自行催收</p>
-                <p className="text-white/80">
-                  平均成功率
-                </p>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-center"
-              >
-                <div className="text-6xl font-bold mb-4">60%以上</div>
-                <p className="text-xl mb-2">Bingheng Credit 跨境专业追收服务</p>
-                <p className="text-white/80">
-                  平均成功率
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-          
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center text-gray-500 mt-4"
-          >
-            <span className="text-sm">（在北京、深圳等地设有分支机构）</span>
-          </motion.p>
-        </div>
-      </section>
 
       {/* Company Info Section */}
       <section className="py-10 bg-white">

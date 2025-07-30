@@ -84,14 +84,14 @@ export default function ServicesPage() {
             src="/images/hero/debt-recovery-3.jpg"
             alt="Professional Services"
             fill
-            className="object-cover opacity-60"
+            className="object-cover opacity-80"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
         </div>
         
-        <div className="relative z-10 h-full flex items-center">
+        <div className="relative z-10 h-full flex items-center pt-20">
           <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -378,54 +378,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Additional Services Info */}
-      <section className="py-20 bg-gradient-to-b from-light-gray to-white">
-        <div className="max-w-7xl mx-auto px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-r from-navy to-blue-700 rounded-3xl p-12 text-white shadow-2xl"
-          >
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                为什么选择 Bingheng Credit？
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8 mt-12">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="text-5xl font-bold mb-3">60%+</div>
-                  <p className="text-white/90">平均追回成功率</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-5xl font-bold mb-3">24h</div>
-                  <p className="text-white/90">快速响应时间</p>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="text-center"
-                >
-                  <div className="text-5xl font-bold mb-3">0</div>
-                  <p className="text-white/90">前期费用</p>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA - 使用统一的CTASection组件 */}
       <CTASection 

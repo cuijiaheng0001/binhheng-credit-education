@@ -24,11 +24,13 @@ export default function ClientLayout({
   initialLocale,
   initialDictionary 
 }: ClientLayoutProps) {
+  const skipToContentText = initialLocale === 'zh' ? '跳转到主要内容' : 'Skip to main content'
+  
   return (
     <LanguageProvider initialLocale={initialLocale} initialDictionary={initialDictionary}>
       <div className="flex flex-col min-h-screen">
         <a href="#main-content" className="skip-to-content">
-          跳转到主要内容
+          {skipToContentText}
         </a>
         <LoadingScreen />
         <AOSInit />

@@ -44,6 +44,8 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
         // Custom colors
+        'primary-blue': '#003D7A',
+        'blue-600': '#0066CC',
         gold: {
           DEFAULT: "hsl(var(--gold))",
           light: "hsl(var(--gold-light))",
