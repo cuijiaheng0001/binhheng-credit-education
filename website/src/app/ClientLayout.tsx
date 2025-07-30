@@ -26,6 +26,9 @@ const AccessibilityControls = dynamic(() => import('@/components/AccessibilityCo
 const PerformanceOptimizer = dynamic(() => import('@/components/PerformanceOptimizer'), {
   ssr: false
 })
+const PerformanceMonitor = dynamic(() => import('@/components/PerformanceMonitor'), {
+  ssr: false
+})
 
 interface ClientLayoutProps {
   children: React.ReactNode
@@ -49,6 +52,7 @@ export default function ClientLayout({
         <LoadingScreen />
         <AOSInit />
         <PerformanceOptimizer />
+        <PerformanceMonitor />
         <Navigation />
         <main id="main-content" className="flex-grow">
           {children}

@@ -75,13 +75,25 @@ export default function HeroCarousel() {
     return () => clearInterval(interval)
   }, [isAutoPlaying, isPaused])
 
-  // 预加载所有图片
+  // 预加载所有图片 - 使用空闲回调避免阻塞主线程
   useEffect(() => {
-    slides.forEach((slide) => {
-      const img = new window.Image()
-      img.src = slide.image
-    })
-  }, [])
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => {
+        slides.forEach((slide) => {
+          const img = new window.Image()
+          img.src = slide.image
+        })
+      })
+    } else {
+      // Fallback: 延迟加载
+      setTimeout(() => {
+        slides.forEach((slide) => {
+          const img = new window.Image()
+          img.src = slide.image
+        })
+      }, 1000)
+    }
+  }, [slides])
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index)

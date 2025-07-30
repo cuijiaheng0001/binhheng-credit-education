@@ -66,6 +66,10 @@ export default function ServiceShowcase() {
     target: containerRef,
     offset: ["start end", "end start"]
   })
+  
+  // Move transforms outside of map to follow hooks rules
+  const yOffset = useTransform(scrollYProgress, [0, 1], [50, -50])
+  const xOffset = useTransform(scrollYProgress, [0, 1], [-100, 100])
 
   return (
     <section id="services" ref={containerRef} className="py-32 bg-white overflow-hidden">
@@ -105,8 +109,6 @@ export default function ServiceShowcase() {
         <div className="space-y-32">
           {services.map((service, index) => {
             const Icon = service.icon
-            const isEven = index % 2 === 0
-            const yOffset = useTransform(scrollYProgress, [0, 1], [50, -50])
             
             return (
               <motion.div
@@ -205,7 +207,7 @@ export default function ServiceShowcase() {
                   <div className="relative">
                     {/* Background Pattern */}
                     <motion.div 
-                      style={{ x: useTransform(scrollYProgress, [0, 1], [-100, 100]) }}
+                      style={{ x: xOffset }}
                       className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full opacity-20 blur-3xl"
                     />
                     

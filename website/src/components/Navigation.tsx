@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/i18n/client'
 import LanguageSwitcher from './LanguageSwitcher'
 import ConsultationModal from './ConsultationModal'
+import { throttle } from '@/utils/throttle-debounce'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -29,11 +30,18 @@ export default function Navigation() {
   ]
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    // 使用节流优化滚动处理，减少重排
+    const handleScroll = throttle(() => {
+      const scrolled = window.scrollY > 50
+      setIsScrolled(scrolled)
+    }, 100)
 
-    window.addEventListener('scroll', handleScroll)
+    // 被动监听器提升性能
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    // 初始检查
+    handleScroll()
+    
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

@@ -1,5 +1,6 @@
 /* Fonts loaded via local files for better performance */
 @import './fonts.css';
+@import '../styles/animations.css';
 
 @tailwind base;
 @tailwind components;

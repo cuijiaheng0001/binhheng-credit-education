@@ -1,7 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
-
 const testimonials = [
   {
     company: 'University Housing Corp',
@@ -21,31 +19,21 @@ export default function TrustIndicators() {
   return (
     <section className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
             值得信赖的合作伙伴
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             合规、专业、高效 - 您的跨境债务追收专家
           </p>
-        </motion.div>
+        </div>
 
         {/* Testimonials */}
         <div className="grid md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.2 }}
-              className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
-              whileHover={{ y: -4 }}
+              className={`bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 animate-fade-in-up animation-delay-${index * 200}`}
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -66,7 +54,7 @@ export default function TrustIndicators() {
                   {testimonial.role}, {testimonial.company}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

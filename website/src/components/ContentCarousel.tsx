@@ -85,13 +85,25 @@ export default function ContentCarousel() {
   const sectionRef = useRef<HTMLElement>(null)
   const currentContent = tabs[activeTab].content
 
-  // 预加载所有图片
+  // 预加载所有图片 - 使用空闲回调
   useEffect(() => {
-    tabs.forEach((tab) => {
-      const img = new window.Image()
-      img.src = tab.content.image
-    })
-  }, [])
+    const preloadImages = () => {
+      tabs.forEach((tab, index) => {
+        // 优先加载前两张图片
+        const delay = index < 2 ? 0 : 1000 + index * 200
+        setTimeout(() => {
+          const img = new window.Image()
+          img.src = tab.content.image
+        }, delay)
+      })
+    }
+
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(preloadImages)
+    } else {
+      setTimeout(preloadImages, 1000)
+    }
+  }, [tabs])
 
   // 使用Intersection Observer检测组件是否在视窗中
   useEffect(() => {
