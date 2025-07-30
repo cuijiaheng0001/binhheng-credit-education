@@ -89,12 +89,12 @@ export default function Navigation() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 onMouseEnter={() => setHoveredItem(item.label)}
                 onMouseLeave={() => setHoveredItem(null)}
-                className="relative"
+                className="relative group"
               >
                 <a
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md",
+                    "relative inline-block text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md",
                     "focus:outline-none focus:ring-2 focus:ring-offset-2",
                     isScrolled || !isHomePage
                       ? "text-gray-600 hover:text-primary-blue focus:ring-primary-blue" 
@@ -104,13 +104,22 @@ export default function Navigation() {
                   aria-current={pathname === item.href ? "page" : undefined}
                 >
                   {item.label}
+                  {pathname === item.href && (
+                    <motion.div
+                      className="absolute -bottom-0.5 left-3 right-3 h-0.5"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ backgroundColor: isScrolled || !isHomePage ? '#003D7A' : '#ffffff' }}
+                    />
+                  )}
                 </a>
                 <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-px origin-left"
+                  className="absolute -bottom-0.5 left-3 right-3 h-0.5 origin-left"
                   initial={{ scaleX: 0 }}
-                  animate={{ scaleX: hoveredItem === item.label ? 1 : 0 }}
+                  animate={{ scaleX: hoveredItem === item.label && pathname !== item.href ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  style={{ backgroundColor: isScrolled || !isHomePage ? '#111827' : '#ffffff' }}
+                  style={{ backgroundColor: isScrolled || !isHomePage ? '#003D7A' : '#ffffff' }}
                 />
               </motion.div>
             ))}
