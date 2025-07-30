@@ -266,7 +266,7 @@ export default function FAQ() {
               className={cn(
                 "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                 activeCategory === category
-                  ? "bg-primary-blue text-white shadow-md"
+                  ? "bg-navy text-white"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               )}
             >

@@ -37,13 +37,13 @@ export default function CTAButton({
 }: CTAButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const baseStyles = 'inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg relative overflow-hidden group'
+  const baseStyles = 'inline-flex items-center justify-center font-medium transition-all duration-300 rounded-xl relative overflow-hidden group'
   
   const variants = {
-    primary: 'bg-gradient-to-r from-primary-blue to-blue-600 text-white hover:from-blue-600 hover:to-primary-blue shadow-lg hover:shadow-xl',
+    primary: 'bg-navy text-white hover:bg-navy-light transition-colors',
     secondary: 'bg-gold text-white hover:bg-gold-dark shadow-md hover:shadow-lg',
-    outline: 'border-2 border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white',
-    ghost: 'text-primary-blue hover:bg-primary-blue/10'
+    outline: 'border-2 border-navy text-navy hover:bg-navy hover:text-white',
+    ghost: 'text-navy hover:bg-navy/10'
   }
 
   const sizes = {

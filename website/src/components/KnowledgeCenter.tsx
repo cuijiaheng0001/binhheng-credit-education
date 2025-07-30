@@ -61,7 +61,7 @@ export default function KnowledgeCenter() {
               </p>
               <motion.a
                 href="/insights"
-                className="inline-flex items-center px-6 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-primary-blue/90 hover:shadow-xl transition-all duration-300"
+                className="inline-flex items-center px-6 py-3 bg-navy text-white font-medium rounded-xl hover:bg-navy-light transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

@@ -104,13 +104,9 @@ export default function Navigation() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.button 
-                className={cn(
-                  "px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-300",
-                  "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                  "bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-xl focus:ring-primary-blue"
-                )}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2.5 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => setIsConsultationOpen(true)}
                 aria-label={dictionary.cta.freeConsultation}
               >

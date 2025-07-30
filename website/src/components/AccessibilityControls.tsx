@@ -109,7 +109,7 @@ export default function AccessibilityControls() {
       {/* Toggle Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed right-6 bottom-44 z-40 p-3 bg-primary-blue text-white rounded-full shadow-lg hover:bg-primary-blue/90 hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue"
+        className="fixed right-6 bottom-44 z-40 p-3 bg-navy text-white rounded-full shadow-lg hover:bg-navy-light transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         aria-label="Accessibility settings"
@@ -167,7 +167,7 @@ export default function AccessibilityControls() {
                     </button>
                     <div className="flex-1 h-2 bg-gray-200 rounded-full relative">
                       <div
-                        className="absolute inset-y-0 left-0 bg-primary-blue rounded-full transition-all duration-300"
+                        className="absolute inset-y-0 left-0 bg-navy rounded-full transition-all duration-300"
                         style={{ width: `${((settings.fontSize - 80) / 70) * 100}%` }}
                       />
                     </div>

@@ -514,7 +514,7 @@ export default function EnhancedConsultationForm({
                         type="button"
                         onClick={handleNext}
                         disabled={!isStepValid(step)}
-                        className="px-6 py-3 bg-primary-blue text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                        className="px-6 py-3 bg-navy text-white rounded-xl hover:bg-navy-light disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2 font-medium"
                       >
                         下一步
                         <ArrowRight className="w-4 h-4" />
