@@ -84,11 +84,11 @@ export default function ServicesPage() {
             src="/images/hero/debt-recovery-3.jpg"
             alt="Professional Services"
             fill
-            className="object-cover opacity-80"
+            className="object-cover opacity-90"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/25 to-transparent" />
         </div>
         
         <div className="relative z-10 h-full flex items-center pt-20">
