@@ -58,8 +58,8 @@ const getSlides = (lang: string) => [
 ]
 
 export default function HeroCarousel() {
-  const { language, dictionary } = useLanguage()
-  const slides = getSlides(language)
+  const { locale, dictionary } = useLanguage()
+  const slides = getSlides(locale)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isPaused, setIsPaused] = useState(false)
