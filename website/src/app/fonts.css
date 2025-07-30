@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/inter-v13-latin-400.woff2') format('woff2');
+  src: url('/fonts/inter-v13-latin-400.woff2?v=1') format('woff2');
 }
 
 @font-face {
@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('/fonts/inter-v13-latin-600.woff2') format('woff2');
+  src: url('/fonts/inter-v13-latin-600.woff2?v=1') format('woff2');
 }
 
 @font-face {
@@ -20,7 +20,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/inter-v13-latin-700.woff2') format('woff2');
+  src: url('/fonts/inter-v13-latin-700.woff2?v=1') format('woff2');
 }
 
 /* Playfair Display for headings - only essential weights */
@@ -29,7 +29,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/fonts/playfair-display-v30-latin-700.woff2') format('woff2');
+  src: url('/fonts/playfair-display-v30-latin-700.woff2?v=1') format('woff2');
 }
 
 /* Chinese font - load async for non-critical text */
@@ -38,6 +38,6 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/noto-serif-sc-v22-chinese-simplified-regular.woff2') format('woff2');
+  src: url('/fonts/noto-serif-sc-v22-chinese-simplified-regular.woff2?v=1') format('woff2');
   unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF, U+2A700-2B73F;
 }
