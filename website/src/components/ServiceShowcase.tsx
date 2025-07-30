@@ -93,11 +93,11 @@ export default function ServiceShowcase() {
               />
               <h2 className="font-display text-5xl lg:text-7xl text-gray-900 font-light tracking-tight leading-[0.9]">
                 Expert<br/>
-                <span className="text-3xl lg:text-5xl text-gray-600">Solutions</span>
+                <span className="text-3xl lg:text-5xl text-gray-700">Solutions</span>
               </h2>
             </div>
             <div className="lg:pb-4">
-              <p className="text-xl text-gray-600 leading-relaxed font-light">
+              <p className="text-xl text-gray-700 leading-relaxed">
                 Three decades of specialized expertise in cross-border debt recovery. 
                 We transform written-off international accounts into recovered revenue.
               </p>

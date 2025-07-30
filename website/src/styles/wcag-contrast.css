@@ -1,0 +1,180 @@
+/* ====================================
+   WCAG 2.1 AA Contrast Compliance
+   确保全站文字对比度符合无障碍标准
+   ==================================== */
+
+/* ====================================
+   按钮对比度优化
+   ==================================== */
+
+/* 浅色背景上的按钮 - 使用深色文字 */
+.bg-gray-50 button:not(.text-white),
+.bg-gray-100 button:not(.text-white),
+.bg-light-gray button:not(.text-white) {
+  color: var(--color-gray-800) !important;
+  border-color: var(--color-gray-700) !important;
+}
+
+.bg-gray-50 button:hover:not(.text-white),
+.bg-gray-100 button:hover:not(.text-white),
+.bg-light-gray button:hover:not(.text-white) {
+  background-color: var(--color-gray-800) !important;
+  color: var(--color-white) !important;
+}
+
+/* 标签和徽章对比度 */
+.text-gray-500 {
+  color: var(--color-gray-700) !important;
+}
+
+.bg-gray-100 .text-gray-500,
+.bg-gray-50 .text-gray-500,
+.bg-light-gray .text-gray-500 {
+  color: var(--color-gray-800) !important;
+}
+
+/* ====================================
+   行业标签优化
+   ==================================== */
+
+/* 激活状态使用主色 */
+.industry-tab-active {
+  color: var(--color-primary-700) !important;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-primary-700);
+}
+
+/* 非激活状态使用深灰 */
+.industry-tab:not(.industry-tab-active) {
+  color: var(--color-gray-700) !important;
+}
+
+.industry-tab:not(.industry-tab-active):hover {
+  color: var(--color-primary-600) !important;
+}
+
+/* ====================================
+   卡片和内容区域
+   ==================================== */
+
+/* 确保卡片内文字对比度 */
+.card,
+[class*="card-"] {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+}
+
+.card:hover,
+[class*="card-"]:hover {
+  border-color: var(--color-gray-300);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ====================================
+   表单元素对比度
+   ==================================== */
+
+input,
+textarea,
+select {
+  color: var(--color-gray-900) !important;
+  border-color: var(--color-gray-400) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-gray-600) !important;
+}
+
+/* ====================================
+   链接对比度
+   ==================================== */
+
+a:not(.btn):not(.button) {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:not(.btn):not(.button):hover {
+  color: var(--color-primary-800);
+  text-decoration-thickness: 2px;
+}
+
+/* 在深色背景上的链接 */
+.bg-primary a:not(.btn),
+.bg-navy a:not(.btn),
+.bg-gray-900 a:not(.btn) {
+  color: var(--color-white);
+}
+
+/* ====================================
+   辅助文字对比度
+   ==================================== */
+
+.text-xs,
+.text-sm {
+  /* 小号文字使用更深的颜色 */
+  color: var(--color-gray-700);
+}
+
+/* 确保标签和元数据可读 */
+.meta-text,
+.label-text,
+[class*="text-muted"] {
+  color: var(--color-gray-700) !important;
+}
+
+/* ====================================
+   高对比度模式支持
+   ==================================== */
+
+@media (prefers-contrast: high) {
+  /* 增强所有文字对比度 */
+  body {
+    color: #000000;
+    background-color: #ffffff;
+  }
+  
+  .text-gray-600,
+  .text-gray-500,
+  .text-gray-400 {
+    color: #000000 !important;
+  }
+  
+  /* 增强边框 */
+  * {
+    border-color: #000000 !important;
+  }
+  
+  /* 增强按钮 */
+  button,
+  .btn {
+    border: 2px solid #000000 !important;
+  }
+  
+  /* 增强输入框 */
+  input,
+  textarea,
+  select {
+    border: 2px solid #000000 !important;
+  }
+}
+
+/* ====================================
+   深色模式对比度
+   ==================================== */
+
+@media (prefers-color-scheme: dark) {
+  .text-gray-500 {
+    color: var(--color-gray-400) !important;
+  }
+  
+  .text-gray-600 {
+    color: var(--color-gray-300) !important;
+  }
+  
+  .text-gray-700 {
+    color: var(--color-gray-200) !important;
+  }
+}

@@ -125,8 +125,9 @@ export function initLazyLoading() {
  */
 export function preloadCriticalResources() {
   const criticalFonts = [
-    '/fonts/inter-var.woff2',
-    '/fonts/playfair-display-var.woff2'
+    '/fonts/inter-v13-latin-400.woff2',
+    '/fonts/inter-v13-latin-600.woff2',
+    '/fonts/playfair-display-v30-latin-700.woff2'
   ];
   
   criticalFonts.forEach((font) => {

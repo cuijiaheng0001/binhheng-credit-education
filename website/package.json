@@ -5,7 +5,7 @@
   "browserslist": {
     "production": [
       "chrome >= 90",
-      "edge >= 90", 
+      "edge >= 90",
       "firefox >= 88",
       "safari >= 14",
       "ios >= 14",
@@ -48,6 +48,7 @@
     "reading-time": "^1.5.0",
     "recharts": "^3.1.0",
     "sharp": "^0.34.3",
+    "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.1",
     "web-vitals": "^5.0.3"
   },

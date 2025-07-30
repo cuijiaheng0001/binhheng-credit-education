@@ -104,11 +104,11 @@ export default function IndustryFocus() {
                     <h3 className="text-xl font-bold text-gray-900 mb-1">
                       {industry.title}
                     </h3>
-                    <p className="text-sm text-gray-500">{industry.subtitle}</p>
+                    <p className="text-sm text-gray-700 font-medium">{industry.subtitle}</p>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-600 mb-6 flex-grow">
+                  <p className="text-gray-700 mb-6 flex-grow">
                     {industry.description}
                   </p>
 
@@ -117,12 +117,12 @@ export default function IndustryFocus() {
                     <div className="flex items-center gap-4">
                       <div>
                         <p className={`text-2xl font-bold ${colors.stat}`}>{industry.stat}</p>
-                        <p className="text-xs text-gray-500">已追回</p>
+                        <p className="text-xs text-gray-700 font-medium">已追回</p>
                       </div>
                       <div className="w-px h-10 bg-gray-200" />
                       <div>
                         <p className="text-2xl font-bold text-gray-900">{industry.rate}</p>
-                        <p className="text-xs text-gray-500">成功率</p>
+                        <p className="text-xs text-gray-700 font-medium">成功率</p>
                       </div>
                     </div>
                   </div>
@@ -176,19 +176,19 @@ export default function IndustryFocus() {
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-blue-600">$2.1M</p>
-                  <p className="text-xs text-gray-500">追回金额</p>
+                  <p className="text-xs text-gray-700 font-medium">追回金额</p>
                 </div>
                 <div className="text-center">
                   <p className="text-2xl font-bold text-gray-900">600+</p>
-                  <p className="text-xs text-gray-500">处理案件</p>
+                  <p className="text-xs text-gray-700 font-medium">处理案件</p>
                 </div>
                 <div className="text-center">
                   <p className="text-2xl font-bold text-green-600">45天</p>
-                  <p className="text-xs text-gray-500">平均时长</p>
+                  <p className="text-xs text-gray-700 font-medium">平均时长</p>
                 </div>
               </div>
               
-              <blockquote className="text-sm text-gray-600 italic border-l-3 border-blue-600 pl-4">
+              <blockquote className="text-sm text-gray-700 italic border-l-3 border-blue-600 pl-4">
                 "Bingheng Credit 的专业团队帮助我们解决了长期困扰的中国留学生欠费问题，他们的本地化沟通能力无可比拟。"
               </blockquote>
               
@@ -220,19 +220,19 @@ export default function IndustryFocus() {
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="text-center">
                   <p className="text-2xl font-bold text-purple-600">$3.2M</p>
-                  <p className="text-xs text-gray-500">追回金额</p>
+                  <p className="text-xs text-gray-700 font-medium">追回金额</p>
                 </div>
                 <div className="text-center">
                   <p className="text-2xl font-bold text-gray-900">85%</p>
-                  <p className="text-xs text-gray-500">追回率</p>
+                  <p className="text-xs text-gray-700 font-medium">追回率</p>
                 </div>
                 <div className="text-center">
                   <p className="text-2xl font-bold text-green-600">90天</p>
-                  <p className="text-xs text-gray-500">解决时长</p>
+                  <p className="text-xs text-gray-700 font-medium">解决时长</p>
                 </div>
               </div>
               
-              <blockquote className="text-sm text-gray-600 italic border-l-3 border-purple-600 pl-4">
+              <blockquote className="text-sm text-gray-700 italic border-l-3 border-purple-600 pl-4">
                 "在其他催收公司都放弃后，Bingheng Credit 成功帮我们追回了这笔看似无望的债务。"
               </blockquote>
               
