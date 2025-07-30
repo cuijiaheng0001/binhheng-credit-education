@@ -5,12 +5,13 @@ import { ArrowRight, Phone, Calendar } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import ConsultationModal from './ConsultationModal'
+import React from 'react'
 
 interface CTAButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg' | 'xl'
   fullWidth?: boolean
-  icon?: 'arrow' | 'phone' | 'calendar'
+  icon?: 'arrow' | 'phone' | 'calendar' | React.ReactNode
   onClick?: () => void
   href?: string
   children: React.ReactNode
@@ -57,6 +58,16 @@ export default function CTAButton({
     phone: <Phone className={cn('transition-transform group-hover:scale-110', size === 'sm' ? 'w-4 h-4' : size === 'xl' ? 'w-6 h-6' : 'w-5 h-5')} />,
     calendar: <Calendar className={cn('transition-transform group-hover:scale-110', size === 'sm' ? 'w-4 h-4' : size === 'xl' ? 'w-6 h-6' : 'w-5 h-5')} />
   }
+  
+  // 处理自定义图标
+  const renderIcon = () => {
+    if (typeof icon === 'string' && icon in iconComponents) {
+      return iconComponents[icon as keyof typeof iconComponents]
+    } else if (React.isValidElement(icon)) {
+      return icon
+    }
+    return null
+  }
 
   const handleClick = () => {
     if (onClick) {
@@ -75,7 +86,7 @@ export default function CTAButton({
       {/* 按钮内容 */}
       <span className="relative flex items-center gap-2">
         {children}
-        {iconComponents[icon]}
+        {renderIcon()}
       </span>
     </>
   )
