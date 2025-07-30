@@ -99,15 +99,27 @@ export default function CTASection({
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <CTAButton
-              variant={variant === 'gradient' ? 'primary' : variant === 'dark' ? 'secondary' : 'primary'}
-              size="lg"
-              onClick={openModal ? () => setIsConsultationOpen(true) : undefined}
-              href={!openModal ? buttonLink : undefined}
-              icon={<ArrowRight className="w-5 h-5" />}
-            >
-              {buttonText}
-            </CTAButton>
+            {openModal ? (
+              <button
+                onClick={() => setIsConsultationOpen(true)}
+                className="inline-flex items-center px-8 py-4 bg-white text-navy font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 group shadow-lg hover:shadow-xl"
+              >
+                <span className="flex items-center gap-2">
+                  {buttonText}
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </button>
+            ) : (
+              <a
+                href={buttonLink}
+                className="inline-flex items-center px-8 py-4 bg-white text-navy font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 group shadow-lg hover:shadow-xl no-underline hover:no-underline"
+              >
+                <span className="flex items-center gap-2">
+                  {buttonText}
+                  <ArrowRight className="w-5 h-5" />
+                </span>
+              </a>
+            )}
           </motion.div>
 
           {/* Trust indicators */}
