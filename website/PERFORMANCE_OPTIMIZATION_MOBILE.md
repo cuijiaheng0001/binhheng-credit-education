@@ -57,7 +57,7 @@
 
 ```bash
 # Navigate to project
-cd /Users/ucd/binhheng-credit-education/website
+cd /Users/ucd/bingheng-credit-education/website
 
 # Install dependencies
 npm install

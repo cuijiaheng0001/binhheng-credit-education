@@ -48,7 +48,7 @@
 
 ```bash
 # 1. 进入项目目录
-cd /Users/ucd/binhheng-credit-education/website
+cd /Users/ucd/bingheng-credit-education/website
 
 # 2. 构建项目
 npm run build

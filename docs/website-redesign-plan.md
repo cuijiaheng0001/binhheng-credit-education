@@ -1,4 +1,4 @@
-# Binhheng Credit 网站改版方案
+# Bingheng Credit 网站改版方案
 
 ## 改版核心目标
 

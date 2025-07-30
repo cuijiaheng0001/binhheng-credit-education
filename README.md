@@ -1,10 +1,10 @@
-# Binhheng Credit Education
+# Bingheng Credit Education
 
 跨境债务回收教育与服务平台
 
 ## 项目概述
 
-Binhheng Credit 是一个专注于跨境债务回收的教育和服务平台，特别针对国际学生应收账款的识别和回收。我们提供专业的金融教育内容和高端的债务回收服务。
+Bingheng Credit 是一个专注于跨境债务回收的教育和服务平台，特别针对国际学生应收账款的识别和回收。我们提供专业的金融教育内容和高端的债务回收服务。
 
 ## 快速开始
 
@@ -29,7 +29,7 @@ tar czf ../binghengcredit-web-node_modules.tar.gz node_modules
 ## 项目结构
 
 ```
-binhheng-credit-education/
+bingheng-credit-education/
 ├── README.md          # 项目说明文档
 ├── .gitignore         # Git忽略文件配置
 ├── website/           # Next.js 网站源代码
@@ -67,8 +67,8 @@ binhheng-credit-education/
 
 1. 克隆仓库
 ```bash
-git clone https://github.com/cuijiaheng0001/binhheng-credit-education.git
-cd binhheng-credit-education
+git clone https://github.com/cuijiaheng0001/bingheng-credit-education.git
+cd bingheng-credit-education
 ```
 
 2. 进入网站目录并安装依赖

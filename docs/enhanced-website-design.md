@@ -1,4 +1,4 @@
-# Binhheng Credit 增强版网站设计方案
+# Bingheng Credit 增强版网站设计方案
 
 ## 借鉴 Atradius Collections 的设计精髓
 

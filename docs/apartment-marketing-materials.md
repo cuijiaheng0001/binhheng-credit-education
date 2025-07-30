@@ -28,7 +28,7 @@ have been recovered?
 
 Best,
 {{YourName}}
-Binhheng Credit
+Bingheng Credit
 
 P.S. We work on success-based fees only. No recovery, no charge.
 ```
@@ -52,7 +52,7 @@ noticed a pattern:
 Last year alone, student housing companies wrote off over $100M 
 in uncollectible international debt.
 
-Binhheng Credit changes this equation. We:
+Bingheng Credit changes this equation. We:
 - Locate debtors in Mainland China
 - Negotiate in Mandarin
 - Recover funds compliantly
@@ -77,7 +77,7 @@ Hi {{FirstName}},
 University Towers had written off $47,000 in rent from Chinese 
 students who graduated in 2023. They assumed it was gone forever.
 
-Then they tried Binhheng Credit.
+Then they tried Bingheng Credit.
 
 Result: $28,200 recovered in 60 days (60% recovery rate).
 
@@ -94,7 +94,7 @@ Let's talk: [Calendar Link]
 
 Best,
 {{YourName}}
-Binhheng Credit
+Bingheng Credit
 ```
 
 ## 2. LinkedIn 消息模板
@@ -133,14 +133,14 @@ you're interested.
 - The cycle repeats next year
 
 ### 解决方案
-**Binhheng Credit breaks this cycle:**
+**Bingheng Credit breaks this cycle:**
 ✓ **Direct China Operations**: We reach debtors where they live
 ✓ **Cultural Understanding**: Native Mandarin speakers who understand both systems
 ✓ **Legal Compliance**: Fully compliant with US and Chinese regulations
 ✓ **Success-Based Pricing**: You only pay when we collect
 
 ### 流程图
-[Visual: US Property → Binhheng Credit → China Operations → Recovered Funds → Your Account]
+[Visual: US Property → Bingheng Credit → China Operations → Recovered Funds → Your Account]
 
 ### 案例数据
 **Real Results from Real Properties:**
@@ -174,7 +174,7 @@ you're interested.
 - Property marked all as uncollectible
 
 ### 解决方案
-**Binhheng Credit's Approach:**
+**Bingheng Credit's Approach:**
 1. Received debtor information (names, amounts, last known details)
 2. Located 19 of 23 debtors in China
 3. Initiated culturally-appropriate outreach
@@ -188,7 +188,7 @@ you're interested.
 - **ROI**: 5:1 (fees vs. recovery)
 
 ### 客户评价
-*"We had completely written off these debts. Binhheng not only 
+*"We had completely written off these debts. Bingheng not only 
 recovered a significant portion but did so professionally and 
 compliantly. They're now our go-to partner for international 
 collections."*

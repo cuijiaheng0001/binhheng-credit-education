@@ -1,4 +1,4 @@
-# Binhheng Credit Visual Design System
+# Bingheng Credit Visual Design System
 
 ## 基于 Atradius Collections 的视觉优化方案
 

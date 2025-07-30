@@ -1,4 +1,4 @@
-# Binhheng Credit 主页设计方案导出
+# Bingheng Credit 主页设计方案导出
 
 ## 设计理念
 - **专业金融风格**：深蓝色(#0F172A)与金色(#CC9A06)的配色方案

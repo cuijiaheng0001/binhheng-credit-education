@@ -12,7 +12,7 @@
 ### 1. 确认本地修复
 ```bash
 # 在本地项目目录
-cd /Users/ucd/binhheng-credit-education/website
+cd /Users/ucd/bingheng-credit-education/website
 
 # 验证没有 Google Fonts
 grep -r "fonts.googleapis" src/ || echo "✅ No Google Fonts"

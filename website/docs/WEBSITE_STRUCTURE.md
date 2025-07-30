@@ -1,4 +1,4 @@
-# Binhheng Credit 网站架构规划
+# Bingheng Credit 网站架构规划
 
 ## 一、整体架构逻辑
 
@@ -94,7 +94,7 @@
 
 ## 三、设计特色对比
 
-| 特征 | Atradius | Binhheng Credit |
+| 特征 | Atradius | Bingheng Credit |
 |------|----------|-----------------|
 | 定位 | 综合性全球收债 | 中国专家定位 |
 | 视觉 | 企业蓝色系 | 专业深色系 |

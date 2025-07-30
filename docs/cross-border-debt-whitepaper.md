@@ -305,8 +305,8 @@
 
 *免责声明：本白皮书仅供参考，不构成法律建议。请在实施任何跨境债务追讨行动前咨询专业法律顾问。*
 
-**关于Binhheng Credit**
+**关于Bingheng Credit**
 
-Binhheng Credit是专注于中美跨境债务回收的专业服务机构。通过创新的技术平台和本地化执行能力，我们帮助美国企业识别、评估和回收被误判为"无法收回"的中国跨境债务。
+Bingheng Credit是专注于中美跨境债务回收的专业服务机构。通过创新的技术平台和本地化执行能力，我们帮助美国企业识别、评估和回收被误判为"无法收回"的中国跨境债务。
 
-© 2024 Binhheng Credit. All rights reserved.
+© 2024 Bingheng Credit. All rights reserved.

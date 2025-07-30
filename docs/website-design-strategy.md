@@ -1,4 +1,4 @@
-# Binhheng Credit Education 网站设计策略
+# Bingheng Credit Education 网站设计策略
 
 ## 设计理念
 

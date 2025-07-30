@@ -1,6 +1,6 @@
-# Binhheng Credit Education Website
+# Bingheng Credit Education Website
 
-A modern, education-focused website for Binhheng Credit that helps US businesses discover and recover hidden cross-border receivables.
+A modern, education-focused website for Bingheng Credit that helps US businesses discover and recover hidden cross-border receivables.
 
 ## 🚀 Features
 
@@ -116,4 +116,4 @@ website/
 
 ## 📝 License
 
-Copyright © 2024 Binhheng Credit. All rights reserved.
+Copyright © 2024 Bingheng Credit. All rights reserved.
