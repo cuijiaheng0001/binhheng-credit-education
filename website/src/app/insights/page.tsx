@@ -35,7 +35,7 @@ function InsightCard({ article }: { article: InsightArticle }) {
       viewport={{ once: true }}
       className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group"
     >
-      <Link href={`/insights/${article.slug}`}>
+      <Link href={`/insights/${article.slug}`} className="no-underline hover:no-underline">
         <div className="relative h-48 bg-gray-100">
           <Image
             src={article.featuredImage}

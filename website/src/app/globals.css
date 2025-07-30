@@ -391,12 +391,13 @@
   /* Link Styles */
   a {
     transition: all var(--transition-base);
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
   }
   
   a:hover {
     color: hsl(var(--gold));
+    text-decoration: none !important;
   }
   
   /* Button Typography */
