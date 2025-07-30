@@ -86,7 +86,7 @@ export default function ProblemAwareness() {
         >
           <motion.button
             onClick={() => setIsConsultationOpen(true)}
-            className="inline-flex items-center px-6 py-3 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group"
+            className="inline-flex items-center px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy-light transition-all duration-300 group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

@@ -157,7 +157,7 @@ export default function ProcessVisualization() {
           </div>
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
-              <span className="text-[11px] md:text-[10px] font-bold tracking-tight">100%</span>
+              <span className="text-2xl md:text-xl font-bold">100%</span>
             </div>
             <h4 className="font-bold text-gray-900 mb-2">合规操作</h4>
             <p className="text-sm text-gray-600">严格遵守中美两国法律</p>
