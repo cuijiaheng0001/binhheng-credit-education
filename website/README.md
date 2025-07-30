@@ -7,13 +7,13 @@ A modern, education-focused website for Bingheng Credit that helps US businesses
 - **Education-First Design**: Guides visitors to understand the hidden debt problem
 - **Smooth Animations**: Built with Framer Motion for professional interactions
 - **Fully Responsive**: Optimized for all devices
-- **High Performance**: Next.js 14 with Turbopack for fast development
+- **High Performance**: Next.js 15.4.4 with Turbopack for fast development
 - **SEO Optimized**: Complete metadata and structured data
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS
+- **Framework**: Next.js 15.4.4 (App Router)
+- **Styling**: Tailwind CSS 3.4.1
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **Charts**: Recharts (ready to implement)
@@ -74,7 +74,7 @@ website/
 - **Background**: White with subtle gradients
 
 ### Typography
-- **Font**: Inter (100-900 weights)
+- **Font**: Inter (400-700 weights) + Playfair Display (700)
 - **Headings**: Light weight for elegance
 - **Body**: Regular weight for readability
 

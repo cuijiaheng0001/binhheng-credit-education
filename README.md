@@ -45,17 +45,18 @@ bingheng-credit-education/
 │   ├── business-positioning.md
 │   ├── website-design-strategy.md
 │   └── cross-border-debt-whitepaper.md
-└── resources/         # 资源文件目录（待添加）
+└── scripts/           # 项目脚本文件
 ```
 
 ## 技术栈
 
-- **框架**: Next.js 15.4 (App Router)
-- **语言**: TypeScript
-- **样式**: Tailwind CSS 3.4
+- **框架**: Next.js 15.4.4 (App Router)
+- **语言**: TypeScript 5
+- **样式**: Tailwind CSS 3.4.1
 - **动画**: Framer Motion
 - **内容**: MDX
 - **部署**: Vercel
+- **优化**: 生产环境移除 console、CSS 优化、现代 JS 输出
 
 ## 开始使用
 
@@ -98,6 +99,9 @@ npm run start
 - 🎨 高端的视觉设计系统
 - 📱 完全响应式设计
 - 🚀 优化的性能和SEO
+- 🌐 双语支持（中文/英文）
+- ♿ 无障碍性优化
+- ⚡ 现代 JavaScript 输出，减少 polyfill
 
 ## 贡献指南
 
