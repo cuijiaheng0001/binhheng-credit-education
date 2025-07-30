@@ -58,7 +58,7 @@ const AccessibleLink = forwardRef<HTMLAnchorElement, AccessibleLinkProps>(
     const accessibilityProps = {
       'aria-label': ariaLabel,
       'aria-describedby': ariaDescribedBy,
-      'aria-current': active ? 'page' : undefined
+      'aria-current': active ? 'page' as const : undefined
     }
     
     // External link attributes
