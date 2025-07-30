@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, TrendingUp, Shield, Award, Globe, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
@@ -64,10 +64,6 @@ export default function HeroCarousel() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isPaused, setIsPaused] = useState(false)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
-  const { scrollY } = useScroll()
-  const imageY = useTransform(scrollY, [0, 500], [0, 150])
-  const textY = useTransform(scrollY, [0, 300], [0, 50])
-  const opacity = useTransform(scrollY, [0, 400], [1, 0])
 
   useEffect(() => {
     if (!isAutoPlaying || isPaused) return
@@ -103,45 +99,39 @@ export default function HeroCarousel() {
 
   return (
     <>
+      {/* Hero Section with integrated background */}
       <section className="relative min-h-screen">
-        {/* Background Images - Cover entire hero section including nav area */}
+        {/* Background Images - Absolute positioning within section */}
         <div className="absolute inset-0 top-0">
-          <motion.div
-            className="absolute inset-0"
-            style={{ y: imageY }}
-          >
-            <AnimatePresence mode="wait">
-              {slides.map((slide, index) => (
-                index === currentSlide && (
-                  <motion.div
-                    key={slide.id}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="absolute inset-0"
-                  >
-                    <OptimizedHeroImage
-                      src={slide.image}
-                      srcSet={slide.imageSrcSet}
-                      alt={slide.title}
-                      priority={index === 0}
-                      className="object-cover w-full h-full"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
-                  </motion.div>
-                )
-              ))}
-            </AnimatePresence>
-          </motion.div>
+          <AnimatePresence mode="wait">
+            {slides.map((slide, index) => (
+              index === currentSlide && (
+                <motion.div
+                  key={slide.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                >
+                  <OptimizedHeroImage
+                    src={slide.image}
+                    srcSet={slide.imageSrcSet}
+                    alt={slide.title}
+                    priority={index === 0}
+                    className="object-cover w-full h-full"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+                </motion.div>
+              )
+            ))}
+          </AnimatePresence>
         </div>
-
-      {/* Content */}
-      <motion.div 
-        className="relative z-10 min-h-screen flex items-center pt-20"
-        style={{ y: textY, opacity }}
-      >
+        {/* Content */}
+        <div 
+          className="relative z-10 min-h-screen flex items-center"
+        >
         <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
           <div className="max-w-2xl">
             <AnimatePresence mode="wait">
@@ -226,7 +216,7 @@ export default function HeroCarousel() {
             </AnimatePresence>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Navigation Controls */}
       <div className="absolute bottom-12 left-0 right-0 z-20">
