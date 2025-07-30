@@ -87,23 +87,7 @@ export default function Navigation() {
                   aria-current={pathname === item.href ? "page" : undefined}
                 >
                   {item.label}
-                  {pathname === item.href && (
-                    <motion.div
-                      className="absolute -bottom-0.5 left-3 right-3 h-0.5"
-                      initial={{ scaleX: 0 }}
-                      animate={{ scaleX: 1 }}
-                      transition={{ duration: 0.3 }}
-                      style={{ backgroundColor: '#003D7A' }}
-                    />
-                  )}
                 </a>
-                <motion.div
-                  className="absolute -bottom-0.5 left-3 right-3 h-0.5 origin-left"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: hoveredItem === item.label && pathname !== item.href ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ backgroundColor: '#003D7A' }}
-                />
               </motion.div>
             ))}
           </div>

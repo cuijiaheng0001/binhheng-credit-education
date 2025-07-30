@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, TrendingUp, Shield, Award, Globe, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
-import ConsultationModal from './ConsultationModal'
 import OptimizedHeroImage from './OptimizedHeroImage'
 import { useLanguage } from '@/i18n/client'
 
@@ -63,7 +62,6 @@ export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [isPaused, setIsPaused] = useState(false)
-  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
 
   useEffect(() => {
     if (!isAutoPlaying || isPaused) return
@@ -200,30 +198,6 @@ export default function HeroCarousel() {
                 </motion.p>
 
 
-                {/* CTAs */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-4"
-                >
-                  <motion.button 
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setIsConsultationOpen(true)}
-                    className="px-8 py-4 bg-white text-primary-blue font-semibold rounded-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 shadow-lg"
-                  >
-                    {dictionary.cta.freeConsultation}
-                  </motion.button>
-                  <motion.a 
-                    href="#services"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-block px-8 py-4 text-white font-semibold border-2 border-white rounded-lg hover:bg-white hover:text-primary-blue transition-all duration-300"
-                  >
-                    {dictionary.cta.exploreSolutions}
-                  </motion.a>
-                </motion.div>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -274,11 +248,6 @@ export default function HeroCarousel() {
 
       </section>
       
-      {/* Consultation Modal */}
-      <ConsultationModal 
-        isOpen={isConsultationOpen} 
-        onClose={() => setIsConsultationOpen(false)} 
-      />
     </>
   )
 }
