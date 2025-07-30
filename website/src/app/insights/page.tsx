@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { getAllInsights, InsightArticle } from '@/lib/insights-data'
 import { useState, useMemo } from 'react'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import ResourceDownload from '@/components/ResourceDownload'
 
 const categoryIcons = {
   guide: BookOpen,
@@ -293,6 +294,9 @@ export default function InsightsPage() {
           )}
         </div>
       </section>
+
+      {/* Resource Download Section */}
+      <ResourceDownload />
 
       {/* Newsletter Signup */}
       <NewsletterSignup />
