@@ -151,7 +151,7 @@ you're interested.
 
 ### 行动号召
 **Start Recovering Your Lost Revenue**
-📧 Email: contact@binhhengcredit.com
+📧 Email: contact@binghengcredit.com
 📱 WhatsApp: +1-XXX-XXX-XXXX
 🗓️ Schedule Call: calendly.com/binhheng
 

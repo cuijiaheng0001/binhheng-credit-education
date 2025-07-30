@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# Fix markdown files trailing newlines
+git diff --cached --name-only | grep '\.md$' | xargs -I{} sh -c 'if [ -f "{}" ] && [ "$(tail -c 1 "{}" | wc -l)" -eq 0 ]; then echo >> "{}"; git add "{}"; fi'
+
+# Run prettier and linting on website directory if website files are being committed
+if git diff --cached --name-only | grep -q "^website/"; then
+  cd website
+  npm run format:check || exit 1
+  npm run lint || exit 1
+  npm run typecheck || exit 1
+fi

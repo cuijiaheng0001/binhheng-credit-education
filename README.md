@@ -6,6 +6,26 @@
 
 Binhheng Credit 是一个专注于跨境债务回收的教育和服务平台，特别针对国际学生应收账款的识别和回收。我们提供专业的金融教育内容和高端的债务回收服务。
 
+## 快速开始
+
+### 安装依赖
+
+运行以下脚本来设置项目依赖：
+
+```bash
+bash scripts/setup.sh
+```
+
+如果无法联网安装，请先在有网络的环境中创建离线包：
+
+```bash
+cd website
+npm ci
+tar czf ../binghengcredit-web-node_modules.tar.gz node_modules
+```
+
+然后将 `binghengcredit-web-node_modules.tar.gz` 文件放在项目根目录，再运行 `bash scripts/setup.sh`。
+
 ## 项目结构
 
 ```
@@ -105,5 +125,5 @@ Copyright (c) 2024 Binhheng Credit Education
 
 ## 联系方式
 
-- 网站: [https://binhhengcredit.com](https://binhhengcredit.com)
-- 邮箱: contact@binhhengcredit.com
+- 网站: [https://binghengcredit.com](https://binghengcredit.com)
+- 邮箱: contact@binghengcredit.com
