@@ -45,6 +45,8 @@ export default function Navigation() {
           ? "bg-white shadow-md"
           : "bg-gradient-to-b from-black/60 to-transparent"
       )}
+      role="navigation"
+      aria-label="主导航"
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
@@ -58,6 +60,7 @@ export default function Navigation() {
             <a 
               href="/" 
               className="flex items-center group cursor-pointer no-underline-effect"
+              aria-label="Bingheng Credit 首页"
             >
               <motion.div
                 whileHover={{ scale: 1 }}
@@ -91,11 +94,14 @@ export default function Navigation() {
                 <a
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium transition-all duration-300",
+                    "text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md",
+                    "focus:outline-none focus:ring-2 focus:ring-offset-2",
                     isScrolled
-                      ? "text-gray-600 hover:text-primary-blue" 
-                      : "text-white/90 hover:text-white"
+                      ? "text-gray-600 hover:text-primary-blue focus:ring-primary-blue" 
+                      : "text-white/90 hover:text-white focus:ring-white",
+                    pathname === item.href && "font-semibold"
                   )}
+                  aria-current={pathname === item.href ? "page" : undefined}
                 >
                   {item.label}
                 </a>
@@ -123,14 +129,16 @@ export default function Navigation() {
             >
               <motion.button 
                 className={cn(
-                  "px-6 py-2.5 text-sm font-semibold rounded transition-all duration-300",
+                  "px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-300",
+                  "focus:outline-none focus:ring-2 focus:ring-offset-2",
                   isScrolled
-                    ? "bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-xl"
-                    : "bg-white text-primary-blue hover:bg-gray-100"
+                    ? "bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-xl focus:ring-primary-blue"
+                    : "bg-white text-primary-blue hover:bg-gray-100 focus:ring-white"
                 )}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsConsultationOpen(true)}
+                aria-label={dictionary.cta.freeConsultation}
               >
                 {dictionary.cta.freeConsultation}
               </motion.button>
@@ -142,10 +150,14 @@ export default function Navigation() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
               "lg:hidden p-3 rounded-lg transition-all duration-300",
+              "focus:outline-none focus:ring-2 focus:ring-offset-2",
               isScrolled
-                ? "text-navy hover:bg-gray-100" 
-                : "text-white hover:bg-white/10"
+                ? "text-navy hover:bg-gray-100 focus:ring-primary-blue" 
+                : "text-white hover:bg-white/10 focus:ring-white"
             )}
+            aria-label={isMobileMenuOpen ? "关闭菜单" : "打开菜单"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <motion.div
               animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}

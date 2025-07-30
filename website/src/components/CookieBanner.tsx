@@ -65,18 +65,20 @@ export default function CookieBanner() {
             // Minimized state - small floating button
             <motion.button
               onClick={() => setIsMinimized(false)}
-              className="bg-navy text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow flex items-center gap-2 group"
+              className="bg-navy text-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="展开Cookie设置"
+              aria-expanded="false"
             >
-              <Cookie className="w-5 h-5" />
+              <Cookie className="w-5 h-5" aria-hidden="true" />
               <span className="text-sm font-medium pr-2 max-w-0 group-hover:max-w-xs overflow-hidden transition-all duration-300">
                 Cookie 设置
               </span>
             </motion.button>
           ) : (
             // Full banner - more compact design
-            <div className="bg-white/95 backdrop-blur-sm border-t shadow-lg safe-bottom">
+            <div className="bg-white/95 backdrop-blur-sm border-t shadow-lg safe-bottom" role="region" aria-label="Cookie同意横幅" aria-live="polite">
               <div className="max-w-7xl mx-auto px-4 py-3">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
                   {/* Left side - Cookie icon and text */}
@@ -118,13 +120,15 @@ export default function CookieBanner() {
                     <div className="flex items-center gap-2 order-1 sm:order-2">
                       <button
                         onClick={handleAcceptEssential}
-                        className="px-3 py-2 sm:py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors whitespace-nowrap min-h-[36px]"
+                        className="px-3 py-2 sm:py-1.5 text-xs font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors whitespace-nowrap min-h-[44px] sm:min-h-[36px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400"
+                        aria-label="接受仅必要的Cookie"
                       >
                         仅必要
                       </button>
                       <button
                         onClick={handleAcceptAll}
-                        className="px-4 py-2 sm:py-1.5 text-xs font-medium text-white bg-navy rounded-lg hover:bg-navy-light transition-colors whitespace-nowrap min-h-[36px]"
+                        className="px-4 py-2 sm:py-1.5 text-xs font-medium text-white bg-navy rounded-lg hover:bg-navy-light transition-colors whitespace-nowrap min-h-[44px] sm:min-h-[36px] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue"
+                        aria-label="接受全部Cookie"
                       >
                         接受全部
                       </button>
