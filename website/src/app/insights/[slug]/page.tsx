@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, Clock, ArrowLeft, Share2, Bookmark, ChevronRight, ExternalLink } from 'lucide-react'
+import { Calendar, ArrowLeft, Share2, Bookmark, ChevronRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getInsightBySlug, getRelatedInsights, getPreviousArticle, getNextArticle } from '@/lib/insights-data'
@@ -56,10 +56,6 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <Calendar className="w-4 h-4" />
                   {article.publishDate.split('T')[0].replace(/-/g, '/')}
-                </div>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <Clock className="w-4 h-4" />
-                  {article.readingTime} 分钟阅读
                 </div>
               </div>
               
@@ -333,10 +329,6 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
                             <div className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
                               <span>{related.publishDate.split('T')[0].replace(/-/g, '/')}</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Clock className="w-4 h-4" />
-                              <span>{related.readingTime} 分钟</span>
                             </div>
                           </div>
                           <ChevronRight className="w-5 h-5 text-navy opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />

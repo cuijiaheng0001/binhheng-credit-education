@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, Clock, ArrowRight, BookOpen, FileText, Scale, BarChart3, Lightbulb, Search, X } from 'lucide-react'
+import { Calendar, ArrowRight, BookOpen, FileText, Scale, BarChart3, Lightbulb, Search, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getAllInsights, InsightArticle } from '@/lib/insights-data'
@@ -66,10 +66,6 @@ function InsightCard({ article }: { article: InsightArticle }) {
                 <Calendar className="w-4 h-4" />
                 {new Date(article.publishDate).toLocaleDateString('zh-CN')}
               </span>
-              <span className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                {article.readingTime} 分钟阅读
-              </span>
             </div>
             
             <span className="text-navy font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
@@ -86,7 +82,6 @@ function InsightCard({ article }: { article: InsightArticle }) {
 export default function InsightsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
-  const [sortBy, setSortBy] = useState<'date' | 'readingTime'>('date')
   const articles = getAllInsights()
   
   const filteredArticles = useMemo(() => {
@@ -110,15 +105,11 @@ export default function InsightsPage() {
 
     // Sort articles
     filtered = [...filtered].sort((a, b) => {
-      if (sortBy === 'date') {
-        return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-      } else {
-        return b.readingTime - a.readingTime
-      }
+      return new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
     })
 
     return filtered
-  }, [articles, selectedCategory, searchQuery, sortBy])
+  }, [articles, selectedCategory, searchQuery])
 
   const categories = ['all', ...Object.keys(categoryLabels)] as const
 
@@ -181,14 +172,9 @@ export default function InsightsPage() {
             {/* Sort Options */}
             <div className="flex items-center gap-2">
               <span className="text-sm text-gray-600">排序：</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as 'date' | 'readingTime')}
-                className="px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent transition-all text-sm"
-              >
-                <option value="date">最新发布</option>
-                <option value="readingTime">阅读时长</option>
-              </select>
+              <div className="px-4 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-600 text-sm">
+                按最新发布排序
+              </div>
             </div>
           </div>
 
