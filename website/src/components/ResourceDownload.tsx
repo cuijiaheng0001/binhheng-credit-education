@@ -16,7 +16,7 @@ interface Resource {
 }
 
 interface ResourceDownloadProps {
-  resources: Resource[]
+  resources?: Resource[]
   onDownload?: (resourceId: string, formData: any) => void
 }
 
