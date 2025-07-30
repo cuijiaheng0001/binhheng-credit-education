@@ -140,7 +140,7 @@ export default function HeroCarousel() {
         </div>
         {/* Content */}
         <div 
-          className="relative z-10 min-h-screen flex items-center"
+          className="relative z-10 min-h-screen flex items-start pt-32"
         >
         <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
           <div className="max-w-2xl">

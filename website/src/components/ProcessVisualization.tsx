@@ -174,13 +174,13 @@ export default function ProcessVisualization() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
               onClick={() => setIsConsultationOpen(true)}
-              className="px-8 py-3 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium"
+              className="px-8 py-4 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium min-h-[52px] whitespace-nowrap"
             >
               开始免费评估
             </button>
             <Link
               href="/process"
-              className="px-8 py-3 border border-navy text-navy rounded-xl hover:bg-gray-50 transition-colors font-medium no-underline hover:no-underline"
+              className="px-8 py-4 border border-navy text-navy rounded-xl hover:bg-gray-50 transition-colors font-medium no-underline hover:no-underline min-h-[52px] whitespace-nowrap flex items-center"
             >
               了解详细流程
             </Link>
