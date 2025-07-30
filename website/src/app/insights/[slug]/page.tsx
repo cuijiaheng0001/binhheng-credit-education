@@ -55,7 +55,7 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
                 </span>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <Calendar className="w-4 h-4" />
-                  {new Date(article.publishDate).toLocaleDateString('zh-CN')}
+                  {article.publishDate.split('T')[0].replace(/-/g, '/')}
                 </div>
                 <div className="flex items-center gap-2 text-sm text-gray-500">
                   <Clock className="w-4 h-4" />
@@ -308,7 +308,7 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
                   >
                     <Link
                       href={`/insights/${related.slug}`}
-                      className="block bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group h-full"
+                      className="block bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group h-full no-underline hover:no-underline"
                     >
                       {/* Featured Image Placeholder */}
                       <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 relative overflow-hidden">
@@ -332,7 +332,7 @@ export default function InsightPostPage({ params }: { params: Promise<{ slug: st
                           <div className="flex items-center gap-4 text-sm text-gray-500">
                             <div className="flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
-                              <span>{new Date(related.publishDate).toLocaleDateString('zh-CN')}</span>
+                              <span>{related.publishDate.split('T')[0].replace(/-/g, '/')}</span>
                             </div>
                             <div className="flex items-center gap-1">
                               <Clock className="w-4 h-4" />
