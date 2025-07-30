@@ -150,7 +150,7 @@ export default function ContentCarousel() {
   }
 
   return (
-    <section ref={sectionRef} className="py-14 bg-light-gray">
+    <section ref={sectionRef} className="py-16 bg-light-gray overflow-visible">
       <div className="max-w-7xl mx-auto px-8">
         {/* Progress Indicators */}
         <div className="mb-12">
@@ -220,7 +220,7 @@ export default function ContentCarousel() {
 
             <motion.a
               href={currentContent.link}
-              className="inline-flex items-center px-8 py-4 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group no-underline hover:no-underline whitespace-nowrap"
+              className="inline-flex items-center px-8 py-4 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group no-underline hover:no-underline whitespace-nowrap min-h-[52px]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -256,10 +256,10 @@ export default function ContentCarousel() {
         </motion.div>
 
         {/* Navigation Arrows */}
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex justify-center gap-4 mt-8 pb-4">
           <motion.button
             onClick={() => goToTab((activeTab - 1 + tabs.length) % tabs.length)}
-            className="p-3 border border-gray-300 rounded-lg hover:border-navy hover:text-navy transition-colors"
+            className="p-3 border border-gray-300 rounded-lg hover:border-navy hover:text-navy transition-colors overflow-visible"
             aria-label="Previous tab"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -268,7 +268,7 @@ export default function ContentCarousel() {
           </motion.button>
           <motion.button
             onClick={() => goToTab((activeTab + 1) % tabs.length)}
-            className="p-3 border border-gray-300 rounded-lg hover:border-navy hover:text-navy transition-colors"
+            className="p-3 border border-gray-300 rounded-lg hover:border-navy hover:text-navy transition-colors overflow-visible"
             aria-label="Next tab"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
