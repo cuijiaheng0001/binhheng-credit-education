@@ -212,7 +212,7 @@ export default function HeroCarousel() {
                     onClick={() => setIsConsultationOpen(true)}
                     className="px-8 py-4 bg-white text-primary-blue font-semibold rounded-lg hover:bg-gray-100 hover:shadow-xl transition-all duration-300 shadow-lg"
                   >
-                    {dictionary.cta.getFreeAssessment || '立即获取免费评估'}
+                    {dictionary.cta.freeConsultation}
                   </motion.button>
                   <motion.a 
                     href="#services"
@@ -220,7 +220,7 @@ export default function HeroCarousel() {
                     whileTap={{ scale: 0.95 }}
                     className="inline-block px-8 py-4 text-white font-semibold border-2 border-white rounded-lg hover:bg-white hover:text-primary-blue transition-all duration-300"
                   >
-                    {dictionary.cta.learnMore || '了解更多'}
+                    {dictionary.cta.exploreSolutions}
                   </motion.a>
                 </motion.div>
               </motion.div>
