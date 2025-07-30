@@ -400,6 +400,15 @@
     text-decoration: none !important;
   }
   
+  /* Force remove underlines from all links */
+  a[href],
+  a[href]:hover,
+  a[href]:focus,
+  a[href]:active,
+  a[href]:visited {
+    text-decoration: none !important;
+  }
+  
   /* Button Typography */
   button, .btn {
     font-family: var(--font-sans);

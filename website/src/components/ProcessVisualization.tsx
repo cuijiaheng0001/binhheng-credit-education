@@ -180,7 +180,7 @@ export default function ProcessVisualization() {
             </button>
             <Link
               href="/process"
-              className="px-8 py-3 border border-navy text-navy rounded-xl hover:bg-gray-50 transition-colors font-medium"
+              className="px-8 py-3 border border-navy text-navy rounded-xl hover:bg-gray-50 transition-colors font-medium no-underline hover:no-underline"
             >
               了解详细流程
             </Link>
