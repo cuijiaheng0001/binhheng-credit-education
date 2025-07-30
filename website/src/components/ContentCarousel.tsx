@@ -220,7 +220,7 @@ export default function ContentCarousel() {
 
             <motion.a
               href={currentContent.link}
-              className="inline-flex items-center px-6 py-3 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group"
+              className="inline-flex items-center px-6 py-3 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group no-underline hover:no-underline"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
