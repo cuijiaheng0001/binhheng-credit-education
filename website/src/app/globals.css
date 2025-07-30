@@ -1,7 +1,5 @@
 /* Fonts loaded via local files for better performance */
 @import './fonts.css';
-/* Design System - Interactive Controls */
-@import '../styles/design-system.css';
 
 @tailwind base;
 @tailwind components;
