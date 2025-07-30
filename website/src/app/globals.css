@@ -416,6 +416,26 @@
   a[href]:active,
   a[href]:visited {
     text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Remove any bottom borders or underlines from buttons and button-like links */
+  button,
+  .btn,
+  a.border,
+  a[class*="border"],
+  a[class*="rounded"] {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Ensure no underline effects on hover */
+  a:hover,
+  button:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
   }
   
   /* Ensure navy buttons have white text */
