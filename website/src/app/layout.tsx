@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from 'next/script'
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import Script from 'next/script';
 
 import { generatePageMetadata, pageMetadata } from '@/lib/seo-metadata'
 
@@ -61,6 +55,16 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="smooth-scroll">
       <head>
+        {/* Preload critical fonts */}
+        <link rel="preload" href="/fonts/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-v13-latin-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/playfair-display-v30-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        
+        {/* Alternate languages */}
         <link rel="alternate" hrefLang="en-US" href="https://binghengcredit.com" />
         <link rel="alternate" hrefLang="zh-CN" href="https://binghengcredit.com/zh" />
         <link rel="alternate" hrefLang="x-default" href="https://binghengcredit.com" />
@@ -176,7 +180,7 @@ export default async function RootLayout({
           ])}
         </Script>
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"} />
         <ClientLayout initialLocale={locale} initialDictionary={dictionary}>
           {children}

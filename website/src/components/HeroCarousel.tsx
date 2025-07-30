@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, TrendingUp, Shield, Award, Globe, ChevronDow
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import ConsultationModal from './ConsultationModal'
+import OptimizedHeroImage from './OptimizedHeroImage'
 
 const slides = [
   {
@@ -14,6 +15,7 @@ const slides = [
     subtitle: 'The Only Company Focused on China-Specific Debt Recovery',
     description: 'When Chinese debtors return home, general collection agencies fail. We succeed where others cannot, using localized expertise and cultural understanding.',
     image: '/images/hero/debt-recovery-1.jpg',
+    imageSrcSet: '/_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-1-640w.jpg&w=640&q=90 640w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-1-1080w.jpg&w=1080&q=85 1080w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-1-1920w.jpg&w=1920&q=80 1920w',
     stats: { value: '$128M+', label: 'Recovered from Chinese Debtors' }
   },
   {
@@ -22,6 +24,7 @@ const slides = [
     subtitle: 'Specialized Recovery for Education Institutions',
     description: '87% of universities write off debts when Chinese students return home. We recover 65% of these "uncollectable" accounts through local networks.',
     image: '/images/hero/debt-recovery-2.jpg',
+    imageSrcSet: '/_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-2-640w.jpg&w=640&q=90 640w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-2-1080w.jpg&w=1080&q=85 1080w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-2-1920w.jpg&w=1920&q=80 1920w',
     stats: { value: '65%', label: 'Success Rate for Student Debts' }
   },
   {
@@ -30,6 +33,7 @@ const slides = [
     subtitle: 'Bridging the US-China Collection Gap',
     description: 'From Amazon seller violations to B2B trade defaults, we navigate Chinese legal systems to recover what others consider impossible.',
     image: '/images/hero/debt-recovery-3.jpg',
+    imageSrcSet: '/_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-3-640w.jpg&w=640&q=90 640w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-3-1080w.jpg&w=1080&q=85 1080w, /_next/image?url=%2Fimages%2Fhero%2Fdebt-recovery-3-1920w.jpg&w=1920&q=80 1920w',
     stats: { value: '500+', label: 'US Companies Served' }
   }
 ]
@@ -92,15 +96,12 @@ export default function HeroCarousel() {
             transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            <Image
+            <OptimizedHeroImage
               src={slide.image}
+              srcSet={slide.imageSrcSet}
               alt={slide.title}
-              fill
-              priority={true}
+              priority={index === 0}
               className="object-cover"
-              quality={100}
-              sizes="100vw"
-              loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
