@@ -55,10 +55,10 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="smooth-scroll">
       <head>
-        {/* Preload critical fonts */}
-        <link rel="preload" href="/fonts/inter-v13-latin-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/inter-v13-latin-600.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/playfair-display-v30-latin-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* Preload critical fonts - match exact URLs from fonts.css */}
+        <link rel="preload" href="/fonts/inter-v13-latin-400.woff2?v=1" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-v13-latin-600.woff2?v=1" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/playfair-display-v30-latin-700.woff2?v=1" as="font" type="font/woff2" crossOrigin="anonymous" />
         
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />

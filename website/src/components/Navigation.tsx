@@ -41,7 +41,7 @@ export default function Navigation() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
+        isScrolled || !isHomePage
           ? "bg-white shadow-md"
           : "bg-gradient-to-b from-black/60 to-transparent"
       )}
@@ -68,7 +68,7 @@ export default function Navigation() {
                 transition={{ duration: 0.2 }}
               >
                 <Image
-                  src={isScrolled ? "/logo-inverted.png" : "/logo-white.png"}
+                  src={isScrolled || !isHomePage ? "/logo-inverted.png" : "/logo-white.png"}
                   alt="Bingheng Credit"
                   width={140}
                   height={50}
@@ -96,7 +96,7 @@ export default function Navigation() {
                   className={cn(
                     "text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md",
                     "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                    isScrolled
+                    isScrolled || !isHomePage
                       ? "text-gray-600 hover:text-primary-blue focus:ring-primary-blue" 
                       : "text-white/90 hover:text-white focus:ring-white",
                     pathname === item.href && "font-semibold"
@@ -110,7 +110,7 @@ export default function Navigation() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: hoveredItem === item.label ? 1 : 0 }}
                   transition={{ duration: 0.3 }}
-                  style={{ backgroundColor: isScrolled ? '#111827' : '#ffffff' }}
+                  style={{ backgroundColor: isScrolled || !isHomePage ? '#111827' : '#ffffff' }}
                 />
               </motion.div>
             ))}
@@ -119,7 +119,7 @@ export default function Navigation() {
           {/* Right side actions */}
           <div className="hidden lg:flex items-center gap-4">
             {/* Language Switcher */}
-            <LanguageSwitcher isScrolled={isScrolled} isHomePage={true} />
+            <LanguageSwitcher isScrolled={isScrolled} isHomePage={isHomePage} />
             
             {/* CTA Button */}
             <motion.div
@@ -131,7 +131,7 @@ export default function Navigation() {
                 className={cn(
                   "px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-300",
                   "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                  isScrolled
+                  isScrolled || !isHomePage
                     ? "bg-primary-blue text-white hover:bg-primary-blue/90 hover:shadow-xl focus:ring-primary-blue"
                     : "bg-white text-primary-blue hover:bg-gray-100 focus:ring-white"
                 )}
@@ -151,7 +151,7 @@ export default function Navigation() {
             className={cn(
               "lg:hidden p-3 rounded-lg transition-all duration-300",
               "focus:outline-none focus:ring-2 focus:ring-offset-2",
-              isScrolled
+              isScrolled || !isHomePage
                 ? "text-navy hover:bg-gray-100 focus:ring-primary-blue" 
                 : "text-white hover:bg-white/10 focus:ring-white"
             )}
