@@ -65,8 +65,11 @@ export default async function RootLayout({
   const locale = await getLocaleFromHeaders()
   const dictionary = await getDictionary(locale)
   
+  // 将简短的 locale 转换为完整的语言代码
+  const langCode = locale === 'zh' ? 'zh-CN' : 'en-US'
+  
   return (
-    <html lang={locale} className="smooth-scroll">
+    <html lang={langCode} className="smooth-scroll">
       <head>
         {/* Preload critical fonts - match exact URLs from fonts.css */}
         <link rel="preload" href="/fonts/inter-v13-latin-400.woff2?v=1" as="font" type="font/woff2" crossOrigin="anonymous" />
