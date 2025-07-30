@@ -5,9 +5,15 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 // 读取关键 CSS
-const criticalCSS = process.env.NODE_ENV === 'production' 
-  ? readFileSync(join(process.cwd(), 'src/app/critical.css'), 'utf8')
-  : '';
+let criticalCSS = '';
+if (process.env.NODE_ENV === 'production') {
+  try {
+    criticalCSS = readFileSync(join(process.cwd(), 'src/app/critical.css'), 'utf8');
+  } catch (error) {
+    // 如果文件不存在，使用空字符串
+    console.warn('Critical CSS file not found, skipping inline CSS');
+  }
+}
 
 import { generatePageMetadata, pageMetadata } from '@/lib/seo-metadata'
 
