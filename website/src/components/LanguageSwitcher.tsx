@@ -6,12 +6,8 @@ import { Globe, Check } from 'lucide-react'
 import { useLanguage } from '@/i18n/client'
 import { languages, Locale } from '@/i18n/config'
 
-interface LanguageSwitcherProps {
-  isScrolled?: boolean
-  isHomePage?: boolean
-}
 
-export default function LanguageSwitcher({ isScrolled = false, isHomePage = true }: LanguageSwitcherProps) {
+export default function LanguageSwitcher() {
   const { locale, setLocale } = useLanguage()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -38,11 +34,7 @@ export default function LanguageSwitcher({ isScrolled = false, isHomePage = true
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-          isScrolled || !isHomePage
-            ? 'text-gray-600 hover:text-primary-blue hover:bg-gray-100'
-            : 'text-white/90 hover:text-white hover:bg-white/10'
-        }`}
+        className="flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors text-gray-600 hover:text-primary-blue hover:bg-gray-100"
         aria-label="Change language"
       >
         <Globe className="w-4 h-4" />

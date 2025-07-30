@@ -65,7 +65,7 @@ export default function Navigation() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-8 ml-16">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.label}
