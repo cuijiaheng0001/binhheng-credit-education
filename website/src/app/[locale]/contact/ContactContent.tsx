@@ -85,7 +85,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '随时为您服务' : 'Here to Serve You 24/7'}
               </motion.h1>
@@ -93,7 +93,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg text-white/80 leading-relaxed"
+                className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '专业团队24小时响应，为您提供高效的债务追收解决方案' : 'Our professional team responds within 24 hours to provide efficient debt recovery solutions'}
               </motion.p>
@@ -123,10 +123,10 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {locale === 'zh' ? '公司信息与联系方式' : 'Company Information & Contact Details'}
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               {locale === 'zh' 
                 ? 'Bingheng Credit 总部位于中国上海市浦东新区陆家嘴金融中心，并在国内主要城市设立分支机构，全面覆盖债务追收所需的主要区域，随时为客户提供便捷、高效的专业服务。'
                 : 'Bingheng Credit is headquartered in Lujiazui Financial Center, Pudong New Area, Shanghai, China, with branch offices in major cities across the country. Our comprehensive network covers all key regions necessary for debt recovery, enabling us to provide convenient and efficient professional services to our clients at all times.'}
@@ -149,7 +149,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                   <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-blue/10 to-primary-blue/20 rounded-2xl mb-6 group-hover:shadow-lg transition-all">
                     <Icon className="w-8 h-8 text-primary-blue" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
                     {item.title}
                   </h3>
                   {item.link ? (
@@ -160,7 +160,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                       {item.content}
                     </a>
                   ) : (
-                    <p className="text-gray-600">
+                    <p className="text-sm md:text-base text-gray-600">
                       {item.content}
                     </p>
                   )}
@@ -180,7 +180,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
             >
               <div className="text-center">
                 <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 text-lg">
+                <p className="text-base md:text-lg text-gray-600">
                   {locale === 'zh' ? '上海市浦东新区陆家嘴金融中心' : 'Lujiazui Financial Center'}
                 </p>
                 <p className="text-gray-500 mt-2">
@@ -198,7 +198,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
             >
               {/* Working Hours */}
               <div className="bg-gradient-to-br from-light-gray to-gray-50 rounded-3xl p-10">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Clock className="w-6 h-6 text-primary-blue mr-3" />
                   {locale === 'zh' ? '工作时间' : 'Business Hours'}
                 </h3>
@@ -232,7 +232,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               {locale === 'zh' ? '常见问题' : 'Frequently Asked Questions'}
             </h2>
           </motion.div>
@@ -244,10 +244,10 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
                 {locale === 'zh' ? '如何开始债务追收流程？' : 'How do I start the debt recovery process?'}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-sm md:text-base text-gray-600">
                 {locale === 'zh' 
                   ? '您可以通过电话、邮件或在线咨询表单联系我们。我们会在24小时内响应，并为您安排免费的案件评估。'
                   : 'You can contact us by phone, email, or through our online inquiry form. We\'ll respond within 24 hours and arrange a free case assessment for you.'}
@@ -261,10 +261,10 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
               transition={{ delay: 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
                 {locale === 'zh' ? '你们的收费标准是什么？' : 'What are your fees?'}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-sm md:text-base text-gray-600">
                 {locale === 'zh' 
                   ? '我们采用"无追回，不收费"的模式。成功追回后，根据债务金额收取25%-35%的佣金。具体费率会根据案件复杂度和金额大小而定。'
                   : 'We work on a contingency basis - no recovery, no fee. Upon successful collection, we charge 25%-35% of the recovered amount. Exact rates depend on case complexity and debt size.'}
@@ -278,10 +278,10 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
               transition={{ delay: 0.2 }}
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3">
                 {locale === 'zh' ? '需要提供哪些文件？' : 'What documents will I need?'}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-sm md:text-base text-gray-600">
                 {locale === 'zh' 
                   ? '通常需要债务合同、付款记录、沟通记录等相关文件。我们的专业团队会指导您准备所需材料。'
                   : 'You\'ll typically need contracts, payment records, and correspondence related to the debt. Our team will guide you through gathering all necessary documentation.'}
