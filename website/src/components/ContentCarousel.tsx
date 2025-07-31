@@ -5,79 +5,164 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { type Locale } from '@/i18n/config'
 
 const tabs = [
   {
     id: 'debt-collection',
-    title: '中国债务人追收',
+    title: {
+      zh: '中国债务人追收',
+      en: 'Chinese Debtor Recovery'
+    },
     content: {
-      title: '专注中国债务人的专业追收',
-      description: '当债务人返回中国后，一般国际催收公司无法有效处理。我们是唯一专注于此类债务的专业催收公司。',
+      title: {
+        zh: '专注中国债务人的专业追收',
+        en: 'Professional Recovery Focused on Chinese Debtors'
+      },
+      description: {
+        zh: '当债务人返回中国后，一般国际催收公司无法有效处理。我们是唯一专注于此类债务的专业催收公司。',
+        en: 'When debtors return to China, traditional international collection agencies hit a wall. We are the only professional collection company that specializes exclusively in these challenging cases.'
+      },
       image: '/images/content/china-debt-collection.jpg',
-      features: [
-        '专注中国债务人',
-        '本地化中文沟通',
-        '了解中国法律体系',
-        '非诉讼合规追收'
-      ],
+      features: {
+        zh: [
+          '专注中国债务人',
+          '本地化中文沟通',
+          '了解中国法律体系',
+          '非诉讼合规追收'
+        ],
+        en: [
+          'Exclusively focused on Chinese debtors',
+          'Native Chinese-language communication',
+          'Deep understanding of China\'s legal system',
+          'Compliant non-litigation recovery'
+        ]
+      },
       link: '/services',
-      linkText: '了解中国债务人追收'
+      linkText: {
+        zh: '了解中国债务人追收',
+        en: 'Learn About Chinese Debtor Recovery'
+      }
     }
   },
   {
     id: 'sme-solutions',
-    title: '留学生住宿债务',
+    title: {
+      zh: '留学生住宿债务',
+      en: 'Student Housing Debt'
+    },
     content: {
-      title: '中国留学生住宿违约追收',
-      description: '87%的美国大学在中国留学生嚽业回国后直接注销债务。我们通过本地化网络，帮助您追回这些“不可收回”的欠款。',
+      title: {
+        zh: '中国留学生住宿违约追收',
+        en: 'Chinese Student Housing Default Recovery'
+      },
+      description: {
+        zh: '87%的美国大学在中国留学生毕业回国后直接注销债务。我们通过本地化网络，帮助您追回这些"不可收回"的欠款。',
+        en: '87% of U.S. universities write off debt after Chinese students graduate and return home. Through our localized network, we help you recover these "uncollectible" accounts.'
+      },
       image: '/images/content/student-housing-debt.jpg',
-      features: [
-        '专门处理留学生债务',
-        '65%成功追回率',
-        '了解中国家庭文化',
-        '与中国高校合作'
-      ],
+      features: {
+        zh: [
+          '专门处理留学生债务',
+          '65%成功追回率',
+          '了解中国家庭文化',
+          '与中国高校合作'
+        ],
+        en: [
+          'Specialized in student debt',
+          '65% recovery success rate',
+          'Understand Chinese family culture',
+          'Partner with Chinese universities'
+        ]
+      },
       link: '/services#student',
-      linkText: '留学生债务解决方案'
+      linkText: {
+        zh: '留学生债务解决方案',
+        en: 'Student Debt Solutions'
+      }
     }
   },
   {
     id: 'ar-services',
-    title: '电商平台债务',
+    title: {
+      zh: '电商平台债务',
+      en: 'E-commerce Debt'
+    },
     content: {
-      title: '跨境电商中国卖家欠款追收',
-      description: '从亚马逊卖家违规到eBay交易纠纷，我们熟悉中国电商生态，能够快速定位并联系到真实的中国卖家。',
+      title: {
+        zh: '跨境电商中国卖家欠款追收',
+        en: 'Cross-Border E-commerce Chinese Seller Debt Recovery'
+      },
+      description: {
+        zh: '从亚马逊卖家违规到eBay交易纠纷，我们熟悉中国电商生态，能够快速定位并联系到真实的中国卖家。',
+        en: 'From Amazon seller violations to eBay transaction disputes, we understand the Chinese e-commerce ecosystem and can quickly locate and contact actual Chinese sellers.'
+      },
       image: '/images/content/ecommerce-debt.jpg',
-      features: [
-        '熟悉中国电商生态',
-        '定位真实卖家信息',
-        '了解平台规则差异',
-        '快速沟通解决'
-      ],
+      features: {
+        zh: [
+          '熟悉中国电商生态',
+          '定位真实卖家信息',
+          '了解平台规则差异',
+          '快速沟通解决'
+        ],
+        en: [
+          'Deep knowledge of Chinese e-commerce ecosystem',
+          'Locate authentic seller information',
+          'Understand platform rule differences',
+          'Fast communication and resolution'
+        ]
+      },
       link: '/services#ecommerce',
-      linkText: '电商债务解决方案'
+      linkText: {
+        zh: '电商债务解决方案',
+        en: 'E-commerce Debt Solutions'
+      }
     }
   },
   {
     id: 'industries',
-    title: 'B2B贸易债务',
+    title: {
+      zh: 'B2B贸易债务',
+      en: 'B2B Trade Debt'
+    },
     content: {
-      title: '国际贸易中国供应商违约债务',
-      description: '当中国供应商违约或拒绝付款时，传统的国际仲裁耗时耗力。我们通过本地化协商，帮助您快速解决贸易纠纷。',
+      title: {
+        zh: '国际贸易中国供应商违约债务',
+        en: 'International Trade Chinese Supplier Default Debt'
+      },
+      description: {
+        zh: '当中国供应商违约或拒绝付款时，传统的国际仲裁耗时耗力。我们通过本地化协商，帮助您快速解决贸易纠纷。',
+        en: 'When Chinese suppliers default or refuse payment, traditional international arbitration is time-consuming and costly. We help you resolve trade disputes quickly through localized negotiation.'
+      },
       image: '/images/content/b2b-trade-debt.jpg',
-      features: [
-        '了解中国商业文化',
-        '本地化协商能力',
-        '避免昂贵仲裁',
-        '72%成功解决率'
-      ],
+      features: {
+        zh: [
+          '了解中国商业文化',
+          '本地化协商能力',
+          '避免昂贵仲裁',
+          '72%成功解决率'
+        ],
+        en: [
+          'Understand Chinese business culture',
+          'Localized negotiation expertise',
+          'Avoid costly arbitration',
+          '72% success rate'
+        ]
+      },
       link: '/services#b2b',
-      linkText: 'B2B贸易债务方案'
+      linkText: {
+        zh: 'B2B贸易债务方案',
+        en: 'B2B Trade Debt Solutions'
+      }
     }
   }
 ]
 
-export default function ContentCarousel() {
+interface ContentCarouselProps {
+  locale?: Locale
+}
+
+export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps) {
   const [activeTab, setActiveTab] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(false) // 初始状态为false
   const [hasStarted, setHasStarted] = useState(false) // 记录是否已经开始过
@@ -224,7 +309,7 @@ export default function ContentCarousel() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {currentContent.linkText}
+              {typeof currentContent.linkText === 'string' ? currentContent.linkText : currentContent.linkText[locale]}
               <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.a>
           </div>
@@ -241,7 +326,7 @@ export default function ContentCarousel() {
               <Image
                 key={tab.id}
                 src={tab.content.image}
-                alt={tab.content.title}
+                alt={typeof tab.content.title === 'string' ? tab.content.title : tab.content.title[locale]}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={80}
