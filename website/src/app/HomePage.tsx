@@ -38,7 +38,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
       />
       <ProblemAwareness locale={locale} />
       <SolutionOverview locale={locale} />
-      <ProcessVisualization />
+      <ProcessVisualization locale={locale} />
       <IndustryFocus />
       <KnowledgeCenter />
       <FAQ locale={locale} />

@@ -5,34 +5,35 @@ import { motion } from 'framer-motion'
 import { FileSearch, CheckSquare, MessageSquare, DollarSign, ArrowRight } from 'lucide-react'
 import ConsultationModal from './ConsultationModal'
 import Link from 'next/link'
+import { type Locale } from '@/i18n/config'
 
-const steps = [
+const getSteps = (locale: Locale) => [
   {
     icon: FileSearch,
-    title: '案件评估',
-    duration: '24-48小时',
-    description: '免费评估债务可追回性',
+    title: locale === 'zh' ? '案件评估' : 'Case Assessment',
+    duration: locale === 'zh' ? '24-48小时' : '24-48 hours',
+    description: locale === 'zh' ? '免费评估债务可追回性' : 'Complimentary evaluation of debt recoverability',
     color: 'blue'
   },
   {
     icon: CheckSquare,
-    title: '合规审查',
-    duration: '3-5天',
-    description: '确保符合中美法律要求',
+    title: locale === 'zh' ? '合规审查' : 'Compliance Review',
+    duration: locale === 'zh' ? '3-5天' : '3-5 days',
+    description: locale === 'zh' ? '确保符合中美法律要求' : 'Full US-China regulatory compliance verification',
     color: 'green'
   },
   {
     icon: MessageSquare,
-    title: '本地化沟通',
-    duration: '2-4周',
-    description: '多渠道联系债务人谈判',
+    title: locale === 'zh' ? '本地化沟通' : 'Local Engagement',
+    duration: locale === 'zh' ? '2-4周' : '2-4 weeks',
+    description: locale === 'zh' ? '多渠道联系债务人谈判' : 'Strategic multi-channel debtor negotiation',
     color: 'purple'
   },
   {
     icon: DollarSign,
-    title: '资金回收',
-    duration: '30-90天',
-    description: '安全合规的资金转移',
+    title: locale === 'zh' ? '资金回收' : 'Funds Recovery',
+    duration: locale === 'zh' ? '30-90天' : '30-90 days',
+    description: locale === 'zh' ? '安全合规的资金转移' : 'Secure, compliant international fund transfer',
     color: 'orange'
   }
 ]
@@ -60,8 +61,13 @@ const colorVariants = {
   }
 }
 
-export default function ProcessVisualization() {
+interface ProcessVisualizationProps {
+  locale?: Locale
+}
+
+export default function ProcessVisualization({ locale = 'zh' }: ProcessVisualizationProps) {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  const steps = getSteps(locale)
   
   return (
     <section className="py-16 bg-white overflow-hidden">
@@ -73,10 +79,10 @@ export default function ProcessVisualization() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            透明高效的追收流程
+            {locale === 'zh' ? '透明高效的追收流程' : 'Transparent & Efficient Recovery Process'}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            四步专业流程，平均 45-60 天完成追收
+            {locale === 'zh' ? '四步专业流程，平均 45-60 天完成追收' : 'Professional 4-step process • Average completion: 45-60 days'}
           </p>
         </motion.div>
 
@@ -145,22 +151,22 @@ export default function ProcessVisualization() {
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
               <span className="text-lg md:text-base font-bold">0</span>
             </div>
-            <h4 className="font-bold text-gray-900 mb-2">无前期费用</h4>
-            <p className="text-sm text-gray-600">不成功不收费，零风险合作</p>
+            <h4 className="font-bold text-gray-900 mb-2">{locale === 'zh' ? '无前期费用' : 'Zero Upfront Costs'}</h4>
+            <p className="text-sm text-gray-600">{locale === 'zh' ? '不成功不收费，零风险合作' : 'Contingency-based: We only get paid when you do'}</p>
           </div>
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
               <span className="text-base md:text-sm font-bold">24h</span>
             </div>
-            <h4 className="font-bold text-gray-900 mb-2">快速响应</h4>
-            <p className="text-sm text-gray-600">24小时内提供初步评估</p>
+            <h4 className="font-bold text-gray-900 mb-2">{locale === 'zh' ? '快速响应' : 'Rapid Response'}</h4>
+            <p className="text-sm text-gray-600">{locale === 'zh' ? '24小时内提供初步评估' : 'Initial case review within 24 hours'}</p>
           </div>
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
               <span className="text-2xl md:text-xl font-bold">100%</span>
             </div>
-            <h4 className="font-bold text-gray-900 mb-2">合规操作</h4>
-            <p className="text-sm text-gray-600">严格遵守中美两国法律</p>
+            <h4 className="font-bold text-gray-900 mb-2">{locale === 'zh' ? '合规操作' : 'Full Compliance'}</h4>
+            <p className="text-sm text-gray-600">{locale === 'zh' ? '严格遵守中美两国法律' : 'Complete adherence to US & Chinese regulations'}</p>
           </div>
         </motion.div>
 
@@ -176,13 +182,13 @@ export default function ProcessVisualization() {
               onClick={() => setIsConsultationOpen(true)}
               className="px-8 py-4 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium min-h-[52px] whitespace-nowrap"
             >
-              开始免费评估
+              {locale === 'zh' ? '开始免费评估' : 'Start Free Assessment'}
             </button>
             <Link
-              href="/process"
+              href={`/${locale}/process`}
               className="px-8 py-4 border border-navy text-navy rounded-xl hover:bg-gray-50 transition-colors font-medium no-underline hover:no-underline min-h-[52px] whitespace-nowrap flex items-center"
             >
-              了解详细流程
+              {locale === 'zh' ? '了解详细流程' : 'View Detailed Process'}
             </Link>
           </div>
         </motion.div>
