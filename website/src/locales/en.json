@@ -450,5 +450,102 @@
         "position": "Chief Financial Officer"
       }
     }
+  },
+  "privacy": {
+    "pageTitle": "Privacy Policy",
+    "heroTitle": "Privacy Policy",
+    "heroSubtitle": "Legal Documents",
+    "heroDescription": "We value and are committed to protecting your privacy and personal information security",
+    "sections": {
+      "intro": {
+        "title": "1. Introduction",
+        "content": "This Privacy Policy applies to all users who access or use this website. We are committed to protecting user privacy and personal information security. This policy details how we collect, use, and protect your personal information."
+      },
+      "collection": {
+        "title": "2. Information We Collect",
+        "personalInfo": {
+          "title": "1. Personal Information:",
+          "items": [
+            "User name, contact information (including email, phone number, etc.)",
+            "Identity document information (if business involves identity verification)",
+            "Bank account or payment information (if payment transactions are involved)",
+            "Debt information, debt collection related information (if business involves debt collection services)"
+          ]
+        },
+        "nonPersonalInfo": {
+          "title": "2. Non-Personal Information:",
+          "items": [
+            "IP address, device model, browser type, operating system",
+            "Time, frequency, and page dwell time of user visits to the website",
+            "Data automatically collected by cookies and similar technologies"
+          ]
+        }
+      },
+      "methods": {
+        "title": "3. Methods of Information Collection",
+        "content": "We collect your information through the following methods:",
+        "items": [
+          "Information provided by users when registering accounts, filling out forms, or via email",
+          "Debt collection related information provided by creditors",
+          "Information automatically collected through cookies, log files, and other technologies"
+        ]
+      },
+      "usage": {
+        "title": "4. Use of Information",
+        "content": "The information we collect is used for the following purposes:",
+        "items": [
+          "Provide, maintain, and optimize our services",
+          "Debt collection and related legal compliance matters",
+          "Process and respond to user inquiries or service requests",
+          "Conduct marketing and promotional activities (after obtaining user consent)",
+          "Data analysis and service improvement",
+          "Fulfill obligations required by laws and regulations"
+        ]
+      },
+      "sharing": {
+        "title": "5. Information Sharing and Disclosure",
+        "content": "We will not share or disclose your personal information to third parties except in the following circumstances:",
+        "items": [
+          "Sharing information with necessary third-party partners to provide services, such as payment institutions, data analysis service providers, law firms, or licensed debt collection agencies",
+          "Providing information as required by applicable laws and regulations, court orders, or government agencies",
+          "In cases of company merger, acquisition, or asset transfer, we will notify you of relevant circumstances regarding personal information transfer"
+        ]
+      },
+      "security": {
+        "title": "6. Data Security Protection Measures",
+        "content": "We implement strict data security measures to protect your personal information, including but not limited to data encryption, access control management, regular security assessments, and data breach emergency response mechanisms."
+      },
+      "rights": {
+        "title": "7. User Rights and Choices",
+        "content": "Users may exercise the following rights at any time:",
+        "items": [
+          "View, modify, or delete your personal information",
+          "Revoke any consent previously granted to us",
+          "Manage or refuse the use of cookies"
+        ]
+      },
+      "minors": {
+        "title": "8. Protection of Minors' Information",
+        "content": "We do not actively collect personal information from minors. If we discover that a minor has provided us with personal information without guardian consent, we will immediately delete the relevant information."
+      },
+      "crossBorder": {
+        "title": "9. Cross-Border Data Flows",
+        "content": "If business involves cross-border debt collection, we may transfer your information to overseas partners (such as licensed law firms in Hong Kong or mainland China) to provide related services. We will take necessary security measures to ensure cross-border data transmission complies with applicable privacy protection regulations."
+      },
+      "updates": {
+        "title": "10. Policy Updates",
+        "content": "We may update this Privacy Policy from time to time. We will notify you of any significant changes through website announcements or email. We encourage you to regularly review this policy to understand the latest privacy protection measures."
+      },
+      "contact": {
+        "title": "11. Contact Us",
+        "content": "If you have any questions or feedback about this Privacy Policy, please contact us through the following methods:",
+        "email": "Email: info@binghengcredit.com",
+        "phone": "Phone: +86 16653086767"
+      }
+    },
+    "footer": {
+      "publishDate": "Policy Publication Date: January 1, 2024",
+      "lastRevised": "Last Revised Date: January 1, 2024"
+    }
   }
 }

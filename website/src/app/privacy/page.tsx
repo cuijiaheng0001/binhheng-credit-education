@@ -6,9 +6,113 @@ import Image from 'next/image'
 import { useLanguage } from '@/i18n/client'
 
 export default function PrivacyPage() {
-  const { dictionary } = useLanguage()
+  const { locale, dictionary } = useLanguage()
+  const isEnglish = locale === 'en'
   
-  const sections = [
+  const sections = isEnglish ? [
+    {
+      id: 'intro',
+      title: dictionary.privacy?.sections?.intro?.title || '1. Introduction',
+      icon: FileText,
+      content: dictionary.privacy?.sections?.intro?.content || 'This Privacy Policy applies to all users who access or use this website. We are committed to protecting user privacy and personal information security. This policy details how we collect, use, and protect your personal information.'
+    },
+    {
+      id: 'collection',
+      title: dictionary.privacy?.sections?.collection?.title || '2. Information We Collect',
+      icon: Eye,
+      content: null,
+      subsections: [
+        {
+          title: dictionary.privacy?.sections?.collection?.personalInfo?.title || '1. Personal Information:',
+          items: dictionary.privacy?.sections?.collection?.personalInfo?.items || [
+            'User name, contact information (including email, phone number, etc.)',
+            'Identity document information (if business involves identity verification)',
+            'Bank account or payment information (if payment transactions are involved)',
+            'Debt information, debt collection related information (if business involves debt collection services)'
+          ]
+        },
+        {
+          title: dictionary.privacy?.sections?.collection?.nonPersonalInfo?.title || '2. Non-Personal Information:',
+          items: dictionary.privacy?.sections?.collection?.nonPersonalInfo?.items || [
+            'IP address, device model, browser type, operating system',
+            'Time, frequency, and page dwell time of user visits to the website',
+            'Data automatically collected by cookies and similar technologies'
+          ]
+        }
+      ]
+    },
+    {
+      id: 'methods',
+      title: dictionary.privacy?.sections?.methods?.title || '3. Methods of Information Collection',
+      icon: Users,
+      content: dictionary.privacy?.sections?.methods?.content || 'We collect your information through the following methods:',
+      items: dictionary.privacy?.sections?.methods?.items || [
+        'Information provided by users when registering accounts, filling out forms, or via email',
+        'Debt collection related information provided by creditors',
+        'Information automatically collected through cookies, log files, and other technologies'
+      ]
+    },
+    {
+      id: 'usage',
+      title: dictionary.privacy?.sections?.usage?.title || '4. Use of Information',
+      icon: RefreshCw,
+      content: dictionary.privacy?.sections?.usage?.content || 'The information we collect is used for the following purposes:',
+      items: dictionary.privacy?.sections?.usage?.items || [
+        'Provide, maintain, and optimize our services',
+        'Debt collection and related legal compliance matters',
+        'Process and respond to user inquiries or service requests',
+        'Conduct marketing and promotional activities (after obtaining user consent)',
+        'Data analysis and service improvement',
+        'Fulfill obligations required by laws and regulations'
+      ]
+    },
+    {
+      id: 'sharing',
+      title: dictionary.privacy?.sections?.sharing?.title || '5. Information Sharing and Disclosure',
+      icon: Users,
+      content: dictionary.privacy?.sections?.sharing?.content || 'We will not share or disclose your personal information to third parties except in the following circumstances:',
+      items: dictionary.privacy?.sections?.sharing?.items || [
+        'Sharing information with necessary third-party partners to provide services, such as payment institutions, data analysis service providers, law firms, or licensed debt collection agencies',
+        'Providing information as required by applicable laws and regulations, court orders, or government agencies',
+        'In cases of company merger, acquisition, or asset transfer, we will notify you of relevant circumstances regarding personal information transfer'
+      ]
+    },
+    {
+      id: 'security',
+      title: dictionary.privacy?.sections?.security?.title || '6. Data Security Protection Measures',
+      icon: Lock,
+      content: dictionary.privacy?.sections?.security?.content || 'We implement strict data security measures to protect your personal information, including but not limited to data encryption, access control management, regular security assessments, and data breach emergency response mechanisms.'
+    },
+    {
+      id: 'rights',
+      title: dictionary.privacy?.sections?.rights?.title || '7. User Rights and Choices',
+      icon: UserCheck,
+      content: dictionary.privacy?.sections?.rights?.content || 'Users may exercise the following rights at any time:',
+      items: dictionary.privacy?.sections?.rights?.items || [
+        'View, modify, or delete your personal information',
+        'Revoke any consent previously granted to us',
+        'Manage or refuse the use of cookies'
+      ]
+    },
+    {
+      id: 'minors',
+      title: dictionary.privacy?.sections?.minors?.title || '8. Protection of Minors\' Information',
+      icon: Shield,
+      content: dictionary.privacy?.sections?.minors?.content || 'We do not actively collect personal information from minors. If we discover that a minor has provided us with personal information without guardian consent, we will immediately delete the relevant information.'
+    },
+    {
+      id: 'cross-border',
+      title: dictionary.privacy?.sections?.crossBorder?.title || '9. Cross-Border Data Flows',
+      icon: Globe,
+      content: dictionary.privacy?.sections?.crossBorder?.content || 'If business involves cross-border debt collection, we may transfer your information to overseas partners (such as licensed law firms in Hong Kong or mainland China) to provide related services. We will take necessary security measures to ensure cross-border data transmission complies with applicable privacy protection regulations.'
+    },
+    {
+      id: 'updates',
+      title: dictionary.privacy?.sections?.updates?.title || '10. Policy Updates',
+      icon: RefreshCw,
+      content: dictionary.privacy?.sections?.updates?.content || 'We may update this Privacy Policy from time to time. We will notify you of any significant changes through website announcements or email. We encourage you to regularly review this policy to understand the latest privacy protection measures.'
+    }
+  ] : [
     {
       id: 'intro',
       title: '一、引言',
@@ -142,7 +246,7 @@ export default function PrivacyPage() {
                 transition={{ delay: 0.2 }}
                 className="text-white/90 text-sm font-medium mb-4"
               >
-                法律文件
+                {isEnglish ? (dictionary.privacy?.heroSubtitle || 'Legal Documents') : '法律文件'}
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0 }}
@@ -150,7 +254,7 @@ export default function PrivacyPage() {
                 transition={{ delay: 0.3 }}
                 className="text-4xl lg:text-5xl text-white mb-6 font-bold"
               >
-                隐私政策
+                {isEnglish ? (dictionary.privacy?.heroTitle || 'Privacy Policy') : '隐私政策'}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -158,7 +262,7 @@ export default function PrivacyPage() {
                 transition={{ delay: 0.4 }}
                 className="text-lg text-white/80 leading-relaxed"
               >
-                我们重视并承诺保护您的隐私和个人信息安全
+                {isEnglish ? (dictionary.privacy?.heroDescription || 'We value and are committed to protecting your privacy and personal information security') : '我们重视并承诺保护您的隐私和个人信息安全'}
               </motion.p>
             </motion.div>
           </div>
@@ -225,18 +329,24 @@ export default function PrivacyPage() {
             <div className="flex items-start gap-4 mb-6">
               <Mail className="w-6 h-6 text-primary-blue mt-1 flex-shrink-0" />
               <div className="flex-1">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">十一、联系我们</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  {isEnglish ? (dictionary.privacy?.sections?.contact?.title || '11. Contact Us') : '十一、联系我们'}
+                </h2>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  若您对本隐私政策有任何疑问或反馈，请通过以下方式联系我们：
+                  {isEnglish ? (dictionary.privacy?.sections?.contact?.content || 'If you have any questions or feedback about this Privacy Policy, please contact us through the following methods:') : '若您对本隐私政策有任何疑问或反馈，请通过以下方式联系我们：'}
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-primary-blue" />
-                    <span className="text-gray-600">电子邮件：info@binghengcredit.com</span>
+                    <span className="text-gray-600">
+                      {isEnglish ? (dictionary.privacy?.sections?.contact?.email || 'Email: info@binghengcredit.com') : '电子邮件：info@binghengcredit.com'}
+                    </span>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-primary-blue" />
-                    <span className="text-gray-600">联系电话：+86 16653086767</span>
+                    <span className="text-gray-600">
+                      {isEnglish ? (dictionary.privacy?.sections?.contact?.phone || 'Phone: +86 16653086767') : '联系电话：+86 16653086767'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -251,8 +361,8 @@ export default function PrivacyPage() {
             className="mt-16 pt-8 border-t border-gray-200"
           >
             <div className="text-sm text-gray-500 space-y-1">
-              <p>本政策发布日期：2024年1月1日</p>
-              <p>最新修订日期：2024年1月1日</p>
+              <p>{isEnglish ? (dictionary.privacy?.footer?.publishDate || 'Policy Publication Date: January 1, 2024') : '本政策发布日期：2024年1月1日'}</p>
+              <p>{isEnglish ? (dictionary.privacy?.footer?.lastRevised || 'Last Revised Date: January 1, 2024') : '最新修订日期：2024年1月1日'}</p>
             </div>
           </motion.div>
         </div>
