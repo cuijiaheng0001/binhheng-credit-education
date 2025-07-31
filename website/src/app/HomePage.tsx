@@ -36,7 +36,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
         variant="gradient"
         openModal={true}
       />
-      <ProblemAwareness />
+      <ProblemAwareness locale={locale} />
       <SolutionOverview />
       <ProcessVisualization />
       <IndustryFocus />

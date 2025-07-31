@@ -65,12 +65,18 @@ export default function ProblemAwareness({ locale = 'zh' }: ProblemAwarenessProp
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-navy mb-4 opacity-70">中国债务人问题</p>
+          <p className="text-sm font-medium text-navy mb-4 opacity-70">
+            {locale === 'zh' ? '中国债务人问题' : 'The Chinese Debtor Challenge'}
+          </p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            一般国际催收公司无法有效处理中国债务人
+            {locale === 'zh' 
+              ? '一般国际催收公司无法有效处理中国债务人' 
+              : 'Traditional International Collection Agencies Fail to Effectively Handle Chinese Debtors'}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto opacity-80">
-            因债务人返回中国而被误判为"不可回收"的债务其实可以追回
+            {locale === 'zh'
+              ? '因债务人返回中国而被误判为"不可回收"的债务其实可以追回'
+              : 'Debts mistakenly written off as "uncollectible" when debtors return to China can actually be recovered'}
           </p>
         </motion.div>
 
@@ -90,13 +96,13 @@ export default function ProblemAwareness({ locale = 'zh' }: ProblemAwarenessProp
                   <Icon className="w-6 h-6 text-red-600" />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-navy transition-colors">
-                  {problem.value}
+                  {typeof problem.value === 'string' ? problem.value : problem.value[locale]}
                 </div>
                 <div className="text-base font-semibold text-gray-800 mb-2">
-                  {problem.label}
+                  {typeof problem.label === 'string' ? problem.label : problem.label[locale]}
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  {problem.description}
+                  {typeof problem.description === 'string' ? problem.description : problem.description[locale]}
                 </p>
               </motion.div>
             )
@@ -116,7 +122,7 @@ export default function ProblemAwareness({ locale = 'zh' }: ProblemAwarenessProp
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            了解如何避免这些损失
+            {locale === 'zh' ? '了解如何避免这些损失' : 'Learn How to Avoid These Losses'}
             <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </motion.button>
           
@@ -127,11 +133,11 @@ export default function ProblemAwareness({ locale = 'zh' }: ProblemAwarenessProp
             transition={{ delay: 0.5 }}
             className="mt-8 flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600"
           >
-            <div>无前期费用</div>
+            <div>{locale === 'zh' ? '无前期费用' : 'No Upfront Fees'}</div>
             <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-            <div>24小时响应</div>
+            <div>{locale === 'zh' ? '24小时响应' : '24-Hour Response'}</div>
             <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-            <div>100%合规</div>
+            <div>{locale === 'zh' ? '100%合规' : '100% Compliant'}</div>
           </motion.div>
         </motion.div>
       </div>
