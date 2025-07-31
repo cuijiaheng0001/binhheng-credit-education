@@ -41,11 +41,11 @@ const getSlides = (lang: string, dictionary: any) => [
     alt: lang === 'zh' ? '留学生住宿债务追收' : 'Student housing debt collection',
     title: lang === 'zh'
       ? '留学生债务不再是损失'
-      : 'Student Debts Are Recoverable',
+      : 'Chinese Student Housing Debts Are Not Lost',
     subtitle: lang === 'zh' ? '留学生住宿债务' : 'Student Housing Debts',
     description: lang === 'zh'
-      ? '专业追收留学生回国后的未付账款。'
-      : 'Specialized recovery for unpaid student housing debts.',
+      ? '87%的大学在中国学生回国后会核销债务。我们通过本地网络追回65%的这些"不可收回"账户。'
+      : '87% of universities write off debts when Chinese students return home. We recover 65% of these "uncollectable" accounts through local networks.',
     cta: { 
       href: '#services', 
       label: dictionary.cta.learnMore

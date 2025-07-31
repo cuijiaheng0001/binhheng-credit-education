@@ -46,9 +46,9 @@ export default function HeroSlide({
       <div className="absolute inset-0 backdrop-blur-[2px]" />
       
       {/* 文字内容层 */}
-      <div className="absolute inset-0 z-20 flex items-center">
-        <div className="container mx-auto px-4 md:px-8 lg:px-12">
-          <div className="max-w-3xl">
+      <div className="absolute inset-0 z-20 flex items-center justify-center">
+        <div className="container mx-auto px-4 md:px-8 lg:px-12 text-center">
+          <div className="max-w-4xl mx-auto">
             {/* 副标题 */}
             {subtitle && (
               <motion.div
@@ -68,7 +68,8 @@ export default function HeroSlide({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] balance-text"
+              style={{ textWrap: 'balance' } as any}
             >
               {title}
             </motion.h1>
@@ -79,7 +80,7 @@ export default function HeroSlide({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-base md:text-lg lg:text-xl text-white/90 mb-8 max-w-2xl leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+                className="text-base md:text-lg lg:text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
               >
                 {description}
               </motion.p>
