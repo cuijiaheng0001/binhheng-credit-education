@@ -17,12 +17,57 @@ interface ConsultationModalProps {
   }
 }
 
+const translations = {
+  zh: {
+    title: '获取免费债务评估',
+    subtitle: '专业团队将在24小时内联系您',
+    successRate: '平均追收成功率超过60%',
+    namePlaceholder: '您的姓名',
+    emailPlaceholder: '您的工作邮箱',
+    messagePlaceholder: '请告诉我们更多关于您案件的详情',
+    submit: '提交',
+    submitting: '提交中...',
+    submitSuccess: '提交成功！',
+    submitError: '提交失败，请稍后重试',
+    noUpfrontFees: '无前期费用',
+    confidential: '信息保密',
+    privacyNotice: '提交即表示您同意我们的',
+    privacyPolicy: '隐私政策',
+    and: '和',
+    termsOfService: '服务条款',
+    industry: '行业',
+    debtType: '债务类型'
+  },
+  en: {
+    title: 'Get Free Debt Assessment',
+    subtitle: 'Our professional team will contact you within 24 hours',
+    successRate: 'Average recovery rate over 60%',
+    namePlaceholder: 'Your Name',
+    emailPlaceholder: 'Your Work Email',
+    messagePlaceholder: 'Please tell us more about your case details',
+    submit: 'Submit',
+    submitting: 'Submitting...',
+    submitSuccess: 'Submitted Successfully!',
+    submitError: 'Submission failed, please try again',
+    noUpfrontFees: 'No Upfront Fees',
+    confidential: 'Confidential',
+    privacyNotice: 'By submitting, you agree to our',
+    privacyPolicy: 'Privacy Policy',
+    and: 'and',
+    termsOfService: 'Terms of Service',
+    industry: 'Industry',
+    debtType: 'Debt Type'
+  }
+}
+
 export default function ConsultationModal({ isOpen, onClose, locale = 'zh', prefilledData }: ConsultationModalProps) {
-  // 使用静态文本而不是 dictionary
+  const t = translations[locale]
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: prefilledData ? `行业: ${prefilledData.industry || ''}${prefilledData.debtType ? `\n债务类型: ${prefilledData.debtType}` : ''}` : ''
+    message: prefilledData ? 
+      `${t.industry}: ${prefilledData.industry || ''}${prefilledData.debtType ? `\n${t.debtType}: ${prefilledData.debtType}` : ''}` : ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -108,11 +153,11 @@ export default function ConsultationModal({ isOpen, onClose, locale = 'zh', pref
                 
                 {/* Title with professional tone */}
                 <h2 className="text-xl md:text-2xl font-semibold text-gray-900 text-center mb-3">
-                  获取免费债务评估
+                  {t.title}
                 </h2>
                 <p className="text-gray-600 text-center mb-6 md:mb-8 text-sm leading-relaxed">
-                  专业团队将在24小时内联系您<br/>
-                  <span className="text-navy font-medium">平均追收成功率超过60%</span>
+                  {t.subtitle}<br/>
+                  <span className="text-navy font-medium">{t.successRate}</span>
                 </p>
                 
                 {/* Form */}
@@ -123,7 +168,7 @@ export default function ConsultationModal({ isOpen, onClose, locale = 'zh', pref
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="您的姓名"
+                      placeholder={t.namePlaceholder}
                       required
                       autoComplete="name"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400 text-base"
@@ -136,7 +181,7 @@ export default function ConsultationModal({ isOpen, onClose, locale = 'zh', pref
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="您的工作邮箱"
+                      placeholder={t.emailPlaceholder}
                       required
                       autoComplete="email"
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all placeholder-gray-400 text-base"
@@ -148,7 +193,7 @@ export default function ConsultationModal({ isOpen, onClose, locale = 'zh', pref
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="请告诉我们更多关于您案件的详情"
+                      placeholder={t.messagePlaceholder}
                       rows={3}
                       required
                       className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-navy focus:border-transparent focus:bg-white outline-none transition-all resize-none placeholder-gray-400 text-base"
@@ -167,23 +212,23 @@ export default function ConsultationModal({ isOpen, onClose, locale = 'zh', pref
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        提交中...
+                        {t.submitting}
                       </span>
                     ) : submitStatus === 'success' ? (
                       <span className="flex items-center justify-center">
                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        提交成功！
+                        {t.submitSuccess}
                       </span>
                     ) : (
-                      '提交'
+                      t.submit
                     )}
                   </button>
                   
                   {submitStatus === 'error' && (
                     <p className="text-red-500 text-sm text-center mt-2">
-                      提交失败，请稍后重试
+                      {t.submitError}
                     </p>
                   )}
                 </form>
@@ -195,22 +240,22 @@ export default function ConsultationModal({ isOpen, onClose, locale = 'zh', pref
                       <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                       </svg>
-                      无前期费用
+                      {t.noUpfrontFees}
                     </span>
                     <span className="flex items-center gap-1">
                       <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                       </svg>
-                      信息保密
+                      {t.confidential}
                     </span>
                   </div>
                   
                   {/* Privacy notice */}
                   <p className="text-xs text-gray-400 text-center mt-3 md:mt-4 px-2">
-                    提交即表示您同意我们的
-                    <a href={`/${locale}/privacy`} className="text-navy hover:underline mx-1">隐私政策</a>
-                    和
-                    <a href={`/${locale}/terms`} className="text-navy hover:underline mx-1">服务条款</a>
+                    {t.privacyNotice}
+                    <a href={`/${locale}/privacy`} className="text-navy hover:underline mx-1">{t.privacyPolicy}</a>
+                    {t.and}
+                    <a href={`/${locale}/terms`} className="text-navy hover:underline mx-1">{t.termsOfService}</a>
                   </p>
                 </div>
               </div>
