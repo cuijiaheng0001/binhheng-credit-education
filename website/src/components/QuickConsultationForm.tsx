@@ -9,13 +9,18 @@ interface QuickConsultationFormProps {
   variant?: 'inline' | 'sidebar'
   title?: string
   description?: string
+  locale?: string
 }
 
 export default function QuickConsultationForm({ 
   variant = 'inline',
-  title = '快速获取免费评估',
-  description = '留下您的联系方式，我们将在24小时内联系您'
+  title,
+  description,
+  locale = 'zh'
 }: QuickConsultationFormProps) {
+  // Default titles based on locale
+  const defaultTitle = title || (locale === 'zh' ? '快速获取免费评估' : 'Get Free Assessment Quickly')
+  const defaultDescription = description || (locale === 'zh' ? '留下您的联系方式，我们将在24小时内联系您' : 'Leave your contact information and we\'ll contact you within 24 hours')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,13 +50,13 @@ export default function QuickConsultationForm({
         },
         body: JSON.stringify({
           ...formData,
-          _subject: `快速咨询 - ${formData.name}`,
+          _subject: locale === 'zh' ? `快速咨询 - ${formData.name}` : `Quick Inquiry - ${formData.name}`,
           _template: 'table'
         }),
       })
       
       if (!response.ok) {
-        throw new Error('提交失败')
+        throw new Error(locale === 'zh' ? '提交失败' : 'Submission failed')
       }
       
       setSubmitStatus('success')
@@ -80,10 +85,10 @@ export default function QuickConsultationForm({
       >
         <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
         <h3 className="text-xl font-bold text-green-800 mb-2">
-          提交成功！
+          {locale === 'zh' ? '提交成功！' : 'Submission Successful!'}
         </h3>
         <p className="text-green-700">
-          我们的专业顾问将在24小时内与您联系
+          {locale === 'zh' ? '我们的专业顾问将在24小时内与您联系' : 'Our professional consultant will contact you within 24 hours'}
         </p>
       </motion.div>
     )
@@ -100,10 +105,10 @@ export default function QuickConsultationForm({
     >
       <div className={variant === 'sidebar' ? '' : 'max-w-4xl mx-auto'}>
         <h3 className="text-2xl font-bold text-gray-900 mb-2 font-sans">
-          {title}
+          {defaultTitle}
         </h3>
         <p className="text-gray-600 mb-6">
-          {description}
+          {defaultDescription}
         </p>
 
         <form onSubmit={handleSubmit} className={`space-y-4 ${
@@ -116,7 +121,7 @@ export default function QuickConsultationForm({
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="您的姓名"
+              placeholder={locale === 'zh' ? '您的姓名' : 'Your Name'}
               required
               className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
             />
@@ -131,7 +136,7 @@ export default function QuickConsultationForm({
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="电子邮箱"
+                placeholder={locale === 'zh' ? '电子邮箱' : 'Email Address'}
                 required
                 className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
               />
@@ -147,7 +152,7 @@ export default function QuickConsultationForm({
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="联系电话"
+                placeholder={locale === 'zh' ? '联系电话' : 'Phone Number'}
                 required
                 className="w-full pl-10 pr-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-transparent"
               />
@@ -169,11 +174,11 @@ export default function QuickConsultationForm({
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  提交中...
+                  {locale === 'zh' ? '提交中...' : 'Submitting...'}
                 </>
               ) : (
                 <>
-                  获取评估
+                  {locale === 'zh' ? '获取评估' : 'Get Assessment'}
                   <Send className="w-4 h-4" />
                 </>
               )}
@@ -187,19 +192,19 @@ export default function QuickConsultationForm({
             <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            无前期费用
+            {locale === 'zh' ? '无前期费用' : 'No Upfront Fees'}
           </span>
           <span className="flex items-center gap-1">
             <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            信息保密
+            {locale === 'zh' ? '信息保密' : 'Confidential'}
           </span>
           <span className="flex items-center gap-1">
             <svg className="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            24小时回复
+            {locale === 'zh' ? '24小时回复' : '24-Hour Response'}
           </span>
         </div>
       </div>

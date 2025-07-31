@@ -109,6 +109,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
             variant="inline"
             title={locale === 'zh' ? '快速提交您的咨询需求' : 'Quick & Easy Inquiry Submission'}
             description={locale === 'zh' ? '填写表单，我们将在24小时内与您联系' : 'Complete the form and we\'ll contact you within 24 hours'}
+            locale={locale}
           />
         </div>
       </section>
