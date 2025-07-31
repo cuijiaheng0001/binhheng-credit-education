@@ -176,7 +176,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="rounded-3xl overflow-hidden shadow-lg min-h-[400px]"
+              className="rounded-3xl overflow-hidden shadow-lg min-h-[400px] relative"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13631.837296438014!2d121.49185897715896!3d31.235158874901847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b27040b1f617c1%3A0x2d8c7b3e5c8a5a0e!2sLujiazui%2C%20Pudong%2C%20Shanghai%2C%20China!5e0!3m2!1sen!2sus!4v1735635841234!5m2!1sen!2sus"
