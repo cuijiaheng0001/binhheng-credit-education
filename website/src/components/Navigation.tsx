@@ -22,14 +22,13 @@ export default function Navigation({ dict, locale }: NavigationProps) {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const pathname = usePathname()
   
-  // 暂时使用固定的导航项
   const navItems = [
-    { label: '关于我们', href: `/${locale}/about` },
-    { label: '服务项目', href: `/${locale}/services` },
-    { label: '追收流程', href: `/${locale}/process` },
-    { label: '行业案例', href: `/${locale}/industries` },
-    { label: '行业洞察', href: `/${locale}/insights` },
-    { label: '联系我们', href: `/${locale}/contact` },
+    { label: dict?.navigation?.about || (locale === 'zh' ? '关于我们' : 'About'), href: `/${locale}/about` },
+    { label: dict?.navigation?.services || (locale === 'zh' ? '服务项目' : 'Services'), href: `/${locale}/services` },
+    { label: dict?.navigation?.process || (locale === 'zh' ? '服务流程' : 'Process'), href: `/${locale}/process` },
+    { label: dict?.navigation?.industries || (locale === 'zh' ? '行业聚焦' : 'Industries'), href: `/${locale}/industries` },
+    { label: dict?.navigation?.insights || (locale === 'zh' ? '行业洞察' : 'Insights'), href: `/${locale}/insights` },
+    { label: dict?.navigation?.contact || (locale === 'zh' ? '联系我们' : 'Contact'), href: `/${locale}/contact` },
   ]
 
 
