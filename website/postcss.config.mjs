@@ -12,6 +12,8 @@ const config = {
           colormin: true,
           convertValues: true,
           reduceTransforms: true,
+          minifySelectors: true,
+          minifyParams: true,
         }],
       },
     } : {}),

@@ -7,9 +7,40 @@ const nextConfig: NextConfig = {
   },
   
   
+  
   // Optimize bundle size
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    // Use modern ES modules
+    esmExternals: true,
+    // Better tree shaking
+    optimizeServerReact: true,
+  },
+
+  // Webpack optimizations
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Tree shaking optimizations
+      config.optimization = {
+        ...config.optimization,
+        sideEffects: false,
+        usedExports: true,
+      }
+      
+      // Module concatenation for better minification
+      config.optimization.concatenateModules = true
+
+      // Disable polyfills for modern browsers
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      }
+    }
+
+    return config
   },
 
   

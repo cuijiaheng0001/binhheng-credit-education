@@ -7,6 +7,15 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/content/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  // Remove unused Tailwind features
+  corePlugins: {
+    preflight: true,
+    container: false,
+    accessibility: false,
+    divideOpacity: false,
+    placeholderOpacity: false,
+    ringOpacity: false,
+  },
   theme: {
     extend: {
       colors: {

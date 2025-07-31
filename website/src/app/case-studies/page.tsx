@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Building2, GraduationCap, ShoppingCart, Factory, DollarSign, TrendingUp, Calendar, MapPin, Users, Target, Award, ArrowRight, Filter, Download } from 'lucide-react'
-import Image from 'next/image'
+import { Building2, GraduationCap, ShoppingCart, DollarSign, TrendingUp, MapPin, Users, Target, Award, ArrowRight, Filter, Download } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 import CTASection from '@/components/CTASection'

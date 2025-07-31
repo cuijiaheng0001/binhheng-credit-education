@@ -14,6 +14,7 @@ interface CTASectionProps {
   variant?: 'gradient' | 'light' | 'dark'
   showTrustIndicators?: boolean
   openModal?: boolean
+  locale?: string
   trustIndicators?: {
     noUpfrontFees?: string
     response24h?: string
@@ -30,11 +31,8 @@ export default function CTASection({
   variant = 'gradient',
   showTrustIndicators = true,
   openModal = false,
-  trustIndicators = {
-    noUpfrontFees: '无预付费用',
-    response24h: '24小时响应',
-    compliant100: '100%合规'
-  }
+  locale = 'zh',
+  trustIndicators
 }: CTASectionProps = {}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -44,6 +42,15 @@ export default function CTASection({
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  // 默认的双语trust indicators
+  const defaultTrustIndicators = {
+    noUpfrontFees: locale === 'zh' ? '无预付费用' : 'No Upfront Fees',
+    response24h: locale === 'zh' ? '24小时响应' : '24-Hour Response', 
+    compliant100: locale === 'zh' ? '100%合规' : '100% Compliant'
+  }
+
+  const displayTrustIndicators = trustIndicators || defaultTrustIndicators
 
   const bgStyles = {
     gradient: 'cta-gradient',
@@ -142,11 +149,11 @@ export default function CTASection({
               transition={{ duration: 0.6, delay: 0.5 }}
               className={`mt-12 flex flex-wrap justify-center items-center gap-8 text-sm ${variant === 'gradient' ? 'text-white/70' : 'text-gray-600'}`}
             >
-              <div>{trustIndicators.noUpfrontFees}</div>
+              <div>{displayTrustIndicators.noUpfrontFees}</div>
               <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-              <div>{trustIndicators.response24h}</div>
+              <div>{displayTrustIndicators.response24h}</div>
               <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-              <div>{trustIndicators.compliant100}</div>
+              <div>{displayTrustIndicators.compliant100}</div>
             </motion.div>
           )}
         </motion.div>

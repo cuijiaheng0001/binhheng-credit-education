@@ -35,6 +35,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
         buttonText={dict.cta.bookConsultation}
         variant="gradient"
         openModal={true}
+        locale={locale}
       />
       <ProblemAwareness locale={locale} />
       <SolutionOverview locale={locale} />
@@ -49,6 +50,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
         buttonText={dict.cta.contactUs}
         variant="light"
         openModal={true}
+        locale={locale}
       />
       <TrustIndicators locale={locale} />
     </main>

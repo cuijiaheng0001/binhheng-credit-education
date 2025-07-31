@@ -1,9 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { AlertTriangle, Target, Shield, Users, ArrowRight, CheckCircle } from 'lucide-react'
+import { Target, Shield, Users, CheckCircle } from 'lucide-react'
 import Image from 'next/image'
-import OptimizedImage from '@/components/OptimizedImage'
 import CTASection from '@/components/CTASection'
 
 interface AboutContentProps {

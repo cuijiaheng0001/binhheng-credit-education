@@ -10,19 +10,21 @@ import { useParams } from 'next/navigation'
 import ConsultationModal from '@/components/ConsultationModal'
 import ReactMarkdown from 'react-markdown'
 
-const categoryLabels = {
-  guide: '实用指南',
-  'case-study': '成功案例',
-  compliance: '合规解析',
-  strategy: '催收策略',
-  data: '数据洞察',
-}
+const getCategoryLabels = (locale: string) => ({
+  guide: locale === 'zh' ? '实用指南' : 'Practical Guide',
+  'case-study': locale === 'zh' ? '成功案例' : 'Success Story',
+  compliance: locale === 'zh' ? '合规解析' : 'Compliance Analysis',
+  strategy: locale === 'zh' ? '催收策略' : 'Collection Strategy',
+  data: locale === 'zh' ? '数据洞察' : 'Data Insights',
+})
 
 export default function InsightPostPage() {
   const params = useParams()
   const slug = params.slug as string
+  const locale = (params.locale as string) || 'zh'
   const article = getInsightBySlug(slug)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  const categoryLabels = getCategoryLabels(locale)
   
   if (!article) {
     notFound()
@@ -39,11 +41,11 @@ export default function InsightPostPage() {
         <section className="bg-gray-50 py-8">
           <div className="max-w-4xl mx-auto px-8">
             <Link 
-              href="/insights" 
+              href={`/${locale}/insights`} 
               className="inline-flex items-center text-gray-600 hover:text-navy transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              返回洞察列表
+              {locale === 'zh' ? '返回洞察列表' : 'Back to Insights'}
             </Link>
             
             <motion.div
@@ -71,7 +73,7 @@ export default function InsightPostPage() {
               
               <div className="mt-6 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <span className="text-sm text-gray-600">作者：</span>
+                  <span className="text-sm text-gray-600">{locale === 'zh' ? '作者：' : 'Author:'}</span>
                   <div>
                     <p className="font-medium text-gray-900">{article.author.name}</p>
                     <p className="text-sm text-gray-500">{article.author.title}</p>
@@ -184,12 +186,12 @@ export default function InsightPostPage() {
                 </div>
                 
                 <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                  将您的债务追收交给专业团队
+                  {locale === 'zh' ? '将您的债务追收交给专业团队' : 'Entrust Your Debt Recovery to Professional Team'}
                 </h3>
                 <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-                  我们深谙中美两国法律体系，成功追回超过{' '}
+                  {locale === 'zh' ? '我们深谙中美两国法律体系，成功追回超过' : 'We have deep knowledge of US-China legal systems, successfully recovered over'}{' '}
                   <span className="font-bold text-white">$68M</span>
-                  {' '}跨境债务
+                  {' '}{locale === 'zh' ? '跨境债务' : 'in cross-border debts'}
                   <br />
                   <span className="text-base text-white/80">
                     平均追收成功率达 65%，远超行业平均水平
@@ -201,11 +203,11 @@ export default function InsightPostPage() {
                     onClick={() => setIsConsultationOpen(true)}
                     className="px-8 py-4 bg-white text-navy rounded-xl hover:bg-gray-100 transition-all duration-200 font-semibold text-lg shadow-lg hover:shadow-xl flex items-center gap-2 hover:scale-105 active:scale-95 transform will-change-transform"
                   >
-                    立即获取免费评估
+                    {locale === 'zh' ? '立即获取免费评估' : 'Get Free Assessment Now'}
                     <ChevronRight className="w-5 h-5" />
                   </button>
                   <p className="text-white/70 text-sm">
-                    无需预付费用 · 不成功不收费
+                    {locale === 'zh' ? '无需预付费用 · 不成功不收费' : 'No upfront fees · No recovery, no fee'}
                   </p>
                 </div>
               </div>
@@ -213,7 +215,7 @@ export default function InsightPostPage() {
 
             {/* Tags */}
             <div className="mt-8 pt-8 border-t">
-              <h4 className="text-sm font-medium text-gray-900 mb-3">标签：</h4>
+              <h4 className="text-sm font-medium text-gray-900 mb-3">{locale === 'zh' ? '标签：' : 'Tags:'}</h4>
               <div className="flex flex-wrap gap-2">
                 {article.tags.map((tag) => (
                   <span
@@ -238,7 +240,7 @@ export default function InsightPostPage() {
                     >
                       <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
                         <ArrowLeft className="w-4 h-4" />
-                        <span>上一篇文章</span>
+                        <span>{locale === 'zh' ? '上一篇文章' : 'Previous Article'}</span>
                       </div>
                       <h4 className="font-semibold text-gray-900 group-hover:text-navy transition-colors line-clamp-2">
                         {previousArticle.title}
@@ -262,7 +264,7 @@ export default function InsightPostPage() {
                       className="group block p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300"
                     >
                       <div className="flex items-center justify-end gap-2 text-sm text-gray-500 mb-2">
-                        <span>下一篇文章</span>
+                        <span>{locale === 'zh' ? '下一篇文章' : 'Next Article'}</span>
                         <ChevronRight className="w-4 h-4" />
                       </div>
                       <h4 className="font-semibold text-gray-900 group-hover:text-navy transition-colors line-clamp-2">

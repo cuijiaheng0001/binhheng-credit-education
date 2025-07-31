@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
-import Image from 'next/image'
+import ResponsiveHeroImage from './ResponsiveHeroImage'
 import { cn } from '@/lib/utils'
 import { type Locale } from '@/i18n/config'
 
@@ -322,22 +322,29 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
             className="relative h-[400px] rounded-xl overflow-hidden shadow-xl"
           >
             {/* 预渲染所有图片，只显示当前的 */}
-            {tabs.map((tab, index) => (
-              <Image
-                key={tab.id}
-                src={tab.content.image}
-                alt={typeof tab.content.title === 'string' ? tab.content.title : tab.content.title[locale]}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={80}
-                className={cn(
-                  "object-cover transition-opacity duration-300",
-                  index === activeTab ? "opacity-100" : "opacity-0"
-                )}
-                priority={index === 0}
-                loading={index === 0 ? "eager" : "lazy"}
-              />
-            ))}
+            {tabs.map((tab, index) => {
+              // 从图片路径提取 baseName
+              const baseName = tab.content.image.split('/').pop()?.replace('.jpg', '') || ''
+              return (
+                <div
+                  key={tab.id}
+                  className={cn(
+                    "absolute inset-0 transition-opacity duration-300",
+                    index === activeTab ? "opacity-100" : "opacity-0"
+                  )}
+                >
+                  <ResponsiveHeroImage
+                    baseName={baseName}
+                    alt={typeof tab.content.title === 'string' ? tab.content.title : tab.content.title[locale]}
+                    priority={index === 0}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    width={800}
+                    height={400}
+                    className="object-cover"
+                  />
+                </div>
+              )
+            })}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </motion.div>
         </motion.div>

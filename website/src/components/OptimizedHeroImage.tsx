@@ -1,7 +1,5 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-
 interface OptimizedHeroImageProps {
   src: string
   srcSet?: string
@@ -17,22 +15,13 @@ export default function OptimizedHeroImage({
   priority = false,
   className = '' 
 }: OptimizedHeroImageProps) {
-  const imgRef = useRef<HTMLImageElement>(null)
-
-  useEffect(() => {
-    if (priority && imgRef.current) {
-      // Set fetchpriority attribute for LCP optimization
-      imgRef.current.setAttribute('fetchpriority', 'high')
-    }
-  }, [priority])
-
   return (
     <img
-      ref={imgRef}
       src={src}
       srcSet={srcSet}
       alt={alt}
       loading={priority ? 'eager' : 'lazy'}
+      fetchPriority={priority ? 'high' : 'auto'}
       decoding="async"
       className={className}
       style={{

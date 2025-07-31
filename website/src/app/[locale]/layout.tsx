@@ -73,6 +73,100 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${notoSerifSC.variable} ${playfair.variable}`}>
       <head>
+        {/* Critical CSS - 内联以减少渲染阻塞 */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Critical CSS - 内联到 HTML 头部以减少渲染阻塞 */
+            *, ::before, ::after {
+              box-sizing: border-box;
+            }
+            html {
+              line-height: 1.5;
+              -webkit-text-size-adjust: 100%;
+              -moz-tab-size: 4;
+              tab-size: 4;
+              font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            }
+            body {
+              margin: 0;
+              line-height: inherit;
+            }
+            /* 字体定义 - 关键字体 */
+            @font-face {
+              font-family: 'Inter';
+              font-style: normal;
+              font-weight: 400;
+              font-display: swap;
+              src: url('/fonts/inter-v13-latin-400.woff2?v=1') format('woff2');
+            }
+            @font-face {
+              font-family: 'Inter';
+              font-style: normal;
+              font-weight: 600;
+              font-display: swap;
+              src: url('/fonts/inter-v13-latin-600.woff2?v=1') format('woff2');
+            }
+            @font-face {
+              font-family: 'Playfair Display';
+              font-style: normal;
+              font-weight: 700;
+              font-display: swap;
+              src: url('/fonts/playfair-display-v30-latin-700.woff2?v=1') format('woff2');
+            }
+            /* 关键布局类 */
+            .min-h-screen { min-height: 100vh; }
+            .flex { display: flex; }
+            .flex-col { flex-direction: column; }
+            .flex-grow { flex-grow: 1; }
+            .relative { position: relative; }
+            .absolute { position: absolute; }
+            .fixed { position: fixed; }
+            .inset-0 { inset: 0px; }
+            .top-0 { top: 0px; }
+            .z-50 { z-index: 50; }
+            .bg-white { background-color: rgb(255 255 255); }
+            .text-white { color: rgb(255 255 255); }
+            .transition-all {
+              transition-property: all;
+              transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+              transition-duration: 150ms;
+            }
+            .duration-300 { transition-duration: 300ms; }
+            .hidden { display: none; }
+            @media (min-width: 768px) {
+              .md\\:block { display: block; }
+            }
+            @media (min-width: 1024px) {
+              .lg\\:block { display: block; }
+            }
+            .loading-screen {
+              position: fixed;
+              inset: 0;
+              background: white;
+              z-index: 9999;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .skip-to-content {
+              position: absolute;
+              left: -9999px;
+              top: 0;
+              z-index: 999;
+              padding: 1rem;
+              background: #003D7A;
+              color: white;
+              text-decoration: none;
+            }
+            .skip-to-content:focus { left: 0; }
+          `
+        }} />
+        
+        {/* 预连接到外部资源 */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"} />
         <StructuredData />
       </head>

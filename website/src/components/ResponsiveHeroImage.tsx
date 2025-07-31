@@ -7,13 +7,19 @@ interface ResponsiveHeroImageProps {
   alt: string
   priority?: boolean
   className?: string
+  width?: number
+  height?: number
+  sizes?: string
 }
 
 export default function ResponsiveHeroImage({ 
   baseName, 
   alt, 
   priority = false,
-  className = '' 
+  className = '',
+  width,
+  height,
+  sizes
 }: ResponsiveHeroImageProps) {
   const [isMobile, setIsMobile] = useState(false)
 
@@ -64,7 +70,7 @@ export default function ResponsiveHeroImage({
           `/images/hero/${baseName}-360w-mobile.jpg 360w, /images/hero/${baseName}-414w-mobile.jpg 414w, /images/hero/${baseName}-480w-mobile.jpg 480w` :
           `/images/hero/${baseName}-640w.jpg 640w, /images/hero/${baseName}-1080w.jpg 1080w, /images/hero/${baseName}-1920w.jpg 1920w`
         }
-        sizes={isMobile ? "(max-width: 767px) 100vw" : "100vw"}
+        sizes={sizes || (isMobile ? "(max-width: 767px) 100vw" : "100vw")}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : 'auto'}
@@ -72,11 +78,13 @@ export default function ResponsiveHeroImage({
         className={className}
         style={{
           position: 'absolute',
-          height: '100%',
-          width: '100%',
+          height: height ? `${height}px` : '100%',
+          width: width ? `${width}px` : '100%',
           inset: 0,
           objectFit: 'cover'
         }}
+        width={width}
+        height={height}
       />
     </picture>
   )

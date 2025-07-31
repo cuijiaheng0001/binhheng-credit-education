@@ -4,12 +4,14 @@
   "private": true,
   "browserslist": {
     "production": [
-      "chrome >= 93",
-      "edge >= 93",
-      "firefox >= 92",
-      "safari >= 15.4",
-      "ios >= 15.4",
-      "not dead"
+      "chrome >= 91",
+      "edge >= 91",
+      "firefox >= 90",
+      "safari >= 15",
+      "ios >= 15",
+      "not dead",
+      "not ie 11",
+      "not op_mini all"
     ],
     "development": [
       "last 1 chrome version",
@@ -52,6 +54,7 @@
     "web-vitals": "^5.0.3"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
