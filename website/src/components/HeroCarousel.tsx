@@ -110,7 +110,7 @@ export default function HeroCarousel() {
   return (
     <>
       {/* Hero Section with integrated background */}
-      <section className="relative min-h-screen bg-black">
+      <section className="relative h-screen bg-black overflow-hidden">
         {/* Background Images - Absolute positioning within section */}
         <div className="absolute inset-0 top-0">
           <AnimatePresence mode="wait">
@@ -140,9 +140,9 @@ export default function HeroCarousel() {
         </div>
         {/* Content */}
         <div 
-          className="relative z-10 min-h-screen flex items-center"
+          className="relative z-10 h-screen flex items-center"
         >
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
+        <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full pb-20">
           <div className="max-w-2xl">
             <AnimatePresence mode="wait">
               <motion.div
@@ -192,7 +192,7 @@ export default function HeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-lg text-white/85 mb-12 leading-relaxed font-light max-w-xl"
+                  className="text-lg text-white/85 mb-8 leading-relaxed font-light max-w-xl"
                 >
                   {slides[currentSlide].description}
                 </motion.p>
@@ -205,7 +205,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-12 left-0 right-0 z-20">
+      <div className="absolute bottom-8 left-0 right-0 z-20">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <div className="flex items-center justify-between">
             {/* Slide Indicators */}
