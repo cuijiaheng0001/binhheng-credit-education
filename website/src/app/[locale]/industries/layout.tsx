@@ -5,7 +5,7 @@ export const metadata: Metadata = generatePageMetadata({
   title: pageMetadata.industries.en.title,
   description: pageMetadata.industries.en.description,
   keywords: pageMetadata.industries.en.keywords,
-  canonicalUrl: 'https://binghengcredit.com/industries'
+  canonicalUrl: 'https://www.binghengcredit.com/industries'
 })
 
 export default function IndustriesLayout({

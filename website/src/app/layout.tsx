@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://binghengcredit.com'),
+  metadataBase: new URL('https://www.binghengcredit.com'),
   title: {
     default: "炳恒信用教育 - 专业国际债务催收服务 | BinhHeng Credit Education",
     template: "%s | 炳恒信用教育"

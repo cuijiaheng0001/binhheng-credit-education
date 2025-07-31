@@ -26,6 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services/debt-collection', priority: 0.85, changeFrequency: 'weekly' },
   ]
 
+  // Industry-specific pages (without anchors)
+  const industryPages = [
+    { path: '/industries/student-housing', priority: 0.75, changeFrequency: 'weekly' },
+    { path: '/industries/ecommerce', priority: 0.75, changeFrequency: 'weekly' },
+    { path: '/industries/b2b-trade', priority: 0.75, changeFrequency: 'weekly' },
+  ]
+
   // Blog posts
   const blogPages = blogPosts
     .filter(post => post.status === 'published')
@@ -37,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
 
   // Combine all pages
-  const allPages = [...pages, ...servicePages, ...blogPages]
+  const allPages = [...pages, ...servicePages, ...industryPages, ...blogPages]
 
   // Generate URLs for all locales
   const urls: MetadataRoute.Sitemap = []

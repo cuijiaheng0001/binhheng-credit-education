@@ -61,6 +61,23 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   
+  async redirects() {
+    return [
+      // Redirect from non-www to www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'binghengcredit.com',
+          },
+        ],
+        destination: 'https://www.binghengcredit.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
+
   async headers() {
     return [
       {

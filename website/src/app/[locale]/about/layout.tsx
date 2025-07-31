@@ -5,7 +5,7 @@ export const metadata: Metadata = generatePageMetadata({
   title: pageMetadata.about.en.title,
   description: pageMetadata.about.en.description,
   keywords: pageMetadata.about.en.keywords,
-  canonicalUrl: 'https://binghengcredit.com/about'
+  canonicalUrl: 'https://www.binghengcredit.com/about'
 })
 
 export default function AboutLayout({

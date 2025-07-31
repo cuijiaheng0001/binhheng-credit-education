@@ -10,7 +10,7 @@ interface PageMetadata {
 }
 
 const siteName = 'Bingheng Credit'
-const siteUrl = 'https://binghengcredit.com'
+const siteUrl = 'https://www.binghengcredit.com'
 const defaultImage = '/og-image.png'
 
 export function generatePageMetadata({

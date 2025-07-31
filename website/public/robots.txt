@@ -1,5 +1,5 @@
 # Robots.txt for Bingheng Credit
-# https://binghengcredit.com
+# https://www.binghengcredit.com
 
 User-agent: *
 Allow: /
@@ -16,7 +16,7 @@ Disallow: /_next/
 Disallow: /admin/
 
 # Sitemap
-Sitemap: https://binghengcredit.com/sitemap.xml
+Sitemap: https://www.binghengcredit.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
