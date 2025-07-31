@@ -21,12 +21,12 @@ export default function Navigation({ dict, locale }: NavigationProps) {
   const pathname = usePathname()
   
   const navItems = [
-    { label: dict.navigation?.about || (locale === 'zh' ? '关于我们' : 'About'), href: `/${locale}/about` },
+    { label: dict.navigation?.about || (locale === 'zh' ? '关于我们' : 'About Us'), href: `/${locale}/about` },
     { label: dict.navigation?.services || (locale === 'zh' ? '服务项目' : 'Services'), href: `/${locale}/services` },
-    { label: dict.navigation?.process || (locale === 'zh' ? '服务流程' : 'Process'), href: `/${locale}/process` },
-    { label: dict.navigation?.industries || (locale === 'zh' ? '行业聚焦' : 'Industries'), href: `/${locale}/industries` },
-    { label: dict.navigation?.insights || (locale === 'zh' ? '行业洞察' : 'Insights'), href: `/${locale}/insights` },
-    { label: dict.navigation?.contact || (locale === 'zh' ? '联系我们' : 'Contact'), href: `/${locale}/contact` },
+    { label: dict.navigation?.process || (locale === 'zh' ? '服务流程' : 'Our Process'), href: `/${locale}/process` },
+    { label: dict.navigation?.industries || (locale === 'zh' ? '行业聚焦' : 'Industry Focus'), href: `/${locale}/industries` },
+    { label: dict.navigation?.insights || (locale === 'zh' ? '行业洞察' : 'Industry Insights'), href: `/${locale}/insights` },
+    { label: dict.navigation?.contact || (locale === 'zh' ? '联系我们' : 'Contact Us'), href: `/${locale}/contact` },
   ]
 
 
