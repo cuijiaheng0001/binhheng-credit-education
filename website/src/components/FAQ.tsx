@@ -293,7 +293,7 @@ export default function FAQ({ locale = 'zh' }: FAQProps) {
             >
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="group w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2 rounded-xl"
+                className="group w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2 rounded-xl hover:bg-gray-50 transition-colors duration-200"
                 aria-expanded={activeIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
