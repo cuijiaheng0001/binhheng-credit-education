@@ -171,21 +171,36 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
 
           {/* Map and Working Hours */}
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Map Placeholder */}
+            {/* Map */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-3xl p-12 flex items-center justify-center min-h-[400px]"
+              className="rounded-3xl overflow-hidden shadow-lg min-h-[400px]"
             >
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-base md:text-lg text-gray-600">
-                  {locale === 'zh' ? '上海市浦东新区陆家嘴金融中心' : 'Lujiazui Financial Center'}
-                </p>
-                <p className="text-sm md:text-base text-gray-500 mt-2">
-                  {locale === 'zh' ? '（北京、深圳等地设有分支机构）' : '(Branch offices in Beijing, Shenzhen, and other cities)'}
-                </p>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13631.837296438014!2d121.49185897715896!3d31.235158874901847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b27040b1f617c1%3A0x2d8c7b3e5c8a5a0e!2sLujiazui%2C%20Pudong%2C%20Shanghai%2C%20China!5e0!3m2!1sen!2sus!4v1735635841234!5m2!1sen!2sus"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Lujiazui Financial Center Location"
+                className="w-full h-full"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-4">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-primary-blue" />
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900">
+                      {locale === 'zh' ? '上海市浦东新区陆家嘴金融中心' : 'Lujiazui Financial Center'}
+                    </p>
+                    <p className="text-xs text-gray-600">
+                      {locale === 'zh' ? '（北京、深圳等地设有分支机构）' : '(Branch offices in Beijing, Shenzhen, and other cities)'}
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 

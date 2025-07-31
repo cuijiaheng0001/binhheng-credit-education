@@ -10,6 +10,9 @@ import { getDictionary } from "@/i18n/get-dictionary"
 import { i18n, type Locale } from "@/i18n/config"
 import GoogleAnalytics from "@/components/GoogleAnalytics"
 import StructuredData from '@/components/StructuredData'
+import StructuredDataOrganization from '@/components/StructuredDataOrganization'
+import StructuredDataService from '@/components/StructuredDataService'
+import StructuredDataFAQ from '@/components/StructuredDataFAQ'
 import PerformanceOptimizer from '@/components/PerformanceOptimizer'
 import LoadingScreen from '@/components/LoadingScreen'
 import "../globals.css"
@@ -187,6 +190,9 @@ export default async function LocaleLayout({
       <body className={`${notoSerifSC.className} bg-gray-50`} data-pathname={`/${locale}`}>
         <LoadingScreen />
         <PerformanceOptimizer />
+        <StructuredDataOrganization />
+        <StructuredDataService locale={locale} />
+        <StructuredDataFAQ locale={locale} />
         <AccessibilityProvider>
           <AccessibilityControls locale={locale} />
           <Navigation dict={dict} locale={locale} />
