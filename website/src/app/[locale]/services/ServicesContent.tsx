@@ -101,11 +101,11 @@ export default function ServicesContent({ dictionary, locale }: ServicesContentP
             src="/images/hero/debt-recovery-1.jpg"
             alt={locale === 'zh' ? "专业债务追收服务" : "Professional Debt Recovery Services"}
             fill
-            className="object-cover opacity-60"
+            className="object-cover opacity-90"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/25 to-transparent" />
         </div>
         
         <div className="relative z-10 h-full flex items-center">
@@ -128,7 +128,7 @@ export default function ServicesContent({ dictionary, locale }: ServicesContentP
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '专业的跨境债务追收服务' : 'Professional Cross-Border Debt Recovery Services'}
               </motion.h1>
@@ -136,7 +136,7 @@ export default function ServicesContent({ dictionary, locale }: ServicesContentP
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg text-white/80 leading-relaxed"
+                className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '针对不同行业特点，提供定制化的债务追收解决方案' : 'Customized debt recovery solutions tailored to different industry characteristics'}
               </motion.p>
