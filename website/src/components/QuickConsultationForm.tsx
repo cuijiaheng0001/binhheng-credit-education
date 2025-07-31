@@ -37,9 +37,22 @@ export default function QuickConsultationForm({
     setIsSubmitting(true)
     
     try {
-      // 实际会发送到后端
-      console.log('Quick form submission:', formData)
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // 发送到 Formspree
+      const response = await fetch('https://formspree.io/f/xvgqqryv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `快速咨询 - ${formData.name}`,
+          _template: 'table'
+        }),
+      })
+      
+      if (!response.ok) {
+        throw new Error('提交失败')
+      }
       
       setSubmitStatus('success')
       

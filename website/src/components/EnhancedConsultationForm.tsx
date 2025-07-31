@@ -94,11 +94,22 @@ export default function EnhancedConsultationForm({
     setIsSubmitting(true)
     
     try {
-      // 这里实际会发送到后端
-      console.log('Enhanced form data:', formData)
+      // 发送到 Formspree
+      const response = await fetch('https://formspree.io/f/xvgqqryv', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: `新的债务追收咨询 - ${formData.company}`,
+          _template: 'table'
+        }),
+      })
       
-      // 模拟提交
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      if (!response.ok) {
+        throw new Error('提交失败')
+      }
       
       setSubmitStatus('success')
       
