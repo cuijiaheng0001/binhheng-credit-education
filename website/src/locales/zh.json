@@ -27,11 +27,14 @@
   "cta": {
     "freeConsultation": "免费咨询",
     "bookConsultation": "预约免费咨询",
-    "exploreSolutions": "探索我们的国内和国际债务追收解决方案",
-    "professionalService": "专业的B2B债务追收服务，成功率高达60%以上",
+    "exploreSolutions": "不要再错失属于您的资金机会",
+    "professionalService": "立即获取免费债务追收评估",
     "noUpfrontFees": "无前期费用",
     "response24h": "24小时响应",
     "compliant100": "100%合规",
+    "noUpfrontFeesDesc": "不成功不收费",
+    "response24hDesc": "快速评估案件",
+    "compliant100Desc": "严格遵守法律法规",
     "readyToStart": "准备开始追回您的资金？",
     "teamReady": "我们的专家团队随时准备为您提供定制化的债务追收方案",
     "contactUs": "联系我们"

@@ -26,15 +26,18 @@
   },
   "cta": {
     "freeConsultation": "Free Consultation",
-    "bookConsultation": "Schedule Your Free Consultation",
-    "exploreSolutions": "Explore Our Domestic and International Debt Recovery Solutions",
-    "professionalService": "Professional B2B Debt Recovery Services with Over 60% Success Rate",
+    "bookConsultation": "Get Free Assessment",
+    "exploreSolutions": "Stop Missing Out on Money That's Rightfully Yours",
+    "professionalService": "Get your free debt recovery assessment today",
     "noUpfrontFees": "No Upfront Fees",
-    "response24h": "24-Hour Response Time",
+    "response24h": "24-Hour Response",
     "compliant100": "100% Compliant",
-    "readyToStart": "Ready to Start Recovering Your Funds?",
-    "teamReady": "Our Expert Team Is Ready to Provide Customized Debt Recovery Solutions",
-    "contactUs": "Contact Us"
+    "noUpfrontFeesDesc": "No recovery, no fee",
+    "response24hDesc": "Quick case assessment",
+    "compliant100Desc": "Strict adherence to all laws and regulations",
+    "readyToStart": "Stop Missing Out on Money That's Rightfully Yours",
+    "teamReady": "Get your free debt recovery assessment today",
+    "contactUs": "Get Free Assessment"
   },
   "problemAwareness": {
     "title": "Are You Facing These Challenges?",
