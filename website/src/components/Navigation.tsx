@@ -41,45 +41,30 @@ export default function Navigation({ dict, locale }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex-shrink-0"
-          >
+          <div className="flex-shrink-0">
             <Link 
               href={`/${locale}`} 
               className="flex items-center group cursor-pointer no-underline-effect"
               aria-label="Bingheng Credit 首页"
             >
-              <motion.div
-                whileHover={{ scale: 1 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Image
-                  src="/logo-inverted.png"
-                  alt="Bingheng Credit"
-                  width={140}
-                  height={50}
-                  className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-90"
-                  priority
-                />
-              </motion.div>
+              <Image
+                src="/logo-inverted.png"
+                alt="Bingheng Credit"
+                width={140}
+                height={50}
+                className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-90"
+                priority
+              />
             </Link>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation - 优化布局和间距 */}
           <div className="hidden lg:flex items-center flex-grow justify-center">
             <div className="flex items-center gap-4">
+              {navItems.length === 0 && <span className="text-red-500">No nav items!</span>}
               {navItems.map((item, index) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  onMouseEnter={() => setHoveredItem(item.label)}
-                  onMouseLeave={() => setHoveredItem(null)}
+                <div
+                  key={item.href}
                   className="relative group"
                 >
                   <Link
@@ -93,9 +78,9 @@ export default function Navigation({ dict, locale }: NavigationProps) {
                     )}
                     aria-current={pathname === item.href ? "page" : undefined}
                   >
-                    {item.label}
+                    <span>{item.label}</span>
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -108,21 +93,13 @@ export default function Navigation({ dict, locale }: NavigationProps) {
             </div>
             
             {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <button 
+              className="px-4 py-2 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm whitespace-nowrap"
+              onClick={() => setIsConsultationOpen(true)}
+              aria-label={dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
             >
-              <motion.button 
-                className="px-4 py-2 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm whitespace-nowrap"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => setIsConsultationOpen(true)}
-                aria-label={dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
-              >
-                {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
-              </motion.button>
-            </motion.div>
+              {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
