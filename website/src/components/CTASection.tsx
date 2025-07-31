@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useLanguage } from '@/i18n/client'
 import ConsultationModal from './ConsultationModal'
@@ -32,6 +32,11 @@ export default function CTASection({
   const isInView = useInView(ref, { once: true, margin: '-100px' })
   const { dictionary } = useLanguage()
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const bgStyles = {
     gradient: 'cta-gradient',
@@ -100,30 +105,30 @@ export default function CTASection({
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             {openModal ? (
-              <button
+              <motion.button
                 onClick={() => setIsConsultationOpen(true)}
                 className="inline-flex items-center px-8 py-4 bg-white text-navy font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 group shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span className="flex items-center gap-2">
-                  {buttonText}
-                  <ArrowRight className="w-5 h-5" />
-                </span>
-              </button>
+                {buttonText}
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.button>
             ) : (
-              <a
+              <motion.a
                 href={buttonLink}
                 className="inline-flex items-center px-8 py-4 bg-white text-navy font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 group shadow-lg hover:shadow-xl no-underline hover:no-underline"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <span className="flex items-center gap-2">
-                  {buttonText}
-                  <ArrowRight className="w-5 h-5" />
-                </span>
-              </a>
+                {buttonText}
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.a>
             )}
           </motion.div>
 
           {/* Trust indicators */}
-          {showTrustIndicators && (
+          {showTrustIndicators && mounted && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
