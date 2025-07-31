@@ -322,7 +322,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
 
             <motion.a
               href={currentContent.link}
-              className="inline-flex items-center px-8 py-4 bg-transparent text-navy font-semibold rounded-lg border-2 border-navy hover:bg-navy hover:text-white transition-all duration-300 group no-underline hover:no-underline whitespace-nowrap min-h-[52px]"
+              className="inline-flex items-center px-8 py-4 bg-transparent text-navy font-semibold rounded-lg border border-navy hover:bg-navy hover:text-white transition-all duration-300 group no-underline hover:no-underline whitespace-nowrap min-h-[52px]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

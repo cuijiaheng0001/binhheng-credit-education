@@ -42,7 +42,7 @@ export default function CTAButton({
   const variants = {
     primary: 'bg-navy text-white hover:bg-navy-light transition-colors',
     secondary: 'bg-gold text-white hover:bg-gold-dark shadow-md hover:shadow-lg',
-    outline: 'border-2 border-navy text-navy hover:bg-navy hover:text-white',
+    outline: 'border border-navy text-navy hover:bg-navy hover:text-white',
     ghost: 'text-navy hover:bg-navy/10'
   }
 
