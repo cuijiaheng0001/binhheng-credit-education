@@ -1,17 +1,17 @@
 {
   "navigation": {
-    "about": "About",
+    "about": "About Us",
     "services": "Services",
-    "process": "Process",
-    "industries": "Industries",
-    "insights": "Insights",
-    "contact": "Contact"
+    "process": "Our Process",
+    "industries": "Industry Focus",
+    "insights": "Industry Insights",
+    "contact": "Contact Us"
   },
   "hero": {
-    "title": "Global Debt Recovery, Trusted Worldwide",
-    "subtitle": "Professional cross-border debt collection services to bring your funds home safely",
+    "title": "International Debt Recovery, Trusted Worldwide",
+    "subtitle": "Professional Cross-Border Debt Recovery Services That Bring Your Money Home Safely",
     "cta": "Free Consultation",
-    "trustBadge": "15 Years Experience",
+    "trustBadge": "15 Years of Industry Experience",
     "stats": {
       "recovered": "Amount Recovered",
       "successRate": "Success Rate",
@@ -21,14 +21,14 @@
   },
   "cta": {
     "freeConsultation": "Free Consultation",
-    "bookConsultation": "Book Free Consultation",
-    "exploreSolutions": "Explore Our Domestic and International Debt Collection Solutions",
-    "professionalService": "Professional B2B debt collection with over 60% success rate",
+    "bookConsultation": "Schedule Your Free Consultation",
+    "exploreSolutions": "Explore Our Domestic and International Debt Recovery Solutions",
+    "professionalService": "Professional B2B Debt Recovery Services with Over 60% Success Rate",
     "noUpfrontFees": "No Upfront Fees",
-    "response24h": "24-Hour Response",
+    "response24h": "24-Hour Response Time",
     "compliant100": "100% Compliant",
-    "readyToStart": "Ready to Recover Your Funds?",
-    "teamReady": "Our expert team is ready to provide customized debt recovery solutions",
+    "readyToStart": "Ready to Start Recovering Your Funds?",
+    "teamReady": "Our Expert Team Is Ready to Provide Customized Debt Recovery Solutions",
     "contactUs": "Contact Us"
   },
   "problemAwareness": {
@@ -39,43 +39,43 @@
         "description": "Difficulty communicating with Chinese debtors, cultural differences hindering negotiations"
       },
       "legalComplexity": {
-        "title": "Complex Legal Systems",
-        "description": "Unfamiliar with Chinese laws and regulations, high cost of legal action"
+        "title": "Complex Legal System",
+        "description": "Unfamiliarity with Chinese laws and regulations, high cost of legal action"
       },
       "resourceLimitation": {
         "title": "Limited Resources",
-        "description": "Lack of local teams and resources, inefficient collection processes"
+        "description": "Lack of local teams and resources, inefficient recovery efforts"
       },
       "riskUncertainty": {
-        "title": "Risk Uncertainty",
-        "description": "Difficult to assess recovery likelihood, lack of decision-making basis"
+        "title": "Uncertain Risk",
+        "description": "Difficulty assessing recovery probability, lack of data for decision-making"
       }
     }
   },
   "solutionOverview": {
     "title": "Professional Solutions",
-    "subtitle": "How We Help You Successfully Recover Cross-Border Debts",
+    "subtitle": "How We Help You Successfully Recover Cross-Border Debt",
     "features": {
       "localExpertise": {
-        "title": "Local Team",
-        "description": "Bilingual professionals deeply familiar with both business cultures"
+        "title": "Localized Team",
+        "description": "Bilingual Chinese-English professionals who understand both business cultures"
       },
       "legalSupport": {
         "title": "Legal Support",
         "description": "Partnership with top law firms ensuring compliance and efficiency"
       },
       "techDriven": {
-        "title": "Technology Driven",
-        "description": "AI and big data analysis for precise debtor asset location"
+        "title": "Technology-Driven",
+        "description": "AI and big data analytics for precise debtor asset location"
       },
       "successBased": {
         "title": "Success-Based Fees",
-        "description": "No upfront fees, commission only upon successful recovery"
+        "description": "No upfront costs, commission only upon successful recovery"
       }
     }
   },
   "process": {
-    "title": "Our Process",
+    "title": "Service Process",
     "subtitle": "Simple and Efficient Debt Recovery Process",
     "steps": {
       "assessment": {
@@ -84,7 +84,7 @@
       },
       "investigation": {
         "title": "Asset Investigation",
-        "description": "Multi-channel investigation of debtor's asset status"
+        "description": "Multi-channel investigation of debtor's financial status"
       },
       "negotiation": {
         "title": "Negotiation",
@@ -92,29 +92,29 @@
       },
       "recovery": {
         "title": "Fund Recovery",
-        "description": "Recover outstanding payments through legal or settlement channels"
+        "description": "Debt recovery through legal or settlement channels"
       }
     }
   },
   "industries": {
     "title": "Industry Focus",
-    "subtitle": "Specialized Services for Key Sectors",
+    "subtitle": "Deep Expertise in Specialized Sectors",
     "sectors": {
       "education": {
         "title": "Education",
-        "description": "Student tuition, accommodation fees, and education-related debt recovery"
+        "description": "Student tuition, housing fees, and other education-related debt recovery"
       },
       "trade": {
         "title": "International Trade",
-        "description": "Import/export trade receivables and letter of credit dispute resolution"
+        "description": "Import/export payment defaults, letter of credit dispute resolution"
       },
       "technology": {
         "title": "Technology",
-        "description": "Software service fees, technology licensing fee collection"
+        "description": "Software service fees, technology licensing fee recovery"
       },
       "manufacturing": {
         "title": "Manufacturing",
-        "description": "Supply chain receivables and equipment payment recovery"
+        "description": "Supply chain receivables, equipment payment recovery"
       }
     }
   },
@@ -122,8 +122,8 @@
     "title": "Why Choose Us",
     "reasons": {
       "experience": {
-        "title": "Rich Experience",
-        "description": "15 years of cross-border debt recovery experience with over 5,000 successful cases"
+        "title": "Extensive Experience",
+        "description": "15 years of cross-border debt recovery experience, over 5,000 successful cases"
       },
       "network": {
         "title": "Global Network",
@@ -131,42 +131,324 @@
       },
       "compliance": {
         "title": "Compliant Operations",
-        "description": "Strict adherence to laws and regulations in both China and the US"
+        "description": "Strict adherence to US and Chinese laws and regulations"
       },
       "technology": {
         "title": "Technology Leadership",
-        "description": "AI-driven debtor location and asset analysis system"
+        "description": "AI-powered debtor location and asset analysis system"
       }
     }
   },
   "footer": {
-    "company": "Company",
+    "company": "Company Information",
     "services": "Services",
-    "resources": "Resources",
-    "legal": "Legal",
+    "resources": "Resource Center",
+    "legal": "Legal Information",
     "companyLinks": {
       "about": "About Us",
       "team": "Our Team",
-      "careers": "Careers",
-      "contact": "Contact"
+      "careers": "Join Us",
+      "contact": "Contact Information"
     },
     "serviceLinks": {
       "assessment": "Debt Assessment",
       "recovery": "Debt Recovery",
-      "consulting": "Consulting",
+      "consulting": "Consulting Services",
       "legal": "Legal Support"
     },
     "resourceLinks": {
-      "insights": "Insights",
+      "insights": "Industry Insights",
       "cases": "Success Stories",
-      "faq": "FAQ",
-      "guides": "Guides"
+      "faq": "FAQs",
+      "guides": "User Guide"
     },
     "legalLinks": {
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
-      "compliance": "Compliance"
+      "compliance": "Compliance Statement"
     },
     "copyright": "© 2024 Bingheng Credit. All rights reserved."
+  },
+  "contact": {
+    "pageTitle": "Contact Us",
+    "heroTitle": "Always Here to Serve You",
+    "heroSubtitle": "Professional Team with 24-Hour Response for Efficient Debt Recovery Solutions",
+    "form": {
+      "title": "Submit Your Inquiry Quickly",
+      "description": "Fill out the form and we'll contact you within 24 hours",
+      "name": "Your Name",
+      "email": "Your Email",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "success": "Submitted Successfully!",
+      "successMessage": "Our professional advisor will contact you within 24 hours"
+    },
+    "info": {
+      "title": "Company Information & Contact Details",
+      "description": "Bingheng Credit is headquartered in the Lujiazui Financial Center, Pudong New Area, Shanghai, China, with branch offices in major cities nationwide, providing comprehensive coverage for debt recovery needs and delivering convenient, efficient professional services to clients.",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "address": "Address",
+      "addressLine1": "Lujiazui Financial Center, Pudong New Area, Shanghai",
+      "addressLine2": "(Branch offices in Beijing, Shenzhen, and other cities)"
+    },
+    "hours": {
+      "title": "Business Hours",
+      "monday": "Monday to Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "monFriTime": "9:00 AM - 6:00 PM",
+      "satTime": "10:00 AM - 4:00 PM",
+      "sunTime": "Closed",
+      "note": "* For urgent matters, please contact us via email for prompt response"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "How do I start the debt recovery process?",
+        "answer": "You can contact us by phone, email, or online inquiry form. We'll respond within 24 hours and arrange a free case assessment."
+      },
+      "q2": {
+        "question": "What are your fee structures?",
+        "answer": "We operate on a \"No Recovery, No Fee\" basis. Upon successful recovery, we charge 25%-35% commission based on the debt amount. Specific rates depend on case complexity and amount."
+      },
+      "q3": {
+        "question": "What documents do I need to provide?",
+        "answer": "Typically, we need debt contracts, payment records, communication logs, and related documents. Our professional team will guide you through document preparation."
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Recovering Your Funds?",
+      "description": "Professional team at your service - start with a free assessment",
+      "button": "Contact Us Now"
+    }
+  },
+  "process": {
+    "pageTitle": "Professional Process",
+    "heroTitle": "Transparent and Efficient Recovery Process",
+    "heroSubtitle": "From assessment to recovery, every step is clear and controllable for optimal results",
+    "phase1": {
+      "title": "Phase 1",
+      "name": "Case Assessment",
+      "duration": "24-48 hours",
+      "steps": {
+        "document": {
+          "title": "Document Collection",
+          "description": "Gather debt-related documents, contracts, communication records",
+          "time": "2-4 hours"
+        },
+        "investigation": {
+          "title": "Preliminary Investigation",
+          "description": "Debtor background check, initial asset location",
+          "time": "6-12 hours"
+        },
+        "feasibility": {
+          "title": "Feasibility Analysis",
+          "description": "Assess recovery probability, develop initial strategy",
+          "time": "12-24 hours"
+        },
+        "report": {
+          "title": "Solution Report",
+          "description": "Provide detailed assessment report and recovery recommendations",
+          "time": "24-48 hours"
+        }
+      }
+    },
+    "phase2": {
+      "title": "Phase 2",
+      "name": "Compliance Preparation",
+      "duration": "3-5 days",
+      "steps": {
+        "legal": {
+          "title": "Legal Review",
+          "description": "Confirm debt validity and statute of limitations",
+          "time": "Day 1"
+        },
+        "documentation": {
+          "title": "Compliance Documentation",
+          "description": "Prepare recovery documents compliant with both countries' laws",
+          "time": "Days 2-3"
+        },
+        "authorization": {
+          "title": "Authorization Confirmation",
+          "description": "Sign recovery authorization agreement",
+          "time": "Days 3-4"
+        },
+        "deployment": {
+          "title": "Team Deployment",
+          "description": "Assign case team, develop detailed plan",
+          "time": "Days 4-5"
+        }
+      }
+    },
+    "phase3": {
+      "title": "Phase 3",
+      "name": "Recovery Execution",
+      "duration": "2-4 weeks",
+      "steps": {
+        "contact": {
+          "title": "Initial Contact",
+          "description": "Attempt multi-channel contact with debtor",
+          "time": "Week 1"
+        },
+        "negotiation": {
+          "title": "Negotiation",
+          "description": "Conduct repayment negotiations with debtor",
+          "time": "Weeks 2-3"
+        },
+        "solution": {
+          "title": "Solution Development",
+          "description": "Create feasible repayment plan",
+          "time": "Weeks 3-4"
+        },
+        "agreement": {
+          "title": "Agreement Signing",
+          "description": "Sign repayment or settlement agreement",
+          "time": "Week 4"
+        }
+      }
+    },
+    "phase4": {
+      "title": "Phase 4",
+      "name": "Fund Recovery",
+      "duration": "30-90 days",
+      "steps": {
+        "payment": {
+          "title": "Payment Arrangement",
+          "description": "Establish secure cross-border payment channels",
+          "time": "1-3 days"
+        },
+        "receipt": {
+          "title": "Fund Receipt",
+          "description": "Monitor and confirm fund arrival",
+          "time": "Per agreement"
+        },
+        "transfer": {
+          "title": "Compliant Transfer",
+          "description": "Transfer funds to client per regulatory requirements",
+          "time": "3-5 days"
+        },
+        "closure": {
+          "title": "Case Report",
+          "description": "Provide complete recovery report and documentation",
+          "time": "7 days after closure"
+        }
+      }
+    },
+    "advantages": {
+      "local": {
+        "title": "Local Advantage",
+        "description": "Teams in major Chinese cities enable face-to-face communication",
+        "impact": "+40% success rate"
+      },
+      "cultural": {
+        "title": "Cultural Understanding",
+        "description": "Deep knowledge of Chinese business culture, appropriate communication strategies",
+        "impact": "+25% efficiency"
+      },
+      "compliance": {
+        "title": "Compliant Operations",
+        "description": "Strict adherence to both countries' laws, avoiding legal risks",
+        "impact": "0 risk"
+      },
+      "technology": {
+        "title": "Technology Support",
+        "description": "Advanced debtor location and asset investigation technology",
+        "impact": "95% location rate"
+      }
+    },
+    "transparency": {
+      "title": "Every step is transparent and controllable",
+      "subtitle": "Real-time case tracking, always informed of recovery status"
+    },
+    "cta": {
+      "title": "Start Your Recovery Journey",
+      "description": "Professional team ready to serve - begin with a free assessment",
+      "button": "Get Free Assessment"
+    }
+  },
+  "caseStudies": {
+    "pageTitle": "Success Stories",
+    "case1": {
+      "client": "Stanford University Student Housing Department",
+      "industry": "Educational Institution",
+      "location": "California, USA",
+      "amount": "$2.1M",
+      "recoveryTime": "45 days",
+      "title": "Solving International Student Housing Debt Challenges",
+      "challenge": "The university faced significant Chinese student housing fee defaults due to cultural differences and communication barriers, with traditional collection methods proving ineffective.",
+      "solution": [
+        "Established bilingual Chinese-English communication system to eliminate language barriers",
+        "Developed deep understanding of Chinese student family payment habits, created flexible payment plans",
+        "Direct communication with students' parents to build trust",
+        "Provided multiple payment channels including Alipay and WeChat Pay"
+      ],
+      "results": [
+        "Recovered 78% of outstanding debt within 45 days",
+        "Established long-term partnership as designated collection service provider",
+        "Improved student satisfaction while avoiding legal disputes",
+        "Created replicable solution for other Top 50 universities"
+      ],
+      "testimonial": {
+        "quote": "Bingheng Credit's professional team not only solved our debt problem but more importantly, they understand cultural differences and communicate appropriately with students and parents, preserving our institution's reputation.",
+        "author": "Sarah Johnson",
+        "position": "Director of Housing Services"
+      }
+    },
+    "case2": {
+      "client": "Amazon E-commerce Platform",
+      "industry": "E-commerce Platform",
+      "location": "Global",
+      "amount": "$3.2M",
+      "recoveryTime": "60 days",
+      "title": "Cross-Border E-commerce Seller Debt Recovery",
+      "challenge": "Numerous Chinese sellers had accounts frozen for policy violations, owing platform fees and penalties. Sellers were widely distributed and difficult to contact.",
+      "solution": [
+        "Utilized local teams to quickly locate sellers' actual business addresses",
+        "Negotiated installment payment plans with sellers",
+        "Helped sellers understand platform rules to prevent future violations",
+        "Provided compliance guidance to help sellers resume business"
+      ],
+      "results": [
+        "Successfully recovered 68% of outstanding debt",
+        "Helped 40% of sellers resume normal operations",
+        "Established seller education system, reduced violation rates",
+        "Became platform-recognized professional collection partner"
+      ],
+      "testimonial": {
+        "quote": "They're not just a collection company - they're more like partners helping us manage China market risks.",
+        "author": "Michael Chen",
+        "position": "APAC Risk Control Director"
+      }
+    },
+    "case3": {
+      "client": "Fortune 500 Manufacturing Company",
+      "industry": "B2B Trade",
+      "location": "Shenzhen, China",
+      "amount": "$3.2M",
+      "recoveryTime": "90 days",
+      "title": "Large Trade Debt Successfully Recovered",
+      "challenge": "Chinese supplier had long-overdue payments involving substantial amounts, severely impacting company cash flow.",
+      "solution": [
+        "Thorough investigation of debtor's assets and business operations",
+        "Coordinated renegotiation of payment terms between parties",
+        "Implemented asset preservation measures to prevent malicious transfer",
+        "Applied legal pressure to facilitate settlement"
+      ],
+      "results": [
+        "Recovered 85% of debt within 90 days",
+        "Remaining balance under installment agreement",
+        "Maintained business relationship between parties",
+        "Established risk warning mechanism"
+      ],
+      "testimonial": {
+        "quote": "They helped us recover substantial debt without damaging long-term partnerships. Their professionalism is impressive.",
+        "author": "David Thompson",
+        "position": "Chief Financial Officer"
+      }
+    }
   }
 }
