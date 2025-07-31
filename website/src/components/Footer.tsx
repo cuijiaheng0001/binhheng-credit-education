@@ -2,31 +2,37 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { MapPin, Phone, Mail, Globe, Shield, Clock, DollarSign, ExternalLink, Linkedin, MessageCircle } from 'lucide-react'
-import { useLanguage } from '@/i18n/client'
+import { type Locale } from '@/i18n/config'
 
-const footerLinks = {
+const getFooterLinks = (locale: Locale) => ({
   services: [
-    { label: '债务追收服务', href: '/services#debt-collection' },
-    { label: '中小企业方案', href: '/services#sme' },
-    { label: '应收账款管理', href: '/services#ar' },
-    { label: '行业解决方案', href: '/industries' }
+    { label: '债务追收服务', href: `/${locale}/services#debt-collection` },
+    { label: '中小企业方案', href: `/${locale}/services#sme` },
+    { label: '应收账款管理', href: `/${locale}/services#ar` },
+    { label: '行业解决方案', href: `/${locale}/industries` }
   ],
   company: [
-    { label: '关于我们', href: '/about' },
-    { label: '成功案例', href: '/case-studies' },
-    { label: '服务流程', href: '/process' },
-    { label: '联系我们', href: '/contact' }
+    { label: '关于我们', href: `/${locale}/about` },
+    { label: '成功案例', href: `/${locale}/case-studies` },
+    { label: '服务流程', href: `/${locale}/process` },
+    { label: '联系我们', href: `/${locale}/contact` }
   ],
   regulatory: [
     { label: 'CFPB债务催收规则', href: 'https://www.consumerfinance.gov/rules-policy/final-rules/debt-collection-practices-regulation-f/', external: true },
     { label: 'FDCPA法规解释', href: 'https://www.federalregister.gov/documents/2020/11/13/2020-24463/debt-collection-practices-regulation-f', external: true },
     { label: '消费者保护资源', href: 'https://www.consumerfinance.gov/consumer-tools/debt-collection/', external: true }
   ]
+})
+
+interface FooterProps {
+  dict: any
+  locale: Locale
 }
 
-export default function Footer() {
-  const { dictionary } = useLanguage()
+export default function Footer({ dict, locale }: FooterProps) {
+  const footerLinks = getFooterLinks(locale)
   
   return (
     <footer className="bg-gradient-to-b from-gray-50 to-gray-100">

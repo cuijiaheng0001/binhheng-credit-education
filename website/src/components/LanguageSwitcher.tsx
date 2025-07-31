@@ -3,12 +3,16 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Globe, Check } from 'lucide-react'
-import { useLanguage } from '@/i18n/client'
+import { useRouter, usePathname } from 'next/navigation'
 import { languages, Locale } from '@/i18n/config'
 
+interface LanguageSwitcherProps {
+  locale: Locale
+}
 
-export default function LanguageSwitcher() {
-  const { locale, setLocale } = useLanguage()
+export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
+  const router = useRouter()
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -24,7 +28,10 @@ export default function LanguageSwitcher() {
   }, [])
 
   const handleLocaleChange = (newLocale: Locale) => {
-    setLocale(newLocale)
+    const segments = pathname.split('/')
+    segments[1] = newLocale
+    const newPath = segments.join('/')
+    router.push(newPath)
     setIsOpen(false)
   }
 

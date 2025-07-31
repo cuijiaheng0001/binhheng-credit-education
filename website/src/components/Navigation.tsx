@@ -6,24 +6,29 @@ import { Menu, X, ChevronDown, Shield } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useLanguage } from '@/i18n/client'
+import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
 import ConsultationModal from './ConsultationModal'
+import { type Locale } from '@/i18n/config'
 
-export default function Navigation() {
+interface NavigationProps {
+  dict: any
+  locale: Locale
+}
+
+export default function Navigation({ dict, locale }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const pathname = usePathname()
-  const { dictionary } = useLanguage()
   
   const navItems = [
-    { label: 'About Us', href: '/about' },
-    { label: 'Services', href: '/services' },
-    { label: 'Our Process', href: '/process' },
-    { label: 'Industry Focus', href: '/industries' },
-    { label: 'Industry Insights', href: '/insights' },
-    { label: 'Contact Us', href: '/contact' },
+    { label: 'About Us', href: `/${locale}/about` },
+    { label: 'Services', href: `/${locale}/services` },
+    { label: 'Our Process', href: `/${locale}/process` },
+    { label: 'Industry Focus', href: `/${locale}/industries` },
+    { label: 'Industry Insights', href: `/${locale}/blog` },
+    { label: 'Contact Us', href: `/${locale}/contact` },
   ]
 
 
@@ -42,8 +47,8 @@ export default function Navigation() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex-shrink-0"
           >
-            <a 
-              href="/" 
+            <Link 
+              href={`/${locale}`} 
               className="flex items-center group cursor-pointer no-underline-effect"
               aria-label="Bingheng Credit 首页"
             >
@@ -61,7 +66,7 @@ export default function Navigation() {
                   priority
                 />
               </motion.div>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation - 优化布局和间距 */}
@@ -77,7 +82,7 @@ export default function Navigation() {
                   onMouseLeave={() => setHoveredItem(null)}
                   className="relative group"
                 >
-                  <a
+                  <Link
                     href={item.href}
                     className={cn(
                       "relative inline-block text-sm font-medium transition-all duration-300 px-4 py-2 rounded-md",
@@ -89,7 +94,7 @@ export default function Navigation() {
                     aria-current={pathname === item.href ? "page" : undefined}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -99,7 +104,7 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center gap-6 ml-8">
             {/* Language Switcher - 统一样式 */}
             <div className="border-l border-gray-200 pl-6">
-              <LanguageSwitcher />
+              <LanguageSwitcher locale={locale} />
             </div>
             
             {/* CTA Button */}
@@ -115,7 +120,7 @@ export default function Navigation() {
                 onClick={() => setIsConsultationOpen(true)}
                 aria-label={dictionary.cta.freeConsultation}
               >
-                {dictionary.cta.freeConsultation}
+                {dict.cta.freeConsultation}
               </motion.button>
             </motion.div>
           </div>
@@ -154,17 +159,15 @@ export default function Navigation() {
           >
             <div className="px-6 py-8 space-y-2">
               {navItems.map((item, index) => (
-                <motion.a
-                  key={item.label}
-                  href={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-navy font-medium hover:text-gold hover:bg-pearl rounded-lg transition-all duration-300"
-                >
-                  {item.label}
-                </motion.a>
+                <motion.div key={item.label}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block px-4 py-3 text-navy font-medium hover:text-gold hover:bg-pearl rounded-lg transition-all duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               ))}
               <motion.button
                 initial={{ opacity: 0, y: 20 }}
@@ -176,7 +179,7 @@ export default function Navigation() {
                 }}
                 className="w-full mt-4 px-6 py-4 bg-navy text-white font-semibold tracking-wide rounded-lg hover:bg-navy-light transition-all duration-300 shadow-lg"
               >
-                {dictionary.cta.freeConsultation}
+                {dict.cta.freeConsultation}
               </motion.button>
             </div>
           </motion.div>
