@@ -410,32 +410,30 @@
   }
   
   /* Force remove underlines from all links */
-  a[href],
-  a[href]:hover,
-  a[href]:focus,
-  a[href]:active,
-  a[href]:visited {
+  a[href]:not([class*="border"]),
+  a[href]:hover:not([class*="border"]),
+  a[href]:focus:not([class*="border"]),
+  a[href]:active:not([class*="border"]),
+  a[href]:visited:not([class*="border"]) {
     text-decoration: none !important;
     border-bottom: none !important;
     box-shadow: none !important;
   }
   
-  /* Remove any bottom borders or underlines from buttons and button-like links */
+  /* Remove text decoration but preserve borders on buttons */
   button,
-  .btn,
-  a.border,
-  a[class*="border"],
-  a[class*="rounded"] {
+  .btn {
     text-decoration: none !important;
-    border-bottom: none !important;
-    box-shadow: none !important;
   }
   
-  /* Ensure no underline effects on hover */
-  a:hover,
+  /* Ensure no text underline effects on hover */
+  a:hover:not([class*="border"]) {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+  
   button:hover {
     text-decoration: none !important;
-    border-bottom: none !important;
   }
   
   /* Ensure navy buttons have white text */
