@@ -26,12 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services/debt-collection', priority: 0.85, changeFrequency: 'weekly' },
   ]
 
-  // Industry-specific pages (without anchors)
-  const industryPages = [
-    { path: '/industries/student-housing', priority: 0.75, changeFrequency: 'weekly' },
-    { path: '/industries/ecommerce', priority: 0.75, changeFrequency: 'weekly' },
-    { path: '/industries/b2b-trade', priority: 0.75, changeFrequency: 'weekly' },
-  ]
+  // Industry-specific pages (removed as they don't exist as separate pages)
+  const industryPages: any[] = []
 
   // Blog posts
   const blogPages = blogPosts

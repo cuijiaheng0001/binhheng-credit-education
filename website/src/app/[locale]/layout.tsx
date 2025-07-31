@@ -44,7 +44,9 @@ export async function generateMetadata({
     title: dict.meta.title,
     description: dict.meta.description,
     keywords: dict.meta.keywords,
+    metadataBase: new URL('https://www.binghengcredit.com'),
     alternates: {
+      canonical: `https://www.binghengcredit.com/${locale}`,
       languages: {
         'zh': '/zh',
         'en': '/en',
@@ -53,10 +55,21 @@ export async function generateMetadata({
     openGraph: {
       title: dict.meta.title,
       description: dict.meta.description,
-      url: 'https://binhheng.com',
+      url: `https://www.binghengcredit.com/${locale}`,
       siteName: 'BinhHeng Credit Education',
       locale: locale === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
   }
 }
