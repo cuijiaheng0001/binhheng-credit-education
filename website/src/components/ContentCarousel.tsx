@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
-import ResponsiveHeroImage from './ResponsiveHeroImage'
+import ResponsiveContentImage from './ResponsiveContentImage'
 import { cn } from '@/lib/utils'
 import { type Locale } from '@/i18n/config'
 
@@ -165,8 +165,8 @@ interface ContentCarouselProps {
 export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps) {
   const [activeTab, setActiveTab] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(false) // 初始状态为false
-  const [hasStarted, setHasStarted] = useState(false) // 记录是否已经开始过
   const [isPaused, setIsPaused] = useState(false) // 鼠标悬停暂停
+  const [hasUserInteracted, setHasUserInteracted] = useState(false) // 记录用户是否主动交互过
   const sectionRef = useRef<HTMLElement>(null)
   const currentContent = tabs[activeTab].content
 
@@ -195,9 +195,15 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries
-        if (entry.isIntersecting && !hasStarted) {
-          setIsAutoPlaying(true)
-          setHasStarted(true) // 确保只开始一次
+        if (entry.isIntersecting) {
+          // 如果用户没有主动交互过，每次进入视窗都重置到第一页并开始自动播放
+          if (!hasUserInteracted) {
+            setActiveTab(0)
+            setIsAutoPlaying(true)
+          }
+        } else {
+          // 离开视窗时停止自动播放
+          setIsAutoPlaying(false)
         }
       },
       {
@@ -214,7 +220,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
         observer.unobserve(sectionRef.current)
       }
     }
-  }, [hasStarted])
+  }, [hasUserInteracted])
 
   useEffect(() => {
     if (!isAutoPlaying || isPaused) return
@@ -228,8 +234,8 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
 
   const goToTab = (index: number) => {
     setActiveTab(index)
+    setHasUserInteracted(true) // 标记用户已交互
     setIsAutoPlaying(false)
-    setHasStarted(true) // 用户交互也算开始
     // 用户交互后15秒恢复自动播放
     setTimeout(() => setIsAutoPlaying(true), 15000)
   }
@@ -273,12 +279,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
         </div>
 
         {/* Content */}
-        <motion.div
-          key={activeTab}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3 }}
+        <div
           className="grid lg:grid-cols-2 gap-12 items-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -315,12 +316,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
           </div>
 
           {/* Right Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="relative h-[400px] rounded-xl overflow-hidden shadow-xl"
-          >
+          <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             {/* 预渲染所有图片，只显示当前的 */}
             {tabs.map((tab, index) => {
               // 从图片路径提取 baseName
@@ -333,7 +329,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
                     index === activeTab ? "opacity-100" : "opacity-0"
                   )}
                 >
-                  <ResponsiveHeroImage
+                  <ResponsiveContentImage
                     baseName={baseName}
                     alt={typeof tab.content.title === 'string' ? tab.content.title : tab.content.title[locale]}
                     priority={index === 0}
@@ -346,8 +342,8 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
               )
             })}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Navigation Arrows */}
         <div className="flex justify-center gap-4 mt-8 pb-4">
