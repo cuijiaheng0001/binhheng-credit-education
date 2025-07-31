@@ -27,7 +27,7 @@ export default function Navigation({ dict, locale }: NavigationProps) {
     { label: 'Services', href: `/${locale}/services` },
     { label: 'Process', href: `/${locale}/process` },
     { label: 'Industries', href: `/${locale}/industries` },
-    { label: 'Insights', href: `/${locale}/blog` },
+    { label: 'Insights', href: `/${locale}/insights` },
     { label: 'Contact', href: `/${locale}/contact` },
   ]
 
