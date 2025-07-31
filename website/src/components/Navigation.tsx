@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
@@ -40,22 +39,13 @@ export default function Navigation({ dict, locale }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex-shrink-0"
-          >
+          <div className="flex-shrink-0">
             <Link 
               href={`/${locale}`} 
               className="flex items-center group cursor-pointer no-underline-effect"
               aria-label="Bingheng Credit 首页"
             >
-              <motion.div
-                whileHover={{ scale: 1 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-              >
+              <div>
                 <Image
                   src="/logo-inverted.png"
                   alt="Bingheng Credit"
@@ -64,9 +54,9 @@ export default function Navigation({ dict, locale }: NavigationProps) {
                   className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-90"
                   priority
                 />
-              </motion.div>
+              </div>
             </Link>
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation - 优化布局和间距 */}
           <div className="hidden lg:flex items-center flex-1 justify-center">
@@ -127,54 +117,40 @@ export default function Navigation({ dict, locale }: NavigationProps) {
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-menu"
           >
-            <motion.div
-              animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div>
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.div>
+            </div>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-white border-t border-gray-100 shadow-xl"
-          >
-            <div className="px-6 py-8 space-y-2">
-              {navItems.map((item, index) => (
-                <motion.div key={item.label}>
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-navy font-medium hover:text-gold hover:bg-pearl rounded-lg transition-all duration-300"
-                  >
-                    {item.label}
-                  </Link>
-                </motion.div>
-              ))}
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                onClick={() => {
-                  setIsConsultationOpen(true)
-                  setIsMobileMenuOpen(false)
-                }}
-                className="w-full mt-4 px-6 py-4 bg-navy text-white font-semibold tracking-wide rounded-lg hover:bg-navy-light transition-all duration-300 shadow-lg"
-              >
-                {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl">
+          <div className="px-6 py-8 space-y-2">
+            {navItems.map((item) => (
+              <div key={item.label}>
+                <Link
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-4 py-3 text-navy font-medium hover:text-gold hover:bg-pearl rounded-lg transition-all duration-300"
+                >
+                  {item.label}
+                </Link>
+              </div>
+            ))}
+            <button
+              onClick={() => {
+                setIsConsultationOpen(true)
+                setIsMobileMenuOpen(false)
+              }}
+              className="w-full mt-4 px-6 py-4 bg-navy text-white font-semibold tracking-wide rounded-lg hover:bg-navy-light transition-all duration-300 shadow-lg"
+            >
+              {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
+            </button>
+          </div>
+        </div>
+      )}
       
       {/* Consultation Modal */}
       <ConsultationModal 
