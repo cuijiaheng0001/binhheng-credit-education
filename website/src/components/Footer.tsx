@@ -8,21 +8,57 @@ import { type Locale } from '@/i18n/config'
 
 const getFooterLinks = (locale: Locale) => ({
   services: [
-    { label: '债务追收服务', href: `/${locale}/services#debt-collection` },
-    { label: '中小企业方案', href: `/${locale}/services#sme` },
-    { label: '应收账款管理', href: `/${locale}/services#ar` },
-    { label: '行业解决方案', href: `/${locale}/industries` }
+    { 
+      label: locale === 'zh' ? '债务追收服务' : 'Debt Recovery Services', 
+      href: `/${locale}/services#debt-collection` 
+    },
+    { 
+      label: locale === 'zh' ? '中小企业方案' : 'Small Business Solutions', 
+      href: `/${locale}/services#sme` 
+    },
+    { 
+      label: locale === 'zh' ? '应收账款管理' : 'Accounts Receivable Management', 
+      href: `/${locale}/services#ar` 
+    },
+    { 
+      label: locale === 'zh' ? '行业解决方案' : 'Industry Solutions', 
+      href: `/${locale}/industries` 
+    }
   ],
   company: [
-    { label: '关于我们', href: `/${locale}/about` },
-    { label: '成功案例', href: `/${locale}/case-studies` },
-    { label: '服务流程', href: `/${locale}/process` },
-    { label: '联系我们', href: `/${locale}/contact` }
+    { 
+      label: locale === 'zh' ? '关于我们' : 'About Us', 
+      href: `/${locale}/about` 
+    },
+    { 
+      label: locale === 'zh' ? '成功案例' : 'Success Stories', 
+      href: `/${locale}/case-studies` 
+    },
+    { 
+      label: locale === 'zh' ? '服务流程' : 'Our Process', 
+      href: `/${locale}/process` 
+    },
+    { 
+      label: locale === 'zh' ? '联系我们' : 'Contact Us', 
+      href: `/${locale}/contact` 
+    }
   ],
   regulatory: [
-    { label: 'CFPB债务催收规则', href: 'https://www.consumerfinance.gov/rules-policy/final-rules/debt-collection-practices-regulation-f/', external: true },
-    { label: 'FDCPA法规解释', href: 'https://www.federalregister.gov/documents/2020/11/13/2020-24463/debt-collection-practices-regulation-f', external: true },
-    { label: '消费者保护资源', href: 'https://www.consumerfinance.gov/consumer-tools/debt-collection/', external: true }
+    { 
+      label: locale === 'zh' ? 'CFPB债务催收规则' : 'CFPB Debt Collection Rules', 
+      href: 'https://www.consumerfinance.gov/rules-policy/final-rules/debt-collection-practices-regulation-f/', 
+      external: true 
+    },
+    { 
+      label: locale === 'zh' ? 'FDCPA法规解释' : 'FDCPA Regulation Guide', 
+      href: 'https://www.federalregister.gov/documents/2020/11/13/2020-24463/debt-collection-practices-regulation-f', 
+      external: true 
+    },
+    { 
+      label: locale === 'zh' ? '消费者保护资源' : 'Consumer Protection Resources', 
+      href: 'https://www.consumerfinance.gov/consumer-tools/debt-collection/', 
+      external: true 
+    }
   ]
 })
 
@@ -51,8 +87,8 @@ export default function Footer({ dict, locale }: FooterProps) {
                 <DollarSign className="w-6 h-6 text-primary-blue" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">无前期费用</div>
-                <p className="text-sm text-gray-600">不成功不收费</p>
+                <div className="font-semibold text-gray-900">{locale === 'zh' ? '无前期费用' : 'No Upfront Fees'}</div>
+                <p className="text-sm text-gray-600">{locale === 'zh' ? '不成功不收费' : 'No recovery, no fee'}</p>
               </div>
             </motion.div>
             
@@ -67,8 +103,8 @@ export default function Footer({ dict, locale }: FooterProps) {
                 <Clock className="w-6 h-6 text-primary-blue" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">24小时响应</div>
-                <p className="text-sm text-gray-600">快速评估案件</p>
+                <div className="font-semibold text-gray-900">{locale === 'zh' ? '24小时响应' : '24-Hour Response'}</div>
+                <p className="text-sm text-gray-600">{locale === 'zh' ? '快速评估案件' : 'Quick case assessment'}</p>
               </div>
             </motion.div>
             
@@ -83,8 +119,8 @@ export default function Footer({ dict, locale }: FooterProps) {
                 <Shield className="w-6 h-6 text-primary-blue" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">100%合规</div>
-                <p className="text-sm text-gray-600">严格遵守法律法规</p>
+                <div className="font-semibold text-gray-900">{locale === 'zh' ? '100%合规' : '100% Compliant'}</div>
+                <p className="text-sm text-gray-600">{locale === 'zh' ? '严格遵守法律法规' : 'Strict adherence to all laws and regulations'}</p>
               </div>
             </motion.div>
           </div>
@@ -106,7 +142,9 @@ export default function Footer({ dict, locale }: FooterProps) {
               />
             </div>
             <p className="text-gray-600 text-sm leading-relaxed mb-6 max-w-xs">
-              专业的跨境债务回收服务，帮助美国企业追回中国债务人欠款
+              {locale === 'zh' 
+                ? '专业的跨境债务回收服务，帮助美国企业追回中国债务人欠款'
+                : 'Professional Cross-Border Debt Recovery Services Helping U.S. Companies Recover Debts from Chinese Debtors'}
             </p>
             {/* Social Media */}
             <div className="flex gap-3">
@@ -133,7 +171,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
           {/* Services */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-6 text-sm uppercase tracking-wider">服务项目</h3>
+            <h3 className="text-gray-900 font-semibold mb-6 text-sm uppercase tracking-wider">{locale === 'zh' ? '服务项目' : 'Services'}</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
@@ -150,7 +188,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
           {/* Company */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-6 text-sm uppercase tracking-wider">公司信息</h3>
+            <h3 className="text-gray-900 font-semibold mb-6 text-sm uppercase tracking-wider">{locale === 'zh' ? '公司信息' : 'Company'}</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
@@ -167,7 +205,7 @@ export default function Footer({ dict, locale }: FooterProps) {
 
           {/* Contact & Resources */}
           <div>
-            <h3 className="text-gray-900 font-semibold mb-6 text-sm uppercase tracking-wider">联系方式</h3>
+            <h3 className="text-gray-900 font-semibold mb-6 text-sm uppercase tracking-wider">{locale === 'zh' ? '联系方式' : 'Contact'}</h3>
             <ul className="space-y-3 mb-8">
               <li>
                 <a href="tel:+8616653086767" className="text-gray-600 text-sm hover:text-primary-blue transition-colors flex items-center gap-2">
@@ -183,7 +221,7 @@ export default function Footer({ dict, locale }: FooterProps) {
               </li>
             </ul>
             
-            <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">合规资源</h3>
+            <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">{locale === 'zh' ? '合规资源' : 'Compliance Resources'}</h3>
             <ul className="space-y-2">
               {footerLinks.regulatory.map((link) => (
                 <li key={link.href}>
@@ -214,24 +252,24 @@ export default function Footer({ dict, locale }: FooterProps) {
 
             {/* Legal Links */}
             <div className="flex gap-6 order-1 md:order-2">
-              <a
-                href="/terms"
+              <Link
+                href={`/${locale}/terms`}
                 className="text-gray-500 text-xs hover:text-gray-700 transition-colors"
               >
-                服务条款
-              </a>
-              <a
-                href="/privacy"
+                {locale === 'zh' ? '服务条款' : 'Terms of Service'}
+              </Link>
+              <Link
+                href={`/${locale}/privacy`}
                 className="text-gray-500 text-xs hover:text-gray-700 transition-colors"
               >
-                隐私政策
-              </a>
-              <a
-                href="/compliance"
+                {locale === 'zh' ? '隐私政策' : 'Privacy Policy'}
+              </Link>
+              <Link
+                href={`/${locale}/compliance`}
                 className="text-gray-500 text-xs hover:text-gray-700 transition-colors"
               >
-                合规认证
-              </a>
+                {locale === 'zh' ? '合规认证' : 'Compliance Certifications'}
+              </Link>
             </div>
           </div>
         </div>
