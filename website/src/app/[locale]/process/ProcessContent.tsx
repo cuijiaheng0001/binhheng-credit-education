@@ -199,7 +199,7 @@ export default function ProcessContent({ dictionary, locale }: ProcessContentPro
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '透明高效的追收流程' : 'Transparent and Efficient Recovery Process'}
               </motion.h1>
@@ -207,7 +207,7 @@ export default function ProcessContent({ dictionary, locale }: ProcessContentPro
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-lg text-white/80 leading-relaxed"
+                className="text-base md:text-lg lg:text-xl text-white/80 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '从评估到回收，每一步都清晰可控，确保最佳追收效果' : 'From assessment to recovery, every step is clear and controllable, ensuring optimal recovery results'}
               </motion.p>

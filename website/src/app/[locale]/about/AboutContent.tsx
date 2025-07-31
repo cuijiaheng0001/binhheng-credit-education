@@ -50,7 +50,7 @@ export default function AboutContent({ dictionary, locale }: AboutContentProps) 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '关于 Bingheng Credit' : 'About Bingheng Credit'}
               </motion.h1>
@@ -58,7 +58,7 @@ export default function AboutContent({ dictionary, locale }: AboutContentProps) 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl text-white/90 leading-relaxed mb-4 font-medium"
+                className="text-base md:text-lg lg:text-xl text-white/90 leading-relaxed mb-4 font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? '专注中国债务人的跨境追收专家' : 'Cross-Border Debt Recovery Specialists Focused on Chinese Debtors'}
               </motion.p>
@@ -66,7 +66,7 @@ export default function AboutContent({ dictionary, locale }: AboutContentProps) 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="text-lg text-white/80 leading-relaxed"
+                className="text-base md:text-lg text-white/80 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
               >
                 {locale === 'zh' ? (
                   <>每年，美国企业因对中国债务人身份与特征缺乏深入理解，误以为这些债务"无法追回"，损失数亿美元。</>
