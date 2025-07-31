@@ -1,30 +1,37 @@
 'use client'
 
-const testimonials = [
+import { type Locale } from '@/i18n/config'
+
+const getTestimonials = (locale: Locale) => [
   {
     company: 'University Housing Corp',
-    quote: '在Bingheng的帮助下，我们追回了超过200万美元的留学生欠款，这些债务我们原本已经准备注销。',
+    quote: locale === 'zh' ? '在Bingheng的帮助下，我们追回了超过200万美元的留学生欠款，这些债务我们原本已经准备注销。' : 'With Bingheng\'s help, we recovered over $2 million in international student debts that we had already prepared to write off.',
     author: 'Sarah Johnson',
     role: 'CFO'
   },
   {
     company: 'Global Trade Partners',
-    quote: '他们对中国市场的深入了解和专业网络，帮助我们成功追回了多笔被认为无法收回的贸易欠款。',
+    quote: locale === 'zh' ? '他们对中国市场的深入了解和专业网络，帮助我们成功追回了多笔被认为无法收回的贸易欠款。' : 'Their deep understanding of the Chinese market and professional network helped us successfully recover multiple trade debts that were deemed uncollectible.',
     author: 'Michael Chen',
     role: 'Credit Manager'
   }
 ]
 
-export default function TrustIndicators() {
+interface TrustIndicatorsProps {
+  locale?: Locale
+}
+
+export default function TrustIndicators({ locale = 'zh' }: TrustIndicatorsProps) {
+  const testimonials = getTestimonials(locale)
   return (
     <section className="py-10 bg-gray-50">
       <div className="max-w-7xl mx-auto px-8">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
-            值得信赖的合作伙伴
+            {locale === 'zh' ? '值得信赖的合作伙伴' : 'Your Trusted Partner'}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            合规、专业、高效 - 您的跨境债务追收专家
+            {locale === 'zh' ? '合规、专业、高效 - 您的跨境债务追收专家' : 'Compliant, Professional, Efficient - Your Cross-Border Debt Recovery Experts'}
           </p>
         </div>
 

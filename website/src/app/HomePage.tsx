@@ -39,8 +39,8 @@ export default function HomePage({ dict, locale }: HomePageProps) {
       <ProblemAwareness locale={locale} />
       <SolutionOverview locale={locale} />
       <ProcessVisualization locale={locale} />
-      <IndustryFocus />
-      <KnowledgeCenter />
+      <IndustryFocus locale={locale} />
+      <KnowledgeCenter locale={locale} />
       <FAQ locale={locale} />
       <CTASection 
         label={dict.cta.freeConsultation}
@@ -50,7 +50,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
         variant="light"
         openModal={true}
       />
-      <TrustIndicators />
+      <TrustIndicators locale={locale} />
     </main>
   )
 }
