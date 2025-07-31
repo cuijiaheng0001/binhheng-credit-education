@@ -4,29 +4,55 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { AlertTriangle, TrendingDown, Clock, ArrowRight } from 'lucide-react'
 import ConsultationModal from './ConsultationModal'
+import { type Locale } from '@/i18n/config'
 
 const problems = [
   {
     icon: AlertTriangle,
     value: '87%',
-    label: '的美国机构过早注销中国债务',
-    description: '当中国债务人返回中国后，一般催收公司无法追踪和联系'
+    label: {
+      zh: '的美国机构过早注销中国债务',
+      en: 'of US institutions prematurely write-off Chinese debts'
+    },
+    description: {
+      zh: '当中国债务人返回中国后，一般催收公司无法追踪和联系',
+      en: 'When Chinese debtors return to China, general collection agencies cannot track or contact them'
+    }
   },
   {
     icon: TrendingDown,
-    value: '$4.5亿+',
-    label: '每年被错误注销的中国债务人债务',
-    description: 'Bingheng Credit 是唯一专注于此类债务的专业催收公司'
+    value: {
+      zh: '$4.5亿+',
+      en: '$450M+'
+    },
+    label: {
+      zh: '每年被错误注销的中国债务人债务',
+      en: 'in Chinese debtor debt incorrectly written off annually'
+    },
+    description: {
+      zh: 'Bingheng Credit 是唯一专注于此类债务的专业催收公司',
+      en: 'Bingheng Credit is the only professional collection company focused on these debts'
+    }
   },
   {
     icon: Clock,
     value: '60%',
-    label: '的中国债务人债务实际可追回',
-    description: '通过本地化沟通和中国法律体系知识实现高效追收'
+    label: {
+      zh: '的中国债务人债务实际可追回',
+      en: 'of Chinese debtor debt is actually recoverable'
+    },
+    description: {
+      zh: '通过本地化沟通和中国法律体系知识实现高效追收',
+      en: 'Achieved through localized communication and knowledge of the Chinese legal system'
+    }
   }
 ]
 
-export default function ProblemAwareness() {
+interface ProblemAwarenessProps {
+  locale?: Locale
+}
+
+export default function ProblemAwareness({ locale = 'zh' }: ProblemAwarenessProps) {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   
   return (
