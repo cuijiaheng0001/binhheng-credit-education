@@ -6,7 +6,7 @@ export default async function TermsPage({
 }: {
   params: Promise<{ locale: Locale }>
 }) {
-  await params // Ensure params is awaited for Next.js 15 compatibility
+  const { locale } = await params
   
-  return <TermsContent />
+  return <TermsContent locale={locale} />
 }
