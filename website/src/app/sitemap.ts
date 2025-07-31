@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { blogPosts } from '@/lib/blog-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.binghengcredit.com'
@@ -12,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/process', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/industries', priority: 0.8, changeFrequency: 'weekly' },
-    { path: '/insights', priority: 0.6, changeFrequency: 'daily' },
+    { path: '/blog', priority: 0.7, changeFrequency: 'daily' },
     { path: '/contact', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/case-studies', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/compliance', priority: 0.5, changeFrequency: 'quarterly' },
@@ -25,8 +26,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services/debt-collection', priority: 0.85, changeFrequency: 'weekly' },
   ]
 
+  // Blog posts
+  const blogPages = blogPosts
+    .filter(post => post.status === 'published')
+    .map(post => ({
+      path: `/blog/${post.slug}`,
+      priority: 0.6,
+      changeFrequency: 'monthly' as const,
+      lastModified: new Date(post.updatedAt || post.publishedAt)
+    }))
+
   // Combine all pages
-  const allPages = [...pages, ...servicePages]
+  const allPages = [...pages, ...servicePages, ...blogPages]
 
   // Generate URLs for all locales
   const urls: MetadataRoute.Sitemap = []
@@ -44,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     locales.forEach(locale => {
       urls.push({
         url: `${baseUrl}/${locale}${page.path}`,
-        lastModified: currentDate,
+        lastModified: 'lastModified' in page ? page.lastModified : currentDate,
         changeFrequency: page.changeFrequency as any,
         priority: page.priority,
         alternates: {

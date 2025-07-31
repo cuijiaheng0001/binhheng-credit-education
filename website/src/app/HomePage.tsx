@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useLanguage } from '@/i18n/client'
+import { type Locale } from '@/i18n/config'
 
 // Critical above-the-fold components - load immediately
 import HeroCarousel from '@/components/HeroCarousel'
@@ -17,18 +17,22 @@ const TrustIndicators = dynamic(() => import('@/components/TrustIndicators'))
 const KnowledgeCenter = dynamic(() => import('@/components/KnowledgeCenter'))
 const FAQ = dynamic(() => import('@/components/FAQ'))
 
-export default function HomePage() {
-  const { dictionary } = useLanguage()
+interface HomePageProps {
+  dict: any
+  locale: Locale
+}
+
+export default function HomePage({ dict, locale }: HomePageProps) {
   
   return (
     <main className="min-h-screen bg-black">
       <HeroCarousel />
       <ContentCarousel />
       <CTASection 
-        label={dictionary.cta.freeConsultation}
-        title={dictionary.cta.exploreSolutions}
-        description={dictionary.cta.professionalService}
-        buttonText={dictionary.cta.bookConsultation}
+        label={dict.cta.freeConsultation}
+        title={dict.cta.exploreSolutions}
+        description={dict.cta.professionalService}
+        buttonText={dict.cta.bookConsultation}
         variant="gradient"
         openModal={true}
       />
@@ -39,10 +43,10 @@ export default function HomePage() {
       <KnowledgeCenter />
       <FAQ />
       <CTASection 
-        label={dictionary.cta.freeConsultation}
-        title={dictionary.cta.readyToStart}
-        description={dictionary.cta.teamReady}
-        buttonText={dictionary.cta.contactUs}
+        label={dict.cta.freeConsultation}
+        title={dict.cta.readyToStart}
+        description={dict.cta.teamReady}
+        buttonText={dict.cta.contactUs}
         variant="light"
         openModal={true}
       />

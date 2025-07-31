@@ -137,12 +137,12 @@ export default function Footer({ dict, locale }: FooterProps) {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-gray-600 text-sm hover:text-primary-blue transition-colors inline-block py-1"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -154,12 +154,12 @@ export default function Footer({ dict, locale }: FooterProps) {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-gray-600 text-sm hover:text-primary-blue transition-colors inline-block py-1"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

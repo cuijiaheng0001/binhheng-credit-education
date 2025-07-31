@@ -73,7 +73,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${notoSerifSC.variable} ${playfair.variable}`}>
       <head>
-        <GoogleAnalytics />
+        <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"} />
         <StructuredData />
       </head>
       <body className={`${notoSerifSC.className} bg-gray-50`}>
@@ -85,8 +85,8 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer dict={dict} locale={locale} />
-          <CookieBanner dict={dict} />
-          <WhatsAppButton dict={dict} />
+          <CookieBanner />
+          <WhatsAppButton />
         </AccessibilityProvider>
       </body>
     </html>
