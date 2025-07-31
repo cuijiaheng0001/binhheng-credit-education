@@ -252,7 +252,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
                       : "text-gray-700 hover:text-gray-900"
                   )}
                 >
-                  {tab.title}
+                  {typeof tab.title === 'string' ? tab.title : tab.title[locale]}
                 </button>
                 <div
                   className={cn(
@@ -286,14 +286,14 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              {currentContent.title}
+              {typeof currentContent.title === 'string' ? currentContent.title : currentContent.title[locale]}
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              {currentContent.description}
+              {typeof currentContent.description === 'string' ? currentContent.description : currentContent.description[locale]}
             </p>
             
             <ul className="space-y-3 mb-8">
-              {currentContent.features.map((feature, index) => (
+              {(typeof currentContent.features === 'object' && !Array.isArray(currentContent.features) ? currentContent.features[locale] : currentContent.features).map((feature, index) => (
                 <li key={index} className="flex items-center text-base text-gray-700">
                   <div className="w-6 h-6 bg-navy rounded-full flex items-center justify-center mr-3">
                     <span className="text-white text-xs">✓</span>
