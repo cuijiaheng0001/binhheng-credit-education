@@ -181,7 +181,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer dict={dict} locale={locale} />
-          <CookieBanner />
+          <CookieBanner locale={locale} />
           <WhatsAppButton />
         </AccessibilityProvider>
       </body>

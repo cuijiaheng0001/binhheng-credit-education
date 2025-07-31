@@ -208,9 +208,9 @@ export default function ConsultationModal({ isOpen, onClose, locale = 'zh', pref
                   {/* Privacy notice */}
                   <p className="text-xs text-gray-400 text-center mt-3 md:mt-4 px-2">
                     提交即表示您同意我们的
-                    <a href="/privacy" className="text-navy hover:underline mx-1">隐私政策</a>
+                    <a href={`/${locale}/privacy`} className="text-navy hover:underline mx-1">隐私政策</a>
                     和
-                    <a href="/terms" className="text-navy hover:underline mx-1">服务条款</a>
+                    <a href={`/${locale}/terms`} className="text-navy hover:underline mx-1">服务条款</a>
                   </p>
                 </div>
               </div>

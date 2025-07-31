@@ -199,7 +199,7 @@ export default function IndustryFocus({ locale = 'zh' }: IndustryFocusProps) {
               </blockquote>
               
               <Link 
-                href="/industries#student-housing" 
+                href={`/${locale}/industries#student-housing`} 
                 className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 mt-4"
               >
                 {locale === 'zh' ? '查看详情' : 'View Details'}
@@ -243,7 +243,7 @@ export default function IndustryFocus({ locale = 'zh' }: IndustryFocusProps) {
               </blockquote>
               
               <Link 
-                href="/industries#b2b-trade" 
+                href={`/${locale}/industries#b2b-trade`} 
                 className="inline-flex items-center text-sm font-medium text-purple-600 hover:text-purple-700 mt-4"
               >
                 {locale === 'zh' ? '查看详情' : 'View Details'}
@@ -261,7 +261,7 @@ export default function IndustryFocus({ locale = 'zh' }: IndustryFocusProps) {
           className="text-center mt-12"
         >
           <Link
-            href="/industries"
+            href={`/${locale}/industries`}
             className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium no-underline"
           >
             <span className="text-white">{locale === 'zh' ? '查看所有行业解决方案' : 'View All Industry Solutions'}</span>

@@ -66,7 +66,7 @@ export default function KnowledgeCenter({ locale = 'zh' }: KnowledgeCenterProps)
                 {locale === 'zh' ? '我们定期发布债务追收行业的深度分析、最佳实践和成功案例，帮助您做出更明智的信用管理决策。' : 'We regularly publish in-depth analyses, best practices, and success stories from the debt recovery industry to help you make smarter credit management decisions.'}
               </p>
               <motion.a
-                href="/insights"
+                href={`/${locale}/insights`}
                 className="inline-flex items-center px-6 py-3 bg-navy text-white font-medium rounded-xl hover:bg-navy-light transition-colors no-underline"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -4,7 +4,11 @@ import { useState, useEffect } from 'react'
 import { X, Cookie, ChevronUp } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function CookieBanner() {
+interface CookieBannerProps {
+  locale?: string
+}
+
+export default function CookieBanner({ locale = 'zh' }: CookieBannerProps) {
   const [showBanner, setShowBanner] = useState(false)
   const [isMinimized, setIsMinimized] = useState(false)
 
@@ -87,7 +91,7 @@ export default function CookieBanner() {
                     <div className="text-sm">
                       <p className="text-gray-700">
                         我们使用 Cookie 提升您的体验。
-                        <a href="/privacy" className="text-navy hover:underline ml-1" target="_blank">
+                        <a href={`/${locale}/privacy`} className="text-navy hover:underline ml-1" target="_blank">
                           隐私政策
                         </a>
                       </p>

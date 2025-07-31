@@ -346,7 +346,7 @@ export default function InsightPostPage() {
               {/* View All Articles CTA */}
               <div className="text-center mt-12">
                 <Link
-                  href="/insights"
+                  href={`/${locale}/insights`}
                   className="inline-flex items-center px-6 py-3 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium"
                 >
                   查看所有文章
