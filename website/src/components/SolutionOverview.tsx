@@ -7,15 +7,23 @@ import { type Locale } from '@/i18n/config'
 const getSolutions = (locale: Locale) => [
   {
     icon: Globe,
-    title: '本地化专业网络',
-    description: '在中国主要城市拥有合作伙伴，了解当地法律和文化',
-    features: ['覆盖一线到三线城市', '本地律师合作网络', '文化沟通优势']
+    title: locale === 'zh' ? '本地化专业网络' : 'Extensive Local Network',
+    description: locale === 'zh' 
+      ? '在中国主要城市拥有合作伙伴，了解当地法律和文化'
+      : 'Partners in major Chinese cities with deep understanding of local laws and culture',
+    features: locale === 'zh' 
+      ? ['覆盖一线到三线城市', '本地律师合作网络', '文化沟通优势']
+      : ['Coverage across tier 1-3 cities', 'Local legal partner network', 'Cultural communication advantage']
   },
   {
     icon: Shield,
-    title: '完全合规操作',
-    description: '严格遵守FDCPA、PIPL等国际和当地法规',
-    features: ['美国FDCPA认证', '中国PIPL合规', '香港PDPO遵守']
+    title: locale === 'zh' ? '完全合规操作' : 'Full Regulatory Compliance',
+    description: locale === 'zh' 
+      ? '严格遵守FDCPA、PIPL等国际和当地法规'
+      : 'Strict adherence to FDCPA, PIPL and other international and local regulations',
+    features: locale === 'zh' 
+      ? ['美国FDCPA认证', '中国PIPL合规', '香港PDPO遵守']
+      : ['US FDCPA certified', 'China PIPL compliant', 'Hong Kong PDPO adherent']
   },
   {
     icon: Users,
