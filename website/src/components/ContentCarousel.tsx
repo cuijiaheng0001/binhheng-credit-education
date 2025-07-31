@@ -166,7 +166,8 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
   const [activeTab, setActiveTab] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(false) // 初始状态为false
   const [isPaused, setIsPaused] = useState(false) // 鼠标悬停暂停
-  const [hasUserInteracted, setHasUserInteracted] = useState(false) // 记录用户是否主动交互过
+  const [isInView, setIsInView] = useState(false) // 记录组件是否在视窗中
+  const lastInteractionTime = useRef<number>(0) // 记录最后交互时间
   const sectionRef = useRef<HTMLElement>(null)
   const currentContent = tabs[activeTab].content
 
@@ -196,13 +197,18 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
       (entries) => {
         const [entry] = entries
         if (entry.isIntersecting) {
-          // 如果用户没有主动交互过，每次进入视窗都重置到第一页并开始自动播放
-          if (!hasUserInteracted) {
+          setIsInView(true)
+          const now = Date.now()
+          const timeSinceLastInteraction = now - lastInteractionTime.current
+          
+          // 如果距离上次交互超过30秒，或者从未交互过，重置到第一页
+          if (timeSinceLastInteraction > 30000 || lastInteractionTime.current === 0) {
             setActiveTab(0)
-            setIsAutoPlaying(true)
           }
+          
+          setIsAutoPlaying(true)
         } else {
-          // 离开视窗时停止自动播放
+          setIsInView(false)
           setIsAutoPlaying(false)
         }
       },
@@ -220,7 +226,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
         observer.unobserve(sectionRef.current)
       }
     }
-  }, [hasUserInteracted])
+  }, [])
 
   useEffect(() => {
     if (!isAutoPlaying || isPaused) return
@@ -234,10 +240,14 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
 
   const goToTab = (index: number) => {
     setActiveTab(index)
-    setHasUserInteracted(true) // 标记用户已交互
+    lastInteractionTime.current = Date.now() // 记录交互时间
     setIsAutoPlaying(false)
     // 用户交互后15秒恢复自动播放
-    setTimeout(() => setIsAutoPlaying(true), 15000)
+    setTimeout(() => {
+      if (isInView) {
+        setIsAutoPlaying(true)
+      }
+    }, 15000)
   }
 
   return (
