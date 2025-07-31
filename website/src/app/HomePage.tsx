@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import { type Locale } from '@/i18n/config'
 
 // Critical above-the-fold components - load immediately
-import HeroCarousel from '@/components/HeroCarousel'
+import HeroCarousel from '@/components/HeroCarouselWrapper'
 import ContentCarousel from '@/components/ContentCarousel'
 
 // Lazy load below-the-fold components
@@ -15,7 +15,7 @@ const ProcessVisualization = dynamic(() => import('@/components/ProcessVisualiza
 const IndustryFocus = dynamic(() => import('@/components/IndustryFocus'))
 const TrustIndicators = dynamic(() => import('@/components/TrustIndicators'))
 const KnowledgeCenter = dynamic(() => import('@/components/KnowledgeCenter'))
-const FAQ = dynamic(() => import('@/components/FAQ'))
+const FAQ = dynamic(() => import('@/components/FAQWrapper'))
 
 interface HomePageProps {
   dict: any
