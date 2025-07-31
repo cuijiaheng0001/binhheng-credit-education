@@ -19,11 +19,32 @@ A modern, education-focused website for Bingheng Credit that helps US businesses
 - **Charts**: Recharts (ready to implement)
 - **Deployment**: Vercel
 
-## 📦 Installation
+## 📦 Installation & Setup
+
+### Quick Setup (Recommended)
+
+```bash
+# Run the setup script to ensure all dependencies are properly installed
+./scripts/setup.sh
+
+# Start development server
+npm run dev
+```
+
+### Manual Setup
 
 ```bash
 # Install dependencies
 npm install
+
+# Verify critical dependencies are installed
+ls -la node_modules/.bin/next  # Should exist
+
+# Create necessary directories
+mkdir -p public/fonts public/images
+
+# Copy environment variables
+cp .env.example .env.local  # Update with your values
 
 # Run development server
 npm run dev
@@ -34,6 +55,12 @@ npm run build
 # Start production server
 npm start
 ```
+
+### Common Issues
+
+- **Build fails with module not found**: Run `./scripts/setup.sh` to ensure all dependencies are properly installed
+- **Missing fonts**: Run `node scripts/download-fonts.js`
+- **Lint errors**: Run `npm run lint:fix` to auto-fix common issues
 
 ## 🌐 Deployment
 

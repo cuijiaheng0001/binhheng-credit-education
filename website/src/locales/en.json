@@ -332,9 +332,9 @@
           "time": "3-5 days"
         },
         "closure": {
-          "title": "Case Report",
-          "description": "Provide complete recovery report and documentation",
-          "time": "7 days after closure"
+          "title": "Case Closure Report",
+          "description": "Provide comprehensive recovery report and supporting documentation",
+          "time": "7 days after case closure"
         }
       }
     },
@@ -361,12 +361,12 @@
       }
     },
     "transparency": {
-      "title": "Every step is transparent and controllable",
-      "subtitle": "Real-time case tracking, always informed of recovery status"
+      "title": "Every Step is Transparent and Controllable",
+      "subtitle": "Real-time case tracking keeps you informed of recovery status"
     },
     "cta": {
       "title": "Start Your Recovery Journey",
-      "description": "Professional team ready to serve - begin with a free assessment",
+      "description": "Our professional team stands ready to serve you - the first step begins with a free assessment",
       "button": "Get Free Assessment"
     }
   },

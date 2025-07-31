@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/industries', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/insights', priority: 0.6, changeFrequency: 'daily' },
     { path: '/contact', priority: 0.9, changeFrequency: 'monthly' },
+    { path: '/case-studies', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/compliance', priority: 0.5, changeFrequency: 'quarterly' },
     { path: '/privacy', priority: 0.3, changeFrequency: 'quarterly' },
     { path: '/terms', priority: 0.3, changeFrequency: 'quarterly' },
@@ -22,21 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Service-specific pages (for better SEO)
   const servicePages = [
     { path: '/services/debt-collection', priority: 0.85, changeFrequency: 'weekly' },
-    { path: '/services/student-housing', priority: 0.85, changeFrequency: 'weekly' },
-    { path: '/services/ecommerce', priority: 0.85, changeFrequency: 'weekly' },
-    { path: '/services/b2b-trade', priority: 0.85, changeFrequency: 'weekly' },
-  ]
-
-  // Industry-specific pages
-  const industryPages = [
-    { path: '/industries/education', priority: 0.75, changeFrequency: 'monthly' },
-    { path: '/industries/ecommerce', priority: 0.75, changeFrequency: 'monthly' },
-    { path: '/industries/logistics', priority: 0.75, changeFrequency: 'monthly' },
-    { path: '/industries/healthcare', priority: 0.75, changeFrequency: 'monthly' },
   ]
 
   // Combine all pages
-  const allPages = [...pages, ...servicePages, ...industryPages]
+  const allPages = [...pages, ...servicePages]
 
   // Generate URLs for all locales
   const urls: MetadataRoute.Sitemap = []

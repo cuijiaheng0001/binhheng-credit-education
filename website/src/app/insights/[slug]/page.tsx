@@ -5,7 +5,8 @@ import { Calendar, ArrowLeft, Share2, Bookmark, ChevronRight, ExternalLink } fro
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getInsightBySlug, getRelatedInsights, getPreviousArticle, getNextArticle } from '@/lib/insights-data'
-import { useState, use } from 'react'
+import { useState } from 'react'
+import { useParams } from 'next/navigation'
 import ConsultationModal from '@/components/ConsultationModal'
 import ReactMarkdown from 'react-markdown'
 
@@ -17,9 +18,10 @@ const categoryLabels = {
   data: '数据洞察',
 }
 
-export default function InsightPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = use(params)
-  const article = getInsightBySlug(resolvedParams.slug)
+export default function InsightPostPage() {
+  const params = useParams()
+  const slug = params.slug as string
+  const article = getInsightBySlug(slug)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   
   if (!article) {
