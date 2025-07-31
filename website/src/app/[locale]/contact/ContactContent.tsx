@@ -85,7 +85,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
               >
                 {locale === 'zh' ? '随时为您服务' : 'Here to Serve You 24/7'}
               </motion.h1>

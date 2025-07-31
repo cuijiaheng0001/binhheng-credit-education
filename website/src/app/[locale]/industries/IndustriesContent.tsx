@@ -188,7 +188,7 @@ export default function IndustriesContent({ ctaFreeConsultation, locale }: Indus
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-4xl lg:text-5xl font-bold mb-6"
+              className="font-sans text-4xl lg:text-6xl font-bold mb-6"
             >
               {locale === 'zh' ? '深耕细分行业' : 'Industry Expertise'}
             </motion.h1>

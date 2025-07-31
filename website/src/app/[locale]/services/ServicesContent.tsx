@@ -128,7 +128,7 @@ export default function ServicesContent({ dictionary, locale }: ServicesContentP
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
               >
                 {locale === 'zh' ? '专业的跨境债务追收服务' : 'Professional Cross-Border Debt Recovery Services'}
               </motion.h1>

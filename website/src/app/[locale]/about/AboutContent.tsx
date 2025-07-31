@@ -50,7 +50,7 @@ export default function AboutContent({ dictionary, locale }: AboutContentProps) 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
               >
                 {locale === 'zh' ? '关于 Bingheng Credit' : 'About Bingheng Credit'}
               </motion.h1>
