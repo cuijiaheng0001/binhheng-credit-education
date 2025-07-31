@@ -41,7 +41,7 @@ export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-colors text-gray-600 hover:text-primary-blue"
+        className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-600 hover:bg-primary-blue/10 hover:text-primary-blue"
         aria-label="Change language"
       >
         <Globe className="w-4 h-4" />
