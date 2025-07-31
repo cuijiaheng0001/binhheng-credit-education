@@ -715,7 +715,7 @@ While enforcing U.S. arbitral awards in China is feasible, navigating the proced
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/knowledge/industry-report.jpg',
+    featuredImage: '/images/knowledge/case-study.jpg',
     metaDescription: 'Explore how China\'s legal culture, local protectionism, and business practices create unique challenges for foreign creditors seeking debt recovery.',
     keywords: ['China legal culture', 'foreign debt recovery', 'local protectionism', 'Chinese business environment'],
     content: `
@@ -781,7 +781,7 @@ In conclusion, while China's legal and business environment poses distinctive ch
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/hero/debt-recovery-2.jpg',
+    featuredImage: '/images/content/ecommerce-debt.jpg',
     metaDescription: 'Learn about the challenges U.S. companies face collecting consumer debts from Chinese students and temporary workers, including legal limitations and practical strategies.',
     keywords: ['B2C debt collection', 'Chinese students debt', 'temporary workers', 'cross-border collection'],
     content: `
@@ -846,7 +846,7 @@ Collecting debts from Chinese nationals temporarily in the U.S. poses significan
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/content/b2b-trade-debt.jpg',
+    featuredImage: '/images/content/china-debt-collection.jpg',
     metaDescription: 'Learn about the challenges and strategic approaches for U.S. companies dealing with B2B service contract disputes with Chinese firms.',
     keywords: ['B2B disputes', 'service contracts', 'Chinese business disputes', 'cross-border legal challenges'],
     content: `
