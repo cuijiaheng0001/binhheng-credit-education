@@ -23,12 +23,12 @@ export default function Navigation({ dict, locale }: NavigationProps) {
   const pathname = usePathname()
   
   const navItems = [
-    { label: 'About', href: `/${locale}/about` },
-    { label: 'Services', href: `/${locale}/services` },
-    { label: 'Process', href: `/${locale}/process` },
-    { label: 'Industries', href: `/${locale}/industries` },
-    { label: 'Insights', href: `/${locale}/insights` },
-    { label: 'Contact', href: `/${locale}/contact` },
+    { label: locale === 'zh' ? '关于我们' : 'About', href: `/${locale}/about` },
+    { label: locale === 'zh' ? '服务项目' : 'Services', href: `/${locale}/services` },
+    { label: locale === 'zh' ? '追收流程' : 'Process', href: `/${locale}/process` },
+    { label: locale === 'zh' ? '行业案例' : 'Industries', href: `/${locale}/industries` },
+    { label: locale === 'zh' ? '行业洞察' : 'Insights', href: `/${locale}/insights` },
+    { label: locale === 'zh' ? '联系我们' : 'Contact', href: `/${locale}/contact` },
   ]
 
 
