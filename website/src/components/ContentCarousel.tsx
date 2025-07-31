@@ -262,7 +262,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
                   id={`tab-${index}`}
                   onClick={() => goToTab(index)}
                   className={cn(
-                    "text-sm font-medium transition-all duration-300",
+                    "text-sm font-medium transition-all duration-300 px-2",
                     activeTab === index
                       ? "text-navy"
                       : "text-gray-700 hover:text-gray-900"
@@ -274,9 +274,12 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
                   className={cn(
                     "h-1 rounded-full transition-all duration-500",
                     activeTab === index
-                      ? "w-20 bg-primary-blue"
-                      : "w-12 bg-gray-300 hover:bg-gray-400"
+                      ? "bg-primary-blue"
+                      : "bg-gray-300 hover:bg-gray-400"
                   )}
+                  style={{
+                    width: activeTab === index ? '80%' : '60%'
+                  }}
                   role="progressbar"
                   aria-labelledby={`tab-${index}`}
                   aria-valuenow={activeTab === index ? 100 : 0}
