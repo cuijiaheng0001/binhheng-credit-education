@@ -269,7 +269,7 @@ export default function FAQ({ locale = 'zh' }: FAQProps) {
               className={cn(
                 "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                 activeCategory === category
-                  ? "bg-navy text-white"
+                  ? "bg-primary-blue text-white hover:bg-blue-700"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-200"
               )}
             >
