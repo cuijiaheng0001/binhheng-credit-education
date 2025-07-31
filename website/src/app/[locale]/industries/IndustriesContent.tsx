@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Home, ShoppingCart, Building2, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react'
-import Image from 'next/image'
 import ConsultationModal from '@/components/ConsultationModal'
 import CTASection from '@/components/CTASection'
 
@@ -167,40 +166,49 @@ export default function IndustriesContent({ ctaFreeConsultation, locale }: Indus
   
   return (
     <main className="min-h-screen bg-white">
-      {/* Hero Section - 简约风格 */}
-      <section className="relative py-20 bg-gradient-to-br from-navy via-navy-light to-primary-blue">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center text-white"
-          >
-            <motion.p
+      {/* Hero Section - 匹配About页面风格 */}
+      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+        </div>
+        
+        <div className="relative z-10 h-full flex items-center pt-20">
+          <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full">
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-blue-100 text-sm font-medium mb-4"
+              transition={{ duration: 0.8 }}
+              className="max-w-3xl"
             >
-              {locale === 'zh' ? 'INDUSTRY SOLUTIONS' : 'INDUSTRY SOLUTIONS'}
-            </motion.p>
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="font-sans text-4xl lg:text-6xl font-bold mb-6"
-            >
-              {locale === 'zh' ? '深耕细分行业' : 'Industry Expertise'}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed"
-            >
-              {locale === 'zh' ? '专业团队为不同行业提供针对性的跨境债务追收方案' : 'Professional teams provide targeted cross-border debt recovery solutions for different industries'}
-            </motion.p>
-          </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-white/90 text-sm font-medium mb-4"
+              >
+                {locale === 'zh' ? '行业解决方案' : 'Industry Solutions'}
+              </motion.p>
+              <motion.h1
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
+              >
+                {locale === 'zh' ? '深耕细分行业' : 'Industry Expertise'}
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-xl text-white/90 leading-relaxed"
+              >
+                {locale === 'zh' ? '专业团队为不同行业提供针对性的跨境债务追收方案' : 'Professional teams provide targeted cross-border debt recovery solutions for different industries'}
+              </motion.p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
