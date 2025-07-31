@@ -11,6 +11,7 @@ import { i18n, type Locale } from "@/i18n/config"
 import GoogleAnalytics from "@/components/GoogleAnalytics"
 import StructuredData from '@/components/StructuredData'
 import PerformanceOptimizer from '@/components/PerformanceOptimizer'
+import LoadingScreen from '@/components/LoadingScreen'
 import "../globals.css"
 
 const notoSerifSC = Noto_Serif_SC({
@@ -171,6 +172,7 @@ export default async function LocaleLayout({
         <StructuredData />
       </head>
       <body className={`${notoSerifSC.className} bg-gray-50`}>
+        <LoadingScreen />
         <PerformanceOptimizer />
         <AccessibilityProvider>
           <AccessibilityControls locale={locale} />

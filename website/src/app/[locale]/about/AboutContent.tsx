@@ -335,6 +335,7 @@ export default function AboutContent({ dictionary, locale }: AboutContentProps) 
         variant="light"
         openModal={true}
         showTrustIndicators={true}
+        locale={locale}
       />
     </main>
   )

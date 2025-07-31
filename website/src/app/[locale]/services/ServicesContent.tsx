@@ -373,6 +373,7 @@ export default function ServicesContent({ dictionary, locale }: ServicesContentP
         buttonText={locale === 'zh' ? '立即开始免费评估' : 'Start Free Assessment Now'}
         variant="light"
         openModal={true}
+        locale={locale}
       />
     </main>
   )

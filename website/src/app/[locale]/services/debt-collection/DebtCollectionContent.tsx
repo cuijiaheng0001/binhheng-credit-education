@@ -6,9 +6,10 @@ import CTASection from '@/components/CTASection'
 
 interface DebtCollectionContentProps {
   ctaLabel?: string
+  locale?: string
 }
 
-export default function DebtCollectionContent({ ctaLabel }: DebtCollectionContentProps) {
+export default function DebtCollectionContent({ ctaLabel, locale = 'zh' }: DebtCollectionContentProps) {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -157,11 +158,12 @@ export default function DebtCollectionContent({ ctaLabel }: DebtCollectionConten
 
       <CTASection 
         label={ctaLabel}
-        title="立即开始追回您的债务"
-        description="零前期费用，仅在成功追回后收取佣金"
-        buttonText="获取免费评估"
+        title={locale === 'zh' ? '立即开始追回您的债务' : 'Start Recovering Your Debts Now'}
+        description={locale === 'zh' ? '零前期费用，仅在成功追回后收取佣金' : 'No upfront fees, commission only charged after successful recovery'}
+        buttonText={locale === 'zh' ? '获取免费评估' : 'Get Free Assessment'}
         variant="gradient"
         openModal={true}
+        locale={locale}
       />
     </main>
   )

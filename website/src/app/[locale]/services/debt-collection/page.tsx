@@ -10,5 +10,5 @@ export default async function DebtCollectionPage({
   const { locale } = await params
   const dict = await getDictionary(locale)
   
-  return <DebtCollectionContent ctaLabel={dict.cta.freeConsultation} />
+  return <DebtCollectionContent ctaLabel={dict.cta.freeConsultation} locale={locale} />
 }

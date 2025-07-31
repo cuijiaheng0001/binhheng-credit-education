@@ -12,24 +12,36 @@ export default function LoadingScreen() {
   const pathname = usePathname()
 
   useEffect(() => {
-    // 只在主页显示加载动画
-    if (pathname !== '/' && pathname !== '/zh' && pathname !== '/en') {
+    // 只在主页显示加载动画 - 修复路径匹配逻辑
+    const isHomePage = pathname === '/' || pathname === '/zh' || pathname === '/en'
+    if (!isHomePage) {
       setIsLoading(false)
+      setShouldShow(false)
       return
     }
 
-    // 检查是否是首次访问
+    // 检查是否是首次访问 - 使用更可靠的检测机制
     const hasVisited = sessionStorage.getItem('hasVisitedHome')
-    if (hasVisited) {
+    if (hasVisited && window.performance.navigation.type !== 1) { // 1 = TYPE_RELOAD
       setIsLoading(false)
+      setShouldShow(false)
       return
     }
+
+    // 防止页面跳转，锁定滚动位置
+    const scrollY = window.scrollY
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.position = 'fixed'
+    document.body.style.width = '100%'
+    document.body.style.top = `-${scrollY}px`
+    document.body.dataset.scrollY = scrollY.toString()
 
     // 记录性能时间
     const startTime = performance.now()
 
     // 设置最小显示时间，避免闪烁
-    const minDisplayTime = 800
+    const minDisplayTime = 1200
 
     // 先显示loading
     setShouldShow(true)
@@ -37,7 +49,7 @@ export default function LoadingScreen() {
     // 延迟显示logo，避免闪烁
     const logoTimer = setTimeout(() => {
       setShowLogo(true)
-    }, 150)
+    }, 300)
 
     // 检查页面是否真正加载完成
     const checkPageReady = () => {
@@ -47,6 +59,17 @@ export default function LoadingScreen() {
       setTimeout(() => {
         setIsLoading(false)
         sessionStorage.setItem('hasVisitedHome', 'true')
+        // 恢复滚动和定位
+        const scrollY = document.body.dataset.scrollY
+        document.body.style.overflow = ''
+        document.documentElement.style.overflow = ''
+        document.body.style.position = ''
+        document.body.style.width = ''
+        document.body.style.top = ''
+        delete document.body.dataset.scrollY
+        if (scrollY) {
+          window.scrollTo(0, parseInt(scrollY))
+        }
       }, remainingTime)
     }
 
@@ -59,6 +82,17 @@ export default function LoadingScreen() {
       const maxTimer = setTimeout(() => {
         setIsLoading(false)
         sessionStorage.setItem('hasVisitedHome', 'true')
+        // 恢复滚动和定位
+        const scrollY = document.body.dataset.scrollY
+        document.body.style.overflow = ''
+        document.documentElement.style.overflow = ''
+        document.body.style.position = ''
+        document.body.style.width = ''
+        document.body.style.top = ''
+        delete document.body.dataset.scrollY
+        if (scrollY) {
+          window.scrollTo(0, parseInt(scrollY))
+        }
       }, 3000)
 
       return () => {
@@ -78,13 +112,25 @@ export default function LoadingScreen() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           className="fixed inset-0 z-[9999] bg-white flex items-center justify-center"
           onAnimationComplete={() => {
-            // 动画完成后移除元素，避免遮挡
+            // 退出动画完成时清理
+            // 确保滚动和定位恢复
+            const scrollY = document.body.dataset.scrollY
+            document.body.style.overflow = ''
+            document.documentElement.style.overflow = ''
+            document.body.style.position = ''
+            document.body.style.width = ''
+            document.body.style.top = ''
+            delete document.body.dataset.scrollY
+            if (scrollY) {
+              window.scrollTo(0, parseInt(scrollY))
+            }
+            // 移除元素
             const loadingEl = document.getElementById('loading-screen')
             if (loadingEl) {
-              loadingEl.style.display = 'none'
+              loadingEl.remove()
             }
           }}
           id="loading-screen"

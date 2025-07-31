@@ -514,6 +514,7 @@ export default function IndustriesContent({ ctaFreeConsultation, locale }: Indus
         buttonText={locale === 'zh' ? "立即咨询行业专家" : "Consult Industry Experts Now"}
         variant="light"
         openModal={true}
+        locale={locale}
       />
 
       <ConsultationModal 

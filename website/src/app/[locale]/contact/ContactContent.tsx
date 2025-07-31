@@ -298,6 +298,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
         buttonText={locale === 'zh' ? '立即联系我们' : 'Contact Us Now'}
         variant="light"
         openModal={true}
+        locale={locale}
       />
       
       {/* Consultation Modal */}

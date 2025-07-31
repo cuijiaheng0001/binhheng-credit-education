@@ -334,6 +334,7 @@ export default function ProcessContent({ dictionary, locale }: ProcessContentPro
         buttonText={locale === 'zh' ? '获取免费评估' : 'Get Free Assessment'}
         variant="light"
         openModal={true}
+        locale={locale}
       />
     </main>
   )
