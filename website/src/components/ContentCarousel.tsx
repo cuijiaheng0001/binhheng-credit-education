@@ -197,19 +197,19 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
       (entries) => {
         const [entry] = entries
         if (entry.isIntersecting) {
-          setIsInView(true)
-          const now = Date.now()
-          const timeSinceLastInteraction = now - lastInteractionTime.current
-          
-          // 如果距离上次交互超过30秒，或者从未交互过，重置到第一页
-          if (timeSinceLastInteraction > 30000 || lastInteractionTime.current === 0) {
+          // 进入视窗时
+          if (!isInView) {
+            // 如果之前不在视窗中，总是重置到第一页
             setActiveTab(0)
+            setIsAutoPlaying(true)
           }
-          
-          setIsAutoPlaying(true)
+          setIsInView(true)
         } else {
+          // 离开视窗时
           setIsInView(false)
           setIsAutoPlaying(false)
+          // 记录离开时间
+          lastInteractionTime.current = Date.now()
         }
       },
       {
@@ -226,7 +226,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
         observer.unobserve(sectionRef.current)
       }
     }
-  }, [])
+  }, [isInView])
 
   useEffect(() => {
     if (!isAutoPlaying || isPaused) return
@@ -242,12 +242,15 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
     setActiveTab(index)
     lastInteractionTime.current = Date.now() // 记录交互时间
     setIsAutoPlaying(false)
-    // 用户交互后15秒恢复自动播放
+    setIsPaused(true) // 用户交互后暂停自动播放
+    
+    // 用户交互后20秒恢复自动播放
     setTimeout(() => {
       if (isInView) {
+        setIsPaused(false)
         setIsAutoPlaying(true)
       }
-    }, 15000)
+    }, 20000)
   }
 
   return (
