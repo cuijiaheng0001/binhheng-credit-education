@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { ChevronDown, HelpCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useLanguage } from '@/i18n/client'
+import { type Locale } from '@/i18n/config'
 import ConsultationModal from './ConsultationModal'
 
 interface FAQItem {
@@ -215,11 +215,14 @@ const faqData: Record<string, FAQItem[]> = {
   ]
 }
 
-export default function OptimizedFAQ() {
+interface OptimizedFAQProps {
+  locale?: Locale
+}
+
+export default function OptimizedFAQ({ locale = 'zh' }: OptimizedFAQProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [activeCategory, setActiveCategory] = useState<string>('all')
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
-  const { locale } = useLanguage()
   
   const faqs = faqData[locale] || faqData['zh']
   const categories = ['all', ...Array.from(new Set(faqs.map(faq => faq.category).filter(Boolean)))] as string[]

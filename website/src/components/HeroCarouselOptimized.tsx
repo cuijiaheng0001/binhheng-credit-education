@@ -6,12 +6,17 @@ import { Autoplay, Pagination, EffectFade, A11y } from 'swiper/modules'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import HeroSlide from './HeroSlide'
 import ConsultationModal from './ConsultationModal'
-import { useLanguage } from '@/i18n/client'
+import { type Locale } from '@/i18n/config'
 
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
+
+interface HeroCarouselOptimizedProps {
+  locale?: Locale
+  dictionary?: any
+}
 
 const getSlides = (lang: string, dictionary: any) => [
   {
@@ -64,8 +69,16 @@ const getSlides = (lang: string, dictionary: any) => [
   }
 ]
 
-export default function HeroCarouselOptimized() {
-  const { locale, dictionary } = useLanguage()
+export default function HeroCarouselOptimized({ 
+  locale = 'zh', 
+  dictionary = {
+    cta: {
+      freeConsultation: locale === 'zh' ? '免费咨询' : 'Free Consultation',
+      learnMore: locale === 'zh' ? '了解更多' : 'Learn More',
+      viewCases: locale === 'zh' ? '查看案例' : 'View Cases'
+    }
+  }
+}: HeroCarouselOptimizedProps) {
   const slides = getSlides(locale, dictionary)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const [swiper, setSwiper] = useState<any>(null)

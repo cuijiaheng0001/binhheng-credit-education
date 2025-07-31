@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, TrendingUp, Shield, Award, Globe, ChevronDow
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import OptimizedHeroImage from './OptimizedHeroImage'
-import { useLanguage } from '@/i18n/client'
+import { type Locale } from '@/i18n/config'
 
 const getSlides = (lang: string) => [
   {
@@ -56,8 +56,19 @@ const getSlides = (lang: string) => [
   }
 ]
 
-export default function HeroCarousel() {
-  const { locale, dictionary } = useLanguage()
+interface HeroCarouselProps {
+  locale?: Locale
+  dictionary?: any
+}
+
+export default function HeroCarousel({ 
+  locale = 'zh', 
+  dictionary = {
+    cta: {
+      freeConsultation: locale === 'zh' ? '免费咨询' : 'Free Consultation'
+    }
+  }
+}: HeroCarouselProps) {
   const slides = getSlides(locale)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)

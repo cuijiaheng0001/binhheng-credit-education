@@ -332,7 +332,7 @@ export default function IndustriesContent({ ctaFreeConsultation }: IndustriesCon
                         <h4 className="font-semibold text-gray-900 mb-2">{challenge.title}</h4>
                         <p className="text-gray-600 leading-relaxed">{challenge.description}</p>
                       </motion.div>
-                    ))}}
+                    ))}
                   </div>
                 </motion.div>
 
@@ -363,7 +363,7 @@ export default function IndustriesContent({ ctaFreeConsultation }: IndustriesCon
                         </div>
                         <p className="ml-4 text-gray-700 leading-relaxed">{solution}</p>
                       </motion.div>
-                    ))}}
+                    ))}
                   </div>
                 </motion.div>
               </div>

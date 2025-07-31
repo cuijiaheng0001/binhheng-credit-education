@@ -26,7 +26,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
   
   return (
     <main className="min-h-screen bg-black">
-      <HeroCarousel />
+      <HeroCarousel locale={locale} dictionary={dict} />
       <ContentCarousel />
       <CTASection 
         label={dict.cta.freeConsultation}
@@ -41,7 +41,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
       <ProcessVisualization />
       <IndustryFocus />
       <KnowledgeCenter />
-      <FAQ />
+      <FAQ locale={locale} />
       <CTASection 
         label={dict.cta.freeConsultation}
         title={dict.cta.readyToStart}

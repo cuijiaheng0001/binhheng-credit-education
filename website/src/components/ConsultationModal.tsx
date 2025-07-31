@@ -4,11 +4,12 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import Image from 'next/image'
-import { useLanguage } from '@/i18n/client'
+import { type Locale } from '@/i18n/config'
 
 interface ConsultationModalProps {
   isOpen: boolean
   onClose: () => void
+  locale?: Locale
   prefilledData?: {
     industry?: string
     debtType?: string
@@ -16,8 +17,8 @@ interface ConsultationModalProps {
   }
 }
 
-export default function ConsultationModal({ isOpen, onClose, prefilledData }: ConsultationModalProps) {
-  const { dictionary } = useLanguage()
+export default function ConsultationModal({ isOpen, onClose, locale = 'zh', prefilledData }: ConsultationModalProps) {
+  // 使用静态文本而不是 dictionary
   const [formData, setFormData] = useState({
     name: '',
     email: '',
