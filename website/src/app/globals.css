@@ -722,15 +722,30 @@
 /* Ensure navigation text is always visible on desktop */
 @media (min-width: 1024px) {
   nav a {
-    color: rgb(75 85 99) !important; /* gray-600 */
+    color: rgb(31 41 55) !important; /* gray-800 */
+    opacity: 1 !important;
+    visibility: visible !important;
   }
   
   nav a:hover {
-    color: rgb(0 61 122) !important; /* primary-blue */
+    color: rgb(0 102 204) !important; /* blue-600 */
   }
   
   nav a.font-semibold {
-    color: rgb(0 61 122) !important; /* primary-blue for active items */
+    color: rgb(0 102 204) !important; /* blue-600 for active items */
+  }
+  
+  /* Ensure desktop navigation container is visible */
+  nav .lg\:flex {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Force all navigation elements to be visible */
+  nav * {
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
 

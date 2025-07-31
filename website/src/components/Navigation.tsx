@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Shield } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -18,7 +18,6 @@ interface NavigationProps {
 
 export default function Navigation({ dict, locale }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const pathname = usePathname()
   
@@ -73,13 +72,8 @@ export default function Navigation({ dict, locale }: NavigationProps) {
           <div className="hidden lg:flex items-center flex-1 justify-center">
             <div className="flex items-center gap-2">
               {navItems.map((item, index) => (
-                <motion.div
+                <div
                   key={item.label}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  onMouseEnter={() => setHoveredItem(item.label)}
-                  onMouseLeave={() => setHoveredItem(null)}
                   className="relative group"
                 >
                   <Link
@@ -87,15 +81,16 @@ export default function Navigation({ dict, locale }: NavigationProps) {
                     className={cn(
                       "relative inline-block text-sm font-medium transition-all duration-300 px-4 py-2 rounded-md",
                       "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                      "!text-gray-800 hover:!text-primary-blue focus:ring-primary-blue",
+                      "text-gray-800 hover:text-blue-600 focus:ring-blue-600",
                       "no-underline hover:no-underline",
-                      pathname === item.href && "font-semibold !text-primary-blue"
+                      pathname === item.href && "font-semibold text-blue-600"
                     )}
                     aria-current={pathname === item.href ? "page" : undefined}
+                    style={{ color: pathname === item.href ? '#0066CC' : '#1f2937' }}
                   >
                     {item.label}
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -108,21 +103,16 @@ export default function Navigation({ dict, locale }: NavigationProps) {
             </div>
             
             {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <motion.button 
-                className="px-4 py-2 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm whitespace-nowrap"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+            <div>
+              <button 
+                className="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium text-sm whitespace-nowrap"
                 onClick={() => setIsConsultationOpen(true)}
                 aria-label={dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
+                style={{ backgroundColor: '#003D7A', color: 'white' }}
               >
                 {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
-              </motion.button>
-            </motion.div>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
