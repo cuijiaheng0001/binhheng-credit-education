@@ -43,6 +43,8 @@ export default function OptimizedHeroImage({
         objectFit: 'cover'
       }}
       sizes="100vw"
+      width="1920"
+      height="1080"
     />
   )
 }

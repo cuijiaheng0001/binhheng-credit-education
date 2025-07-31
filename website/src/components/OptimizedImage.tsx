@@ -9,9 +9,9 @@ interface OptimizedImageProps {
   width?: number
   height?: number
   fill?: boolean
-  priority?: boolean
-  className?: string
   sizes?: string
+  className?: string
+  priority?: boolean
   quality?: number
   placeholder?: 'blur' | 'empty'
   blurDataURL?: string
@@ -22,36 +22,37 @@ export default function OptimizedImage({
   alt,
   width,
   height,
-  fill = false,
-  priority = false,
-  className = '',
+  fill,
   sizes,
+  className,
+  priority = false,
   quality = 75,
-  placeholder = 'blur',
+  placeholder = 'empty',
   blurDataURL,
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true)
-  
-  // Generate a simple blur placeholder if not provided
-  const defaultBlurDataURL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=='
+
+  // 根据容器大小计算合适的sizes属性
+  const defaultSizes = fill ? '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw' : undefined
 
   return (
-    <div className={`relative overflow-hidden ${isLoading ? 'animate-pulse bg-gray-200' : ''}`}>
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        fill={fill}
-        priority={priority}
-        className={`${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-        sizes={sizes || (fill ? '100vw' : undefined)}
-        quality={quality}
-        placeholder={placeholder}
-        blurDataURL={blurDataURL || defaultBlurDataURL}
-        onLoadingComplete={() => setIsLoading(false)}
-        loading={priority ? 'eager' : 'lazy'}
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      fill={fill}
+      sizes={sizes || defaultSizes}
+      className={`
+        ${className || ''}
+        ${isLoading ? 'blur-sm grayscale' : 'blur-0 grayscale-0'}
+        transition-all duration-700
+      `}
+      priority={priority}
+      quality={quality}
+      placeholder={placeholder}
+      blurDataURL={blurDataURL}
+      onLoadingComplete={() => setIsLoading(false)}
+    />
   )
 }

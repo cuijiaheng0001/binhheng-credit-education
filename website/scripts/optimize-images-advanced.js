@@ -1,100 +1,135 @@
-const sharp = require('sharp');
-const fs = require('fs').promises;
-const path = require('path');
+const sharp = require('sharp')
+const fs = require('fs').promises
+const path = require('path')
 
-const imageOptimizationConfig = {
-  // Hero images - need higher quality
-  hero: {
-    sizes: [
-      { width: 640, quality: 90 },
-      { width: 1080, quality: 85 },
-      { width: 1920, quality: 80 }
-    ],
-    formats: ['webp', 'jpg']
+// 优化配置
+const config = {
+  jpeg: {
+    quality: 85,
+    progressive: true,
+    mozjpeg: true
   },
-  // Content images - balanced quality
-  content: {
-    sizes: [
-      { width: 400, quality: 85 },
-      { width: 800, quality: 80 },
-      { width: 1200, quality: 75 }
-    ],
-    formats: ['webp', 'jpg']
+  webp: {
+    quality: 80,
+    effort: 6
   },
-  // Service/feature images - can be more compressed
-  services: {
-    sizes: [
-      { width: 400, quality: 80 },
-      { width: 600, quality: 75 }
+  // 针对不同用途的尺寸配置
+  sizes: {
+    // insights文章图片 - 三列布局
+    insights: [
+      { width: 400, suffix: '400w' },   // 移动端和三列布局
+      { width: 600, suffix: '600w' },   // 平板和两列布局
+      { width: 800, suffix: '800w' }    // 大屏幕
     ],
-    formats: ['webp', 'jpg']
+    // 内容图片 - 两列布局
+    content: [
+      { width: 600, suffix: '600w' },   // 移动端全宽
+      { width: 800, suffix: '800w' },   // 平板
+      { width: 1200, suffix: '1200w' }  // 桌面端
+    ],
+    // Hero图片 - 全宽
+    hero: [
+      { width: 1200, suffix: '1200w' }, // 小屏幕
+      { width: 1920, suffix: '1920w' }, // 标准屏幕
+      { width: 2560, suffix: '2560w' }  // 大屏幕
+    ]
   }
-};
+}
 
-async function optimizeImage(inputPath, outputDir, config) {
-  const filename = path.basename(inputPath, path.extname(inputPath));
+async function optimizeImage(inputPath, outputDir, sizeConfig) {
+  const filename = path.basename(inputPath, path.extname(inputPath))
+  const ext = path.extname(inputPath).toLowerCase()
   
-  for (const format of config.formats) {
-    for (const size of config.sizes) {
-      const outputFilename = `${filename}-${size.width}w.${format}`;
-      const outputPath = path.join(outputDir, outputFilename);
-      
-      try {
+  console.log(`优化图片: ${filename}`)
+  
+  // 创建不同尺寸的优化版本
+  for (const size of sizeConfig) {
+    try {
+      // JPEG 版本
+      if (ext === '.jpg' || ext === '.jpeg') {
         await sharp(inputPath)
           .resize(size.width, null, {
             withoutEnlargement: true,
             fit: 'inside'
           })
-          .toFormat(format, {
-            quality: size.quality,
-            progressive: true,
-            mozjpeg: format === 'jpg'
-          })
-          .toFile(outputPath);
-          
-        console.log(`✓ Created ${outputFilename}`);
-      } catch (error) {
-        console.error(`✗ Error processing ${inputPath}:`, error.message);
+          .jpeg(config.jpeg)
+          .toFile(path.join(outputDir, `${filename}-${size.suffix}.jpg`))
       }
-    }
-  }
-}
-
-async function processImages() {
-  const imageDirectories = {
-    hero: path.join(__dirname, '../public/images/hero'),
-    content: path.join(__dirname, '../public/images/content'),
-    services: path.join(__dirname, '../public/images/services')
-  };
-
-  for (const [type, dir] of Object.entries(imageDirectories)) {
-    try {
-      const files = await fs.readdir(dir);
-      const imageFiles = files.filter(f => 
-        /\.(jpg|jpeg|png)$/i.test(f) && 
-        !f.includes('-blur') &&
-        !f.includes('w.jpg') &&
-        !f.includes('w.webp')
-      );
-
-      console.log(`\nOptimizing ${type} images...`);
       
-      for (const file of imageFiles) {
-        const inputPath = path.join(dir, file);
-        await optimizeImage(inputPath, dir, imageOptimizationConfig[type]);
-      }
+      // WebP 版本
+      await sharp(inputPath)
+        .resize(size.width, null, {
+          withoutEnlargement: true,
+          fit: 'inside'
+        })
+        .webp(config.webp)
+        .toFile(path.join(outputDir, `${filename}-${size.suffix}.webp`))
+        
+      console.log(`  ✓ 生成 ${size.suffix} 版本`)
     } catch (error) {
-      console.error(`Error processing ${type} directory:`, error.message);
+      console.error(`  ✗ 生成 ${size.suffix} 版本失败:`, error.message)
+    }
+  }
+  
+  // 生成模糊占位图
+  try {
+    await sharp(inputPath)
+      .resize(20)
+      .blur(10)
+      .jpeg({ quality: 40 })
+      .toFile(path.join(outputDir, `${filename}-blur.jpg`))
+    console.log(`  ✓ 生成模糊占位图`)
+  } catch (error) {
+    console.error(`  ✗ 生成模糊占位图失败:`, error.message)
+  }
+}
+
+async function processDirectory(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true })
+  
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name)
+    
+    if (entry.isDirectory()) {
+      // 根据目录名选择优化配置
+      let sizeConfig = config.sizes.content // 默认
+      
+      if (entry.name === 'hero') {
+        sizeConfig = config.sizes.hero
+      } else if (entry.name === 'insights') {
+        sizeConfig = config.sizes.insights
+      }
+      
+      // 处理子目录中的图片
+      const subEntries = await fs.readdir(fullPath)
+      for (const file of subEntries) {
+        if (/\.(jpg|jpeg|png)$/i.test(file) && !file.includes('-')) {
+          await optimizeImage(path.join(fullPath, file), fullPath, sizeConfig)
+        }
+      }
     }
   }
 }
 
-// Check if sharp is installed
-try {
-  require('sharp');
-  processImages();
-} catch (error) {
-  console.log('Installing sharp...');
-  require('child_process').execSync('npm install sharp', { stdio: 'inherit' });
-  console.log('Please run this script again.');
+// 主函数
+async function main() {
+  const imagesDir = path.join(__dirname, '../public/images')
+  
+  try {
+    console.log('开始优化图片...\n')
+    await processDirectory(imagesDir)
+    console.log('\n图片优化完成！')
+    
+    // 提示使用新的图片组件
+    console.log('\n使用提示:')
+    console.log('1. 在组件中使用 OptimizedImage 组件')
+    console.log('2. 为 Image 组件添加 sizes 属性')
+    console.log('3. 使用 quality={75} 减少文件大小')
+    console.log('4. 只对首屏图片使用 priority={true}')
+  } catch (error) {
+    console.error('优化失败:', error)
+    process.exit(1)
+  }
 }
+
+main()

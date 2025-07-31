@@ -243,12 +243,14 @@ export default function ContentCarousel() {
                 src={tab.content.image}
                 alt={tab.content.title}
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={80}
                 className={cn(
                   "object-cover transition-opacity duration-300",
                   index === activeTab ? "opacity-100" : "opacity-0"
                 )}
-                priority={true}
-                loading="eager"
+                priority={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
               />
             ))}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
