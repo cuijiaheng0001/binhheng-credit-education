@@ -80,7 +80,7 @@ export default function LoadingScreen() {
       checkPageReady()
     } else {
       window.addEventListener('load', checkPageReady)
-      // 最长等待时间
+      // 最长等待时间 - 缩短到2秒，确保页面不会永久显示加载屏幕
       const maxTimer = setTimeout(() => {
         setIsLoading(false)
         sessionStorage.setItem('hasVisitedHome', 'true')
@@ -95,7 +95,7 @@ export default function LoadingScreen() {
         if (scrollY) {
           window.scrollTo(0, parseInt(scrollY))
         }
-      }, 3000)
+      }, 2000)
 
       return () => {
         clearTimeout(logoTimer)

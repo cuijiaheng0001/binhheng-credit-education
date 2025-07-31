@@ -195,14 +195,18 @@
     color: hsl(var(--foreground));
   }
   
-  /* 防止页面加载时的内容闪烁 */
-  html.loading * {
+  /* 防止页面加载时的内容闪烁 - 已移除此规则，因为会导致内容永久隐藏 */
+  /* 原本的规则会在页面有 .loading 类时隐藏所有内容，
+     但如果 JavaScript 加载失败，loading 类可能永远不会被移除，
+     导致页面一直显示空白 */
+  
+  /* html.loading * {
     visibility: hidden !important;
   }
   
   html.loading #loading-screen {
     visibility: visible !important;
-  }
+  } */
   
   /* Professional Typography System */
   h1, h2, h3 {
@@ -712,6 +716,21 @@
     .safe-right {
       padding-right: max(1rem, env(safe-area-inset-right));
     }
+  }
+}
+
+/* Ensure navigation text is always visible on desktop */
+@media (min-width: 1024px) {
+  nav a {
+    color: rgb(75 85 99) !important; /* gray-600 */
+  }
+  
+  nav a:hover {
+    color: rgb(0 61 122) !important; /* primary-blue */
+  }
+  
+  nav a.font-semibold {
+    color: rgb(0 61 122) !important; /* primary-blue for active items */
   }
 }
 

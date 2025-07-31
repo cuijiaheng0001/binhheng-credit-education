@@ -87,9 +87,9 @@ export default function Navigation({ dict, locale }: NavigationProps) {
                     className={cn(
                       "relative inline-block text-sm font-medium transition-all duration-300 px-4 py-2 rounded-md",
                       "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                      "text-gray-600 hover:text-primary-blue focus:ring-primary-blue",
+                      "!text-gray-800 hover:!text-primary-blue focus:ring-primary-blue",
                       "no-underline hover:no-underline",
-                      pathname === item.href && "font-semibold text-primary-blue"
+                      pathname === item.href && "font-semibold !text-primary-blue"
                     )}
                     aria-current={pathname === item.href ? "page" : undefined}
                   >
