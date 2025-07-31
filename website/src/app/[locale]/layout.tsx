@@ -177,7 +177,7 @@ export default async function LocaleLayout({
         <AccessibilityProvider>
           <AccessibilityControls locale={locale} />
           <Navigation dict={dict} locale={locale} />
-          <main className="min-h-screen">
+          <main className="min-h-screen pt-20">
             {children}
           </main>
           <Footer dict={dict} locale={locale} />
