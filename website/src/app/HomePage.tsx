@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { type Locale } from '@/i18n/config'
+import PageContentWrapper from '@/components/PageContentWrapper'
 
 // Critical above-the-fold components - load immediately
 import HeroCarousel from '@/components/HeroCarouselWrapper'
@@ -25,9 +26,10 @@ interface HomePageProps {
 export default function HomePage({ dict, locale }: HomePageProps) {
   
   return (
-    <main className="min-h-screen bg-black">
-      <HeroCarousel locale={locale} dictionary={dict} />
-      <ContentCarousel locale={locale} />
+    <PageContentWrapper>
+      <main className="min-h-screen bg-black">
+        <HeroCarousel locale={locale} dictionary={dict} />
+        <ContentCarousel locale={locale} />
       <CTASection 
         label={dict.cta.freeConsultation}
         title={dict.cta.exploreSolutions}
@@ -53,6 +55,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
         locale={locale}
       />
       <TrustIndicators locale={locale} />
-    </main>
+      </main>
+    </PageContentWrapper>
   )
 }

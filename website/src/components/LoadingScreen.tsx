@@ -6,10 +6,12 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 export default function LoadingScreen() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [showLogo, setShowLogo] = useState(false)
-  const [shouldShow, setShouldShow] = useState(false)
   const pathname = usePathname()
+  // 初始状态根据路径决定
+  const isHomePage = pathname === '/' || pathname === '/zh' || pathname === '/en'
+  const [isLoading, setIsLoading] = useState(isHomePage)
+  const [showLogo, setShowLogo] = useState(false)
+  const [shouldShow, setShouldShow] = useState(isHomePage)
 
   useEffect(() => {
     // 只在主页显示加载动画 - 修复路径匹配逻辑

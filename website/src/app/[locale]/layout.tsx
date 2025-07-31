@@ -160,6 +160,15 @@ export default async function LocaleLayout({
               text-decoration: none;
             }
             .skip-to-content:focus { left: 0; }
+            /* 初始隐藏主页内容，防止闪现 */
+            body[data-pathname="/"] main,
+            body[data-pathname="/zh"] main,
+            body[data-pathname="/en"] main {
+              visibility: hidden;
+            }
+            body.content-ready main {
+              visibility: visible !important;
+            }
           `
         }} />
         
@@ -171,7 +180,7 @@ export default async function LocaleLayout({
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"} />
         <StructuredData />
       </head>
-      <body className={`${notoSerifSC.className} bg-gray-50`}>
+      <body className={`${notoSerifSC.className} bg-gray-50`} data-pathname={`/${locale}`}>
         <LoadingScreen />
         <PerformanceOptimizer />
         <AccessibilityProvider>
