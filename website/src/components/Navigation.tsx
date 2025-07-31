@@ -118,7 +118,7 @@ export default function Navigation({ dict, locale }: NavigationProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setIsConsultationOpen(true)}
-                aria-label={dictionary.cta.freeConsultation}
+                aria-label={dict.cta.freeConsultation}
               >
                 {dict.cta.freeConsultation}
               </motion.button>

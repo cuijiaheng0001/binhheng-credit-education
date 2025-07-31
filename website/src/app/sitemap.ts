@@ -55,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     locales.forEach(locale => {
       urls.push({
         url: `${baseUrl}/${locale}${page.path}`,
-        lastModified: 'lastModified' in page ? page.lastModified : currentDate,
+        lastModified: 'lastModified' in page && page.lastModified instanceof Date ? page.lastModified : currentDate,
         changeFrequency: page.changeFrequency as any,
         priority: page.priority,
         alternates: {

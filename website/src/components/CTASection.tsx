@@ -3,9 +3,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { ArrowRight } from 'lucide-react'
-import { useLanguage } from '@/i18n/client'
-import ConsultationModal from './ConsultationModal'
-import CTAButton from './CTAButton'
+import ConsultationModal from './ConsultationModalWrapper'
 
 interface CTASectionProps {
   label?: string
@@ -16,6 +14,11 @@ interface CTASectionProps {
   variant?: 'gradient' | 'light' | 'dark'
   showTrustIndicators?: boolean
   openModal?: boolean
+  trustIndicators?: {
+    noUpfrontFees?: string
+    response24h?: string
+    compliant100?: string
+  }
 }
 
 export default function CTASection({
@@ -26,11 +29,15 @@ export default function CTASection({
   buttonLink = '/contact',
   variant = 'gradient',
   showTrustIndicators = true,
-  openModal = false
+  openModal = false,
+  trustIndicators = {
+    noUpfrontFees: '无预付费用',
+    response24h: '24小时响应',
+    compliant100: '100%合规'
+  }
 }: CTASectionProps = {}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const { dictionary } = useLanguage()
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
 
@@ -135,11 +142,11 @@ export default function CTASection({
               transition={{ duration: 0.6, delay: 0.5 }}
               className={`mt-12 flex flex-wrap justify-center items-center gap-8 text-sm ${variant === 'gradient' ? 'text-white/70' : 'text-gray-600'}`}
             >
-              <div>{dictionary.cta.noUpfrontFees}</div>
+              <div>{trustIndicators.noUpfrontFees}</div>
               <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-              <div>{dictionary.cta.response24h}</div>
+              <div>{trustIndicators.response24h}</div>
               <div className="w-1 h-1 bg-current rounded-full opacity-40" />
-              <div>{dictionary.cta.compliant100}</div>
+              <div>{trustIndicators.compliant100}</div>
             </motion.div>
           )}
         </motion.div>
