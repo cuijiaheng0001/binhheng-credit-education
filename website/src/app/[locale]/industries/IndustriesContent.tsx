@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Home, ShoppingCart, Building2, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react'
 import ConsultationModal from '@/components/ConsultationModal'
 import CTASection from '@/components/CTASection'
+import Image from 'next/image'
 
 const getIndustries = (locale: string) => [
   {
@@ -170,7 +171,14 @@ export default function IndustriesContent({ ctaFreeConsultation, locale }: Indus
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
+          <Image
+            src="/images/hero/industries-hero.jpg"
+            alt="Industry Solutions"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
         </div>

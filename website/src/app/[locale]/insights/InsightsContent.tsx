@@ -141,18 +141,31 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-16 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-8">
+      <section className="relative py-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/debt-recovery-2.jpg"
+            alt="Insights and Analysis"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/70 to-gray-900/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40" />
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="font-sans text-4xl lg:text-6xl text-gray-900 mb-6 font-bold">
+            <h1 className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold">
               {locale === 'zh' ? '洞察与见解' : 'Insights & Analysis'}
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-white/90">
               {locale === 'zh' ? '深度解析跨境债务追收的挑战与机遇，分享实战经验与专业见解' : 'In-depth analysis of cross-border debt recovery challenges and opportunities, sharing practical experience and professional insights'}
             </p>
           </motion.div>

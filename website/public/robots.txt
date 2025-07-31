@@ -4,10 +4,30 @@ Allow: /
 # Sitemap
 Sitemap: https://www.binghengcredit.com/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1
+# Crawl-delay (removed to allow faster crawling)
+# Crawl-delay: 1
 
-# Disallow admin or private paths if any
+# Disallow technical paths
 Disallow: /api/
 Disallow: /_next/
-Disallow: /404
+Disallow: /*.json$
+
+# Allow search engines to crawl CSS and JS
+Allow: /_next/static/
+Allow: /_next/image/
+
+# Specific crawler instructions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
