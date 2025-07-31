@@ -78,10 +78,10 @@ export default function ProcessVisualization({ locale = 'zh' }: ProcessVisualiza
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {locale === 'zh' ? '透明高效的追收流程' : 'Transparent & Efficient Recovery Process'}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             {locale === 'zh' ? '四步专业流程，平均 45-60 天完成追收' : 'Professional 4-step process • Average completion: 45-60 days'}
           </p>
         </motion.div>
@@ -117,13 +117,13 @@ export default function ProcessVisualization({ locale = 'zh' }: ProcessVisualiza
                     </div>
                     
                     {/* Content */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-sm font-medium text-gray-500 mb-3">
+                    <p className="text-sm md:text-base font-medium text-gray-500 mb-3">
                       {step.duration}
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-sm md:text-base text-gray-600">
                       {step.description}
                     </p>
                     
@@ -151,22 +151,22 @@ export default function ProcessVisualization({ locale = 'zh' }: ProcessVisualiza
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
               <span className="text-lg md:text-base font-bold">0</span>
             </div>
-            <h4 className="font-bold text-gray-900 mb-2">{locale === 'zh' ? '无前期费用' : 'Zero Upfront Costs'}</h4>
-            <p className="text-sm text-gray-600">{locale === 'zh' ? '不成功不收费，零风险合作' : 'Contingency-based: We only get paid when you do'}</p>
+            <h4 className="text-base md:text-lg font-bold text-gray-900 mb-2">{locale === 'zh' ? '无前期费用' : 'Zero Upfront Costs'}</h4>
+            <p className="text-sm md:text-base text-gray-600">{locale === 'zh' ? '不成功不收费，零风险合作' : 'Contingency-based: We only get paid when you do'}</p>
           </div>
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
               <span className="text-base md:text-sm font-bold">24h</span>
             </div>
-            <h4 className="font-bold text-gray-900 mb-2">{locale === 'zh' ? '快速响应' : 'Rapid Response'}</h4>
-            <p className="text-sm text-gray-600">{locale === 'zh' ? '24小时内提供初步评估' : 'Initial case review within 24 hours'}</p>
+            <h4 className="text-base md:text-lg font-bold text-gray-900 mb-2">{locale === 'zh' ? '快速响应' : 'Rapid Response'}</h4>
+            <p className="text-sm md:text-base text-gray-600">{locale === 'zh' ? '24小时内提供初步评估' : 'Initial case review within 24 hours'}</p>
           </div>
           <div className="text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 md:w-14 md:h-14 bg-navy text-white rounded-full mb-3 overflow-hidden relative">
               <span className="text-2xl md:text-xl font-bold">100%</span>
             </div>
-            <h4 className="font-bold text-gray-900 mb-2">{locale === 'zh' ? '合规操作' : 'Full Compliance'}</h4>
-            <p className="text-sm text-gray-600">{locale === 'zh' ? '严格遵守中美两国法律' : 'Complete adherence to US & Chinese regulations'}</p>
+            <h4 className="text-base md:text-lg font-bold text-gray-900 mb-2">{locale === 'zh' ? '合规操作' : 'Full Compliance'}</h4>
+            <p className="text-sm md:text-base text-gray-600">{locale === 'zh' ? '严格遵守中美两国法律' : 'Complete adherence to US & Chinese regulations'}</p>
           </div>
         </motion.div>
 
