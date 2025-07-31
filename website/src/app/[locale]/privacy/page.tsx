@@ -12,9 +12,9 @@ export default function PrivacyPage() {
   const sections = isEnglish ? [
     {
       id: 'intro',
-      title: dictionary.privacy?.sections?.intro?.title || '1. Introduction',
+      title: '1. Introduction',
       icon: FileText,
-      content: dictionary.privacy?.sections?.intro?.content || 'This Privacy Policy applies to all users who access or use this website. We are committed to protecting user privacy and personal information security. This policy details how we collect, use, and protect your personal information.'
+      content: 'This Privacy Policy applies to all users who access or use this website. We are committed to protecting user privacy and personal information security. This policy details how we collect, use, and protect your personal information.'
     },
     {
       id: 'collection',
