@@ -167,6 +167,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
   const [isAutoPlaying, setIsAutoPlaying] = useState(false) // 初始状态为false
   const [isPaused, setIsPaused] = useState(false) // 鼠标悬停暂停
   const [isInView, setIsInView] = useState(false) // 记录组件是否在视窗中
+  const [hasBeenViewed, setHasBeenViewed] = useState(false) // 记录是否已经被查看过
   const lastInteractionTime = useRef<number>(0) // 记录最后交互时间
   const sectionRef = useRef<HTMLElement>(null)
   const currentContent = tabs[activeTab].content
@@ -189,21 +190,28 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
     } else {
       setTimeout(preloadImages, 1000)
     }
-  }, [tabs])
+  }, [])
 
   // 使用Intersection Observer检测组件是否在视窗中
+  // 修复：不再在进入视窗时自动重置到第一个标签页，避免页面自动滚动
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries
         if (entry.isIntersecting) {
           // 进入视窗时
-          if (!isInView) {
-            // 如果之前不在视窗中，总是重置到第一页
-            setActiveTab(0)
+          setIsInView(true)
+          // 只有第一次进入视窗时才开始自动播放，不重置标签页
+          if (!hasBeenViewed) {
+            setHasBeenViewed(true)
+            // 延迟一秒后开始自动播放，避免页面加载时的跳动
+            setTimeout(() => {
+              setIsAutoPlaying(true)
+            }, 1000)
+          } else if (!isPaused) {
+            // 如果已经查看过且没有暂停，恢复自动播放
             setIsAutoPlaying(true)
           }
-          setIsInView(true)
         } else {
           // 离开视窗时
           setIsInView(false)
@@ -226,7 +234,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
         observer.unobserve(sectionRef.current)
       }
     }
-  }, [isInView])
+  }, [isInView, hasBeenViewed, isPaused])
 
   useEffect(() => {
     if (!isAutoPlaying || isPaused) return
