@@ -152,7 +152,7 @@ export default function HeroCarousel({
         <div 
           className="relative z-10 h-screen flex items-center"
         >
-        <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full pb-20">
+        <div className="max-w-7xl mx-auto px-8 lg:px-12 w-full pb-12">
           <div className="max-w-2xl">
             <AnimatePresence mode="wait">
               <motion.div

@@ -204,7 +204,7 @@ export default function IndustriesContent({ ctaFreeConsultation, locale }: Indus
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="font-sans text-4xl lg:text-6xl text-white mb-6 font-bold"
+                className="font-sans text-4xl lg:text-6xl text-white mb-6 leading-[1.1] font-bold"
               >
                 {locale === 'zh' ? '深耕细分行业' : 'Industry Expertise'}
               </motion.h1>
