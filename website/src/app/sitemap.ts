@@ -13,12 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/process', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/industries', priority: 0.8, changeFrequency: 'weekly' },
-    { path: '/blog', priority: 0.7, changeFrequency: 'daily' },
+    { path: '/insights', priority: 0.7, changeFrequency: 'weekly' }, // Changed from /blog to /insights
     { path: '/contact', priority: 0.9, changeFrequency: 'monthly' },
     { path: '/case-studies', priority: 0.8, changeFrequency: 'weekly' },
-    { path: '/compliance', priority: 0.5, changeFrequency: 'quarterly' },
-    { path: '/privacy', priority: 0.3, changeFrequency: 'quarterly' },
-    { path: '/terms', priority: 0.3, changeFrequency: 'quarterly' },
+    { path: '/compliance', priority: 0.5, changeFrequency: 'yearly' }, // Changed to yearly
+    { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' }, // Changed to yearly
+    { path: '/terms', priority: 0.3, changeFrequency: 'yearly' }, // Changed to yearly
   ]
 
   // Service-specific pages (for better SEO)

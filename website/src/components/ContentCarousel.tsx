@@ -193,7 +193,7 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
   }, [])
 
   // 使用Intersection Observer检测组件是否在视窗中
-  // 修复：不再在进入视窗时自动重置到第一个标签页，避免页面自动滚动
+  // 每次进入视窗时都重置到第一个标签页
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -201,7 +201,14 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
         if (entry.isIntersecting) {
           // 进入视窗时
           setIsInView(true)
-          // 只有第一次进入视窗时才开始自动播放，不重置标签页
+          
+          // 检查离开视窗的时间，如果超过2秒就重置到第一个标签页
+          const timeSinceLeft = Date.now() - lastInteractionTime.current
+          if (timeSinceLeft > 2000 || !hasBeenViewed) {
+            setActiveTab(0) // 重置到第一个标签页
+          }
+          
+          // 只有第一次进入视窗时才开始自动播放
           if (!hasBeenViewed) {
             setHasBeenViewed(true)
             // 延迟一秒后开始自动播放，避免页面加载时的跳动
