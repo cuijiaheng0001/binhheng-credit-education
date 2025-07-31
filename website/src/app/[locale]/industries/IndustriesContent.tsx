@@ -172,7 +172,7 @@ export default function IndustriesContent({ ctaFreeConsultation, locale }: Indus
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero/debt-recovery-1.jpg"
+            src="/images/hero/industries-hero.jpg"
             alt="Industry Solutions - Professional Debt Recovery Services"
             fill
             className="object-cover opacity-90"
