@@ -37,7 +37,7 @@ export default function HomePage({ dict, locale }: HomePageProps) {
         openModal={true}
       />
       <ProblemAwareness locale={locale} />
-      <SolutionOverview />
+      <SolutionOverview locale={locale} />
       <ProcessVisualization />
       <IndustryFocus />
       <KnowledgeCenter />

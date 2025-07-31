@@ -2,8 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle, Globe, Shield, Users } from 'lucide-react'
+import { type Locale } from '@/i18n/config'
 
-const solutions = [
+const getSolutions = (locale: Locale) => [
   {
     icon: Globe,
     title: '本地化专业网络',
@@ -18,13 +19,23 @@ const solutions = [
   },
   {
     icon: Users,
-    title: '专业追收团队',
-    description: '双语团队，深谙中美商业文化差异',
-    features: ['平均10年+经验', '中英双语沟通', '24/7响应支持']
+    title: locale === 'zh' ? '专业追收团队' : 'Expert Recovery Team',
+    description: locale === 'zh' 
+      ? '双语团队，深谙中美商业文化差异'
+      : 'Bilingual professionals bridging US-China business cultures',
+    features: locale === 'zh' 
+      ? ['平均10年+经验', '中英双语沟通', '24/7响应支持']
+      : ['10+ years average experience', 'Native fluency in English and Mandarin', 'Round-the-clock support']
   }
 ]
 
-export default function SolutionOverview() {
+interface SolutionOverviewProps {
+  locale?: Locale
+}
+
+export default function SolutionOverview({ locale = 'zh' }: SolutionOverviewProps) {
+  const solutions = getSolutions(locale)
+  
   return (
     <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-8">
@@ -35,10 +46,12 @@ export default function SolutionOverview() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-4">
-            我们的独特方法
+            {locale === 'zh' ? '我们的独特方法' : 'Our Unique Approach'}
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            结合本地专业知识、合规操作和文化理解，实现高效追收
+            {locale === 'zh' 
+              ? '结合本地专业知识、合规操作和文化理解，实现高效追收'
+              : 'Combining local expertise, regulatory compliance, and cultural intelligence to deliver superior recovery results'}
           </p>
         </motion.div>
 
