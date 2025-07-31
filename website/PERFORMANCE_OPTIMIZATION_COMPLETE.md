@@ -17,7 +17,7 @@
 ### 3. ✅ JavaScript 优化（节省 74 KiB）
 - Google Analytics 延迟加载（用户交互后加载）
 - 移除生产环境 console 语句
-- 更新 TypeScript 目标到 ES2020
+- 更新 TypeScript 目标到 ES2022
 - 配置 browserslist 针对现代浏览器
 
 ### 4. ✅ CSS 优化（节省 16 KiB）

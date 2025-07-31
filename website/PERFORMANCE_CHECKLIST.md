@@ -12,7 +12,7 @@
 ### 2. JavaScript 优化
 - [x] Google Analytics 延迟加载
 - [x] 移除生产环境 console
-- [x] 目标 ES2020 (减少 polyfills)
+- [x] 目标 ES2022 (减少 polyfills)
 - [x] Tree shaking 启用
 
 ### 3. 图片优化
