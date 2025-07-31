@@ -160,15 +160,6 @@ export default async function LocaleLayout({
               text-decoration: none;
             }
             .skip-to-content:focus { left: 0; }
-            /* 初始隐藏主页内容，防止闪现 */
-            body[data-pathname="/"] main,
-            body[data-pathname="/zh"] main,
-            body[data-pathname="/en"] main {
-              visibility: hidden;
-            }
-            body.content-ready main {
-              visibility: visible !important;
-            }
           `
         }} />
         
