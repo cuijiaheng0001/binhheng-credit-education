@@ -23,12 +23,12 @@ export default function Navigation({ dict, locale }: NavigationProps) {
   const pathname = usePathname()
   
   const navItems = [
-    { label: locale === 'zh' ? '关于我们' : 'About', href: `/${locale}/about` },
-    { label: locale === 'zh' ? '服务项目' : 'Services', href: `/${locale}/services` },
-    { label: locale === 'zh' ? '追收流程' : 'Process', href: `/${locale}/process` },
-    { label: locale === 'zh' ? '行业案例' : 'Industries', href: `/${locale}/industries` },
-    { label: locale === 'zh' ? '行业洞察' : 'Insights', href: `/${locale}/insights` },
-    { label: locale === 'zh' ? '联系我们' : 'Contact', href: `/${locale}/contact` },
+    { label: dict.navigation?.about || (locale === 'zh' ? '关于我们' : 'About'), href: `/${locale}/about` },
+    { label: dict.navigation?.services || (locale === 'zh' ? '服务项目' : 'Services'), href: `/${locale}/services` },
+    { label: dict.navigation?.process || (locale === 'zh' ? '追收流程' : 'Process'), href: `/${locale}/process` },
+    { label: dict.navigation?.industries || (locale === 'zh' ? '行业案例' : 'Industries'), href: `/${locale}/industries` },
+    { label: dict.navigation?.insights || (locale === 'zh' ? '行业洞察' : 'Insights'), href: `/${locale}/insights` },
+    { label: dict.navigation?.contact || (locale === 'zh' ? '联系我们' : 'Contact'), href: `/${locale}/contact` },
   ]
 
 
@@ -118,9 +118,9 @@ export default function Navigation({ dict, locale }: NavigationProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setIsConsultationOpen(true)}
-                aria-label={dict.cta.freeConsultation}
+                aria-label={dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
               >
-                {dict.cta.freeConsultation}
+                {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
               </motion.button>
             </motion.div>
           </div>
@@ -179,7 +179,7 @@ export default function Navigation({ dict, locale }: NavigationProps) {
                 }}
                 className="w-full mt-4 px-6 py-4 bg-navy text-white font-semibold tracking-wide rounded-lg hover:bg-navy-light transition-all duration-300 shadow-lg"
               >
-                {dict.cta.freeConsultation}
+                {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
               </motion.button>
             </div>
           </motion.div>
