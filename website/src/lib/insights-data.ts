@@ -29,7 +29,7 @@ export const insightsArticles: InsightArticle[] = [
       name: '张明',
       title: '高级催收策略师'
     },
-    featuredImage: '/images/content/china-debt-collection.jpg',
+    featuredImage: '/images/services/recovery.jpg',
     metaDescription: '了解为什么90%的美国催收公司在追收中国债务时失败，以及如何通过文化适应和本地化策略提高成功率。',
     keywords: ['中国债务追收', '催收失败原因', '跨境催收策略', '本地化催收'],
     content: `
@@ -299,7 +299,7 @@ A: 专业的追收反而维护学校权威，我们会以学校利益为重。
       name: '王律师',
       title: '国际债务法律顾问'
     },
-    featuredImage: '/images/services/resolution.jpg',
+    featuredImage: '/images/knowledge/best-practices.jpg',
     metaDescription: '详解FDCPA法案对追收中国债务人的影响，包括适用范围、合规要求和实践建议，助您避免法律风险。',
     keywords: ['FDCPA合规', '跨境催收法律', '中国债务人权利', '催收法规'],
     content: `
@@ -469,7 +469,7 @@ FDCPA主要基于属地原则，保护"美国境内"的消费者。
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/services/resolution.jpg',
+    featuredImage: '/images/services/assessment.jpg',
     metaDescription: 'Understanding FDCPA compliance when collecting consumer debts from Chinese residents: legal boundaries, enforcement limitations, and practical recommendations.',
     keywords: ['FDCPA compliance', 'Chinese debt collection', 'cross-border debt recovery', 'international debt collection law'],
     content: `
@@ -537,7 +537,7 @@ While the FDCPA imposes strict standards on U.S. collectors' methods, it does no
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/services/assessment.jpg',
+    featuredImage: '/images/services/process.jpg',
     metaDescription: 'Understand the key institutional challenges foreign creditors face when recovering debts through China\'s legal system: jurisdiction, evidence requirements, and enforcement issues.',
     keywords: ['China legal system', 'foreign creditor challenges', 'Chinese court enforcement', 'cross-border debt recovery'],
     content: `
@@ -602,7 +602,7 @@ Understanding and proactively addressing these inherent challenges can significa
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/services/process.jpg',
+    featuredImage: '/images/services/resolution.jpg',
     metaDescription: 'Learn about the challenges and strategies for enforcing U.S. arbitral awards in China, including procedural requirements, common obstacles, and practical recommendations.',
     keywords: ['arbitral award enforcement', 'New York Convention', 'China arbitration', 'cross-border enforcement'],
     content: `
@@ -715,7 +715,7 @@ While enforcing U.S. arbitral awards in China is feasible, navigating the proced
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/content/china-debt-collection.jpg',
+    featuredImage: '/images/knowledge/industry-report.jpg',
     metaDescription: 'Explore how China\'s legal culture, local protectionism, and business practices create unique challenges for foreign creditors seeking debt recovery.',
     keywords: ['China legal culture', 'foreign debt recovery', 'local protectionism', 'Chinese business environment'],
     content: `
@@ -781,7 +781,7 @@ In conclusion, while China's legal and business environment poses distinctive ch
       name: 'Legal Research Team',
       title: 'Bingheng Credit Legal Department'
     },
-    featuredImage: '/images/content/student-housing-debt.jpg',
+    featuredImage: '/images/hero/debt-recovery-2.jpg',
     metaDescription: 'Learn about the challenges U.S. companies face collecting consumer debts from Chinese students and temporary workers, including legal limitations and practical strategies.',
     keywords: ['B2C debt collection', 'Chinese students debt', 'temporary workers', 'cross-border collection'],
     content: `
