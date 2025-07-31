@@ -131,13 +131,17 @@ export function preloadCriticalResources() {
   ];
   
   criticalFonts.forEach((font) => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'font';
-    link.type = 'font/woff2';
-    link.href = font;
-    link.crossOrigin = 'anonymous';
-    document.head.appendChild(link);
+    // 检查是否已经存在相同的预加载链接
+    const existingLink = document.querySelector(`link[rel="preload"][href="${font}"]`);
+    if (!existingLink) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'font';
+      link.type = 'font/woff2';
+      link.href = font;
+      link.crossOrigin = 'anonymous';
+      document.head.appendChild(link);
+    }
   });
 }
 

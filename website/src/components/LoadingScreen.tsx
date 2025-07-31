@@ -127,11 +127,8 @@ export default function LoadingScreen() {
             if (scrollY) {
               window.scrollTo(0, parseInt(scrollY))
             }
-            // 移除元素
-            const loadingEl = document.getElementById('loading-screen')
-            if (loadingEl) {
-              loadingEl.remove()
-            }
+            // 不要手动移除元素，让 React 管理 DOM
+            setShouldShow(false)
           }}
           id="loading-screen"
         >
