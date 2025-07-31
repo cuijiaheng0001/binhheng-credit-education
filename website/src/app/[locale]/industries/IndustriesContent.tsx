@@ -168,17 +168,18 @@ export default function IndustriesContent({ ctaFreeConsultation, locale }: Indus
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section - 匹配About页面风格 */}
-      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+      <section className="relative h-[60vh] min-h-[500px] overflow-hidden bg-black">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/hero/industries-hero.jpg"
-            alt="Industry Solutions"
+            src="/images/hero/debt-recovery-1.jpg"
+            alt="Industry Solutions - Professional Debt Recovery Services"
             fill
-            className="object-cover"
+            className="object-cover opacity-90"
             priority
+            sizes="100vw"
+            quality={85}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 opacity-60" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
         </div>
