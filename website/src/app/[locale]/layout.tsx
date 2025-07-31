@@ -79,7 +79,7 @@ export default async function LocaleLayout({
       <body className={`${notoSerifSC.className} bg-gray-50`}>
         <PerformanceOptimizer />
         <AccessibilityProvider>
-          <AccessibilityControls />
+          <AccessibilityControls locale={locale} />
           <Navigation dict={dict} locale={locale} />
           <main className="min-h-screen">
             {children}

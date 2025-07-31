@@ -13,7 +13,7 @@ import {
   Volume2
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { useLanguage } from '@/i18n/client'
+import { type Locale } from '@/i18n/config'
 
 interface AccessibilitySettings {
   fontSize: number
@@ -22,7 +22,11 @@ interface AccessibilitySettings {
   screenReader: boolean
 }
 
-export default function AccessibilityControls() {
+interface AccessibilityControlsProps {
+  locale?: Locale
+}
+
+export default function AccessibilityControls({ locale = 'zh' }: AccessibilityControlsProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [settings, setSettings] = useState<AccessibilitySettings>({
     fontSize: 100,
@@ -30,7 +34,7 @@ export default function AccessibilityControls() {
     keyboardNav: false,
     screenReader: false
   })
-  const { locale } = useLanguage()
+  // locale is now passed as prop
 
   // Load settings from localStorage
   useEffect(() => {
