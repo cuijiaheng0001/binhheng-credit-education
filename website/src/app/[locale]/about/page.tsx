@@ -10,5 +10,5 @@ export default async function AboutPage({
   const { locale } = await params
   const dictionary = await getDictionary(locale)
 
-  return <AboutContent dictionary={dictionary} />
+  return <AboutContent dictionary={dictionary} locale={locale} />
 }

@@ -18,11 +18,20 @@ const categoryIcons = {
 }
 
 const categoryLabels = {
-  guide: '实用指南',
-  'case-study': '成功案例',
-  compliance: '合规解析',
-  strategy: '催收策略',
-  data: '数据洞察',
+  zh: {
+    guide: '实用指南',
+    'case-study': '成功案例',
+    compliance: '合规解析',
+    strategy: '催收策略',
+    data: '数据洞察',
+  },
+  en: {
+    guide: 'Practical Guide',
+    'case-study': 'Success Story',
+    compliance: 'Compliance Analysis',
+    strategy: 'Collection Strategy',
+    data: 'Data Insights',
+  }
 }
 
 function InsightCard({ article, locale }: { article: InsightArticle; locale: string }) {
@@ -47,7 +56,7 @@ function InsightCard({ article, locale }: { article: InsightArticle; locale: str
           <div className="absolute top-4 left-4 z-10">
             <span className="inline-flex items-center px-3 py-1 bg-white/90 backdrop-blur rounded-full text-sm font-medium text-gray-700">
               <Icon className="w-4 h-4 mr-1" />
-              {categoryLabels[article.category]}
+              {categoryLabels[locale as 'zh' | 'en'][article.category]}
             </span>
           </div>
         </div>
@@ -65,12 +74,12 @@ function InsightCard({ article, locale }: { article: InsightArticle; locale: str
             <div className="flex items-center gap-4 text-sm text-gray-500">
               <span className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
-                {new Date(article.publishDate).toLocaleDateString('zh-CN')}
+                {new Date(article.publishDate).toLocaleDateString(locale === 'zh' ? 'zh-CN' : 'en-US')}
               </span>
             </div>
             
             <span className="text-navy font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-              阅读全文
+              {locale === 'zh' ? '阅读全文' : 'Read More'}
               <ArrowRight className="w-4 h-4" />
             </span>
           </div>
@@ -116,14 +125,14 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
     return filtered
   }, [articles, selectedCategory, searchQuery])
 
-  const categories = ['all', ...Object.keys(categoryLabels)] as const
+  const categories = ['all', ...Object.keys(categoryLabels.zh)] as const
 
   // Calculate article counts per category
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {
       all: articles.length
     }
-    Object.keys(categoryLabels).forEach(cat => {
+    Object.keys(categoryLabels.zh).forEach(cat => {
       counts[cat] = articles.filter(article => article.category === cat).length
     })
     return counts
@@ -141,10 +150,10 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl font-light text-gray-900 mb-6">
-              洞察与见解
+              {locale === 'zh' ? '洞察与见解' : 'Insights & Analysis'}
             </h1>
             <p className="text-xl text-gray-600">
-              深度解析跨境债务追收的挑战与机遇，分享实战经验与专业见解
+              {locale === 'zh' ? '深度解析跨境债务追收的挑战与机遇，分享实战经验与专业见解' : 'In-depth analysis of cross-border debt recovery challenges and opportunities, sharing practical experience and professional insights'}
             </p>
           </motion.div>
         </div>
@@ -161,7 +170,7 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="搜索文章标题、内容或标签..."
+                placeholder={locale === 'zh' ? "搜索文章标题、内容或标签..." : "Search article titles, content or tags..."}
                 className="w-full pl-12 pr-10 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent transition-all"
               />
               {searchQuery && (
@@ -176,9 +185,9 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
 
             {/* Sort Options */}
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-600">排序：</span>
+              <span className="text-sm text-gray-600">{locale === 'zh' ? '排序：' : 'Sort:'}</span>
               <div className="px-4 py-2 rounded-lg border border-gray-200 bg-gray-50 text-gray-600 text-sm">
-                按最新发布排序
+                {locale === 'zh' ? '按最新发布排序' : 'Sort by Latest'}
               </div>
             </div>
           </div>
@@ -191,9 +200,9 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
               className="mt-4 text-sm text-gray-600"
             >
               {filteredArticles.length > 0 ? (
-                <span>找到 <span className="font-semibold text-gray-900">{filteredArticles.length}</span> 篇相关文章</span>
+                <span>{locale === 'zh' ? '找到 ' : 'Found '}<span className="font-semibold text-gray-900">{filteredArticles.length}</span>{locale === 'zh' ? ' 篇相关文章' : ' related articles'}</span>
               ) : (
-                <span>未找到相关文章，请尝试其他关键词</span>
+                <span>{locale === 'zh' ? '未找到相关文章，请尝试其他关键词' : 'No articles found, please try other keywords'}</span>
               )}
             </motion.div>
           )}
@@ -216,7 +225,7 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
-                  <span>{category === 'all' ? '全部文章' : categoryLabels[category as keyof typeof categoryLabels]}</span>
+                  <span>{category === 'all' ? (locale === 'zh' ? '全部文章' : 'All Articles') : categoryLabels[locale as 'zh' | 'en'][category as keyof typeof categoryLabels.zh]}</span>
                   <span className={`text-xs px-2 py-0.5 rounded-full ${
                     isActive ? 'bg-white/20' : 'bg-gray-200'
                   }`}>
@@ -236,12 +245,12 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
           {filteredArticles.length > 0 && (
             <div className="mb-8 text-center">
               <p className="text-sm text-gray-600">
-                显示 <span className="font-semibold text-gray-900">{filteredArticles.length}</span> 篇文章
+                {locale === 'zh' ? '显示 ' : 'Showing '}<span className="font-semibold text-gray-900">{filteredArticles.length}</span>{locale === 'zh' ? ' 篇文章' : ' articles'}
                 {selectedCategory !== 'all' && (
-                  <span> · {categoryLabels[selectedCategory as keyof typeof categoryLabels]}</span>
+                  <span> · {categoryLabels[locale as 'zh' | 'en'][selectedCategory as keyof typeof categoryLabels.zh]}</span>
                 )}
                 {searchQuery && (
-                  <span> · 搜索: "{searchQuery}"</span>
+                  <span> · {locale === 'zh' ? '搜索: ' : 'Search: '}"{searchQuery}"</span>
                 )}
               </p>
             </div>
@@ -263,12 +272,12 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
                 <Search className="w-10 h-10 text-gray-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                未找到相关文章
+                {locale === 'zh' ? '未找到相关文章' : 'No Articles Found'}
               </h3>
               <p className="text-gray-500 mb-6 max-w-md mx-auto">
                 {searchQuery 
-                  ? `没有找到包含 "${searchQuery}" 的文章，请尝试其他关键词`
-                  : '该分类暂无文章'}
+                  ? (locale === 'zh' ? `没有找到包含 "${searchQuery}" 的文章，请尝试其他关键词` : `No articles found containing "${searchQuery}", please try other keywords`)
+                  : (locale === 'zh' ? '该分类暂无文章' : 'No articles in this category')}
               </p>
               {searchQuery && (
                 <button
@@ -278,7 +287,7 @@ export default function InsightsContent({ articles, locale }: InsightsContentPro
                   }}
                   className="px-6 py-2 bg-navy text-white rounded-lg hover:bg-navy-light transition-colors"
                 >
-                  清除筛选条件
+                  {locale === 'zh' ? '清除筛选条件' : 'Clear Filters'}
                 </button>
               )}
             </motion.div>

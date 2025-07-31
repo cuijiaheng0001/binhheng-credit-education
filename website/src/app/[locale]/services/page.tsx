@@ -10,5 +10,5 @@ export default async function ServicesPage({
   const { locale } = await params
   const dict = await getDictionary(locale)
   
-  return <ServicesContent ctaLabel={dict.cta.freeConsultation} />
+  return <ServicesContent dictionary={dict} locale={locale} />
 }

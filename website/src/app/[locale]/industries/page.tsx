@@ -10,5 +10,5 @@ export default async function IndustriesPage({
   const { locale } = await params
   const dict = await getDictionary(locale)
   
-  return <IndustriesContent ctaFreeConsultation={dict.cta.freeConsultation} />
+  return <IndustriesContent ctaFreeConsultation={dict.cta.freeConsultation} locale={locale} />
 }
