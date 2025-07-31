@@ -10,5 +10,5 @@ export default async function ContactPage({
   const { locale } = await params
   const dict = await getDictionary(locale)
   
-  return <ContactContent dictionary={dict} />
+  return <ContactContent dictionary={dict} locale={locale} />
 }
