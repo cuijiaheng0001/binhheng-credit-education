@@ -10,31 +10,7 @@ export const languages = {
   en: 'English',
 } as const
 
-// 路由路径映射
-export const pathnames = {
-  '/': '/',
-  '/about': {
-    zh: '/about',
-    en: '/about'
-  },
-  '/services': {
-    zh: '/services',
-    en: '/services'
-  },
-  '/process': {
-    zh: '/process',
-    en: '/process'
-  },
-  '/industries': {
-    zh: '/industries',
-    en: '/industries'
-  },
-  '/insights': {
-    zh: '/insights',
-    en: '/insights'
-  },
-  '/contact': {
-    zh: '/contact',
-    en: '/contact'
-  },
-} as const
+// 路由路径映射 - 已弃用
+// 现在使用 Next.js App Router 的文件系统路由
+// 所有路径都自动添加语言前缀 /zh 或 /en
+// 例如: /zh/about, /en/services 等
