@@ -23,12 +23,12 @@ export default function Navigation({ dict, locale }: NavigationProps) {
   const pathname = usePathname()
   
   const navItems = [
-    { label: 'About Us', href: `/${locale}/about` },
+    { label: 'About', href: `/${locale}/about` },
     { label: 'Services', href: `/${locale}/services` },
-    { label: 'Our Process', href: `/${locale}/process` },
-    { label: 'Industry Focus', href: `/${locale}/industries` },
-    { label: 'Industry Insights', href: `/${locale}/blog` },
-    { label: 'Contact Us', href: `/${locale}/contact` },
+    { label: 'Process', href: `/${locale}/process` },
+    { label: 'Industries', href: `/${locale}/industries` },
+    { label: 'Insights', href: `/${locale}/blog` },
+    { label: 'Contact', href: `/${locale}/contact` },
   ]
 
 
