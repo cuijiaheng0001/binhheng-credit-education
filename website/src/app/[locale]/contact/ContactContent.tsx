@@ -10,42 +10,43 @@ import QuickConsultationForm from '@/components/QuickConsultationForm'
 
 interface ContactContentProps {
   dictionary: any
+  locale: string
 }
 
-export default function ContactContent({ dictionary }: ContactContentProps) {
+export default function ContactContent({ dictionary, locale }: ContactContentProps) {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false)
   
   const contactInfo = [
     {
       icon: Phone,
-      title: '电话',
+      title: locale === 'zh' ? '电话' : 'Phone',
       content: '+86 16653086767',
       link: 'tel:+8616653086767'
     },
     {
       icon: Mail,
-      title: '邮箱',
+      title: locale === 'zh' ? '邮箱' : 'Email',
       content: 'info@binghengcredit.com',
       link: 'mailto:info@binghengcredit.com'
     },
     {
       icon: Globe,
-      title: '官网',
+      title: locale === 'zh' ? '官网' : 'Website',
       content: 'www.binghengcredit.com',
       link: 'https://www.binghengcredit.com'
     },
     {
       icon: MapPin,
-      title: '地址',
-      content: '上海市浦东新区陆家嘴金融中心',
+      title: locale === 'zh' ? '地址' : 'Address',
+      content: locale === 'zh' ? '上海市浦东新区陆家嘴金融中心' : 'Lujiazui Financial Center, Pudong New Area, Shanghai',
       link: null
     }
   ]
 
   const workingHours = [
-    { day: '周一至周五', time: '9:00 - 18:00' },
-    { day: '周六', time: '10:00 - 16:00' },
-    { day: '周日', time: '休息' }
+    { day: locale === 'zh' ? '周一至周五' : 'Monday to Friday', time: locale === 'zh' ? '9:00 - 18:00' : '9:00 AM - 6:00 PM' },
+    { day: locale === 'zh' ? '周六' : 'Saturday', time: locale === 'zh' ? '10:00 - 16:00' : '10:00 AM - 4:00 PM' },
+    { day: locale === 'zh' ? '周日' : 'Sunday', time: locale === 'zh' ? '休息' : 'Closed' }
   ]
 
   return (
@@ -78,7 +79,7 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
                 transition={{ delay: 0.2 }}
                 className="text-white/90 text-sm font-medium mb-4"
               >
-                联系我们
+                {locale === 'zh' ? '联系我们' : 'Contact Us'}
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0 }}
@@ -86,7 +87,7 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
                 transition={{ delay: 0.3 }}
                 className="text-4xl lg:text-6xl text-white mb-6 font-bold"
               >
-                随时为您服务
+                {locale === 'zh' ? '随时为您服务' : 'Here to Serve You 24/7'}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -94,7 +95,7 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
                 transition={{ delay: 0.4 }}
                 className="text-lg text-white/80 leading-relaxed"
               >
-                专业团队24小时响应，为您提供高效的债务追收解决方案
+                {locale === 'zh' ? '专业团队24小时响应，为您提供高效的债务追收解决方案' : 'Our professional team responds within 24 hours to provide efficient debt recovery solutions'}
               </motion.p>
             </motion.div>
           </div>
@@ -106,8 +107,8 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
         <div className="max-w-6xl mx-auto">
           <QuickConsultationForm 
             variant="inline"
-            title="快速提交您的咨询需求"
-            description="填写表单，我们将在24小时内与您联系"
+            title={locale === 'zh' ? '快速提交您的咨询需求' : 'Quick & Easy Inquiry Submission'}
+            description={locale === 'zh' ? '填写表单，我们将在24小时内与您联系' : 'Complete the form and we\'ll contact you within 24 hours'}
           />
         </div>
       </section>
@@ -122,11 +123,12 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              公司信息与联系方式
+              {locale === 'zh' ? '公司信息与联系方式' : 'Company Information & Contact Details'}
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Bingheng Credit 总部位于中国上海市浦东新区陆家嘴金融中心，并在国内主要城市设立分支机构，
-              全面覆盖债务追收所需的主要区域，随时为客户提供便捷、高效的专业服务。
+              {locale === 'zh' 
+                ? 'Bingheng Credit 总部位于中国上海市浦东新区陆家嘴金融中心，并在国内主要城市设立分支机构，全面覆盖债务追收所需的主要区域，随时为客户提供便捷、高效的专业服务。'
+                : 'Bingheng Credit is headquartered in Lujiazui Financial Center, Pudong New Area, Shanghai, China, with branch offices in major cities across the country. Our comprehensive network covers all key regions necessary for debt recovery, enabling us to provide convenient and efficient professional services to our clients at all times.'}
             </p>
           </motion.div>
 
@@ -178,10 +180,10 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
               <div className="text-center">
                 <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <p className="text-gray-600 text-lg">
-                  上海市浦东新区陆家嘴金融中心
+                  {locale === 'zh' ? '上海市浦东新区陆家嘴金融中心' : 'Lujiazui Financial Center'}
                 </p>
                 <p className="text-gray-500 mt-2">
-                  （北京、深圳等地设有分支机构）
+                  {locale === 'zh' ? '（北京、深圳等地设有分支机构）' : '(Branch offices in Beijing, Shenzhen, and other cities)'}
                 </p>
               </div>
             </motion.div>
@@ -197,7 +199,7 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
               <div className="bg-gradient-to-br from-light-gray to-gray-50 rounded-3xl p-10">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
                   <Clock className="w-6 h-6 text-primary-blue mr-3" />
-                  工作时间
+                  {locale === 'zh' ? '工作时间' : 'Business Hours'}
                 </h3>
                 <div className="space-y-4">
                   {workingHours.map((schedule, index) => (
@@ -211,7 +213,7 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
                   ))}
                 </div>
                 <p className="mt-6 text-sm text-gray-500">
-                  * 紧急情况可通过邮件联系，我们会尽快响应
+                  * {locale === 'zh' ? '紧急情况可通过邮件联系，我们会尽快响应' : 'For emergencies, please contact us via email and we\'ll respond as soon as possible'}
                 </p>
               </div>
 
@@ -230,7 +232,7 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              常见问题
+              {locale === 'zh' ? '常见问题' : 'Frequently Asked Questions'}
             </h2>
           </motion.div>
 
@@ -242,11 +244,12 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                如何开始债务追收流程？
+                {locale === 'zh' ? '如何开始债务追收流程？' : 'How do I start the debt recovery process?'}
               </h3>
               <p className="text-gray-600">
-                您可以通过电话、邮件或在线咨询表单联系我们。我们会在24小时内响应，
-                并为您安排免费的案件评估。
+                {locale === 'zh' 
+                  ? '您可以通过电话、邮件或在线咨询表单联系我们。我们会在24小时内响应，并为您安排免费的案件评估。'
+                  : 'You can contact us by phone, email, or through our online inquiry form. We\'ll respond within 24 hours and arrange a free case assessment for you.'}
               </p>
             </motion.div>
 
@@ -258,11 +261,12 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                你们的收费标准是什么？
+                {locale === 'zh' ? '你们的收费标准是什么？' : 'What are your fees?'}
               </h3>
               <p className="text-gray-600">
-                我们采用"无追回，不收费"的模式。成功追回后，根据债务金额收取25%-35%的佣金。
-                具体费率会根据案件复杂度和金额大小而定。
+                {locale === 'zh' 
+                  ? '我们采用"无追回，不收费"的模式。成功追回后，根据债务金额收取25%-35%的佣金。具体费率会根据案件复杂度和金额大小而定。'
+                  : 'We work on a contingency basis - no recovery, no fee. Upon successful collection, we charge 25%-35% of the recovered amount. Exact rates depend on case complexity and debt size.'}
               </p>
             </motion.div>
 
@@ -274,11 +278,12 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
               className="bg-white rounded-2xl p-8 shadow-sm"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-3">
-                需要提供哪些文件？
+                {locale === 'zh' ? '需要提供哪些文件？' : 'What documents will I need?'}
               </h3>
               <p className="text-gray-600">
-                通常需要债务合同、付款记录、沟通记录等相关文件。
-                我们的专业团队会指导您准备所需材料。
+                {locale === 'zh' 
+                  ? '通常需要债务合同、付款记录、沟通记录等相关文件。我们的专业团队会指导您准备所需材料。'
+                  : 'You\'ll typically need contracts, payment records, and correspondence related to the debt. Our team will guide you through gathering all necessary documentation.'}
               </p>
             </motion.div>
           </div>
@@ -288,9 +293,9 @@ export default function ContactContent({ dictionary }: ContactContentProps) {
       {/* CTA Section */}
       <CTASection 
         label={dictionary.cta.freeConsultation}
-        title="准备开始追回您的资金？"
-        description="专业团队随时为您服务，第一步从免费评估开始"
-        buttonText="立即联系我们"
+        title={locale === 'zh' ? '准备开始追回您的资金？' : 'Ready to Get Your Money Back?'}
+        description={locale === 'zh' ? '专业团队随时为您服务，第一步从免费评估开始' : 'Our professional team is ready to help – start with a free assessment today'}
+        buttonText={locale === 'zh' ? '立即联系我们' : 'Contact Us Now'}
         variant="light"
         openModal={true}
       />
