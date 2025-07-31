@@ -23,12 +23,12 @@ export default function Navigation({ dict, locale }: NavigationProps) {
   const pathname = usePathname()
   
   const navItems = [
-    { label: dict?.navigation?.about || (locale === 'zh' ? '关于我们' : 'About'), href: `/${locale}/about` },
-    { label: dict?.navigation?.services || (locale === 'zh' ? '服务项目' : 'Services'), href: `/${locale}/services` },
-    { label: dict?.navigation?.process || (locale === 'zh' ? '服务流程' : 'Process'), href: `/${locale}/process` },
-    { label: dict?.navigation?.industries || (locale === 'zh' ? '行业聚焦' : 'Industries'), href: `/${locale}/industries` },
-    { label: dict?.navigation?.insights || (locale === 'zh' ? '行业洞察' : 'Insights'), href: `/${locale}/insights` },
-    { label: dict?.navigation?.contact || (locale === 'zh' ? '联系我们' : 'Contact'), href: `/${locale}/contact` },
+    { label: dict.navigation?.about || (locale === 'zh' ? '关于我们' : 'About'), href: `/${locale}/about` },
+    { label: dict.navigation?.services || (locale === 'zh' ? '服务项目' : 'Services'), href: `/${locale}/services` },
+    { label: dict.navigation?.process || (locale === 'zh' ? '服务流程' : 'Process'), href: `/${locale}/process` },
+    { label: dict.navigation?.industries || (locale === 'zh' ? '行业聚焦' : 'Industries'), href: `/${locale}/industries` },
+    { label: dict.navigation?.insights || (locale === 'zh' ? '行业洞察' : 'Insights'), href: `/${locale}/insights` },
+    { label: dict.navigation?.contact || (locale === 'zh' ? '联系我们' : 'Contact'), href: `/${locale}/contact` },
   ]
 
 
@@ -41,45 +41,61 @@ export default function Navigation({ dict, locale }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex-shrink-0"
+          >
             <Link 
               href={`/${locale}`} 
               className="flex items-center group cursor-pointer no-underline-effect"
               aria-label="Bingheng Credit 首页"
             >
-              <Image
-                src="/logo-inverted.png"
-                alt="Bingheng Credit"
-                width={140}
-                height={50}
-                className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-90"
-                priority
-              />
+              <motion.div
+                whileHover={{ scale: 1 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Image
+                  src="/logo-inverted.png"
+                  alt="Bingheng Credit"
+                  width={140}
+                  height={50}
+                  className="h-8 w-auto transition-opacity duration-200 group-hover:opacity-90"
+                  priority
+                />
+              </motion.div>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Desktop Navigation - 优化布局和间距 */}
-          <div className="hidden lg:block flex-grow">
-            <div className="flex items-center justify-center gap-4">
+          <div className="hidden lg:flex items-center flex-1 justify-center">
+            <div className="flex items-center gap-2">
               {navItems.map((item, index) => (
-                <div
-                  key={item.href}
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  onMouseEnter={() => setHoveredItem(item.label)}
+                  onMouseLeave={() => setHoveredItem(null)}
                   className="relative group"
                 >
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative inline-block text-base font-semibold transition-all duration-300 px-4 py-2 rounded-md",
+                      "relative inline-block text-sm font-medium transition-all duration-300 px-4 py-2 rounded-md",
                       "focus:outline-none focus:ring-2 focus:ring-offset-2",
-                      "text-gray-800 hover:text-primary-blue focus:ring-primary-blue",
+                      "text-gray-600 hover:text-primary-blue focus:ring-primary-blue",
                       "no-underline hover:no-underline",
-                      pathname === item.href && "font-bold text-primary-blue"
+                      pathname === item.href && "font-semibold text-primary-blue"
                     )}
                     aria-current={pathname === item.href ? "page" : undefined}
                   >
-                    <span>{item.label}</span>
+                    {item.label}
                   </Link>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -92,13 +108,21 @@ export default function Navigation({ dict, locale }: NavigationProps) {
             </div>
             
             {/* CTA Button */}
-            <button 
-              className="px-4 py-2 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm whitespace-nowrap"
-              onClick={() => setIsConsultationOpen(true)}
-              aria-label={dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
-            </button>
+              <motion.button 
+                className="px-4 py-2 bg-navy text-white rounded-xl hover:bg-navy-light transition-colors font-medium text-sm whitespace-nowrap"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsConsultationOpen(true)}
+                aria-label={dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
+              >
+                {dict.cta?.freeConsultation || (locale === 'zh' ? '免费咨询' : 'Free Consultation')}
+              </motion.button>
+            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
