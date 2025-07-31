@@ -293,7 +293,7 @@ export default function FAQ({ locale = 'zh' }: FAQProps) {
             >
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2 rounded-xl"
+                className="group w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2 rounded-xl"
                 aria-expanded={activeIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
@@ -305,7 +305,10 @@ export default function FAQ({ locale = 'zh' }: FAQProps) {
                   transition={{ duration: 0.3 }}
                   className="flex-shrink-0"
                 >
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className={cn(
+                    "w-5 h-5 transition-colors",
+                    activeIndex === index ? "text-primary-blue" : "text-gray-400 group-hover:text-primary-blue"
+                  )} />
                 </motion.div>
               </button>
               
