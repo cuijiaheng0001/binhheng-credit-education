@@ -155,7 +155,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                   {item.link ? (
                     <a 
                       href={item.link}
-                      className="text-gray-600 hover:text-primary-blue transition-colors break-all"
+                      className="text-sm md:text-base text-gray-600 hover:text-primary-blue transition-colors break-all"
                     >
                       {item.content}
                     </a>
@@ -183,7 +183,7 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                 <p className="text-base md:text-lg text-gray-600">
                   {locale === 'zh' ? '上海市浦东新区陆家嘴金融中心' : 'Lujiazui Financial Center'}
                 </p>
-                <p className="text-gray-500 mt-2">
+                <p className="text-sm md:text-base text-gray-500 mt-2">
                   {locale === 'zh' ? '（北京、深圳等地设有分支机构）' : '(Branch offices in Beijing, Shenzhen, and other cities)'}
                 </p>
               </div>
@@ -208,8 +208,8 @@ export default function ContactContent({ dictionary, locale }: ContactContentPro
                       key={index}
                       className="flex justify-between items-center py-3 border-b border-gray-200 last:border-0"
                     >
-                      <span className="text-gray-700 font-medium">{schedule.day}</span>
-                      <span className="text-gray-600">{schedule.time}</span>
+                      <span className="text-sm md:text-base text-gray-700 font-medium">{schedule.day}</span>
+                      <span className="text-sm md:text-base text-gray-600">{schedule.time}</span>
                     </div>
                   ))}
                 </div>
