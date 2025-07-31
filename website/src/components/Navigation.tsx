@@ -18,12 +18,12 @@ export default function Navigation() {
   const { dictionary } = useLanguage()
   
   const navItems = [
-    { label: dictionary.navigation.about, href: '/about' },
-    { label: dictionary.navigation.services, href: '/services' },
-    { label: dictionary.navigation.process, href: '/process' },
-    { label: dictionary.navigation.industries, href: '/industries' },
-    { label: dictionary.navigation.insights, href: '/insights' },
-    { label: dictionary.navigation.contact, href: '/contact' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Our Process', href: '/process' },
+    { label: 'Industry Focus', href: '/industries' },
+    { label: 'Industry Insights', href: '/insights' },
+    { label: 'Contact Us', href: '/contact' },
   ]
 
 
@@ -176,7 +176,7 @@ export default function Navigation() {
                 }}
                 className="w-full mt-4 px-6 py-4 bg-navy text-white font-semibold tracking-wide rounded-lg hover:bg-navy-light transition-all duration-300 shadow-lg"
               >
-                FREE ASSESSMENT
+                {dictionary.cta.freeConsultation}
               </motion.button>
             </div>
           </motion.div>
