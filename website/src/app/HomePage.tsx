@@ -7,15 +7,46 @@ import { type Locale } from '@/i18n/config'
 import HeroCarousel from '@/components/HeroCarouselWrapper'
 import ContentCarousel from '@/components/ContentCarousel'
 
-// Lazy load below-the-fold components
-const CTASection = dynamic(() => import('@/components/CTASection'))
-const ProblemAwareness = dynamic(() => import('@/components/ProblemAwareness'))
-const SolutionOverview = dynamic(() => import('@/components/SolutionOverview'))
-const ProcessVisualization = dynamic(() => import('@/components/ProcessVisualization'))
-const IndustryFocus = dynamic(() => import('@/components/IndustryFocus'))
-const TrustIndicators = dynamic(() => import('@/components/TrustIndicators'))
-const KnowledgeCenter = dynamic(() => import('@/components/KnowledgeCenter'))
-const FAQ = dynamic(() => import('@/components/FAQWrapper'))
+// Lazy load below-the-fold components with loading states
+const CTASection = dynamic(() => import('@/components/CTASection'), {
+  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />,
+  ssr: true
+})
+
+const ProblemAwareness = dynamic(() => import('@/components/ProblemAwareness'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />,
+  ssr: false // Not critical for SEO
+})
+
+const SolutionOverview = dynamic(() => import('@/components/SolutionOverview'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />,
+  ssr: false
+})
+
+const ProcessVisualization = dynamic(() => import('@/components/ProcessVisualization'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />,
+  ssr: false
+})
+
+const IndustryFocus = dynamic(() => import('@/components/IndustryFocus'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />,
+  ssr: false
+})
+
+const TrustIndicators = dynamic(() => import('@/components/TrustIndicators'), {
+  loading: () => <div className="h-64 bg-white animate-pulse" />,
+  ssr: false
+})
+
+const KnowledgeCenter = dynamic(() => import('@/components/KnowledgeCenter'), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />,
+  ssr: false
+})
+
+const FAQ = dynamic(() => import('@/components/FAQWrapper'), {
+  loading: () => <div className="h-96 bg-white animate-pulse" />,
+  ssr: false
+})
 
 interface HomePageProps {
   dict: any

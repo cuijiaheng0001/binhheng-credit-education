@@ -28,6 +28,46 @@ const nextConfig: NextConfig = {
         ...config.optimization,
         sideEffects: false,
         usedExports: true,
+        moduleIds: 'deterministic',
+        runtimeChunk: 'single',
+        splitChunks: {
+          chunks: 'all',
+          cacheGroups: {
+            default: false,
+            vendors: false,
+            // Framework chunk
+            framework: {
+              name: 'framework',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+              priority: 40,
+              enforce: true,
+            },
+            // Vendor chunks
+            lib: {
+              test(module: any) {
+                return module.size() > 50000 && /node_modules/.test(module.identifier());
+              },
+              name(module: any) {
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)[\\/]/
+                )?.[1];
+                return `lib-${packageName?.replace('@', '')}`;
+              },
+              priority: 30,
+              minChunks: 1,
+              reuseExistingChunk: true,
+            },
+            // Common chunks
+            commons: {
+              name: 'commons',
+              minChunks: 2,
+              priority: 20,
+            },
+          },
+          maxAsyncRequests: 30,
+          maxInitialRequests: 25,
+        },
       }
       
       // Module concatenation for better minification

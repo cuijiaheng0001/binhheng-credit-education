@@ -11,28 +11,61 @@ export default function GoogleAnalytics({ GA_MEASUREMENT_ID }: GoogleAnalyticsPr
   const [shouldLoad, setShouldLoad] = useState(false)
 
   useEffect(() => {
-    // Delay GA loading until after page is interactive
-    const timer = setTimeout(() => {
-      setShouldLoad(true)
-    }, 3000)
-
-    // Or load on user interaction
-    const handleInteraction = () => {
-      setShouldLoad(true)
-      document.removeEventListener('scroll', handleInteraction)
-      document.removeEventListener('click', handleInteraction)
-      document.removeEventListener('touchstart', handleInteraction)
+    // Check if user has already consented
+    const hasConsent = localStorage.getItem('cookie-consent') === 'accepted'
+    
+    if (!hasConsent) {
+      // Don't load GA if no consent
+      return
     }
 
-    document.addEventListener('scroll', handleInteraction, { passive: true })
-    document.addEventListener('click', handleInteraction)
-    document.addEventListener('touchstart', handleInteraction, { passive: true })
+    // Use requestIdleCallback for better performance
+    if ('requestIdleCallback' in window) {
+      const idleCallbackId = window.requestIdleCallback(() => {
+        setShouldLoad(true)
+      }, { timeout: 5000 })
 
-    return () => {
-      clearTimeout(timer)
-      document.removeEventListener('scroll', handleInteraction)
-      document.removeEventListener('click', handleInteraction)
-      document.removeEventListener('touchstart', handleInteraction)
+      return () => {
+        if ('cancelIdleCallback' in window) {
+          window.cancelIdleCallback(idleCallbackId)
+        }
+      }
+    } else {
+      // Fallback: Delay GA loading until after page is interactive
+      const timer = setTimeout(() => {
+        setShouldLoad(true)
+      }, 4000) // Increased delay to ensure better Core Web Vitals
+
+      // Or load on meaningful user interaction
+      const handleInteraction = () => {
+        setShouldLoad(true)
+        document.removeEventListener('scroll', handleInteraction)
+        document.removeEventListener('click', handleInteraction)
+        document.removeEventListener('touchstart', handleInteraction)
+      }
+
+      // Only load on meaningful scroll (not just tiny movements)
+      let scrollTimeout: NodeJS.Timeout
+      const handleScroll = () => {
+        clearTimeout(scrollTimeout)
+        scrollTimeout = setTimeout(() => {
+          if (window.scrollY > 150) { // User has scrolled meaningfully
+            handleInteraction()
+          }
+        }, 100)
+      }
+
+      document.addEventListener('scroll', handleScroll, { passive: true })
+      document.addEventListener('click', handleInteraction)
+      document.addEventListener('touchstart', handleInteraction, { passive: true })
+
+      return () => {
+        clearTimeout(timer)
+        clearTimeout(scrollTimeout)
+        document.removeEventListener('scroll', handleScroll)
+        document.removeEventListener('click', handleInteraction)
+        document.removeEventListener('touchstart', handleInteraction)
+      }
     }
   }, [])
 
