@@ -15,6 +15,7 @@ import StructuredDataService from '@/components/StructuredDataService'
 import StructuredDataFAQ from '@/components/StructuredDataFAQ'
 import PerformanceOptimizer from '@/components/PerformanceOptimizer'
 import LoadingScreen from '@/components/LoadingScreen'
+import PreloadManager from '@/components/PreloadManager'
 import "../globals.css"
 
 const notoSerifSC = Noto_Serif_SC({
@@ -182,7 +183,6 @@ export default async function LocaleLayout({
         {/* 预连接到外部资源 */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         
         <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"} />
         <StructuredData />
@@ -190,6 +190,7 @@ export default async function LocaleLayout({
       <body className={`${notoSerifSC.className} bg-gray-50`} data-pathname={`/${locale}`}>
         <LoadingScreen />
         <PerformanceOptimizer />
+        <PreloadManager />
         <StructuredDataOrganization />
         <StructuredDataService locale={locale} />
         <StructuredDataFAQ locale={locale} />

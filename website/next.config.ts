@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
     // CSS optimization
     cssChunking: 'strict',
   },
+  
+  // Disable automatic CSS preloading to prevent duplicate preloads
+  poweredByHeader: false,
+  
+  // Production optimizations
+  productionBrowserSourceMaps: false,
+  
 
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
