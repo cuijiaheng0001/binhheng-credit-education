@@ -68,10 +68,11 @@ export default function KnowledgeCenter({ locale = 'zh' }: KnowledgeCenterProps)
               <motion.a
                 href={`/${locale}/insights`}
                 className="inline-flex items-center px-6 py-3 bg-navy text-white font-medium rounded-xl hover:bg-navy-light transition-colors no-underline"
+                aria-label={locale === 'zh' ? '访问债务追收洞察与分析页面' : 'Visit debt recovery insights and analysis page'}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-white">{locale === 'zh' ? '了解更多' : 'Learn More'}</span>
+                <span className="text-white">{locale === 'zh' ? '探索债务追收洞察与分析' : 'Explore Debt Recovery Insights'}</span>
                 <ArrowRight className="w-5 h-5 ml-2 text-white" />
               </motion.a>
             </motion.div>
