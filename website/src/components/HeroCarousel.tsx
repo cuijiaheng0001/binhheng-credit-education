@@ -236,20 +236,20 @@ export default function HeroCarousel({
             </div>
 
             {/* Arrow Controls */}
-            <div className="hidden lg:flex gap-4">
+            <div className="flex gap-4">
               <button
                 onClick={prevSlide}
-                className="p-4 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group"
+                className="p-3 md:p-4 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group"
                 aria-label="Previous slide"
               >
-                <ChevronLeft className="w-5 h-5 text-white group-hover:-translate-x-0.5 transition-transform" strokeWidth={1} />
+                <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 text-white group-hover:-translate-x-0.5 transition-transform" strokeWidth={1} />
               </button>
               <button
                 onClick={nextSlide}
-                className="p-4 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group"
+                className="p-3 md:p-4 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group"
                 aria-label="Next slide"
               >
-                <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" strokeWidth={1} />
+                <ChevronRight className="w-4 h-4 md:w-5 md:h-5 text-white group-hover:translate-x-0.5 transition-transform" strokeWidth={1} />
               </button>
             </div>
           </div>
