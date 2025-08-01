@@ -2,6 +2,8 @@
 
 A modern, education-focused website for Bingheng Credit that helps US businesses discover and recover hidden cross-border receivables.
 
+**Last deployment**: 2025-08-01
+
 ## 🚀 Features
 
 - **Education-First Design**: Guides visitors to understand the hidden debt problem
