@@ -5,7 +5,7 @@ export function useCleanupEffect(
   effect: () => (() => void) | void,
   deps: React.DependencyList
 ) {
-  const cleanupRef = useRef<(() => void) | void>()
+  const cleanupRef = useRef<(() => void) | void>(undefined)
 
   useEffect(() => {
     // Clean up previous effect
@@ -47,7 +47,7 @@ export function useOptimizedEventHandler<T extends (...args: any[]) => any>(
 export function useBatchedState<T>(initialState: T) {
   const [state, setState] = useState(initialState)
   const pendingUpdates = useRef<Partial<T>>({})
-  const updateTimer = useRef<NodeJS.Timeout>()
+  const updateTimer = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const batchedSetState = useCallback((updates: Partial<T>) => {
     pendingUpdates.current = { ...pendingUpdates.current, ...updates }
