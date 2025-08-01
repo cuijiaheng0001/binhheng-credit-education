@@ -12,6 +12,7 @@ export default function StructuredDataOrganization() {
       "streetAddress": "Lujiazui Financial Center",
       "addressLocality": "Shanghai",
       "addressRegion": "Pudong New Area",
+      "postalCode": "200120",
       "addressCountry": "CN"
     },
     "contactPoint": {

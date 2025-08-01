@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -103,19 +103,26 @@ export default function HeroCarousel({
     }
   }, [slides])
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index)
     setIsAutoPlaying(false)
-    setTimeout(() => setIsAutoPlaying(true), 15000)
-  }
+    const timer = setTimeout(() => setIsAutoPlaying(true), 15000)
+    return () => clearTimeout(timer)
+  }, [])
 
-  const nextSlide = () => {
-    goToSlide((currentSlide + 1) % slides.length)
-  }
+  const nextSlide = useCallback(() => {
+    setCurrentSlide(prev => (prev + 1) % slides.length)
+    setIsAutoPlaying(false)
+    const timer = setTimeout(() => setIsAutoPlaying(true), 15000)
+    return () => clearTimeout(timer)
+  }, [slides.length])
 
-  const prevSlide = () => {
-    goToSlide((currentSlide - 1 + slides.length) % slides.length)
-  }
+  const prevSlide = useCallback(() => {
+    setCurrentSlide(prev => (prev - 1 + slides.length) % slides.length)
+    setIsAutoPlaying(false)
+    const timer = setTimeout(() => setIsAutoPlaying(true), 15000)
+    return () => clearTimeout(timer)
+  }, [slides.length])
 
   return (
     <>

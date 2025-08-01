@@ -170,27 +170,41 @@ export default function ContentCarousel({ locale = 'zh' }: ContentCarouselProps)
   const [hasBeenViewed, setHasBeenViewed] = useState(false) // 记录是否已经被查看过
   const lastInteractionTime = useRef<number>(0) // 记录最后交互时间
   const sectionRef = useRef<HTMLElement>(null)
-  const currentContent = tabs[activeTab].content
+  const currentContent = useMemo(() => tabs[activeTab].content, [activeTab])
 
-  // 预加载所有图片 - 使用空闲回调
+  // 预加载所有图片 - 使用空闲回调优化
   useEffect(() => {
+    const imageUrls = tabs.map(tab => tab.content.image)
+    let cancelled = false
+
     const preloadImages = () => {
-      tabs.forEach((tab, index) => {
-        // 优先加载前两张图片
-        const delay = index < 2 ? 0 : 1000 + index * 200
-        setTimeout(() => {
-          const img = new window.Image()
-          img.src = tab.content.image
-        }, delay)
+      if (cancelled) return
+      
+      // 只预加载当前和下一张图片
+      const currentIndex = activeTab
+      const nextIndex = (activeTab + 1) % tabs.length
+      
+      const indices = [currentIndex, nextIndex]
+      indices.forEach(index => {
+        const img = new window.Image()
+        img.src = imageUrls[index]
       })
     }
 
     if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(preloadImages)
+      const handle = window.requestIdleCallback(preloadImages, { timeout: 2000 })
+      return () => {
+        cancelled = true
+        window.cancelIdleCallback(handle)
+      }
     } else {
-      setTimeout(preloadImages, 1000)
+      const timer = setTimeout(preloadImages, 1000)
+      return () => {
+        cancelled = true
+        clearTimeout(timer)
+      }
     }
-  }, [])
+  }, [activeTab])
 
   // 使用Intersection Observer检测组件是否在视窗中
   // 每次进入视窗时都重置到第一个标签页
