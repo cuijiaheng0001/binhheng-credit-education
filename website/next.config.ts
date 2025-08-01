@@ -117,6 +117,19 @@ const nextConfig: NextConfig = {
         destination: 'https://www.binghengcredit.com/:path*',
         permanent: true,
       },
+      // Force HTTPS - redirect HTTP to HTTPS
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://www.binghengcredit.com/:path*',
+        permanent: true,
+      },
     ]
   },
 
@@ -136,6 +149,18 @@ const nextConfig: NextConfig = {
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains; preload',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
           },
         ],
       },

@@ -1,0 +1,6 @@
+# Force HTTPS
+http://binghengcredit.com/* https://www.binghengcredit.com/:splat 301!
+http://www.binghengcredit.com/* https://www.binghengcredit.com/:splat 301!
+
+# Force www
+https://binghengcredit.com/* https://www.binghengcredit.com/:splat 301!
