@@ -11,11 +11,13 @@ const nextConfig: NextConfig = {
   // Optimize bundle size
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog'],
     // Use modern ES modules
     esmExternals: true,
     // Better tree shaking
     optimizeServerReact: true,
+    // CSS optimization
+    cssChunking: 'strict',
   },
 
   // Webpack optimizations

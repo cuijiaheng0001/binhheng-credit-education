@@ -1,0 +1,169 @@
+/* Fonts loaded via local files for better performance */
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
+    
+    /* Brand Colors */
+    --primary: 212 100% 24%; /* #003D7A - Deep Blue */
+    --primary-foreground: 0 0% 100%;
+    --navy: 212 100% 24%;
+    --navy-light: 211 100% 40%;
+    
+    /* Typography Scale - Only sizes actually used */
+    --font-size-base: 1.1rem;
+    --font-size-lg: 1.2375rem;
+    --font-size-xl: 1.65rem;
+    --font-size-2xl: 1.925rem;
+    --font-size-3xl: 2.475rem;
+    --font-size-4xl: 3.3rem;
+    --font-size-6xl: 4.4rem;
+    
+    /* Transitions */
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Shadows - Only used ones */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+    --shadow-xl: 0 16px 48px rgba(0,0,0,0.25);
+    
+    /* Border Radius */
+    --radius: 0.375rem;
+  }
+
+  /* Base Styles */
+  html, body {
+    user-select: auto !important;
+    height: 100%;
+  }
+  
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Typography - Only essential styles */
+  h1 {
+    font-size: var(--font-size-6xl);
+    line-height: 1.1;
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: var(--font-size-4xl);
+    line-height: 1.25;
+    font-weight: 700;
+  }
+  
+  h3 {
+    font-size: var(--font-size-3xl);
+    line-height: 1.35;
+    font-weight: 600;
+  }
+  
+  p {
+    font-size: clamp(1rem, 1.1rem, 1.25rem);
+    line-height: 1.7;
+  }
+  
+  /* Selection */
+  ::selection {
+    background-color: #0066CC;
+    color: white;
+  }
+  
+  /* Focus Styles */
+  :focus-visible {
+    outline: 2px solid #0066CC;
+    outline-offset: 2px;
+  }
+  
+  /* Links */
+  a {
+    transition: all var(--transition-base);
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Buttons */
+  button {
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  /* Mobile Optimization */
+  @media (max-width: 768px) {
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    button, a, input, textarea, select {
+      min-height: 44px;
+    }
+  }
+}
+
+@layer utilities {
+  /* Only essential utility classes */
+  .text-primary-blue {
+    color: #003D7A;
+  }
+  
+  .bg-primary-blue {
+    background-color: #003D7A;
+  }
+  
+  .bg-light-gray {
+    background-color: #F5F5F5;
+  }
+  
+  /* Only used animations */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Navigation Visibility Fix */
+@media (min-width: 1024px) {
+  nav a {
+    color: rgb(31 41 55) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  nav a:hover {
+    color: rgb(0 102 204) !important;
+  }
+}
