@@ -16,6 +16,8 @@ import StructuredDataFAQ from '@/components/StructuredDataFAQ'
 import PerformanceOptimizer from '@/components/PerformanceOptimizer'
 import LoadingScreen from '@/components/LoadingScreen'
 import PreloadManager from '@/components/PreloadManager'
+import ResourceDebugger from '@/components/ResourceDebugger'
+import CSSOptimizer from '@/components/CSSOptimizer'
 import "../globals.css"
 
 const notoSerifSC = Noto_Serif_SC({
@@ -191,6 +193,8 @@ export default async function LocaleLayout({
         <LoadingScreen />
         <PerformanceOptimizer />
         <PreloadManager />
+        <CSSOptimizer />
+        <ResourceDebugger />
         <StructuredDataOrganization />
         <StructuredDataService locale={locale} />
         <StructuredDataFAQ locale={locale} />
